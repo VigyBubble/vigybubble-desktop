@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.gluonhq.charm.glisten.control.TextField?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <AnchorPane prefHeight="400.0" prefWidth="288.0">
+         <children>
+            <Label layoutX="90.0" layoutY="125.0" text="create Your Account" />
+            <Label layoutX="46.0" layoutY="156.0" prefHeight="18.0" prefWidth="213.0" text="Enter your data to register for this app" textAlignment="CENTER" />
+            <Button layoutX="121.0" layoutY="200.0" mnemonicParsing="false" text="LogIn" textAlignment="CENTER" />
+         </children>
+      </AnchorPane>
+      <TextField layoutX="414.0" layoutY="69.0" />
+      <TextField layoutX="415.0" layoutY="131.0" />
+      <Button layoutX="427.0" layoutY="307.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="116.0" text="Register" />
+      <Label layoutX="400.0" layoutY="43.0" text="Name" />
+      <Label layoutX="400.0" layoutY="106.0" text="Email" />
+      <Label layoutX="403.0" layoutY="167.0" text="Password" />
+      <Label layoutX="405.0" layoutY="228.0" text="Confirm Password" />
+      <PasswordField layoutX="410.0" layoutY="193.0" />
+      <PasswordField layoutX="415.0" layoutY="256.0" />
+   </children>
+</AnchorPane>
