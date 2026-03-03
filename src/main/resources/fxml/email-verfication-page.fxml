@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.geometry.*?>
+
+<AnchorPane prefWidth="1000" prefHeight="680" stylesheets="@../css/VerificationPage.css"
+   xmlns="http://javafx.com/javafx/21"
+   xmlns:fx="http://javafx.com/fxml/1">
+
+   <children>
+
+      <!-- CARD centered -->
+      <StackPane styleClass="card" prefWidth="800" prefHeight="500" AnchorPane.topAnchor="90" AnchorPane.bottomAnchor="90" AnchorPane.leftAnchor="100" AnchorPane.rightAnchor="100">
+
+         <children>
+
+            <!-- CONTENT -->
+            <AnchorPane StackPane.alignment="CENTER" maxWidth="Infinity" maxHeight="Infinity">
+
+               <!-- Back Button -->
+               <Button layoutX="18" layoutY="18" text="←" styleClass="back-btn"/>
+
+               <!--  LOGO  -->
+               <StackPane prefWidth="150" prefHeight="150" StackPane.alignment="TOP_CENTER"  AnchorPane.leftAnchor="325" styleClass="logo"/>
+               <!-- Title -->
+               <Label layoutX="230" layoutY="128" prefWidth="340" alignment="CENTER" text="Enter verification code" styleClass="title-label"/>
+
+               <!-- Subtitle -->
+               <Label layoutX="190" layoutY="168" prefWidth="420" alignment="CENTER" wrapText="true" text="A verification code has been sent to your email." styleClass="subtitle-label"/>
+
+               <!-- OTP -->
+               <HBox layoutX="196" layoutY="216" spacing="24" alignment="CENTER">
+                  <TextField styleClass="otp-field"/>
+                  <TextField styleClass="otp-field"/>
+                  <TextField styleClass="otp-field"/>
+                  <TextField styleClass="otp-field"/>
+               </HBox>
+
+               <!-- Resend -->
+               <HBox layoutY="312" prefWidth="800" alignment="CENTER" spacing="4">
+                  <Label text="Don't get code?" styleClass="resend-label"/>
+                  <Hyperlink text="Click to resend" styleClass="resend-link"/>
+               </HBox>
+
+               <!-- Separator -->
+               <Separator layoutX="60" layoutY="352" prefWidth="680"/>
+
+               <!-- Buttons -->
+               <HBox layoutX="240" layoutY="374" spacing="24" alignment="CENTER">
+                  <Button text="Cancel" styleClass="cancel-btn"/>
+                  <Button text="Verify" styleClass="verify-btn"/>
+               </HBox>
+
+            </AnchorPane>
+
+         </children>
+      </StackPane>
+
+   </children>
+</AnchorPane>
