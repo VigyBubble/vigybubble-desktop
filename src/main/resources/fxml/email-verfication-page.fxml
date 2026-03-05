@@ -5,7 +5,7 @@
 <?import javafx.scene.shape.*?>
 <?import javafx.geometry.*?>
 
-<AnchorPane prefWidth="1000" prefHeight="680" stylesheets="@../css/VerificationPage.css"
+<AnchorPane prefWidth="1000" prefHeight="680" stylesheets="@../css/verification-page.css"
    xmlns="http://javafx.com/javafx/21"
    xmlns:fx="http://javafx.com/fxml/1">
 
