@@ -5,57 +5,54 @@
 <?import javafx.scene.shape.*?>
 <?import javafx.geometry.*?>
 
-<AnchorPane prefWidth="1000" prefHeight="680" stylesheets="@../css/VerificationPage.css"
+<AnchorPane prefWidth="1000" prefHeight="680" stylesheets="@../css/verification-page.css"
    xmlns="http://javafx.com/javafx/21"
    xmlns:fx="http://javafx.com/fxml/1">
 
    <children>
 
       <!-- CARD centered -->
-      <StackPane styleClass="card" prefWidth="800" prefHeight="500" AnchorPane.topAnchor="90" AnchorPane.bottomAnchor="90" AnchorPane.leftAnchor="100" AnchorPane.rightAnchor="100">
+      <StackPane styleClass="card" prefWidth="700" prefHeight="600" AnchorPane.topAnchor="90" AnchorPane.leftAnchor="150" AnchorPane.rightAnchor="150">
+    <!-- Back Button -->
+            <HBox alignment="TOP_LEFT">
+               <Button text="←" styleClass="back-btn"/>
+            </HBox>
 
-         <children>
+         <VBox alignment="TOP_CENTER" spacing="15" prefWidth="600" maxWidth="600">
 
-            <!-- CONTENT -->
-            <AnchorPane StackPane.alignment="CENTER" maxWidth="Infinity" maxHeight="Infinity">
+        
+            <!-- Logo -->
+            <StackPane prefWidth="180" prefHeight="180" styleClass="logo"/>
 
-               <!-- Back Button -->
-               <Button layoutX="18" layoutY="18" text="←" styleClass="back-btn"/>
+            <!-- Title -->
+            <Label text="Enter verification code" styleClass="title-label"/>
 
-               <!--  LOGO  -->
-               <StackPane prefWidth="150" prefHeight="150" StackPane.alignment="TOP_CENTER"  AnchorPane.leftAnchor="325" styleClass="logo"/>
-               <!-- Title -->
-               <Label layoutX="230" layoutY="128" prefWidth="340" alignment="CENTER" text="Enter verification code" styleClass="title-label"/>
+            <!-- Subtitle -->
+            <Label text="A verification code has been sent to your email." wrapText="true" alignment="CENTER" styleClass="subtitle-label"/>
 
-               <!-- Subtitle -->
-               <Label layoutX="190" layoutY="168" prefWidth="420" alignment="CENTER" wrapText="true" text="A verification code has been sent to your email." styleClass="subtitle-label"/>
+            <!-- OTP -->
+            <HBox spacing="20" alignment="CENTER">
+               <TextField styleClass="otp-field"/>
+               <TextField styleClass="otp-field"/>
+               <TextField styleClass="otp-field"/>
+               <TextField styleClass="otp-field"/>
+            </HBox>
 
-               <!-- OTP -->
-               <HBox layoutX="196" layoutY="216" spacing="24" alignment="CENTER">
-                  <TextField styleClass="otp-field"/>
-                  <TextField styleClass="otp-field"/>
-                  <TextField styleClass="otp-field"/>
-                  <TextField styleClass="otp-field"/>
-               </HBox>
+            <!-- Resend -->
+            <HBox alignment="CENTER" spacing="4">
+               <Label text="Don't get code?" styleClass="resend-label"/>
+               <Hyperlink text="Click to resend" styleClass="resend-link"/>
+            </HBox>
 
-               <!-- Resend -->
-               <HBox layoutY="312" prefWidth="800" alignment="CENTER" spacing="4">
-                  <Label text="Don't get code?" styleClass="resend-label"/>
-                  <Hyperlink text="Click to resend" styleClass="resend-link"/>
-               </HBox>
+            <Separator prefWidth="500"/>
 
-               <!-- Separator -->
-               <Separator layoutX="60" layoutY="352" prefWidth="680"/>
+            <!-- Buttons -->
+            <HBox spacing="20" alignment="CENTER">
+               <Button text="Cancel" styleClass="cancel-btn"/>
+               <Button text="Verify" styleClass="verify-btn"/>
+            </HBox>
 
-               <!-- Buttons -->
-               <HBox layoutX="240" layoutY="374" spacing="24" alignment="CENTER">
-                  <Button text="Cancel" styleClass="cancel-btn"/>
-                  <Button text="Verify" styleClass="verify-btn"/>
-               </HBox>
-
-            </AnchorPane>
-
-         </children>
+         </VBox>
       </StackPane>
 
    </children>

@@ -1,13 +1,29 @@
+@font-face {
+    font-family: 'K2D';
+    src: url('../fonts/K2D-Regular.ttf');
+    font-weight: 400; 
+}
+
+@font-face {
+    font-family: 'K2D';
+    src: url('../fonts/K2D-SemiBold.ttf');
+    font-weight: 600;
+}
+
+@font-face {
+    font-family: 'K2D';
+    src: url('../fonts/K2D-Bold.ttf');
+    font-weight: 700; 
+}
 /* ===== MAIN CONTAINER ===== */
 .main-container {
+     -fx-font-family: 'K2D';
     -fx-background-color: linear-gradient(to right, #22B9AF, #115D58);
 }
 
 /* ===== CARD ===== */
 .card {
-     -fx-background-radius: 18px;
     -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3), 25, 0, 0, 10);
-
 }
 
 /* ===== LEFT SIDE ===== */
@@ -16,14 +32,14 @@
     -fx-background-size: cover;
     -fx-background-position: center;
     -fx-background-repeat: no-repeat;
-     -fx-background-radius: 18px;
-    
+     
+    -fx-background-radius: 18px;
+    -fx-border-radius:18px;
+    -fx-overflow: hidden; 
 }
 
 .left-overlay {
     -fx-background-color: rgba(17, 93, 88, 0.3);
-    -fx-background-radius: 18px;
-     
 }
 
 .header-label {
@@ -58,7 +74,7 @@
 /* ===== RIGHT SIDE ===== */
 .form-side {
     -fx-background-color: white;
-    -fx-background-radius: 0 18px 18px 0;
+    /* -fx-background-radius:0px 18px 18px 0px ; */
     -fx-padding: 40px 60px;
 }
 
@@ -94,26 +110,11 @@
     -fx-padding: 0 30px 0 0;
     -fx-background-color: transparent;
 }
-
-/* ===== REGISTER BUTTON ===== */
-.register-btn {
-    -fx-background-color: #0B3E3A;
-    -fx-text-fill: white;
-    -fx-background-radius: 25px;
-    -fx-pref-width: 350px;
-    -fx-pref-height: 45px;
-    -fx-font-size: 14px;
-    -fx-cursor: hand;
-}
-
 .input-field:focused {
     -fx-border-color: #177B75;
     -fx-background-color: white;
     -fx-effect: dropshadow(gaussian, rgba(23,123,117,0.2), 6, 0, 0, 0);
 }
-
-
-
 /* ===== REGISTER BUTTON ===== */
 .register-btn {
     -fx-background-color: #115D58;
