@@ -12,7 +12,9 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 
+
 <StackPane prefHeight="680" prefWidth="1000" styleClass="main-container" stylesheets="@../css/register-page.css"
+<<<<<<< HEAD
     xmlns="http://javafx.com/javafx/21"
     xmlns:fx="http://javafx.com/fxml/1"
     fx:controller="com.effortcure.controller.RegisterPageController">
@@ -62,6 +64,34 @@
         <StackPane>
           <PasswordField fx:id="password" promptText="Enter password" styleClass="input-field"/>
           <Button fx:id="showPasswordBtn" styleClass="eye-btn" StackPane.alignment="CENTER_RIGHT"/>
+=======
+    xmlns="http://javafx.com/javafx/25"
+    xmlns:fx="http://javafx.com/fxml/1">
+
+    <!-- ===== CARD ===== -->
+    <HBox alignment="CENTER" maxHeight="500" maxWidth="900" prefHeight="500" prefWidth="900" spacing="0" styleClass="card">
+
+        <!-- ===== LEFT SIDE ===== -->
+        <StackPane fx:id="leftPane" prefHeight="500" prefWidth="400" styleClass="left-side">
+   
+             <clip>
+                <Rectangle arcHeight="36.0" arcWidth="36.0" height="500.0" width="418.0" />
+            </clip>
+
+            <ImageView fx:id="backgroundImage" fitHeight="500" fitWidth="400"
+                       opacity="0.85" preserveRatio="false">
+                <image>
+                    <Image url="@../images/login-background.jpg" />
+                </image>
+            </ImageView>
+
+            <!-- Content -->
+            <VBox alignment="CENTER" spacing="18">
+                <Label styleClass="header-label" text="Create Your Account" wrapText="true" />
+                <Label styleClass="sub-label" text="Enter your data to register for this app" wrapText="true" />
+                <Button styleClass="login-btn" text="Login" />
+            </VBox>
+>>>>>>> refs/remotes/origin/main
         </StackPane>
       </HBox>
       <!-- Confirm Password -->

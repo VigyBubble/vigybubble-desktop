@@ -35,13 +35,18 @@
     -fx-border-color: #b8dde0;
     -fx-border-radius: 20;
     -fx-border-width: 1.5;
+     -fx-padding: 0 0 40 0; 
+      -fx-max-width: 850px;      
+    -fx-max-height: 520px;     
+    -fx-pref-width: 850px;    
+    -fx-pref-height: 520px; 
 }
 
 /* ===== BACK BUTTON ===== */
 .back-btn {
     -fx-background-color: transparent;
     -fx-border-color: transparent;
-    -fx-font-size: 32px;
+    -fx-font-size: 30px;
     -fx-text-fill: #444444;
     -fx-cursor: hand;
     -fx-padding: 15px 10px 10px 20px ;
@@ -150,4 +155,7 @@
 .verify-btn:pressed {
     -fx-background-color: #083838;
     -fx-effect: dropshadow(gaussian, rgba(13,92,92,0.2), 4, 0, 0, 1);
+}
+.btn-container{
+    -fx-padding: 10px 0 0 0;
 }

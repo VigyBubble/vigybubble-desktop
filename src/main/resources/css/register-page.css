@@ -1,29 +1,29 @@
 /* ===== MAIN CONTAINER ===== */
 .main-container {
     -fx-background-color: linear-gradient(to right, #22B9AF, #115D58);
+
 }
 
 /* ===== CARD ===== */
 .card {
     -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.3), 25, 0, 0, 10);
+    /* -fx-background-radius:  18 ; */
+    -fx-background-color: transparent;
+
 }
 
 /* ===== LEFT SIDE ===== */
 .left-side {
-    -fx-background-image: url("../images/register-img.jpg");
-    -fx-background-size: cover;
-    -fx-background-position: center;
-    -fx-background-repeat: no-repeat;
+    -fx-background-color: transparent;
+    /* -fx-background-radius: 18px ; */
+    -fx-background-color: linear-gradient(to top right, #22B9AF00, #115d584d);
 
-    -fx-background-radius: 18px;
-    -fx-border-radius: 18px;
-    -fx-overflow: hidden;
 }
 
-.left-overlay {
-    -fx-background-color: rgba(17, 93, 88, 0.3);
-}
-
+/* .left-overlay {
+    -fx-background-color: #115d584d;
+      -fx-background-radius:  18 ;
+} */
 .header-label {
     -fx-font-size: 35px;
     -fx-font-weight: bold;
@@ -56,8 +56,9 @@
 /* ===== RIGHT SIDE ===== */
 .form-side {
     -fx-background-color: white;
-    /* -fx-background-radius:0px 18px 18px 0px ; */
+    -fx-background-radius: 18px;
     -fx-padding: 40px 60px;
+
 }
 
 /* ===== FORM LABELS ===== */
