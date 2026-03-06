@@ -12,6 +12,7 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 
+
 <StackPane prefHeight="680" prefWidth="1000" styleClass="main-container" stylesheets="@../css/register-page.css"
     xmlns="http://javafx.com/javafx/25"
     xmlns:fx="http://javafx.com/fxml/1">
@@ -21,12 +22,17 @@
 
         <!-- ===== LEFT SIDE ===== -->
         <StackPane fx:id="leftPane" prefHeight="500" prefWidth="400" styleClass="left-side">
-    <!-- Clip to hide overflow -->
-    <clip>
-        <Rectangle width="400" height="500" arcWidth="18" arcHeight="18"/>
-    </clip>
-            <!-- Overlay -->
-            <Pane maxWidth="Infinity" maxHeight="Infinity" styleClass="left-overlay" />
+   
+             <clip>
+                <Rectangle arcHeight="36.0" arcWidth="36.0" height="500.0" width="418.0" />
+            </clip>
+
+            <ImageView fx:id="backgroundImage" fitHeight="500" fitWidth="400"
+                       opacity="0.85" preserveRatio="false">
+                <image>
+                    <Image url="@../images/login-background.jpg" />
+                </image>
+            </ImageView>
 
             <!-- Content -->
             <VBox alignment="CENTER" spacing="18">

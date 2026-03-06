@@ -11,18 +11,20 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.shape.Rectangle?>
 
-<AnchorPane fx:id="rootPane" prefHeight="521.0" prefWidth="783.0" style="-fx-background-color: linear-gradient(to top right, #177B75, #115D58, #0B3E3A);" stylesheets="@../css/login-page.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane fx:id="rootPane" prefHeight="521.0" prefWidth="783.0" style="-fx-background-color: linear-gradient(to top right, #177B75, #115D58, #0B3E3A);" stylesheets="@../css/login-page.css"
+   xmlns="http://javafx.com/javafx/25"
+   xmlns:fx="http://javafx.com/fxml/1">
 
-    <children>
-        <AnchorPane fx:id="whitePane" layoutX="69.0" layoutY="58.0" prefHeight="400.0" prefWidth="333.0">
-            <children>
-                <Label fx:id="labelEmail" layoutX="36.0" layoutY="71.0" text="Email" />
-                <TextField fx:id="textFieldEmail" layoutX="54.0" layoutY="105.0" prefHeight="36.0" prefWidth="238.0" promptText="Enter your email" />
-                <Label fx:id="labelPassword" layoutX="32.0" layoutY="160.0" text="Password" />
-                <PasswordField fx:id="passwordField" layoutX="54.0" layoutY="192.0" prefHeight="36.0" prefWidth="238.0" promptText="Enter password" />
-                <Button fx:id="buttonLogin" layoutX="77.0" layoutY="310.0" prefHeight="39.0" prefWidth="162.0" text="Login" />
-                <Hyperlink fx:id="linkForgotPassword" layoutX="169.0" layoutY="237.0" text="Forgot Password?" />
-                <CheckBox fx:id="checkRememberMe" layoutX="32.0" layoutY="240.0" text="Remember me" />
+   <children>
+      <AnchorPane fx:id="whitePane" layoutX="69.0" layoutY="58.0" prefHeight="400.0" prefWidth="333.0">
+         <children>
+            <Label fx:id="labelEmail" layoutX="36.0" layoutY="71.0" text="Email" />
+            <TextField fx:id="textFieldEmail" layoutX="54.0" layoutY="105.0" prefHeight="36.0" prefWidth="238.0" promptText="Enter your email" />
+            <Label fx:id="labelPassword" layoutX="32.0" layoutY="160.0" text="Password" />
+            <PasswordField fx:id="passwordField" layoutX="54.0" layoutY="192.0" prefHeight="36.0" prefWidth="238.0" promptText="Enter password" />
+            <Button fx:id="buttonLogin" layoutX="77.0" layoutY="310.0" prefHeight="39.0" prefWidth="162.0" text="Login" />
+            <Hyperlink fx:id="linkForgotPassword" layoutX="169.0" layoutY="237.0" text="Forgot Password?" />
+            <CheckBox fx:id="checkRememberMe" layoutX="32.0" layoutY="240.0" text="Remember me" />
             <ImageView fitHeight="17.0" fitWidth="19.0" layoutX="33.0" layoutY="115.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../images/login-email.png" />
@@ -38,26 +40,26 @@
                   <Image url="@../images/eye-login.png" />
                </image>
             </ImageView>
-            </children>
-        </AnchorPane>
-      <AnchorPane fx:id="secondPane" layoutX="402.0" layoutY="58.0" minHeight="-Infinity" minWidth="-Infinity" opacity="0.9" prefHeight="416.0" prefWidth="309.0" AnchorPane.bottomAnchor="47.0" AnchorPane.leftAnchor="402.0" AnchorPane.topAnchor="58.0">
-      <clip>
-        <Rectangle arcHeight="30.0" arcWidth="30.0" height="400.0" width="309.0" />
-    </clip>
-         <children>
-        <ImageView fx:id="backgroundImage" fitHeight="400.0" fitWidth="317.0" layoutX="-4.0" opacity="0.8" preserveRatio="false" AnchorPane.bottomAnchor="16.0" AnchorPane.leftAnchor="-4.0" AnchorPane.rightAnchor="-4.0" AnchorPane.topAnchor="0.0">
-      
-                                          
-                  
-                                          <image>
-        <Image url="@../images/login-background.jpg" />
-      </image>
-      
-                                          </ImageView>
-                <Label fx:id="labelInfo" layoutX="29.0" layoutY="145.0" prefWidth="253.0" text="To keep connected with us please login with your personal info" textFill="WHITE" wrapText="true" />
-                <Label fx:id="labelWelcome" layoutX="52.0" layoutY="88.0" prefHeight="34.0" prefWidth="205.0" text="Welcome Back!" textFill="WHITE" />
-                <Button fx:id="buttonRegister" layoutX="66.0" layoutY="277.0" prefHeight="41.0" prefWidth="162.0" text="Register" />
          </children>
       </AnchorPane>
-    </children>
+      <AnchorPane fx:id="secondPane" layoutX="402.0" layoutY="58.0" minHeight="-Infinity" minWidth="-Infinity" opacity="0.9" prefHeight="416.0" prefWidth="309.0" AnchorPane.bottomAnchor="47.0" AnchorPane.leftAnchor="402.0" AnchorPane.topAnchor="58.0">
+         <clip>
+            <Rectangle arcHeight="30.0" arcWidth="30.0" height="400.0" width="309.0" />
+         </clip>
+         <children>
+            <ImageView fx:id="backgroundImage" fitHeight="400.0" fitWidth="317.0" layoutX="-4.0" opacity="0.8" preserveRatio="false" AnchorPane.bottomAnchor="16.0" AnchorPane.leftAnchor="-4.0" AnchorPane.rightAnchor="-4.0" AnchorPane.topAnchor="0.0">
+
+
+
+               <image>
+                  <Image url="@../images/login-background.jpg" />
+               </image>
+
+            </ImageView>
+            <Label fx:id="labelInfo" layoutX="29.0" layoutY="145.0" prefWidth="253.0" text="To keep connected with us please login with your personal info" textFill="WHITE" wrapText="true" />
+            <Label fx:id="labelWelcome" layoutX="52.0" layoutY="88.0" prefHeight="34.0" prefWidth="205.0" text="Welcome Back!" textFill="WHITE" />
+            <Button fx:id="buttonRegister" layoutX="66.0" layoutY="277.0" prefHeight="41.0" prefWidth="162.0" text="Register" />
+         </children>
+      </AnchorPane>
+   </children>
 </AnchorPane>
