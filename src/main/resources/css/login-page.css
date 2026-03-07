@@ -12,92 +12,118 @@
 
 @font-face {
     font-family: 'K2D';
+    src: url('../fonts/K2D-Regular.ttf');
+    font-weight: 400; 
+}
+
+@font-face {
+    font-family: 'K2D';
+    src: url('../fonts/K2D-SemiBold.ttf');
+    font-weight: 600;
+}
+
+@font-face {
+    font-family: 'K2D';
     src: url('../fonts/K2D-Bold.ttf');
     font-weight: 700; 
 }
-#whitePane {
-    -fx-background-color: #FFFFFF;
-    -fx-background-radius: 18 0 0 18;
-    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.25), 10, 0, 0, 5);
+.rootPane{
+    -fx-background-color: linear-gradient(to top right, #177B75, #115D58, #0B3E3A);
+}
+#mainpane{
+    -fx-background-radius: 25;
 }
 
-#labelEmail, #labelPassword {
+#whitePane{
+    -fx-background-color: #FFFFFF;
+    -fx-background-radius: 25 0 0 25;
+
+}
+#labelEmail,#labelPassword {
     -fx-font-family: 'K2D';
     -fx-text-fill: #0B3E3A;
     -fx-font-weight: 400 ;
-    -fx-font-size: 18px;
+    -fx-font-size: 28px;
+}
+#textFieldEmail{
+    -fx-background-radius: 20 20 20 20; 
+    -fx-font-family: 'K2D';
+    -fx-font-weight: 400;
+}
+#passwordField{
+    -fx-background-radius: 20 20 20 20; 
+    -fx-font-family: 'K2D';
+    -fx-font-weight: 400;
+ 
+}
+#buttonLogin {
+    -fx-background-color: #045e56;
+    -fx-text-fill: white;
+    -fx-font-family: 'K2D';
+    -fx-font-weight: 400;
+    -fx-font-size: 32px;
+    -fx-background-radius: 15 15 15 15;
+    -fx-cursor: hand;
+ 
+}
+#buttonLogin:hover{
+    -fx-background-color: #0e4e4a;
+}
+#buttonLogin:pressed {
+    -fx-background-color: #0a3d39;
+}
+#linkForgotPassword {
+
+    -fx-text-fill: #0B3E3A ;
+    -fx-font-weight: 500 ;
+    -fx-font-size: 16px;
+
 }
 
+#checkRememberMe {
+    -fx-text-fill: #787878;
 
-#secondPane {
-    -fx-background-color: transparent;
-    -fx-background-radius: 0 18 18 0;
-    -fx-background-color: linear-gradient(to top right, #22B9AF, #22B9AF00);
+}
+#error{
+    -fx-font-family: 'K2D';
+    -fx-text-fill: #FF1B1B;
+    -fx-font-weight: 400 ;
+    -fx-font-size: 24px;
 
+}
+.right-side{
+    -fx-background-image: url("../images/register-img.jpg");
+    -fx-background-size: cover;
+    -fx-background-position: center;
+   /* -fx-background-repeat: no-repeat;*/
+     -fx-background-radius: 18px;
+     -fx-background-color: transparent;
+     -fx-background-radius: 0 18 18 0;
+     -fx-background-color: linear-gradient(to top right, #22B9AF, #22B9AF00);
 
 }
 
 #labelWelcome {
     -fx-text-fill:white;
     -fx-font-family: 'K2D';
-    -fx-font-weight:  bold;
-    -fx-font-size: 27px;
+    -fx-font-weight:  600;
+    -fx-font-size: 48px;
 }
-
 #labelInfo {
     -fx-text-fill: white;
     -fx-font-family: 'K2D';
-    -fx-font-size: 18px;
+    -fx-font-size: 30px;
     -fx-font-weight: 400;
 }
-#textFieldEmail{
-    -fx-background-radius: 10 10 10 10; 
-    -fx-font-family: 'K2D';
-    -fx-font-weight: 400;
-
-
-}
-#passwordField{
-    -fx-background-radius: 10 10 10 10; 
-    -fx-font-family: 'K2D';
-    -fx-font-weight: 400;
-
-
-}
-
-#buttonLogin {
-    -fx-background-color: #045e56;
-    -fx-text-fill: white;
-    -fx-font-size: 18px;
-    -fx-font-family: 'K2D';
-    -fx-font-weight: 400;
-    -fx-background-radius: 10 10 10 10; 
-}
-#buttonLogin:hover{
-    -fx-background-color: #067a70;
-
-}
-
 #buttonRegister {
     -fx-background-color: transparent;
     -fx-border-color: white;
     -fx-text-fill: white;
-    -fx-font-size: 18px;
+    -fx-font-size: 32px;
     -fx-font-family: 'K2D';
     -fx-font-weight: 400;
-    -fx-background-radius: 10 10 10 10;
-    -fx-border-radius: 10 10 10 10;
+    -fx-background-radius: 15 15 15 15;
+    -fx-border-radius: 15 15 15 15;
+    -fx-border-width: 2px;
+
 }
-
-
-#linkForgotPassword {
-    -fx-font-weight: bold;
-}
-
-#checkRememberMe {
-    -fx-text-fill: rgb(38, 21, 21);
-}
-
-
-
-
