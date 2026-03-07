@@ -1,41 +1,25 @@
-@font-face {
-    font-family: 'K2D';
-    src: url('../fonts/K2D-Regular.ttf');
-    font-weight: 400; 
-}
-
-@font-face {
-    font-family: 'K2D';
-    src: url('../fonts/K2D-SemiBold.ttf');
-    font-weight: 600;
-}
-
-@font-face {
-    font-family: 'K2D';
-    src: url('../fonts/K2D-Bold.ttf');
-    font-weight: 700; 
-}
 /* ===== MAIN CONTAINER ===== */
 .main-container {
-     -fx-font-family: 'K2D';
     -fx-background-color: linear-gradient(to right, #22B9AF, #115D58);
-    
+
 }
 
 /* ===== CARD ===== */
 .card {
-    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3), 25, 0, 0, 10);
-     /* -fx-background-radius:  18 ; */
-      -fx-background-color: transparent;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.3), 25, 0, 0, 10);
+    /* -fx-background-radius:  18 ; */
+    -fx-background-color: transparent;
 
 }
 
 /* ===== LEFT SIDE ===== */
 .left-side {
-     -fx-background-color: transparent;
+    -fx-background-color: transparent;
     /* -fx-background-radius: 18px ; */
-    -fx-background-color: linear-gradient(to top right, #22B9AF00,#115d584d);
+    -fx-background-color: linear-gradient(to top right, #22B9AF00, #115d584d);
+
 }
+
 /* .left-overlay {
     -fx-background-color: #115d584d;
       -fx-background-radius:  18 ;
@@ -72,9 +56,9 @@
 /* ===== RIGHT SIDE ===== */
 .form-side {
     -fx-background-color: white;
-    -fx-background-radius: 18px  ;
+    -fx-background-radius: 18px;
     -fx-padding: 40px 60px;
-    
+
 }
 
 /* ===== FORM LABELS ===== */
@@ -87,10 +71,10 @@
 
 /* ===== INPUT FIELDS ===== */
 .input-field {
- 
-  -fx-background-color: white; 
-  -fx-background-radius: 25px;
-    -fx-border-color:#FAFAFA;
+
+    -fx-background-color: white;
+    -fx-background-radius: 25px;
+    -fx-border-color: #FAFAFA;
     -fx-border-radius: 10px;
     -fx-border-width: 2px;
     -fx-pref-height: 50px;
@@ -109,11 +93,13 @@
     -fx-padding: 0 30px 0 0;
     -fx-background-color: transparent;
 }
+
 .input-field:focused {
     -fx-border-color: #177B75;
     -fx-background-color: white;
-    -fx-effect: dropshadow(gaussian, rgba(23,123,117,0.2), 6, 0, 0, 0);
+    -fx-effect: dropshadow(gaussian, rgba(23, 123, 117, 0.2), 6, 0, 0, 0);
 }
+
 /* ===== REGISTER BUTTON ===== */
 .register-btn {
     -fx-background-color: #115D58;
@@ -124,7 +110,7 @@
     -fx-pref-width: 200px;
     -fx-pref-height: 48px;
     -fx-cursor: hand;
-    
+
 }
 
 .register-btn:hover {
