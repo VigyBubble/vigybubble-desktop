@@ -17,9 +17,11 @@ public class SceneManager {
     public static void switchScene(String fxml) {
         try {
             Parent root = FXMLLoader.load(SceneManager.class.getResource(fxml));
-            stage.setScene(new Scene(root));
+            Scene scene = new Scene(root);
+            stage.setScene(scene);
             stage.setTitle("Vigybubble Desktop");
             stage.setMaximized(true);
+            stage.show();
         } catch (IOException e) {
             e.printStackTrace();
         }

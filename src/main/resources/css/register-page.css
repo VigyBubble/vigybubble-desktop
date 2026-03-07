@@ -7,17 +7,18 @@
 /* ===== CARD ===== */
 .card {
     -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.3), 25, 0, 0, 10);
-    /* -fx-background-radius:  18 ; */
-    -fx-background-color: transparent;
-
 }
 
 /* ===== LEFT SIDE ===== */
 .left-side {
-    -fx-background-color: transparent;
-    /* -fx-background-radius: 18px ; */
-    -fx-background-color: linear-gradient(to top right, #22B9AF00, #115d584d);
+    -fx-background-image: url("../images/register-img.jpg");
+    -fx-background-size: cover;
+    -fx-background-position: center;
+    -fx-background-repeat: no-repeat;
 
+    -fx-background-radius: 18px;
+    -fx-border-radius: 18px;
+    -fx-overflow: hidden;
 }
 
 /* .left-overlay {
