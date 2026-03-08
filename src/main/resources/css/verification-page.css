@@ -18,71 +18,38 @@
 }
 /* ===== ROOT BACKGROUND ===== */
 .root {
-     -fx-font-family: 'K2D';
-    -fx-background-color: linear-gradient(to right, #22B9AF, #115D58);
-}
-.logo {
-    -fx-background-image: url("../images/Logo.png");
-    -fx-background-size: contain;
-    -fx-background-repeat: no-repeat;
-    -fx-background-position: center;
+     -fx-font-family: 'K2D';   
 }
 /* ===== CARD ===== */
 .card {
-    -fx-background-color: #edf7f7;
-    -fx-background-radius: 20;
     -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.28), 30, 0, 0, 8);
-    -fx-border-color: #b8dde0;
-    -fx-border-radius: 20;
-    -fx-border-width: 1.5;
-     -fx-padding: 0 0 40 0; 
-      -fx-max-width: 850px;      
-    -fx-max-height: 520px;     
-    -fx-pref-width: 850px;    
-    -fx-pref-height: 520px; 
 }
 
 /* ===== BACK BUTTON ===== */
 .back-btn {
-    -fx-background-color: transparent;
-    -fx-border-color: transparent;
-    -fx-font-size: 30px;
-    -fx-text-fill: #444444;
     -fx-cursor: hand;
-    -fx-padding: 15px 10px 10px 20px ;
 }
 .back-btn:hover {
     -fx-text-fill: #000000;
 }
-
 /* ===== TITLE ===== */
-.title-label {
-    -fx-font-size: 24px;
-    -fx-font-weight: bold;
+.verficationLabel {
     -fx-text-fill: #1a1a2e;
 }
 
 /* ===== SUBTITLE ===== */
 .subtitle-label {
-    -fx-font-size: 14px;
     -fx-text-fill: #555555;
-    -fx-alignment: center;
 }
 
 /* ===== OTP TEXT FIELDS ===== */
 .otp-field {
-    -fx-background-color: #ffffff;
-    -fx-background-radius: 12;
+    /* -fx-background-color: #ffffff; */
     -fx-border-color: #ccd6dd;
-    -fx-border-radius: 12;
     -fx-border-width: 1.5;
     -fx-font-size: 26px;
     -fx-font-weight: bold;
     -fx-text-fill: #222222;
-    -fx-alignment: center;
-    -fx-pref-height: 76px;
-    -fx-pref-width: 86px;
-    -fx-max-width: 86px;
     -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.07), 5, 0, 0, 2);
 }
 .otp-field:focused {
@@ -125,11 +92,8 @@
     -fx-border-radius: 15px;
     -fx-background-radius: 22;
     -fx-border-width: 1.5;
-    -fx-font-size: 14px;
     -fx-text-fill: #555555;
     -fx-cursor: hand;
-    -fx-pref-height: 44px;
-    -fx-pref-width: 148px;
 }
 .cancel-btn:hover {
     -fx-border-color: #0d5c5c;
@@ -144,8 +108,6 @@
     -fx-border-width: 1.5;
     -fx-text-fill: white;
     -fx-cursor: hand;
-    -fx-pref-height: 44px;
-    -fx-pref-width: 148px;
     -fx-effect: dropshadow(gaussian, rgba(13,92,92,0.38), 10, 0, 0, 4);
 }
 .verify-btn:hover {
@@ -155,7 +117,4 @@
 .verify-btn:pressed {
     -fx-background-color: #083838;
     -fx-effect: dropshadow(gaussian, rgba(13,92,92,0.2), 4, 0, 0, 1);
-}
-.btn-container{
-    -fx-padding: 10px 0 0 0;
 }
