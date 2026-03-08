@@ -12,10 +12,11 @@ public class MainApp extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
-        System.out.println(ScreenDimensionsUtil.getPlatformFullScreenViewDimensions()[0] + " "
-                + ScreenDimensionsUtil.getPlatformFullScreenViewDimensions()[1]);
+        double[] screenDimensions = ScreenDimensionsUtil.getPlatformFullScreenViewDimensions();
+        System.setProperty("os.screen.width", String.valueOf(screenDimensions[0]));
+        System.setProperty("os.screen.hight", String.valueOf(screenDimensions[1]));
         SceneManager.setStage(stage);
-        SceneManager.switchScene("/fxml/register.fxml");
+        SceneManager.switchScene("/fxml/register-page.fxml");
     }
 
     public static void main(String[] args) {

@@ -4,10 +4,12 @@
 
 
 
-.left-side {
-   -fx-background-radius: 25;
-      -fx-background-image: url("../images/register-img.jpg");
-  -fx-background-size: cover;
-  -fx-background-position: center;
-   -fx-border-radius: 25 ;
+.side-image {
+   -fx-background-image: url("../images/register-img.jpg");
+   -fx-background-size: cover;
+   -fx-background-position: center;
+}
+
+.image-gradient {
+   -fx-background-color: linear-gradient(to bottom, rgba(0, 0, 0, 0.2), rgba(34, 185, 175, 0.25));
 }
