@@ -27,23 +27,18 @@
     src: url('../fonts/K2D-Bold.ttf');
     font-weight: 700; 
 }
-.rootPane{
+.root{
     -fx-background-color: linear-gradient(to top right, #177B75, #115D58, #0B3E3A);
 }
+
 #mainpane{
     -fx-background-radius: 25;
 }
 
-#whitePane{
-    -fx-background-color: #FFFFFF;
-    -fx-background-radius: 25 0 0 25;
-
-}
 #labelEmail,#labelPassword {
     -fx-font-family: 'K2D';
     -fx-text-fill: #0B3E3A;
     -fx-font-weight: 400 ;
-    -fx-font-size: 28px;
 }
 #textFieldEmail{
     -fx-background-radius: 20 20 20 20; 
@@ -61,7 +56,6 @@
     -fx-text-fill: white;
     -fx-font-family: 'K2D';
     -fx-font-weight: 400;
-    -fx-font-size: 32px;
     -fx-background-radius: 15 15 15 15;
     -fx-cursor: hand;
  
@@ -76,43 +70,35 @@
 
     -fx-text-fill: #0B3E3A ;
     -fx-font-weight: 500 ;
-    -fx-font-size: 16px;
-
 }
 
 #checkRememberMe {
     -fx-text-fill: #787878;
 
 }
-#error{
+#passwordErrorMsg
+{
     -fx-font-family: 'K2D';
     -fx-text-fill: #FF1B1B;
     -fx-font-weight: 400 ;
-    -fx-font-size: 24px;
 
 }
-.right-side{
+.side-image{
     -fx-background-image: url("../images/register-img.jpg");
     -fx-background-size: cover;
     -fx-background-position: center;
-   /* -fx-background-repeat: no-repeat;*/
-     -fx-background-radius: 18px;
-     -fx-background-color: transparent;
-     -fx-background-radius: 0 18 18 0;
-     -fx-background-color: linear-gradient(to top right, #22B9AF, #22B9AF00);
-
 }
-
+.image-gradient {
+    -fx-background-color: linear-gradient(to bottom, rgba(0, 0, 0, 0.2), rgba(34, 185, 175, 0.25));
+}
 #labelWelcome {
     -fx-text-fill:white;
     -fx-font-family: 'K2D';
     -fx-font-weight:  600;
-    -fx-font-size: 48px;
 }
 #labelInfo {
     -fx-text-fill: white;
     -fx-font-family: 'K2D';
-    -fx-font-size: 30px;
     -fx-font-weight: 400;
 }
 #buttonRegister {
