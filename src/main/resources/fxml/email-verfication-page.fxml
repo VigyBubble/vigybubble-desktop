@@ -10,9 +10,9 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 
-<AnchorPane fx:id="root" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1024.0" prefWidth="1440.0" styleClass="root" stylesheets="@../css/verification-page.css,@../css/Master.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane fx:id="root" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1024.0" prefWidth="1440.0" styleClass="root" stylesheets="@../css/verification-page.css,@../css/Master.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.effortcure.controller.EmailVerficationPageController">
    <children>
-      <Pane id="verficationContainer" layoutX="100.0" layoutY="92.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="824.0" prefWidth="1240.0" style="-fx-background-color: linear-gradient( to top right, #CCEEEC, white); -fx-background-radius: 25;" styleClass="card">
+      <Pane id="verficationContainer" layoutX="100.0" layoutY="100.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="824.0" prefWidth="1240.0" style="-fx-background-color: linear-gradient( to top right, #CCEEEC, white); -fx-background-radius: 25;" styleClass="card">
          <children>
 
             <ImageView id="back-btn" fitHeight="22.05" fitWidth="23.93" layoutX="46.0" layoutY="60.0" pickOnBounds="true" preserveRatio="true" styleClass="back-btn">
@@ -21,9 +21,9 @@
                </image>
             </ImageView>
 
-            <ImageView id="logoImg" fitHeight="147.33" fitWidth="306.0" layoutX="467.0" layoutY="81.84" pickOnBounds="true" preserveRatio="true" styleClass="logoImg">
+            <ImageView id="logoImg" fitHeight="220.0" fitWidth="220.0" layoutX="510.0" layoutY="81.84" pickOnBounds="true" preserveRatio="true" styleClass="logoImg">
                <image>
-                  <Image url="@../images/vigy-bubble-icon.png" />
+                  <Image url="@../images/logo.png" />
                </image>
             </ImageView>
 
