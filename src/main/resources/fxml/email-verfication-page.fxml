@@ -20,7 +20,6 @@
                   <Image url="@../images/left-arrow.png" />
                </image>
             </ImageView>
-
             <ImageView id="logoImg" fitHeight="220.0" fitWidth="220.0" layoutX="510.0" layoutY="81.84" pickOnBounds="true" preserveRatio="true" styleClass="logoImg">
                <image>
                   <Image url="@../images/logo.png" />

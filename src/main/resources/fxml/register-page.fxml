@@ -32,7 +32,7 @@
                               <font>
                                  <Font size="30.0" />
                               </font></Label>
-                  <Button fx:id="loginBtn" layoutX="160.0" layoutY="189.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="56.0" prefWidth="280.0" style="-fx-border-color: white; -fx-border-radius: 15; -fx-border-width: 2; -fx-background-color: transparent; -fx-font-size: 32; -fx-font-family: roboto;" text="Login" textFill="WHITE">
+                  <Button fx:id="loginBtn" layoutX="160.0" layoutY="189.0"  mnemonicParsing="false" prefHeight="56.0" prefWidth="280.0" style="-fx-border-color: white; -fx-border-radius: 15; -fx-border-width: 2; -fx-background-color: transparent; -fx-font-size: 32; -fx-font-family: roboto;" text="Login" textFill="WHITE">
                               <font>
                                  <Font size="32.0" />
                               </font></Button>
