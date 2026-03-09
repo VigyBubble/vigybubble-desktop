@@ -2,12 +2,11 @@
    -fx-background-color: linear-gradient(to right, #22B9AF, #115D58);
 }
 
-
-
 .side-image {
    -fx-background-image: url("../images/register-img.jpg");
    -fx-background-size: cover;
    -fx-background-position: center;
+   -fx-background-radius: 25;
 }
 
 .image-gradient {

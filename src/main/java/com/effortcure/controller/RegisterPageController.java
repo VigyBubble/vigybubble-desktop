@@ -9,6 +9,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 
 import javafx.concurrent.Task;
 import javafx.fxml.FXML;
+import javafx.geometry.Insets;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -159,6 +160,9 @@ public class RegisterPageController {
                 hideConfirmPasswordIcon,
                 confirmPasswordIcon,
                 registerBtn });
+
+        disableErrorMessages(new Node[] { nameErrorMsg, emailErrorMsg,
+                passwordErrorMsg, confirmPasswordErrorMsg });
         registerBtn.setOnAction(event -> {
             try {
                 handleRegister();
@@ -166,6 +170,14 @@ public class RegisterPageController {
                 e.printStackTrace();
             }
         });
+    }
+
+    private void disableErrorMessages(Node[] nodes) {
+        for (Node n : nodes) {
+            if (n instanceof Label label) {
+                label.setVisible(false);
+            }
+        }
     }
 
     private void responiveView(Node[] nodes) {
@@ -176,8 +188,8 @@ public class RegisterPageController {
         resizeNodes(nodes, widthRatio, hightRatio);
     }
 
-    private void resizeNodes(Node[] node, double widthRatio, double hightRatio) {
-        for (Node n : node) {
+    private void resizeNodes(Node[] nodes, double widthRatio, double hightRatio) {
+        for (Node n : nodes) {
             if (n instanceof Region region) {
                 region.setPrefWidth(region.getPrefWidth() * widthRatio);
                 region.setPrefHeight(region.getPrefHeight() * hightRatio);
@@ -187,28 +199,60 @@ public class RegisterPageController {
                 region.setMaxHeight(region.getPrefHeight());
                 if (region.getParent() != null) {
                     Region parent = (Region) region.getParent();
+                    Region parentErrorMsgRegion = parent.getChildrenUnmodifiable()
+                            .stream()
+                            .filter(node -> node.getId() != null && node.getId().contains("ErrorMsg"))
+                            .filter(node -> node.isVisible() && node instanceof Region)
+                            .map(node -> (Region) node)
+                            .findFirst()
+                            .orElse(null);
                     region.setLayoutX(
                             region.getLayoutX() / (parent.getPrefWidth() / widthRatio) * parent.getPrefWidth());
-                    region.setLayoutY(
-                            region.getLayoutY() / (parent.getPrefHeight() / hightRatio) * parent.getPrefHeight());
+                    if (parentErrorMsgRegion == null) {
+                        region.setLayoutY(
+                                region.getLayoutY() / (parent.getPrefHeight() / hightRatio) * parent.getPrefHeight());
+                    } else {
+                        region.setLayoutY(
+                                region.getLayoutY() / (parent.getPrefHeight() / hightRatio) * parent.getPrefHeight()
+                                        + (parentErrorMsgRegion.getPrefHeight() / 2));
+                    }
                 }
-                if (region instanceof Label label) {
-                    double fontScale = Math.min(label.getPrefWidth() / (label.getPrefWidth() / widthRatio),
-                            label.getPrefHeight() / (label.getPrefHeight() / hightRatio));
-                    System.out.println(label.getFont().getSize());
-                    System.out.println(fontScale);
+                double fontScale = Math.min(region.getPrefWidth() / (region.getPrefWidth() / widthRatio),
+                        region.getPrefHeight() / (region.getPrefHeight() / hightRatio));
+                if (region instanceof Label label)
                     label.setFont(new Font(label.getFont().getSize() * fontScale));
+                if (region instanceof Button btn) {
+                    btn.setFont(new Font(btn.getFont().getSize() * fontScale));
+                    btn.setPadding(new Insets(0));
                 }
+                if (region instanceof TextField textField)
+                    textField.setFont(new Font(textField.getFont().getSize() * fontScale));
+                if (region instanceof PasswordField passwordField)
+                    passwordField.setFont(new Font(passwordField.getFont().getSize() * fontScale));
             }
             if (n instanceof ImageView imageView) {
                 imageView.setFitWidth(imageView.getFitWidth() * widthRatio);
                 imageView.setFitHeight(imageView.getFitHeight() * hightRatio);
                 if (imageView.getParent() != null) {
                     Region parent = (Region) imageView.getParent();
+                    Region parentErrorMsgRegion = parent.getChildrenUnmodifiable()
+                            .stream()
+                            .filter(node -> node.getId() != null && node.getId().contains("ErrorMsg"))
+                            .filter(node -> node.isVisible() && node instanceof Region)
+                            .map(node -> (Region) node)
+                            .findFirst()
+                            .orElse(null);
                     imageView.setLayoutX(
                             imageView.getLayoutX() / (parent.getPrefWidth() / widthRatio) * parent.getPrefWidth());
-                    imageView.setLayoutY(
-                            imageView.getLayoutY() / (parent.getPrefHeight() / hightRatio) * parent.getPrefHeight());
+                    if (parentErrorMsgRegion == null) {
+                        imageView.setLayoutY(
+                                imageView.getLayoutY() / (parent.getPrefHeight() / hightRatio)
+                                        * parent.getPrefHeight());
+                    } else {
+                        imageView.setLayoutY(
+                                imageView.getLayoutY() / (parent.getPrefHeight() / hightRatio) * parent.getPrefHeight()
+                                        + (parentErrorMsgRegion.getPrefHeight() / 2));
+                    }
                 }
             }
             if (n instanceof Rectangle rectangle) {
@@ -216,10 +260,24 @@ public class RegisterPageController {
                 rectangle.setHeight(rectangle.getHeight() * hightRatio);
                 if (rectangle.getParent() != null) {
                     Region parent = (Region) rectangle.getParent();
+                    Region parentErrorMsgRegion = parent.getChildrenUnmodifiable()
+                            .stream()
+                            .filter(node -> node.getId() != null && node.getId().contains("ErrorMsg"))
+                            .filter(node -> node.isVisible() && node instanceof Region)
+                            .map(node -> (Region) node)
+                            .findFirst()
+                            .orElse(null);
                     rectangle.setLayoutX(
                             rectangle.getLayoutX() / (parent.getPrefWidth() / widthRatio) * parent.getPrefWidth());
-                    rectangle.setLayoutY(
-                            rectangle.getLayoutY() / (parent.getPrefHeight() / hightRatio) * parent.getPrefHeight());
+                    if (parentErrorMsgRegion == null) {
+                        rectangle.setLayoutY(
+                                rectangle.getLayoutY() / (parent.getPrefHeight() / hightRatio)
+                                        * parent.getPrefHeight());
+                    } else {
+                        rectangle.setLayoutY(
+                                rectangle.getLayoutY() / (parent.getPrefHeight() / hightRatio) * parent.getPrefHeight()
+                                        + (parentErrorMsgRegion.getPrefHeight() / 2));
+                    }
                 }
             }
         }
