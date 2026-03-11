@@ -10,61 +10,61 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 
-<AnchorPane fx:id="root" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1024.0" prefWidth="1440.0" styleClass="root" stylesheets="@../css/verification-page.css,@../css/Master.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.effortcure.controller.EmailVerficationPageController">
+<AnchorPane fx:id="root"  prefHeight="1024.0" prefWidth="1440.0" styleClass="root" stylesheets="@../css/verification-page.css,@../css/Master.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.effortcure.controller.EmailVerficationPageController">
    <children>
-      <Pane id="verficationContainer" layoutX="100.0" layoutY="100.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="824.0" prefWidth="1240.0" style="-fx-background-color: linear-gradient( to top right, #CCEEEC, white); -fx-background-radius: 25;" styleClass="card">
+      <Pane fx:id="verficationContainer" layoutX="100.0" layoutY="100.0" prefHeight="824.0" prefWidth="1240.0" styleClass="card">
          <children>
 
-            <ImageView id="back-btn" fitHeight="22.05" fitWidth="23.93" layoutX="46.0" layoutY="60.0" pickOnBounds="true" preserveRatio="true" styleClass="back-btn">
+            <ImageView fx:id="backBtn" fitHeight="22.05" fitWidth="23.93" layoutX="46.0" layoutY="60.0" pickOnBounds="true" preserveRatio="true" styleClass="back-btn">
                <image>
                   <Image url="@../images/left-arrow.png" />
                </image>
             </ImageView>
-            <ImageView id="logoImg" fitHeight="220.0" fitWidth="220.0" layoutX="510.0" layoutY="81.84" pickOnBounds="true" preserveRatio="true" styleClass="logoImg">
+            <ImageView fx:id="logoImg" fitHeight="220.0" fitWidth="220.0" layoutX="510.0" layoutY="81.84" pickOnBounds="true" preserveRatio="true" styleClass="logoImg">
                <image>
                   <Image url="@../images/logo.png" />
                </image>
             </ImageView>
 
-            <Pane id="contentContainer" layoutX="113.0" layoutY="269.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="473.0" prefWidth="1014.0" styleClass="contentContainer">
+            <Pane fx:id="contentContainer" layoutX="113.0" layoutY="269.17" prefHeight="473.0" prefWidth="1014.0" styleClass="contentContainer">
                <children>
 
-                  <Label id="verficationLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="0.0" layoutY="5.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="52.0" prefWidth="1014.0" style="-fx-font-size: 40;" styleClass="verficationLabel" text="Enter verification code" />
+                  <Label fx:id="verficationLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="0.0" layoutY="5.0" prefHeight="52.0" prefWidth="1014.0" style="-fx-font-size: 40;" styleClass="verficationLabel" text="Enter verification code" />
 
-                  <Label id="subtitleLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="0.0" layoutY="62.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="45.0" prefWidth="1014.0" style="-fx-font-size: 32;" styleClass="subtitleLabel" text="A verification code has been sent to your email." />
+                  <Label fx:id="subtitleLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="0.0" layoutY="62.0" prefHeight="45.0" prefWidth="1014.0" style="-fx-font-size: 32;" styleClass="subtitleLabel" text="A verification code has been sent to your email." />
 
-                  <Pane id="otpContainer" layoutX="0.0" layoutY="155.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="105.0" prefWidth="1014.0" styleClass="otpContainer">
+                  <Pane fx:id="otpContainer" layoutX="0.0" layoutY="155.0" prefHeight="105.0" prefWidth="1014.0" styleClass="otpContainer">
                      <children>
 
-                        <TextField id="otpField1" layoutX="167.0" layoutY="0.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="105.0" prefWidth="140.0" style="-fx-border-radius: 20; -fx-background-radius: 20;" styleClass="otp-field" />
+                        <TextField fx:id="otpField1" layoutX="167.0" layoutY="0.0" prefHeight="105.0" prefWidth="140.0" style="-fx-border-radius: 20; -fx-background-radius: 20;" styleClass="otp-field" />
 
-                        <TextField id="otpField2" layoutX="347.0" layoutY="0.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="105.0" prefWidth="140.0" style="-fx-border-radius: 20; -fx-background-radius: 20;" styleClass="otp-field" />
+                        <TextField fx:id="otpField2" layoutX="347.0" layoutY="0.0" prefHeight="105.0" prefWidth="140.0" style="-fx-border-radius: 20; -fx-background-radius: 20;" styleClass="otp-field" />
 
-                        <TextField id="otpField3" layoutX="527.0" layoutY="0.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="105.0" prefWidth="140.0" style="-fx-border-radius: 20; -fx-background-radius: 20;" styleClass="otp-field" />
+                        <TextField fx:id="otpField3" layoutX="527.0" layoutY="0.0" prefHeight="105.0" prefWidth="140.0" style="-fx-border-radius: 20; -fx-background-radius: 20;" styleClass="otp-field" />
 
-                        <TextField id="otpField4" layoutX="707.0" layoutY="0.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="105.0" prefWidth="140.0" style="-fx-border-radius: 20; -fx-background-radius: 20;" styleClass="otp-field" />
+                        <TextField fx:id="otpField4" layoutX="707.0" layoutY="0.0" prefHeight="105.0" prefWidth="140.0" style="-fx-border-radius: 20; -fx-background-radius: 20;" styleClass="otp-field" />
 
                      </children>
                   </Pane>
 
-                  <Pane fx:id="resendContainer" layoutX="276.0" layoutY="292.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="34.0" prefWidth="461.0" styleClass="resendContainer">
+                  <Pane fx:id="resendContainer" layoutX="326.0" layoutY="292.0" prefHeight="34.0" prefWidth="362.0" styleClass="resendContainer">
                      <children>
 
-                        <Label fx:id="resendLabel" alignment="CENTER" layoutX="0.0" layoutY="0.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="35.0" prefWidth="191.0" style="-fx-font-size: 26;" styleClass="resend-label" text="Don’t get code?" />
-
-                        <Hyperlink fx:id="resendLink" layoutX="191.0" layoutY="0.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="35.0" prefWidth="270.0" style="-fx-font-size: 24;" styleClass="resend-link" text="Click to resend" />
+                        <Label fx:id="resendLabel" alignment="CENTER" layoutX="0.0" layoutY="0.0" prefHeight="34.0" prefWidth="191.0" style="-fx-font-size: 26;" styleClass="resend-label" text="Don’t get code?" />
+            
+                        <Hyperlink fx:id="resendLink" layoutX="191.0" layoutY="0.0" prefHeight="34.0" prefWidth="171.0" style="-fx-font-size: 24;" styleClass="resend-link" text="Click to resend" />
 
                      </children>
                   </Pane>
 
                   <Separator fx:id="separator" layoutX="0.0" layoutY="358.0" prefHeight="0.0" prefWidth="1014.0" />
 
-                  <Pane fx:id="btnContainer" layoutX="0.0" layoutY="414.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="56.0" prefWidth="1014.0" styleClass="btnContainer">
+                  <Pane fx:id="btnContainer" layoutX="0.0" layoutY="414.0" prefHeight="56.0" prefWidth="1014.0" styleClass="btnContainer">
                      <children>
 
                         <Button fx:id="cancelBtn" alignment="CENTER" layoutX="214.5" layoutY="0.0" mnemonicParsing="false" prefHeight="56.0" prefWidth="280.0" style="-fx-font-size: 32;" styleClass="cancel-btn" text="Cancel" />
 
-                        <Button fx:id="verifyBtn" layoutX="519.5" layoutY="0.0" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" prefHeight="56.0" prefWidth="280.0" style="-fx-font-size: 32;" styleClass="verify-btn" text="Verify" />
+                        <Button fx:id="verifyBtn" layoutX="519.5" layoutY="0.0" mnemonicParsing="false" prefHeight="56.0" prefWidth="280.0" style="-fx-font-size: 32;" styleClass="verify-btn" text="Verify" />
 
                      </children>
                   </Pane>

@@ -11,52 +11,57 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="root" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1024.0" prefWidth="1440.0" stylesheets="@../css/Master.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.effortcure.controller.RegisterPageController">
+<AnchorPane fx:id="root" prefHeight="1024.0" prefWidth="1440.0" stylesheets="@../css/register-page.css,@../css/Master.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.effortcure.controller.RegisterPageController">
   <children>
-    <Pane fx:id="firstContainer" layoutX="100.0" layoutY="100.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="824.0" prefWidth="1240.0" style="-fx-background-radius: 25; -fx-background-color: white;">
+    <Pane fx:id="firstContainer" layoutX="100.0" layoutY="100.0" prefHeight="824.0" prefWidth="1240.0" styleClass="card">
       <children>
-        <Pane fx:id="leftImageContainer" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="824.0" prefWidth="620.0" styleClass="side-image">
+        <Pane fx:id="leftImageContainer" prefHeight="824.0" prefWidth="620.0" styleClass="side-image">
           <clip>
-            <Rectangle fx:id="leftImageRectangle" arcHeight="25" arcWidth="25" height="824" width="620.0" />
+            <Rectangle fx:id="leftImageRectangle" arcHeight="50" arcWidth="50" height="824" width="620.0" />
           </clip>
-          <Pane fx:id="leftImageGradientContainer" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="824.0" prefWidth="620.0" styleClass="image-gradient">
+          <Pane fx:id="leftImageGradientContainer" prefHeight="824.0" prefWidth="620.0" styleClass="image-gradient">
             <children>
-              <Pane fx:id="leftContentContainer" layoutY="289.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="245.0" prefWidth="620.0">
+              <Pane fx:id="leftContentContainer" layoutY="289.0" prefHeight="262.0" prefWidth="620.0">
                 <children>
-                  <Label fx:id="createAccountLabel" alignment="CENTER" contentDisplay="CENTER" minHeight="-Infinity" minWidth="-Infinity" prefHeight="62.0" prefWidth="620.0" style="-fx-font-weight: 600; -fx-font-size: 48;" text="Create Your Account" textFill="WHITE">
+                  <Label fx:id="createAccountLabel" alignment="CENTER" contentDisplay="CENTER" prefHeight="62.0" prefWidth="620.0" style="-fx-font-weight: 600;" text="Create Your Account" textFill="WHITE">
                     <font>
                       <Font size="48.0" />
                     </font>
                   </Label>
-                  <Label fx:id="enterYorDataLabel" alignment="CENTER" contentDisplay="CENTER" layoutY="94.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="39.0" prefWidth="620.0" style="-fx-font-size: 30;" text="Enter your data to register for this app" textFill="WHITE">
-                              <font>
-                                 <Font size="30.0" />
-                              </font></Label>
-                  <Button fx:id="loginBtn" layoutX="160.0" layoutY="189.0"  mnemonicParsing="false" prefHeight="56.0" prefWidth="280.0" style="-fx-border-color: white; -fx-border-radius: 15; -fx-border-width: 2; -fx-background-color: transparent; -fx-font-size: 32; -fx-font-family: roboto;" text="Login" textFill="WHITE">
-                              <font>
-                                 <Font size="32.0" />
-                              </font></Button>
+                  <Label fx:id="enterYorDataLabel" alignment="CENTER" contentDisplay="CENTER" layoutY="94.0" prefHeight="39.0" prefWidth="620.0" text="Enter your data to register for this app" textFill="WHITE">
+                    <font>
+                      <Font size="30.0" />
+                    </font>
+                  </Label>
+                  <Button fx:id="loginBtn" layoutX="160.0" layoutY="189.0" mnemonicParsing="false" prefHeight="56.0" prefWidth="280.0" style="-fx-cursor: hand;" styleClass="loginBtn" text="Login" textFill="WHITE">
+                    <font>
+                      <Font size="32.0" />
+                    </font>
+                  </Button>
                 </children>
               </Pane>
             </children>
           </Pane>
         </Pane>
-        <Pane fx:id="formContainer" layoutX="712.0" layoutY="46.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="744.0" prefWidth="436.0">
+        <Pane fx:id="formContainer" layoutX="712.0" layoutY="46.0" prefHeight="744.0" prefWidth="436.0">
           <children>
-            <Pane fx:id="nameContainer" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="147.0" prefWidth="436.0">
+            <Pane fx:id="nameContainer" prefHeight="147.0" prefWidth="436.0">
               <children>
-                <Label fx:id="nameLabel" layoutX="16.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="36.0" prefWidth="404.0" style="-fx-font-size: 28;" text="Name">
-                           <font>
-                              <Font size="28.0" />
-                           </font></Label>
-                <TextField fx:id="nameFeild" layoutX="56.0" layoutY="52.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="56.0" prefWidth="364.0" style="-fx-border-radius: 20; -fx-background-color: transparent; -fx-border-color: #DBDDDC; -fx-effect: dropshadow(gaussian, #DBDDDC, 25, 0, 0, 10); -fx-font-size: 24;">
-                           <font>
-                              <Font size="25.0" />
-                           </font></TextField>
-                <Label fx:id="nameErrorMsg" layoutX="56.0" layoutY="116.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="35.0" prefWidth="364.0" style="-fx-text-fill: FF1B1B; -fx-font-size: 24;" text="This field is required*">
-                           <font>
-                              <Font size="24.0" />
-                           </font></Label>
+                <Label fx:id="nameLabel" styleClass="allLabels" layoutX="16.0" prefHeight="36.0" prefWidth="404.0" text="Name">
+                  <font>
+                    <Font size="28.0" />
+                  </font>
+                </Label>
+                <TextField fx:id="nameFeild" styleClass="input-field" layoutX="56.0" layoutY="52.0" prefHeight="56.0" prefWidth="364.0" >
+                  <font>
+                    <Font size="25.0" />
+                  </font>
+                </TextField>
+                <Label fx:id="nameErrorMsg" styleClass="allLabels" layoutX="56.0" layoutY="116.0" prefHeight="35.0" prefWidth="364.0" style="-fx-text-fill: FF1B1B;" text="This field is required*">
+                  <font>
+                    <Font size="24.0" />
+                  </font>
+                </Label>
                 <ImageView fx:id="nameIcon" fitHeight="24.0" fitWidth="24.0" layoutX="16.0" layoutY="68.0" pickOnBounds="true" preserveRatio="true">
                   <image>
                     <Image url="@../images/user-icon.png" />
@@ -64,20 +69,23 @@
                 </ImageView>
               </children>
             </Pane>
-            <Pane fx:id="emailContainer" layoutY="163.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="147.0" prefWidth="436.0">
+            <Pane fx:id="emailContainer" layoutY="163.0" prefHeight="147.0" prefWidth="436.0">
               <children>
-                <Label fx:id="emailLabel" layoutX="16.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="36.0" prefWidth="404.0" style="-fx-font-size: 28;" text="Email">
-                           <font>
-                              <Font size="28.0" />
-                           </font></Label>
-                <TextField fx:id="emailFeild" layoutX="56.0" layoutY="52.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="56.0" prefWidth="364.0" style="-fx-border-radius: 20; -fx-background-color: transparent; -fx-border-color: #DBDDDC; -fx-effect: dropshadow(gaussian, #DBDDDC, 25, 0, 0, 10); -fx-font-size: 24;">
-                           <font>
-                              <Font size="25.0" />
-                           </font></TextField>
-                <Label fx:id="emailErrorMsg" layoutX="56.0" layoutY="116.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="35.0" prefWidth="364.0" style="-fx-text-fill: FF1B1B; -fx-font-size: 24;" text="Email already registered*">
-                           <font>
-                              <Font size="24.0" />
-                           </font></Label>
+                <Label fx:id="emailLabel" layoutX="16.0" prefHeight="36.0" prefWidth="404.0" text="Email" styleClass="allLabels">
+                  <font>
+                    <Font size="28.0" />
+                  </font>
+                </Label>
+                <TextField fx:id="emailFeild" styleClass="input-field" layoutX="56.0" layoutY="52.0" prefHeight="56.0" prefWidth="364.0" > 
+                  <font>
+                    <Font size="25.0" />
+                  </font>
+                </TextField>
+                <Label fx:id="emailErrorMsg" styleClass="allLabels" layoutX="56.0" layoutY="116.0" prefHeight="35.0" prefWidth="364.0" style="-fx-text-fill: FF1B1B;" text="Email already registered*">
+                  <font>
+                    <Font size="24.0" />
+                  </font>
+                </Label>
                 <ImageView fx:id="emailIcon" fitHeight="24.0" fitWidth="24.0" layoutX="16.0" layoutY="68.0" pickOnBounds="true" preserveRatio="true">
                   <image>
                     <Image url="@../images/email-icon.png" />
@@ -85,20 +93,23 @@
                 </ImageView>
               </children>
             </Pane>
-            <Pane fx:id="passwordContainer" layoutY="326.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="147.0" prefWidth="436.0">
+            <Pane fx:id="passwordContainer" layoutY="326.0" prefHeight="147.0" prefWidth="436.0">
               <children>
-                <Label fx:id="passwordLabel" layoutX="16.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="36.0" prefWidth="404.0" style="-fx-font-size: 28;" text="Password">
-                           <font>
-                              <Font size="28.0" />
-                           </font></Label>
-                <Label fx:id="passwordErrorMsg" layoutX="56.0" layoutY="116.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="31.0" prefWidth="376.0" style="-fx-text-fill: FF1B1B; -fx-font-size: 24;" text="Passwords do not match *">
-                           <font>
-                              <Font size="24.0" />
-                           </font></Label>
-                <PasswordField fx:id="passwordFeild" layoutX="56.0" layoutY="52.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="56.0" prefWidth="364.0" style="-fx-border-radius: 20; -fx-background-color: transparent; -fx-border-color: #DBDDDC; -fx-effect: dropshadow(gaussian, #DBDDDC, 25, 0, 0, 10); -fx-font-size: 24;">
-                           <font>
-                              <Font size="25.0" />
-                           </font></PasswordField>
+                <Label fx:id="passwordLabel" styleClass="allLabels" layoutX="16.0" prefHeight="36.0" prefWidth="404.0" text="Password">
+                  <font>
+                    <Font size="28.0" />
+                  </font>
+                </Label>
+                <PasswordField fx:id="passwordFeild" styleClass="input-field" layoutX="56.0" layoutY="52.0" prefHeight="56.0" prefWidth="364.0" style="">
+                  <font>
+                    <Font size="25.0" />
+                  </font>
+                </PasswordField>
+                <Label fx:id="passwordErrorMsg" styleClass="allLabels" layoutX="56.0" layoutY="116.0" prefHeight="31.0" prefWidth="376.0" style="-fx-text-fill: FF1B1B;" text="Passwords do not match *">
+                  <font>
+                    <Font size="24.0" />
+                  </font>
+                </Label>
                 <ImageView fx:id="hidePasswordIcon" fitHeight="24.0" fitWidth="24.0" layoutX="380.0" layoutY="68.0" pickOnBounds="true" preserveRatio="true">
                   <image>
                     <Image url="@../images/locked-eye.png" />
@@ -111,20 +122,23 @@
                 </ImageView>
               </children>
             </Pane>
-            <Pane fx:id="confirmPasswordContainer" layoutY="489.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="147.0" prefWidth="436.0">
+            <Pane fx:id="confirmPasswordContainer" layoutY="489.0" prefHeight="147.0" prefWidth="436.0">
               <children>
-                <Label fx:id="confirmPasswordLabel" layoutX="16.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="36.0" prefWidth="404.0" style="-fx-font-size: 28;" text="Confirm password">
-                           <font>
-                              <Font size="28.0" />
-                           </font></Label>
-                <Label fx:id="confirmPasswordErrorMsg" layoutX="56.0" layoutY="116.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="31.0" prefWidth="376.0" style="-fx-text-fill: FF1B1B; -fx-font-size: 24;" text="Passwords do not match *">
-                           <font>
-                              <Font size="24.0" />
-                           </font></Label>
-                <PasswordField fx:id="confirmPasswordFeild" layoutX="56.0" layoutY="52.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="56.0" prefWidth="364.0" style="-fx-border-radius: 20; -fx-background-color: transparent; -fx-border-color: #DBDDDC; -fx-effect: dropshadow(gaussian, #DBDDDC, 25, 0, 0, 10); -fx-font-size: 24;">
-                           <font>
-                              <Font size="25.0" />
-                           </font></PasswordField>
+                <Label fx:id="confirmPasswordLabel" styleClass="allLabels" layoutX="16.0" prefHeight="36.0" prefWidth="404.0" text="Confirm password">
+                  <font>
+                    <Font size="28.0" />
+                  </font>
+                </Label>
+                <Label fx:id="confirmPasswordErrorMsg" styleClass="allLabels" layoutX="56.0" layoutY="116.0" prefHeight="31.0" prefWidth="376.0" style="-fx-text-fill: FF1B1B;" text="Passwords do not match *">
+                  <font>
+                    <Font size="24.0" />
+                  </font>
+                </Label>
+                <PasswordField fx:id="confirmPasswordFeild" styleClass="input-field" layoutX="56.0" layoutY="52.0" prefHeight="56.0" prefWidth="364.0" >
+                  <font>
+                    <Font size="25.0" />
+                  </font>
+                </PasswordField>
                 <ImageView fx:id="hideConfirmPasswordIcon" fitHeight="24.0" fitWidth="24.0" layoutX="380.0" layoutY="68.0" pickOnBounds="true" preserveRatio="true">
                   <image>
                     <Image url="@../images/locked-eye.png" />
@@ -137,10 +151,11 @@
                 </ImageView>
               </children>
             </Pane>
-            <Button fx:id="registerBtn" layoutX="78.0" layoutY="676.0" mnemonicParsing="false" prefHeight="56.0" prefWidth="280.0" style="-fx-background-radius: 15; -fx-background-color: #115D58; -fx-text-fill: white; -fx-font-size: 32;" text="Register">
-                     <font>
-                        <Font size="32.0" />
-                     </font></Button>
+            <Button fx:id="registerBtn"  layoutX="78.0" layoutY="676.0" mnemonicParsing="false" prefHeight="56.0" prefWidth="280.0" styleClass="register-btn" text="Register">
+              <font>
+                <Font size="32.0" />
+              </font>
+            </Button>
           </children>
         </Pane>
       </children>
