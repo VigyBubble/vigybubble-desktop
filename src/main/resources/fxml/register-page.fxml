@@ -17,7 +17,7 @@
       <children>
         <Pane fx:id="leftImageContainer" prefHeight="824.0" prefWidth="620.0" styleClass="side-image">
           <clip>
-            <Rectangle fx:id="leftImageRectangle" arcHeight="50" arcWidth="50" height="824" width="620.0" />
+            <Rectangle fx:id="leftImageRectangle" arcHeight="50" arcWidth="50" height="824" width="620.0"/>
           </clip>
           <Pane fx:id="leftImageGradientContainer" prefHeight="824.0" prefWidth="620.0" styleClass="image-gradient">
             <children>
@@ -25,17 +25,17 @@
                 <children>
                   <Label fx:id="createAccountLabel" alignment="CENTER" contentDisplay="CENTER" prefHeight="62.0" prefWidth="620.0" style="-fx-font-weight: 600;" text="Create Your Account" textFill="WHITE">
                     <font>
-                      <Font size="48.0" />
+                      <Font size="48.0"/>
                     </font>
                   </Label>
                   <Label fx:id="enterYorDataLabel" alignment="CENTER" contentDisplay="CENTER" layoutY="94.0" prefHeight="39.0" prefWidth="620.0" text="Enter your data to register for this app" textFill="WHITE">
                     <font>
-                      <Font size="30.0" />
+                      <Font size="30.0"/>
                     </font>
                   </Label>
                   <Button fx:id="loginBtn" layoutX="160.0" layoutY="189.0" mnemonicParsing="false" prefHeight="56.0" prefWidth="280.0" style="-fx-cursor: hand;" styleClass="loginBtn" text="Login" textFill="WHITE">
                     <font>
-                      <Font size="32.0" />
+                      <Font size="32.0"/>
                     </font>
                   </Button>
                 </children>
@@ -49,22 +49,22 @@
               <children>
                 <Label fx:id="nameLabel" layoutX="16.0" prefHeight="36.0" prefWidth="404.0" styleClass="allLabels" text="Name">
                   <font>
-                    <Font size="28.0" />
+                    <Font size="28.0"/>
                   </font>
                 </Label>
-                <TextField fx:id="nameFeild" layoutX="56.0" layoutY="52.0" prefHeight="56.0" prefWidth="364.0" styleClass="input-field">
+                <TextField fx:id="nameFeild" styleClass="input-field" layoutX="56.0" layoutY="52.0" prefHeight="56.0" prefWidth="364.0">
                   <font>
-                    <Font size="25.0" />
+                    <Font size="25.0"/>
                   </font>
                 </TextField>
                 <Label fx:id="nameErrorMsg" layoutX="56.0" layoutY="116.0" prefHeight="35.0" prefWidth="364.0" style="-fx-text-fill: FF1B1B;" styleClass="allLabels" text="This field is required*">
                   <font>
-                    <Font size="24.0" />
+                    <Font size="24.0"/>
                   </font>
                 </Label>
                 <ImageView fx:id="nameIcon" fitHeight="24.0" fitWidth="24.0" layoutX="16.0" layoutY="68.0" pickOnBounds="true" preserveRatio="true">
                   <image>
-                    <Image url="@../images/user-icon.png" />
+                    <Image url="@../images/user-icon.png"/>
                   </image>
                 </ImageView>
               </children>
@@ -73,22 +73,22 @@
               <children>
                 <Label fx:id="emailLabel" layoutX="16.0" prefHeight="36.0" prefWidth="404.0" styleClass="allLabels" text="Email">
                   <font>
-                    <Font size="28.0" />
+                    <Font size="28.0"/>
                   </font>
                 </Label>
-                <TextField fx:id="emailFeild" layoutX="56.0" layoutY="52.0" prefHeight="56.0" prefWidth="364.0" styleClass="input-field"> 
+                <TextField fx:id="emailFeild" styleClass="input-field" layoutX="56.0" layoutY="52.0" prefHeight="56.0" prefWidth="364.0">
                   <font>
-                    <Font size="25.0" />
+                    <Font size="25.0"/>
                   </font>
                 </TextField>
                 <Label fx:id="emailErrorMsg" layoutX="56.0" layoutY="116.0" prefHeight="35.0" prefWidth="364.0" style="-fx-text-fill: FF1B1B;" styleClass="allLabels" text="Email already registered*">
                   <font>
-                    <Font size="24.0" />
+                    <Font size="24.0"/>
                   </font>
                 </Label>
                 <ImageView fx:id="emailIcon" fitHeight="24.0" fitWidth="24.0" layoutX="16.0" layoutY="68.0" pickOnBounds="true" preserveRatio="true">
                   <image>
-                    <Image url="@../images/email-icon.png" />
+                    <Image url="@../images/email-icon.png"/>
                   </image>
                 </ImageView>
               </children>
@@ -97,27 +97,27 @@
               <children>
                 <Label fx:id="passwordLabel" layoutX="16.0" prefHeight="36.0" prefWidth="404.0" styleClass="allLabels" text="Password">
                   <font>
-                    <Font size="28.0" />
+                    <Font size="28.0"/>
                   </font>
                 </Label>
                 <PasswordField fx:id="passwordFeild" layoutX="56.0" layoutY="52.0" prefHeight="56.0" prefWidth="364.0" style="" styleClass="input-field">
                   <font>
-                    <Font size="25.0" />
+                    <Font size="25.0"/>
                   </font>
                 </PasswordField>
                 <Label fx:id="passwordErrorMsg" layoutX="56.0" layoutY="116.0" prefHeight="31.0" prefWidth="376.0" style="-fx-text-fill: FF1B1B;" styleClass="allLabels" text="Passwords do not match *">
                   <font>
-                    <Font size="24.0" />
+                    <Font size="24.0"/>
                   </font>
                 </Label>
                 <ImageView fx:id="hidePasswordIcon" fitHeight="24.0" fitWidth="24.0" layoutX="380.0" layoutY="68.0" pickOnBounds="true" preserveRatio="true">
                   <image>
-                    <Image url="@../images/locked-eye.png" />
+                    <Image url="@../images/locked-eye.png"/>
                   </image>
                 </ImageView>
                 <ImageView fx:id="passwordIcon" fitHeight="24.0" fitWidth="24.0" layoutX="16.0" layoutY="68.0" pickOnBounds="true" preserveRatio="true">
                   <image>
-                    <Image url="@../images/login-password.png" />
+                    <Image url="@../images/login-password.png"/>
                   </image>
                 </ImageView>
               </children>
@@ -126,34 +126,34 @@
               <children>
                 <Label fx:id="confirmPasswordLabel" layoutX="16.0" prefHeight="36.0" prefWidth="404.0" styleClass="allLabels" text="Confirm password">
                   <font>
-                    <Font size="28.0" />
+                    <Font size="28.0"/>
                   </font>
                 </Label>
                 <Label fx:id="confirmPasswordErrorMsg" layoutX="56.0" layoutY="116.0" prefHeight="31.0" prefWidth="376.0" style="-fx-text-fill: FF1B1B;" styleClass="allLabels" text="Passwords do not match *">
                   <font>
-                    <Font size="24.0" />
+                    <Font size="24.0"/>
                   </font>
                 </Label>
-                <PasswordField fx:id="confirmPasswordFeild" layoutX="56.0" layoutY="52.0" prefHeight="56.0" prefWidth="364.0" styleClass="input-field">
+                <PasswordField fx:id="confirmPasswordFeild" styleClass="input-field" layoutX="56.0" layoutY="52.0" prefHeight="56.0" prefWidth="364.0">
                   <font>
-                    <Font size="25.0" />
+                    <Font size="25.0"/>
                   </font>
                 </PasswordField>
                 <ImageView fx:id="hideConfirmPasswordIcon" fitHeight="24.0" fitWidth="24.0" layoutX="380.0" layoutY="68.0" pickOnBounds="true" preserveRatio="true">
                   <image>
-                    <Image url="@../images/locked-eye.png" />
+                    <Image url="@../images/locked-eye.png"/>
                   </image>
                 </ImageView>
                 <ImageView fx:id="confirmPasswordIcon" fitHeight="24.0" fitWidth="24.0" layoutX="16.0" layoutY="68.0" pickOnBounds="true" preserveRatio="true">
                   <image>
-                    <Image url="@../images/login-password.png" />
+                    <Image url="@../images/login-password.png"/>
                   </image>
                 </ImageView>
               </children>
             </Pane>
-            <Button fx:id="registerBtn" layoutX="78.0" layoutY="676.0" mnemonicParsing="false" prefHeight="56.0" prefWidth="280.0" style="-fx-cursor: hand;" styleClass="register-btn" text="Register">
+            <Button fx:id="registerBtn" layoutX="78.0" layoutY="676.0" mnemonicParsing="false" prefHeight="56.0" prefWidth="280.0" styleClass="register-btn" text="Register">
               <font>
-                <Font size="32.0" />
+                <Font size="32.0"/>
               </font>
             </Button>
           </children>

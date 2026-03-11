@@ -13,15 +13,15 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="root" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1024.0" prefWidth="1440.0" stylesheets="@../css/login-page.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane fx:id="root" prefHeight="1024.0" prefWidth="1440.0" stylesheets="@../css/login-page.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.effortcure.controller.LoginPageController">
   <children>
     <Pane fx:id="mainpane" layoutX="100.0" layoutY="100.0" prefHeight="824.0" prefWidth="1240.0" style="-fx-background-color: white; -fx-background-radius: 25;">
       <children>
-      <Pane fx:id="rightmageContainer" layoutX="620.0" prefHeight="824.0" prefWidth="620.0" styleClass="side-image">
+      <Pane fx:id="rightImageContainer" layoutX="620.0" prefHeight="824.0" prefWidth="620.0" styleClass="side-image">
           <clip>
             <Rectangle fx:id="rightImageRectangle" arcHeight="25" arcWidth="25" height="824" width="620.0" />
           </clip>
-        <Pane fx:id="rightImageGradientContainer" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="824.0" prefWidth="620.0" styleClass="image-gradient"> 
+        <Pane fx:id="rightImageGradientContainer" prefHeight="824.0" prefWidth="620.0" styleClass="image-gradient"> 
           <children>
             <Pane fx:id="rightContentContainer" layoutX="51.0" layoutY="270.0" prefHeight="301.0" prefWidth="518.0">
                <children>
