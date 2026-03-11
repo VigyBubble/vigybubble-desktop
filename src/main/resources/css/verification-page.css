@@ -5,11 +5,6 @@
     -fx-background-color: linear-gradient( to top right, #CCEEEC, white);
      -fx-background-radius: 25;
 }
-
-/* ===== BACK BUTTON ===== */
-.back-btn {
-    -fx-cursor: hand;
-}
 .back-btn:hover {
     -fx-text-fill: #000000;
 }
@@ -25,35 +20,30 @@
 
 /* ===== OTP TEXT FIELDS ===== */
 .otp-field {
+    -fx-border-radius: 20;
+    -fx-background-radius: 20;
     -fx-border-color: #ccd6dd;
     -fx-border-width: 1.5;
-    -fx-font-size: 26px;
-    -fx-font-weight: bold;
     -fx-text-fill: #222222;
     -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.07), 5, 0, 0, 2);
 }
 .otp-field:focused {
     -fx-border-color: #177b75;
-    -fx-border-width: 2.5;
     -fx-effect: dropshadow(gaussian, rgba(0,184,156,0.28), 10, 0, 0, 0);
 }
 
 /* ===== RESEND LABEL ===== */
 .resend-label {
-    -fx-font-size: 13px;
     -fx-text-fill: #555555;
-    -fx-padding: 0px;
 }
 
 /* ===== HYPERLINK ===== */
 .resend-link {
-    -fx-font-size: 13px;
     -fx-text-fill: #333333;
     -fx-underline: true;
     -fx-border-color: transparent;
     -fx-background-color: transparent;
     -fx-padding: 0;
-    -fx-cursor: hand;
 }
 .resend-link:hover {
     -fx-text-fill: #177b75;
@@ -70,10 +60,7 @@
     -fx-background-color: transparent;
     -fx-border-color: #aab8bc;
     -fx-border-radius: 15px;
-    -fx-background-radius: 22;
-    -fx-border-width: 1.5;
     -fx-text-fill: #555555;
-    -fx-cursor: hand;
 }
 .cancel-btn:hover {
     -fx-border-color: #0d5c5c;
@@ -84,10 +71,7 @@
     -fx-background-color: #0d5c5c;
     -fx-background-radius: 15px;
     -fx-border-radius: 15px;
-    -fx-font-size: 14px;
-    -fx-border-width: 1.5;
     -fx-text-fill: white;
-    -fx-cursor: hand;
     -fx-effect: dropshadow(gaussian, rgba(13,92,92,0.38), 10, 0, 0, 4);
 }
 .verify-btn:hover {
