@@ -16,10 +16,12 @@ public class ResponsiveViewUtil {
     public static void convertToResponsiveView(Region root, Node[] nodes, Label[] errorMsgLabels,
             boolean hideErrorMessages) {
         double[] widthAndHightRatios = getScreenWidthAndHightRatios(root);
-        if (hideErrorMessages)
-            hideErrorMessages(errorMsgLabels, widthAndHightRatios[0], widthAndHightRatios[1]);
-        else
-            showHiddenErrorMessages(errorMsgLabels);
+        if (errorMsgLabels != null) {
+            if (hideErrorMessages)
+                hideErrorMessages(errorMsgLabels, widthAndHightRatios[0], widthAndHightRatios[1]);
+            else
+                showHiddenErrorMessages(errorMsgLabels);
+        }
         for (Node n : nodes) {
             if (n instanceof Region region) {
                 if (region.isVisible()) {
