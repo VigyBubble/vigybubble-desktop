@@ -16,7 +16,6 @@
 }
 /* ===== INPUT FIELDS ===== */
 .input-field {
-  -fx-prompt-text-fill: #bbb;
   -fx-border-radius: 20;
   -fx-background-color: transparent;
   -fx-border-color: #dbdddc;

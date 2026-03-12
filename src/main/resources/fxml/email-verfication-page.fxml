@@ -11,7 +11,9 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="root" prefHeight="1024.0" prefWidth="1440.0" styleClass="root" stylesheets="@../css/verification-page.css,@../css/Master.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.effortcure.controller.EmailVerficationPageController">
+<AnchorPane fx:id="root" prefHeight="1024.0" prefWidth="1440.0" styleClass="root" stylesheets="@../css/verification-page.css,@../css/Master.css"
+   xmlns="http://javafx.com/javafx/21"
+   xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.effortcure.controller.EmailVerficationPageController">
    <children>
       <Pane fx:id="verficationContainer" layoutX="100.0" layoutY="100.0" prefHeight="824.0" prefWidth="1240.0" styleClass="card">
          <children>
@@ -54,17 +56,20 @@
                         <TextField fx:id="otpField2" layoutX="347.0" layoutY="0.0" prefHeight="105.0" prefWidth="140.0" styleClass="otp-field">
                            <font>
                               <Font size="40.0" />
-                           </font></TextField>
+                           </font>
+                        </TextField>
 
                         <TextField fx:id="otpField3" layoutX="527.0" layoutY="0.0" prefHeight="105.0" prefWidth="140.0" styleClass="otp-field">
                            <font>
                               <Font size="40.0" />
-                           </font></TextField>
+                           </font>
+                        </TextField>
 
                         <TextField fx:id="otpField4" layoutX="707.0" layoutY="0.0" prefHeight="105.0" prefWidth="140.0" styleClass="otp-field">
                            <font>
                               <Font size="40.0" />
-                           </font></TextField>
+                           </font>
+                        </TextField>
 
                      </children>
                   </Pane>
@@ -75,12 +80,14 @@
                         <Label fx:id="resendLabel" alignment="CENTER" layoutX="0.0" layoutY="0.0" prefHeight="34.0" prefWidth="191.0" styleClass="resend-label" text="Don’t get code?">
                            <font>
                               <Font size="26.0" />
-                           </font></Label>
+                           </font>
+                        </Label>
 
                         <Hyperlink fx:id="resendLink" layoutX="191.0" layoutY="0.0" prefHeight="34.0" prefWidth="171.0" style="-fx-cursor: hand;" styleClass="resend-link" text="Click to resend">
                            <font>
                               <Font size="24.0" />
-                           </font></Hyperlink>
+                           </font>
+                        </Hyperlink>
 
                      </children>
                   </Pane>
@@ -90,13 +97,13 @@
                   <Pane fx:id="btnContainer" layoutX="0.0" layoutY="414.0" prefHeight="56.0" prefWidth="1014.0" styleClass="btnContainer">
                      <children>
 
-                        <Button fx:id="cancelBtn" alignment="CENTER" layoutX="214.5" layoutY="0.0" mnemonicParsing="false" prefHeight="56.0" prefWidth="280.0" style="-fx-font-size: 32; -fx-cursor: hand;" styleClass="cancel-btn" text="Cancel">
+                        <Button fx:id="cancelBtn" alignment="CENTER" layoutX="214.5" layoutY="0.0" mnemonicParsing="false" prefHeight="56.0" prefWidth="280.0" style="-fx-cursor: hand;" styleClass="cancel-btn" text="Cancel">
                            <font>
                               <Font size="32.0" />
                            </font>
                         </Button>
 
-                        <Button fx:id="verifyBtn" layoutX="519.5" layoutY="0.0" mnemonicParsing="false" prefHeight="56.0" prefWidth="280.0" style="-fx-font-size: 32; -fx-cursor: hand;" styleClass="verify-btn" text="Verify">
+                        <Button fx:id="verifyBtn" layoutX="519.5" layoutY="0.0" mnemonicParsing="false" prefHeight="56.0" prefWidth="280.0" style=" -fx-cursor: hand;" styleClass="verify-btn" text="Verify">
                            <font>
                               <Font size="32.0" />
                            </font>
