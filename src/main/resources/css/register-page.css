@@ -2,6 +2,7 @@
   -fx-background-radius: 25;
   -fx-background-color: white;
 }
+
 .loginBtn {
   -fx-border-color: white;
   -fx-border-radius: 15;
@@ -9,24 +10,26 @@
   -fx-background-color: transparent;
   -fx-cursor: hand;
 }
+
 .allLabels {
   -fx-font-family: "K2D";
 }
+
 .loginBtn:hover {
   -fx-background-color: rgba(255, 255, 255, 0.15);
 }
+
 /* ===== INPUT FIELDS ===== */
 .input-field {
-  -fx-prompt-text-fill: #bbb;
   -fx-border-radius: 20;
   -fx-background-color: transparent;
   -fx-border-color: #dbdddc;
-  -fx-effect: dropshadow(gaussian, #dbdddc, 25, 0, 0, 10);
 }
+
 .input-field:focused {
   -fx-border-color: #177b75;
-  -fx-effect: dropshadow(gaussian, rgba(23, 123, 117, 0.2), 6, 0, 0, 0);
 }
+
 /* ===== REGISTER BUTTON ===== */
 .register-btn {
   -fx-cursor: hand;
@@ -35,9 +38,11 @@
   -fx-text-fill: white;
   -fx-alignment: center;
 }
+
 .register-btn:hover {
   -fx-background-color: #0e4e4a;
 }
+
 .register-btn:pressed {
   -fx-background-color: #0a3d39;
 }

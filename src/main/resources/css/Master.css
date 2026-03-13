@@ -1,7 +1,7 @@
 @font-face {
     font-family: 'K2D';
     src: url('../fonts/K2D-Regular.ttf');
-    font-weight: 400; 
+    font-weight: 400;
 }
 
 @font-face {
@@ -13,7 +13,7 @@
 @font-face {
     font-family: 'K2D';
     src: url('../fonts/K2D-Regular.ttf');
-    font-weight: 400; 
+    font-weight: 400;
 }
 
 @font-face {
@@ -25,20 +25,31 @@
 @font-face {
     font-family: 'K2D';
     src: url('../fonts/K2D-Bold.ttf');
-    font-weight: 700; 
+    font-weight: 700;
 }
+
 .root {
-    -fx-font-family: 'K2D';  
-   -fx-background-color: linear-gradient(to right, #22B9AF, #115D58);
+    -fx-font-family: 'K2D';
+    -fx-background-color: linear-gradient(to right, #22B9AF, #115D58);
 }
 
 .side-image {
-   -fx-background-image: url("../images/register-img.jpg");
-   -fx-background-size: cover;
-   -fx-background-position: center;
-   -fx-background-radius: 25;
+    -fx-background-image: url("../images/register-img.jpg");
+    -fx-background-size: cover;
+    -fx-background-position: center;
+    -fx-background-radius: 25;
 }
 
 .image-gradient {
-   -fx-background-color: linear-gradient(to bottom, rgba(0, 0, 0, 0.2), rgba(34, 185, 175, 0.25));
+    -fx-background-color: linear-gradient(to bottom, rgba(0, 0, 0, 0.2), rgba(34, 185, 175, 0.25));
+}
+
+.error-field {
+    -fx-border-radius: 20;
+    -fx-background-color: transparent;
+    -fx-border-color: #FF1B1B;
+}
+
+.error-field:focused {
+    -fx-border-color: #FF1B1B;
 }

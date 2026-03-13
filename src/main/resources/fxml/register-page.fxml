@@ -33,7 +33,7 @@
                       <Font size="30.0"/>
                     </font>
                   </Label>
-                  <Button fx:id="loginBtn" layoutX="160.0" layoutY="189.0" mnemonicParsing="false" prefHeight="56.0" prefWidth="280.0" style="-fx-cursor: hand;" styleClass="loginBtn" text="Login" textFill="WHITE">
+                  <Button fx:id="loginBtn" layoutX="160.0" layoutY="189.0" mnemonicParsing="false" onAction="#login" prefHeight="56.0" prefWidth="280.0" style="-fx-cursor: hand;" styleClass="loginBtn" text="Login" textFill="WHITE">
                     <font>
                       <Font size="32.0"/>
                     </font>
@@ -47,17 +47,17 @@
           <children>
             <Pane fx:id="nameContainer" prefHeight="147.0" prefWidth="436.0">
               <children>
-                <Label fx:id="nameLabel" styleClass="allLabels" layoutX="16.0" prefHeight="36.0" prefWidth="404.0" text="Name">
+                <Label fx:id="nameLabel" layoutX="16.0" prefHeight="36.0" prefWidth="404.0" styleClass="allLabels" text="Name">
                   <font>
                     <Font size="28.0"/>
                   </font>
                 </Label>
-                <TextField fx:id="nameFeild" styleClass="input-field" layoutX="56.0" layoutY="52.0" prefHeight="56.0" prefWidth="364.0">
+                <TextField fx:id="nameFeild" layoutX="56.0" layoutY="52.0" prefHeight="56.0" prefWidth="364.0" styleClass="input-field">
                   <font>
                     <Font size="25.0"/>
                   </font>
                 </TextField>
-                <Label fx:id="nameErrorMsg" styleClass="allLabels" layoutX="56.0" layoutY="116.0" prefHeight="35.0" prefWidth="364.0" style="-fx-text-fill: FF1B1B;" text="This field is required*">
+                <Label fx:id="nameErrorMsg" layoutX="56.0" layoutY="116.0" prefHeight="35.0" prefWidth="364.0" style="-fx-text-fill: FF1B1B;" styleClass="allLabels" text="This field is required*">
                   <font>
                     <Font size="24.0"/>
                   </font>
@@ -71,17 +71,17 @@
             </Pane>
             <Pane fx:id="emailContainer" layoutY="163.0" prefHeight="147.0" prefWidth="436.0">
               <children>
-                <Label fx:id="emailLabel" layoutX="16.0" prefHeight="36.0" prefWidth="404.0" text="Email" styleClass="allLabels">
+                <Label fx:id="emailLabel" layoutX="16.0" prefHeight="36.0" prefWidth="404.0" styleClass="allLabels" text="Email">
                   <font>
                     <Font size="28.0"/>
                   </font>
                 </Label>
-                <TextField fx:id="emailFeild" styleClass="input-field" layoutX="56.0" layoutY="52.0" prefHeight="56.0" prefWidth="364.0">
+                <TextField fx:id="emailFeild" layoutX="56.0" layoutY="52.0" prefHeight="56.0" prefWidth="364.0" styleClass="input-field">
                   <font>
                     <Font size="25.0"/>
                   </font>
                 </TextField>
-                <Label fx:id="emailErrorMsg" styleClass="allLabels" layoutX="56.0" layoutY="116.0" prefHeight="35.0" prefWidth="364.0" style="-fx-text-fill: FF1B1B;" text="Email already registered*">
+                <Label fx:id="emailErrorMsg" layoutX="56.0" layoutY="116.0" prefHeight="35.0" prefWidth="364.0" style="-fx-text-fill: FF1B1B;" styleClass="allLabels" text="Email already registered*">
                   <font>
                     <Font size="24.0"/>
                   </font>
@@ -95,22 +95,22 @@
             </Pane>
             <Pane fx:id="passwordContainer" layoutY="326.0" prefHeight="147.0" prefWidth="436.0">
               <children>
-                <Label fx:id="passwordLabel" styleClass="allLabels" layoutX="16.0" prefHeight="36.0" prefWidth="404.0" text="Password">
+                <Label fx:id="passwordLabel" layoutX="16.0" prefHeight="36.0" prefWidth="404.0" styleClass="allLabels" text="Password">
                   <font>
                     <Font size="28.0"/>
                   </font>
                 </Label>
-                <PasswordField fx:id="passwordFeild" styleClass="input-field" layoutX="56.0" layoutY="52.0" prefHeight="56.0" prefWidth="364.0" style="">
+                <TextField fx:id="passwordFeild" layoutX="56.0" layoutY="52.0" prefHeight="56.0" prefWidth="364.0" style="" styleClass="input-field">
                   <font>
                     <Font size="25.0"/>
                   </font>
-                </PasswordField>
-                <Label fx:id="passwordErrorMsg" styleClass="allLabels" layoutX="56.0" layoutY="116.0" prefHeight="31.0" prefWidth="376.0" style="-fx-text-fill: FF1B1B;" text="Passwords do not match *">
+                </TextField>
+                <Label fx:id="passwordErrorMsg" layoutX="56.0" layoutY="116.0" prefHeight="31.0" prefWidth="376.0" style="-fx-text-fill: FF1B1B;" styleClass="allLabels" text="Passwords do not match *">
                   <font>
                     <Font size="24.0"/>
                   </font>
                 </Label>
-                <ImageView fx:id="hidePasswordIcon" fitHeight="24.0" fitWidth="24.0" layoutX="380.0" layoutY="68.0" pickOnBounds="true" preserveRatio="true">
+                <ImageView fx:id="hidePasswordIcon" fitHeight="24.0" fitWidth="24.0" layoutX="380.0" layoutY="68.0" onMouseClicked="#hideAndShowPassword" pickOnBounds="true" preserveRatio="true">
                   <image>
                     <Image url="@../images/locked-eye.png"/>
                   </image>
@@ -124,22 +124,22 @@
             </Pane>
             <Pane fx:id="confirmPasswordContainer" layoutY="489.0" prefHeight="147.0" prefWidth="436.0">
               <children>
-                <Label fx:id="confirmPasswordLabel" styleClass="allLabels" layoutX="16.0" prefHeight="36.0" prefWidth="404.0" text="Confirm password">
+                <Label fx:id="confirmPasswordLabel" layoutX="16.0" prefHeight="36.0" prefWidth="404.0" styleClass="allLabels" text="Confirm password">
                   <font>
                     <Font size="28.0"/>
                   </font>
                 </Label>
-                <Label fx:id="confirmPasswordErrorMsg" styleClass="allLabels" layoutX="56.0" layoutY="116.0" prefHeight="31.0" prefWidth="376.0" style="-fx-text-fill: FF1B1B;" text="Passwords do not match *">
+                <Label fx:id="confirmPasswordErrorMsg" layoutX="56.0" layoutY="116.0" prefHeight="31.0" prefWidth="376.0" style="-fx-text-fill: FF1B1B;" styleClass="allLabels" text="Passwords do not match *">
                   <font>
                     <Font size="24.0"/>
                   </font>
                 </Label>
-                <PasswordField fx:id="confirmPasswordFeild" styleClass="input-field" layoutX="56.0" layoutY="52.0" prefHeight="56.0" prefWidth="364.0">
+                <TextField fx:id="confirmPasswordFeild" layoutX="56.0" layoutY="52.0" prefHeight="56.0" prefWidth="364.0" styleClass="input-field">
                   <font>
                     <Font size="25.0"/>
                   </font>
-                </PasswordField>
-                <ImageView fx:id="hideConfirmPasswordIcon" fitHeight="24.0" fitWidth="24.0" layoutX="380.0" layoutY="68.0" pickOnBounds="true" preserveRatio="true">
+                </TextField>
+                <ImageView fx:id="hideConfirmPasswordIcon" fitHeight="24.0" fitWidth="24.0" layoutX="380.0" layoutY="68.0" pickOnBounds="true" preserveRatio="true" onMouseClicked="#hideAndShowConfirmPassword">
                   <image>
                     <Image url="@../images/locked-eye.png"/>
                   </image>
@@ -151,7 +151,7 @@
                 </ImageView>
               </children>
             </Pane>
-            <Button fx:id="registerBtn" layoutX="78.0" layoutY="676.0" mnemonicParsing="false" prefHeight="56.0" prefWidth="280.0" styleClass="register-btn" text="Register">
+            <Button fx:id="registerBtn" layoutX="78.0" layoutY="676.0" mnemonicParsing="false" onAction="#register" prefHeight="56.0" prefWidth="280.0" styleClass="register-btn" text="Register">
               <font>
                 <Font size="32.0"/>
               </font>

@@ -2,7 +2,7 @@ package com.effortcure;
 
 import java.io.IOException;
 
-import com.effortcure.navigator.SceneManager;
+import com.effortcure.util.SceneManager;
 import com.effortcure.util.ScreenDimensionsUtil;
 
 import javafx.application.Application;

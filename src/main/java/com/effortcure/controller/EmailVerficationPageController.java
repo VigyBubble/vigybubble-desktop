@@ -30,13 +30,13 @@ public class EmailVerficationPageController {
     @FXML
     private Pane otpContainer;
     @FXML
-    private Label otpField1;
+    private TextField otpField1;
     @FXML
-    private Label otpField2;
+    private TextField otpField2;
     @FXML
-    private Label otpField3;
+    private TextField otpField3;
     @FXML
-    private Label otpField4;
+    private TextField otpField4;
     @FXML
     private Pane resendContainer;
     @FXML
@@ -44,14 +44,12 @@ public class EmailVerficationPageController {
     @FXML
     private Hyperlink resendLink;
     @FXML
-    private Separator separator; 
-     @FXML
+    private Separator separator;
+    @FXML
     private Pane btnContainer;
     @FXML
     private Button cancelBtn;
     @FXML
     private Button verifyBtn;
-
-    
 
 }
