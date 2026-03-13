@@ -8,7 +8,6 @@
   -fx-border-radius: 15;
   -fx-border-width: 2;
   -fx-background-color: transparent;
-  -fx-cursor: hand;
 }
 
 .allLabels {
@@ -32,7 +31,6 @@
 
 /* ===== REGISTER BUTTON ===== */
 .register-btn {
-  -fx-cursor: hand;
   -fx-background-radius: 15;
   -fx-background-color: #115d58;
   -fx-text-fill: white;

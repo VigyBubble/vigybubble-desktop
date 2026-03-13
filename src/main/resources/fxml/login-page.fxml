@@ -21,33 +21,33 @@
           <clip>
             <Rectangle fx:id="rightImageRectangle" arcHeight="25" arcWidth="25" height="824" width="620.0" />
           </clip>
-        <Pane fx:id="rightImageGradientContainer" prefHeight="824.0" prefWidth="620.0" styleClass="image-gradient"> 
+        <Pane fx:id="rightImageGradientContainer" prefHeight="824.0" prefWidth="620.0" styleClass="image-gradient">
           <children>
             <Pane fx:id="rightContentContainer" layoutX="51.0" layoutY="270.0" prefHeight="301.0" prefWidth="518.0">
-               <children>
+              <children>
                     <Label fx:id="labelWelcome" prefHeight="62.0" prefWidth="518.0" text="      Welcome Back!">
                       <font>
                         <Font size="48.0" />
                       </font>
                     </Label>
-                    <Label fx:id="labelInfo" layoutX="36.0" layoutY="78.0" prefHeight="108.0" prefWidth="472.0" text="To keep connected with us please      login with your personal info" wrapText="true">
+                    <Label fx:id="labelInfo" layoutX="36.0" layoutY="78.0" prefHeight="108.0" prefWidth="472.0" text="To keep connected with us please login with your personal info" wrapText="true">
                       <font>
                         <Font size="30.0" />
                       </font>
                     </Label>
                 <Button fx:id="buttonRegister" layoutX="119.0" layoutY="228.0" mnemonicParsing="false" prefHeight="56.0" prefWidth="280.0" text="Register">
                               <font>
-                                 <Font size="32.0" />
+                              <Font size="32.0" />
                               </font></Button>
-               </children>
+              </children>
             </Pane>
           </children>
         </Pane>
-           </Pane>
+          </Pane>
       <Pane fx:id="formContainer" layoutX="92.0" layoutY="132.0" prefHeight="570.0" prefWidth="436.0">
-               <children>
+              <children>
                   <Pane fx:id="emailContainer" prefHeight="108.0" prefWidth="436.0">
-                     <children>
+                    <children>
         <Label fx:id="labelEmail" layoutX="16.0" prefHeight="36.0" prefWidth="404.0" styleClass="field-label" text="Email">
           <font>
             <Font size="28.0" />
@@ -63,10 +63,10 @@
           <Font size="24.0" />
         </font>
       </TextField>
-                     </children>
+                    </children>
                   </Pane>
                   <Pane fx:id="passwordContainer" layoutY="140.0" prefHeight="147.0" prefWidth="436.0">
-                     <children>
+                    <children>
         <Label fx:id="labelPassword" layoutX="16.0" prefHeight="36.0" prefWidth="404.0" styleClass="field-label" text="Password">
           <font>
             <Font size="28.0" />
@@ -78,21 +78,21 @@
       </font>
     </PasswordField>
                         <ImageView fx:id="passwordlIcon" fitHeight="24.0" fitWidth="24.0" layoutX="16.0" layoutY="68.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
+                          <image>
                               <Image url="@../images/login-password.png" />
-                           </image>
+                          </image>
                         </ImageView>
       <Label fx:id="passwordErrorMsg" layoutX="56.0" layoutY="116.0" prefHeight="33.0" prefWidth="308.0" text="invalid email or password *">
-                           <font>
+                          <font>
                               <Font size="24.0" />
-                           </font>
+                          </font>
                         </Label>
                         <ImageView fx:id="locklIcon" fitHeight="24.0" fitWidth="24.0" layoutX="380.0" layoutY="68.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
+                          <image>
                               <Image url="@../images/locked-eye.png" />
-                           </image>
+                          </image>
                         </ImageView>
-                     </children>
+                    </children>
                   </Pane>
       <CheckBox fx:id="checkRememberMe" layoutX="16.0" layoutY="342.0" mnemonicParsing="false" prefHeight="24.0" prefWidth="141.0" text="Remember me">
         <font>
@@ -104,14 +104,14 @@
             <Font size="16.0" />
           </font>
         </Hyperlink>
-          <Button fx:id="buttonLogin" layoutX="78.0" layoutY="502.0" mnemonicParsing="false" prefHeight="58.0" prefWidth="280.0" text="Login">
+          <Button fx:id="buttonLogin" layoutX="78.0" layoutY="502.0" mnemonicParsing="false" prefHeight="58.0" prefWidth="280.0" styleClass="login-btn" text="Login">
             <font>
               <Font size="32.0" />
             </font>
           </Button>
-               </children>
+              </children>
       </Pane>
     </children>
-  </Pane>   
+  </Pane>
 </children>
 </AnchorPane>
