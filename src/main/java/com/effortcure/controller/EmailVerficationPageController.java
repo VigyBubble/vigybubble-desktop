@@ -1,6 +1,6 @@
 package com.effortcure.controller;
 
-import javax.swing.JPopupMenu.Separator;
+
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -10,6 +10,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
+import javafx.scene.control.Separator;
 
 public class EmailVerficationPageController {
 
@@ -30,13 +31,13 @@ public class EmailVerficationPageController {
     @FXML
     private Pane otpContainer;
     @FXML
-    private Label otpField1;
+    private TextField otpField1;
     @FXML
-    private Label otpField2;
+    private TextField otpField2;
     @FXML
-    private Label otpField3;
+    private TextField otpField3;
     @FXML
-    private Label otpField4;
+    private TextField otpField4;
     @FXML
     private Pane resendContainer;
     @FXML
