@@ -29,15 +29,8 @@
 }
 /* ===== REGISTER BUTTON ===== */
 .register-btn {
-  -fx-cursor: hand;
   -fx-background-radius: 15;
   -fx-background-color: #115d58;
   -fx-text-fill: white;
-  -fx-alignment: center;
 }
-.register-btn:hover {
-  -fx-background-color: #0e4e4a;
-}
-.register-btn:pressed {
-  -fx-background-color: #0a3d39;
-}
+
