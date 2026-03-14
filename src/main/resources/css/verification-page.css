@@ -41,7 +41,6 @@
   -fx-border-color: transparent;
   -fx-background-color: transparent;
   -fx-padding: 0;
-   -fx-font-family: 'K2D';
 }
 .resend-link:hover {
   -fx-text-fill: #177b75;
@@ -62,22 +61,4 @@
 }
 .cancel-btn:hover {
   -fx-border-color: #0d5c5c;
-}
-
-/* ===== VERIFY BUTTON ===== */
-.verify-btn {
-  -fx-background-color: #0d5c5c;
-  -fx-background-radius: 15px;
-  -fx-border-radius: 15px;
-  -fx-text-fill: white;
-  -fx-effect: dropshadow(gaussian, rgba(13, 92, 92, 0.38), 10, 0, 0, 4);
-   -fx-font-family: 'K2D';
-}
-.verify-btn:hover {
-  -fx-background-color: #0a4a4a;
-  -fx-effect: dropshadow(gaussian, rgba(13, 92, 92, 0.55), 14, 0, 0, 5);
-}
-.verify-btn:pressed {
-  -fx-background-color: #083838;
-  -fx-effect: dropshadow(gaussian, rgba(13, 92, 92, 0.2), 4, 0, 0, 1);
 }

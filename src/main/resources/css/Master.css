@@ -30,6 +30,7 @@
 .input-field:focused {
   -fx-border-color: #177b75;
 }
+/* ===== all error messages ===== */
 .error-msg{
    -fx-font-family: 'K2D';
     -fx-font-weight: 400;
@@ -43,4 +44,19 @@
    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.28), 30, 0, 0, 8);
   -fx-background-color: linear-gradient(to top right, #cceeec, white);
   -fx-background-radius: 25;
+}
+.verify-btn,.register-btn,.save-btn{
+    -fx-background-radius: 15;
+  -fx-background-color: #115d58;
+  -fx-text-fill: white;
+  -fx-alignment: center;
+  -fx-effect: dropshadow(gaussian, rgba(13, 92, 92, 0.38), 10, 0, 0, 4);
+}
+.verify-btn:hover,.register-btn:hover,.save-btn:hover {
+    -fx-background-color: #0a4a4a;
+  -fx-effect: dropshadow(gaussian, rgba(13, 92, 92, 0.55), 14, 0, 0, 5);
+}
+.save-btn:pressed, .verify-btn:pressed, .register-btn:pressed {
+ -fx-background-color: #083838;
+  -fx-effect: dropshadow(gaussian, rgba(13, 92, 92, 0.2), 4, 0, 0, 1);
 }
