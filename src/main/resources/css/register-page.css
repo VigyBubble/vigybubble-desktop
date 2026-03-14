@@ -1,19 +1,9 @@
-.card {
-  -fx-background-radius: 25;
-  -fx-background-color: white;
-}
-
 .loginBtn {
   -fx-border-color: white;
   -fx-border-radius: 15;
   -fx-border-width: 2;
   -fx-background-color: transparent;
 }
-
-.allLabels {
-  -fx-font-family: "K2D";
-}
-
 .loginBtn:hover {
   -fx-background-color: rgba(255, 255, 255, 0.15);
 }
@@ -35,12 +25,15 @@
   -fx-background-color: #115d58;
   -fx-text-fill: white;
   -fx-alignment: center;
+  -fx-effect: dropshadow(gaussian, rgba(13, 92, 92, 0.38), 10, 0, 0, 4);
 }
 
 .register-btn:hover {
   -fx-background-color: #0e4e4a;
+  -fx-effect: dropshadow(gaussian, rgba(13, 92, 92, 0.55), 14, 0, 0, 5);
 }
 
 .register-btn:pressed {
   -fx-background-color: #0a3d39;
+  -fx-effect: dropshadow(gaussian, rgba(13, 92, 92, 0.2), 4, 0, 0, 1);
 }

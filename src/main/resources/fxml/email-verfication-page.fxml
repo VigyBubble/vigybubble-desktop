@@ -11,11 +11,9 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="root" prefHeight="1024.0" prefWidth="1440.0" styleClass="root" stylesheets="@../css/verification-page.css,@../css/Master.css"
-   xmlns="http://javafx.com/javafx/21"
-   xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.effortcure.controller.EmailVerficationPageController">
+<AnchorPane fx:id="root" prefHeight="1024.0" prefWidth="1440.0" styleClass="root" stylesheets="@../css/verification-page.css,@../css/Master.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.effortcure.controller.EmailVerficationPageController">
    <children>
-      <Pane fx:id="verficationContainer" layoutX="100.0" layoutY="100.0" prefHeight="824.0" prefWidth="1240.0" styleClass="card">
+      <Pane fx:id="verficationContainer" layoutX="100.0" layoutY="100.0" prefHeight="824.0" prefWidth="1240.0" styleClass="verficationCard">
          <children>
 
             <ImageView fx:id="backBtn" fitHeight="22.05" fitWidth="23.93" layoutX="46.0" layoutY="60.0" pickOnBounds="true" preserveRatio="true" style="-fx-cursor: hand;" styleClass="back-btn">
@@ -23,7 +21,7 @@
                   <Image url="@../images/left-arrow.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="logoImg" fitHeight="220.0" fitWidth="220.0" layoutX="510.0" layoutY="81.84" pickOnBounds="true" preserveRatio="true" styleClass="logoImg">
+            <ImageView fx:id="logoImg" fitHeight="220.0" fitWidth="220.0" layoutX="530.0" layoutY="81.84" pickOnBounds="true" preserveRatio="true" styleClass="logoImg">
                <image>
                   <Image url="@../images/logo.png" />
                </image>
@@ -47,25 +45,25 @@
                   <Pane fx:id="otpContainer" layoutX="0.0" layoutY="155.0" prefHeight="105.0" prefWidth="1014.0" styleClass="otpContainer">
                      <children>
 
-                        <TextField fx:id="otpField1" layoutX="167.0" layoutY="0.0" prefHeight="105.0" prefWidth="140.0" styleClass="otp-field">
+                        <TextField fx:id="otpField1" alignment="CENTER" layoutX="167.0" layoutY="0.0" prefHeight="105.0" prefWidth="140.0" styleClass="otp-field">
                            <font>
                               <Font size="40.0" />
                            </font>
                         </TextField>
 
-                        <TextField fx:id="otpField2" layoutX="347.0" layoutY="0.0" prefHeight="105.0" prefWidth="140.0" styleClass="otp-field">
+                        <TextField fx:id="otpField2" alignment="CENTER" layoutX="347.0" layoutY="0.0" prefHeight="105.0" prefWidth="140.0" styleClass="otp-field">
                            <font>
                               <Font size="40.0" />
                            </font>
                         </TextField>
 
-                        <TextField fx:id="otpField3" layoutX="527.0" layoutY="0.0" prefHeight="105.0" prefWidth="140.0" styleClass="otp-field">
+                        <TextField fx:id="otpField3" alignment="CENTER" layoutX="527.0" layoutY="0.0" prefHeight="105.0" prefWidth="140.0" styleClass="otp-field">
                            <font>
                               <Font size="40.0" />
                            </font>
                         </TextField>
 
-                        <TextField fx:id="otpField4" layoutX="707.0" layoutY="0.0" prefHeight="105.0" prefWidth="140.0" styleClass="otp-field">
+                        <TextField fx:id="otpField4" alignment="CENTER" layoutX="707.0" layoutY="0.0" prefHeight="105.0" prefWidth="140.0" styleClass="otp-field">
                            <font>
                               <Font size="40.0" />
                            </font>
