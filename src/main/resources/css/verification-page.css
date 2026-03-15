@@ -27,7 +27,11 @@
   -fx-border-color: #177b75;
   -fx-effect: dropshadow(gaussian, rgba(0, 184, 156, 0.28), 10, 0, 0, 0);
 }
-
+/*====================*/
+.otpFieldsError {
+   -fx-border-color: #FF1B1B;
+   -fx-effect: dropshadow(gaussian, rgba(255, 27, 27, 0.28), 10, 0, 0, 0);
+}
 /* ===== RESEND LABEL ===== */
 .resend-label {
   -fx-text-fill: #555555;

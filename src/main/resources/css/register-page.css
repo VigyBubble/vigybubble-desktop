@@ -9,7 +9,7 @@
 }
 
 /* ===== INPUT FIELDS ===== */
-.input-field {
+/* .input-field {
   -fx-border-radius: 20;
   -fx-background-color: transparent;
   -fx-border-color: #dbdddc;
@@ -17,4 +17,4 @@
 
 .input-field:focused {
   -fx-border-color: #177b75;
-}
+} */

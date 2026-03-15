@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="root" prefHeight="1024.0" prefWidth="1440.0" styleClass="root" stylesheets="@../css/verification-page.css,@../css/Master.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.effortcure.controller.EmailVerficationPageController">
+<AnchorPane fx:id="root" prefHeight="1024.0" prefWidth="1440.0" styleClass="root" stylesheets="@../css/verification-page.css,@../css/Master.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.effortcure.controller.EmailVerficationPageController">
   <children>
     <Pane fx:id="verficationContainer" layoutX="100.0" layoutY="100.0" prefHeight="824.0" prefWidth="1240.0" styleClass="verficationCard">
       <children>
@@ -39,12 +39,12 @@
             </Label>
             <Pane fx:id="otpContainer" layoutX="0.0" layoutY="155.0" prefHeight="105.0" prefWidth="1014.0" styleClass="otpContainer">
               <children>
-                <TextField fx:id="otpField1" alignment="CENTER" layoutX="167.0" layoutY="0.0" prefHeight="105.0" prefWidth="140.0" styleClass="otp-field">
+                <TextField fx:id="otpField1" alignment="CENTER" layoutX="167.0" layoutY="0.0" prefHeight="105.0" prefWidth="140.0" styleClass="otp-field" >
                   <font>
                     <Font size="40.0" />
                   </font>
                 </TextField>
-                <TextField fx:id="otpField2" alignment="CENTER" layoutX="347.0" layoutY="0.0" prefHeight="105.0" prefWidth="140.0" styleClass="otp-field">
+                <TextField fx:id="otpField2" alignment="CENTER" layoutX="347.0" layoutY="0.0" prefHeight="105.0" prefWidth="140.0" styleClass="otp-field" >
                   <font>
                     <Font size="40.0" />
                   </font>
@@ -76,7 +76,7 @@
               </children>
             </Pane>
             <Separator fx:id="separator" layoutX="0.0" layoutY="358.0" prefHeight="0.0" prefWidth="1014.0" />
-          <Button fx:id="verifyBtn" layoutX="367.0" layoutY="404.0" mnemonicParsing="false" prefHeight="56.0" prefWidth="280.0" style="-fx-cursor: hand;" styleClass="verify-btn" text="Verify">
+          <Button fx:id="verifyBtn"  onAction="#handleVerify"  layoutX="367.0" layoutY="404.0" mnemonicParsing="false" prefHeight="56.0" prefWidth="280.0" style="-fx-cursor: hand;" styleClass="verify-btn" text="Verify">
             <font>
               <Font size="32.0" />
             </font>
