@@ -90,7 +90,7 @@ public class EmailVerficationPageController {
             TextField next = (i < fields.length - 1) ? fields[i + 1] : null;
 
             current.textProperty().addListener((obs, oldValue, newValue) -> {
-
+                // ارقام فقط يمنع إدخال الحروف أو الرموز
                 if (!newValue.matches("\\d*")) {
                     current.setText(newValue.replaceAll("[^\\d]", ""));
                 }
@@ -104,7 +104,7 @@ public class EmailVerficationPageController {
                 if (newValue.length() == 1 && next != null) {
                     next.requestFocus();
                 }
-                //لعمل paste للكود
+                // لعمل paste للكود
                 if (newValue.length() > 1 && newValue.length() >= fields.length - index) {
                     char[] digits = newValue.toCharArray();
                     for (int j = 0; j < digits.length && (index + j) < fields.length; j++) {
@@ -113,6 +113,7 @@ public class EmailVerficationPageController {
                     fields[fields.length - 1].requestFocus();
                     return;
                 }
+                // لتحديث الكود في ال StringBuilder
                 if (!newValue.isEmpty()) {
                     verficationCode.setCharAt(index, newValue.charAt(0));
                 } else {
