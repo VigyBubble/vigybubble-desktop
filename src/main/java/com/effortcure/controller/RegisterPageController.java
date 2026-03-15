@@ -169,6 +169,8 @@ public class RegisterPageController {
                 }
             });
             new Thread(task).start();
+            EmailVerficationPageController.email = emailFeild.getText();
+            EmailVerficationPageController.oldScene = "REGISTER";
             SceneManager.switchScene("/fxml/email-verfication-page.fxml");
         }
     }
