@@ -66,12 +66,17 @@ public class EmailVerficationPageController {
 
     @FXML
     private Button verifyBtn;
+
+    public static String email;
+    public static String oldScene;
     private StringBuilder verficationCode = new StringBuilder("    ");
 
     @FXML
     private void initialize() {
         ViewUtil.initiateResponsiveView(this);
         setupOtpFields();
+        System.out.println(email);
+        System.out.println(oldScene);
     }
 
     private void setupOtpFields() {
