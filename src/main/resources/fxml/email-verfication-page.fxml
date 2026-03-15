@@ -11,108 +11,79 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="root" prefHeight="1024.0" prefWidth="1440.0" styleClass="root" stylesheets="@../css/verification-page.css,@../css/Master.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.effortcure.controller.EmailVerficationPageController">
-   <children>
-      <Pane fx:id="verficationContainer" layoutX="100.0" layoutY="100.0" prefHeight="824.0" prefWidth="1240.0" styleClass="verficationCard">
-         <children>
-
-            <ImageView fx:id="backBtn" fitHeight="22.05" fitWidth="23.93" layoutX="46.0" layoutY="60.0" pickOnBounds="true" preserveRatio="true" style="-fx-cursor: hand;" styleClass="back-btn">
-               <image>
-                  <Image url="@../images/left-arrow.png" />
-               </image>
-            </ImageView>
-            <ImageView fx:id="logoImg" fitHeight="220.0" fitWidth="220.0" layoutX="540.0" layoutY="81.84" pickOnBounds="true" preserveRatio="true" styleClass="logoImg">
-               <image>
-                  <Image url="@../images/logo.png" />
-               </image>
-            </ImageView>
-
-            <Pane fx:id="contentContainer" layoutX="113.0" layoutY="269.17" prefHeight="473.0" prefWidth="1014.0" styleClass="contentContainer">
-               <children>
-
-                  <Label fx:id="verficationLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="0.0" layoutY="5.0" prefHeight="52.0" prefWidth="1014.0" styleClass="verficationLabel" text="Enter verification code">
-                     <font>
-                        <Font size="40.0" />
-                     </font>
-                  </Label>
-
-                  <Label fx:id="subtitleLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="0.0" layoutY="62.0" prefHeight="45.0" prefWidth="1014.0" styleClass="subtitleLabel" text="A verification code has been sent to your email.">
-                     <font>
-                        <Font size="32.0" />
-                     </font>
-                  </Label>
-
-                  <Pane fx:id="otpContainer" layoutX="0.0" layoutY="155.0" prefHeight="105.0" prefWidth="1014.0" styleClass="otpContainer">
-                     <children>
-
-                        <TextField fx:id="otpField1" alignment="CENTER" layoutX="167.0" layoutY="0.0" prefHeight="105.0" prefWidth="140.0" styleClass="otp-field">
-                           <font>
-                              <Font size="40.0" />
-                           </font>
-                        </TextField>
-
-                        <TextField fx:id="otpField2" alignment="CENTER" layoutX="347.0" layoutY="0.0" prefHeight="105.0" prefWidth="140.0" styleClass="otp-field">
-                           <font>
-                              <Font size="40.0" />
-                           </font>
-                        </TextField>
-
-                        <TextField fx:id="otpField3" alignment="CENTER" layoutX="527.0" layoutY="0.0" prefHeight="105.0" prefWidth="140.0" styleClass="otp-field">
-                           <font>
-                              <Font size="40.0" />
-                           </font>
-                        </TextField>
-
-                        <TextField fx:id="otpField4" alignment="CENTER" layoutX="707.0" layoutY="0.0" prefHeight="105.0" prefWidth="140.0" styleClass="otp-field">
-                           <font>
-                              <Font size="40.0" />
-                           </font>
-                        </TextField>
-
-                     </children>
-                  </Pane>
-
-                  <Pane fx:id="resendContainer" layoutX="326.0" layoutY="292.0" prefHeight="34.0" prefWidth="362.0" styleClass="resendContainer">
-                     <children>
-
-                        <Label fx:id="resendLabel" alignment="CENTER" layoutX="0.0" layoutY="0.0" prefHeight="34.0" prefWidth="191.0" styleClass="resend-label" text="Don’t get code?">
-                           <font>
-                              <Font size="26.0" />
-                           </font>
-                        </Label>
-
-                        <Hyperlink fx:id="resendLink" layoutX="191.0" layoutY="0.0" prefHeight="34.0" prefWidth="171.0" style="-fx-cursor: hand;" styleClass="resend-link" text="Click to resend">
-                           <font>
-                              <Font size="24.0" />
-                           </font>
-                        </Hyperlink>
-
-                     </children>
-                  </Pane>
-
-                  <Separator fx:id="separator" layoutX="0.0" layoutY="358.0" prefHeight="0.0" prefWidth="1014.0" />
-
-                  <Pane fx:id="btnContainer" layoutX="0.0" layoutY="414.0" prefHeight="56.0" prefWidth="1014.0" styleClass="btnContainer">
-                     <children>
-
-                        <Button fx:id="cancelBtn" alignment="CENTER" layoutX="214.5" layoutY="0.0" mnemonicParsing="false" prefHeight="56.0" prefWidth="280.0" style="-fx-cursor: hand;" styleClass="cancel-btn" text="Cancel">
-                           <font>
-                              <Font size="32.0" />
-                           </font>
-                        </Button>
-
-                        <Button fx:id="verifyBtn" layoutX="519.5" layoutY="0.0" mnemonicParsing="false" prefHeight="56.0" prefWidth="280.0" style=" -fx-cursor: hand;" styleClass="verify-btn" text="Verify">
-                           <font>
-                              <Font size="32.0" />
-                           </font>
-                        </Button>
-
-                     </children>
-                  </Pane>
-
-               </children>
+<AnchorPane fx:id="root" prefHeight="1024.0" prefWidth="1440.0" styleClass="root" stylesheets="@../css/verification-page.css,@../css/Master.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.effortcure.controller.EmailVerficationPageController">
+  <children>
+    <Pane fx:id="verficationContainer" layoutX="100.0" layoutY="100.0" prefHeight="824.0" prefWidth="1240.0" styleClass="verficationCard">
+      <children>
+        <ImageView fx:id="backBtn" fitHeight="22.05" fitWidth="23.93" layoutX="46.0" layoutY="60.0" pickOnBounds="true" preserveRatio="true" style="-fx-cursor: hand;" styleClass="back-btn">
+          <image>
+            <Image url="@../images/left-arrow.png" />
+          </image>
+        </ImageView>
+        <ImageView fx:id="logoImg" fitHeight="220.0" fitWidth="220.0" layoutX="540.0" layoutY="81.84" pickOnBounds="true" preserveRatio="true" styleClass="logoImg">
+          <image>
+            <Image url="@../images/logo.png" />
+          </image>
+        </ImageView>
+        <Pane fx:id="contentContainer" layoutX="113.0" layoutY="269.17" prefHeight="473.0" prefWidth="1014.0" styleClass="contentContainer">
+          <children>
+            <Label fx:id="verficationLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="0.0" layoutY="5.0" prefHeight="52.0" prefWidth="1014.0" styleClass="verficationLabel" text="Enter verification code">
+              <font>
+                <Font size="40.0" />
+              </font>
+            </Label>
+            <Label fx:id="subtitleLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="0.0" layoutY="62.0" prefHeight="45.0" prefWidth="1014.0" styleClass="subtitleLabel" text="A verification code has been sent to your email.">
+              <font>
+                <Font size="32.0" />
+              </font>
+            </Label>
+            <Pane fx:id="otpContainer" layoutX="0.0" layoutY="155.0" prefHeight="105.0" prefWidth="1014.0" styleClass="otpContainer">
+              <children>
+                <TextField fx:id="otpField1" alignment="CENTER" layoutX="167.0" layoutY="0.0" prefHeight="105.0" prefWidth="140.0" styleClass="otp-field" >
+                  <font>
+                    <Font size="40.0" />
+                  </font>
+                </TextField>
+                <TextField fx:id="otpField2" alignment="CENTER" layoutX="347.0" layoutY="0.0" prefHeight="105.0" prefWidth="140.0" styleClass="otp-field" >
+                  <font>
+                    <Font size="40.0" />
+                  </font>
+                </TextField>
+                <TextField fx:id="otpField3" alignment="CENTER" layoutX="527.0" layoutY="0.0" prefHeight="105.0" prefWidth="140.0" styleClass="otp-field">
+                  <font>
+                    <Font size="40.0" />
+                  </font>
+                </TextField>
+                <TextField fx:id="otpField4" alignment="CENTER" layoutX="707.0" layoutY="0.0" prefHeight="105.0" prefWidth="140.0" styleClass="otp-field">
+                  <font>
+                    <Font size="40.0" />
+                  </font>
+                </TextField>
+              </children>
             </Pane>
-         </children>
-      </Pane>
-   </children>
+            <Pane fx:id="resendContainer" layoutX="326.0" layoutY="292.0" prefHeight="34.0" prefWidth="362.0" styleClass="resendContainer">
+              <children>
+                <Label fx:id="resendLabel" alignment="CENTER" layoutX="0.0" layoutY="0.0" prefHeight="34.0" prefWidth="191.0" styleClass="resend-label" text="Don’t get code?">
+                  <font>
+                    <Font size="26.0" />
+                  </font>
+                </Label>
+                <Hyperlink fx:id="resendLink" layoutX="191.0" layoutY="0.0" prefHeight="34.0" prefWidth="171.0" style="-fx-cursor: hand;" styleClass="resend-link" text="Click to resend">
+                  <font>
+                    <Font size="24.0" />
+                  </font>
+                </Hyperlink>
+              </children>
+            </Pane>
+            <Separator fx:id="separator" layoutX="0.0" layoutY="358.0" prefHeight="0.0" prefWidth="1014.0" />
+          <Button fx:id="verifyBtn"  onAction="#handleVerify"  layoutX="367.0" layoutY="404.0" mnemonicParsing="false" prefHeight="56.0" prefWidth="280.0" style="-fx-cursor: hand;" styleClass="verify-btn" text="Verify">
+            <font>
+              <Font size="32.0" />
+            </font>
+          </Button>
+          </children>
+        </Pane>
+      </children>
+    </Pane>
+  </children>
 </AnchorPane>

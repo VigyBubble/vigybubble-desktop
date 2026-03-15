@@ -1,50 +1,57 @@
-
 .forgot-link {
-    -fx-text-fill: #0B3E3A ;
+    -fx-text-fill: #0B3E3A;
     -fx-cursor: hand;
 }
+
 .remember-me {
     -fx-text-fill: #787878;
     -fx-mark-color: #0e4e4a;
 }
-.remember-me > .box {
+
+.remember-me>.box {
     -fx-background-color: white;
     -fx-background-radius: 5;
-        -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 6, 0, 0, 0);
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.2), 6, 0, 0, 0);
 }
-.registerBtn{
-  -fx-border-color: white;
-  -fx-border-radius: 15;
-  -fx-border-width: 2;
-  -fx-background-color: transparent;
-   -fx-text-fill: white;
+
+.registerBtn {
+    -fx-border-color: white;
+    -fx-border-radius: 15;
+    -fx-border-width: 2;
+    -fx-background-color: transparent;
+    -fx-text-fill: white;
 }
+
 .registerBtn:hover {
-  -fx-background-color: rgba(255, 255, 255, 0.15);
+    -fx-background-color: rgba(255, 255, 255, 0.15);
 }
 
 .welcome-label {
-    -fx-text-fill:white;
+    -fx-text-fill: white;
     -fx-font-family: 'K2D';
     -fx-font-weight: 600;
 }
+
 .info-label {
     -fx-text-fill: white;
     -fx-font-family: 'K2D';
     -fx-font-weight: 400;
 }
+
 .login-btn {
-  -fx-background-color: #0d5c5c;
-  -fx-background-radius: 15px;
-  -fx-border-radius: 15px;
-  -fx-text-fill: white;
-  -fx-effect: dropshadow(gaussian, rgba(13, 92, 92, 0.38), 10, 0, 0, 4);
+    -fx-background-color: #0d5c5c;
+    -fx-background-radius: 15px;
+    -fx-border-radius: 15px;
+    -fx-text-fill: white;
+    -fx-effect: dropshadow(gaussian, rgba(13, 92, 92, 0.38), 10, 0, 0, 4);
 }
+
 .login-btn:hover {
-  -fx-background-color: #0a4a4a;
-  -fx-effect: dropshadow(gaussian, rgba(13, 92, 92, 0.55), 14, 0, 0, 5);
+    -fx-background-color: #0a4a4a;
+    -fx-effect: dropshadow(gaussian, rgba(13, 92, 92, 0.55), 14, 0, 0, 5);
 }
+
 .login-btn:pressed {
-  -fx-background-color: #083838;
-  -fx-effect: dropshadow(gaussian, rgba(13, 92, 92, 0.2), 4, 0, 0, 1);
+    -fx-background-color: #083838;
+    -fx-effect: dropshadow(gaussian, rgba(13, 92, 92, 0.2), 4, 0, 0, 1);
 }

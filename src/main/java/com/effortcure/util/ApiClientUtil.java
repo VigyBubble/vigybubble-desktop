@@ -1,11 +1,11 @@
-package com.effortcure.network;
+package com.effortcure.util;
 
 import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 
-public class ApiClient {
+public class ApiClientUtil {
     private static final HttpClient client = HttpClient.newHttpClient();
 
     public static HttpResponse<String> post(String url, String json) throws Exception {

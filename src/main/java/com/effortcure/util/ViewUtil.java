@@ -1,11 +1,15 @@
 package com.effortcure.util;
 
+import javafx.application.Platform;
 import javafx.collections.ObservableList;
 import javafx.geometry.Insets;
-import javafx.scene.Group;
+import javafx.geometry.Rectangle2D;
 import javafx.scene.Node;
 import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.CheckBox;
+import javafx.scene.control.Hyperlink;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
@@ -14,16 +18,46 @@ import javafx.scene.layout.Pane;
 import javafx.scene.layout.Region;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Font;
+import javafx.stage.Screen;
+import javafx.stage.Stage;
 
-public class ResponsiveViewUtil {
+public class ViewUtil {
+
+    public static double[] getPlatformFullScreenViewDimensions() {
+        Rectangle2D screen = Screen.getPrimary().getVisualBounds();
+        double width = screen.getWidth();
+        double hight = screen.getHeight();
+        getPlatformTitleBarSize();
+        String readContent = FilesUtil.readFromFile(System.getProperty("user.home"), "Vigy Bubble",
+                "Platform Titlebar Size.txt");
+        hight = readContent != null ? hight - Double.valueOf(readContent) : hight;
+        return new double[] { width, hight };
+    }
+
+    private static void getPlatformTitleBarSize() {
+        Stage temp = new Stage();
+        Scene scene = new Scene(new Pane(), 0, 0);
+        temp.setScene(scene);
+        temp.setX(0);
+        temp.setY(0);
+        temp.show();
+        Platform.runLater(() -> {
+            Platform.runLater(() -> {
+                double titleBarHeight = temp.getHeight() - scene.getHeight();
+                FilesUtil.writeToFile(System.getProperty("user.home"), "Vigy Bubble", "Platform Titlebar Size.txt",
+                        String.valueOf(titleBarHeight));
+                temp.close();
+            });
+        });
+    }
 
     public static void initiateResponsiveView(Object object) {
         Node[] allNodes = ControllersUtil.getInjectedNodes(object);
-        double[] widthAndHightRatios = ResponsiveViewUtil.evaluateScreenWidthAndHightRatios((Region) allNodes[0]);
+        double[] widthAndHightRatios = ViewUtil.evaluateScreenWidthAndHightRatios((Region) allNodes[0]);
         for (Node node : allNodes) {
-            ResponsiveViewUtil.resizeNodeWidthAndHight(node, widthAndHightRatios[0], widthAndHightRatios[1]);
-            ResponsiveViewUtil.relocateNodeXAndY(node, widthAndHightRatios[0], widthAndHightRatios[1]);
-            ResponsiveViewUtil.resizeFont(node, widthAndHightRatios[0], widthAndHightRatios[1]);
+            ViewUtil.resizeNodeWidthAndHight(node, widthAndHightRatios[0], widthAndHightRatios[1]);
+            ViewUtil.relocateNodeXAndY(node, widthAndHightRatios[0], widthAndHightRatios[1]);
+            ViewUtil.resizeFont(node, widthAndHightRatios[0], widthAndHightRatios[1]);
             if (node.getId().contains("ErrorMsg") && node instanceof Label label)
                 hideErrorMessages(new Label[] { label });
         }
@@ -80,7 +114,17 @@ public class ResponsiveViewUtil {
                 textField.setFont(new Font(textField.getFont().getSize() * fontScale));
             if (region instanceof PasswordField passwordField)
                 passwordField.setFont(new Font(passwordField.getFont().getSize() * fontScale));
+            if (region instanceof Hyperlink hyperlink)
+                hyperlink.setFont(new Font(hyperlink.getFont().getSize() * fontScale));
+            if (region instanceof CheckBox checkBox)
+                checkBox.setFont(new Font(checkBox.getFont().getSize() * fontScale));
+
         }
+    }
+
+    public static void LoadFonts(String[] fontFilesPaths) {
+        for (String fontPath : fontFilesPaths)
+            Font.loadFont(ViewUtil.class.getResourceAsStream(fontPath), 12);
     }
 
     public static void hideErrorMessages(Label[] errorMsgLabels) {
@@ -89,7 +133,7 @@ public class ResponsiveViewUtil {
                 label.setVisible(false);
                 Node parentNode = label.getParent();
                 if (parentNode instanceof Parent parent) {
-                    ObservableList<Node> children = getModifiableChildren(parent);
+                    ObservableList<Node> children = ControllersUtil.getModifiableChildren(parent);
                     for (Node child : children) {
                         child.setLayoutY(child.getLayoutY() + label.getHeight() / 2);
                     }
@@ -104,7 +148,7 @@ public class ResponsiveViewUtil {
                 label.setVisible(true);
                 Node parentNode = label.getParent();
                 if (parentNode instanceof Parent parent) {
-                    ObservableList<Node> children = getModifiableChildren(parent);
+                    ObservableList<Node> children = ControllersUtil.getModifiableChildren(parent);
                     for (Node child : children) {
                         child.setLayoutY(child.getLayoutY() - label.getHeight() / 2);
                     }
@@ -113,14 +157,10 @@ public class ResponsiveViewUtil {
         }
     }
 
-    private static ObservableList<Node> getModifiableChildren(Parent parent) {
-        if (parent instanceof Pane pane) {
-            return pane.getChildren();
-        }
-        if (parent instanceof Group group) {
-            return group.getChildren();
-        }
-        throw new IllegalArgumentException(
-                "Parent type does not support modifiable children: " + parent.getClass().getName());
+    public static void maskTextFeildContent(TextField textField, BooleanWrapperUtil mask) {
+        textField.textProperty().addListener((obs, oldValue, newValue) -> {
+            if (mask.getBool())
+                textField.setText("\u25CF".repeat(textField.getText().stripTrailing().length()));
+        });
     }
 }
