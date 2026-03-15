@@ -52,7 +52,7 @@
                     <Font size="28.0"/>
                   </font>
                 </Label>
-                <TextField fx:id="nameFeild" layoutX="56.0" layoutY="52.0" prefHeight="56.0" prefWidth="364.0" styleClass="input-field">
+                <TextField fx:id="nameFeild" layoutX="56.0" layoutY="52.0" prefHeight="56.0" prefWidth="364.0" promptText="Enter your name" styleClass="input-field">
                   <font>
                     <Font size="25.0"/>
                   </font>
@@ -76,7 +76,7 @@
                     <Font size="28.0"/>
                   </font>
                 </Label>
-                <TextField fx:id="emailFeild" layoutX="56.0" layoutY="52.0" prefHeight="56.0" prefWidth="364.0" styleClass="input-field">
+                <TextField fx:id="emailFeild" layoutX="56.0" layoutY="52.0" prefHeight="56.0" prefWidth="364.0" promptText="Enter your email" styleClass="input-field">
                   <font>
                     <Font size="25.0"/>
                   </font>
@@ -100,7 +100,7 @@
                     <Font size="28.0"/>
                   </font>
                 </Label>
-                <TextField fx:id="passwordFeild" layoutX="56.0" layoutY="52.0" prefHeight="56.0" prefWidth="364.0" style="" styleClass="input-field">
+                <TextField fx:id="passwordFeild" layoutX="56.0" layoutY="52.0" prefHeight="56.0" prefWidth="364.0" style="" promptText="Enter your password" styleClass="input-field">
                   <font>
                     <Font size="25.0"/>
                   </font>
@@ -134,7 +134,7 @@
                     <Font size="24.0"/>
                   </font>
                 </Label>
-                <TextField fx:id="confirmPasswordFeild" layoutX="56.0" layoutY="52.0" prefHeight="56.0" prefWidth="364.0" styleClass="input-field">
+                <TextField fx:id="confirmPasswordFeild" layoutX="56.0" layoutY="52.0" prefHeight="56.0" prefWidth="364.0" promptText="Enter confirm password" styleClass="input-field">
                   <font>
                     <Font size="25.0"/>
                   </font>

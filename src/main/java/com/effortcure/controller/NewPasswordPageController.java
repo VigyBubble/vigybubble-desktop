@@ -1,5 +1,7 @@
 package com.effortcure.controller;
 
+import com.effortcure.util.ViewUtil;
+
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -11,7 +13,7 @@ import javafx.scene.layout.Pane;
 
 public class NewPasswordPageController {
     @FXML
-    private AnchorPane rootPane;
+    private AnchorPane root;
 
     @FXML
     private Pane mainContainer;
@@ -63,4 +65,9 @@ public class NewPasswordPageController {
 
     @FXML
     private Button saveButton;
+
+    @FXML
+    private void initialize() {
+        ViewUtil.initiateResponsiveView(this);
+    }
 }
