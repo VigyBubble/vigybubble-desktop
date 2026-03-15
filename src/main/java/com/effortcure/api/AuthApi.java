@@ -2,9 +2,11 @@ package com.effortcure.api;
 
 import java.net.http.HttpResponse;
 
+import com.effortcure.dto.request.LoginRequestDTO;
 import com.effortcure.dto.request.RegisterRequestDTO;
 import com.effortcure.dto.request.VerifyEmailRequestDTO;
 import com.effortcure.dto.response.ApiResponse;
+import com.effortcure.dto.response.LoginResponseDTO;
 import com.effortcure.exception.ApiException;
 import com.effortcure.util.ApiClientUtil;
 import com.effortcure.util.JsonUtil;
@@ -28,6 +30,16 @@ public class AuthApi {
                 JsonUtil.toJson(verifyEmailRequestDTO), null, null);
         if (response.statusCode() == 200) {
             return JsonUtil.fromJson(response.body(), new TypeReference<ApiResponse<Void>>() {
+            });
+        }
+        throw new ApiException(response.body());
+    }
+
+    public ApiResponse<LoginResponseDTO> login(LoginRequestDTO loginRequestDTO) throws Exception {
+        HttpResponse<String> response = ApiClientUtil.post(BASE_URL + "login", JsonUtil.toJson(loginRequestDTO), null,
+                null);
+        if (response.statusCode() == 200) {
+            return JsonUtil.fromJson(response.body(), new TypeReference<ApiResponse<LoginResponseDTO>>() {
             });
         }
         throw new ApiException(response.body());
