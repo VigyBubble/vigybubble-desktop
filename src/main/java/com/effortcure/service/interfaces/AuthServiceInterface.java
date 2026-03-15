@@ -5,4 +5,6 @@ import com.effortcure.dto.response.ApiResponse;
 public interface AuthServiceInterface {
     public ApiResponse<Void> register(String name, String email, String password, String confirmPassword)
             throws Exception;
+
+    public ApiResponse<Void> verifyEmail(String email, String code) throws Exception;
 }

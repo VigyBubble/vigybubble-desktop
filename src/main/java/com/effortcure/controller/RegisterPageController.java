@@ -164,11 +164,12 @@ public class RegisterPageController {
                 ApiResponse<Void> response = task.getValue();
                 try {
                     System.out.println(JsonUtil.toJson(response));
-                } catch (JsonProcessingException e1) {
+                } catch (Exception e1) {
                     e1.printStackTrace();
                 }
             });
             new Thread(task).start();
+
             EmailVerficationPageController.email = emailFeild.getText();
             EmailVerficationPageController.oldScene = "REGISTER";
             SceneManager.switchScene("/fxml/email-verfication-page.fxml");
