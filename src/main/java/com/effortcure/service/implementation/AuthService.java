@@ -1,8 +1,8 @@
 package com.effortcure.service.implementation;
 
+import com.effortcure.api.AuthApi;
 import com.effortcure.dto.request.RegisterRequestDTO;
 import com.effortcure.dto.response.ApiResponse;
-import com.effortcure.network.AuthApi;
 import com.effortcure.service.interfaces.AuthServiceInterface;
 
 public class AuthService implements AuthServiceInterface {

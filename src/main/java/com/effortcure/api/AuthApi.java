@@ -1,4 +1,4 @@
-package com.effortcure.network;
+package com.effortcure.api;
 
 import java.net.http.HttpResponse;
 
