@@ -1,20 +1,17 @@
-/* ===== CARD ===== */
-.card {
-  -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.28), 30, 0, 0, 8);
-  -fx-background-color: linear-gradient(to top right, #cceeec, white);
-  -fx-background-radius: 25;
-}
+
 .back-btn:hover {
   -fx-text-fill: #000000;
 }
 /* ===== TITLE ===== */
 .verficationLabel {
   -fx-text-fill: #1a1a2e;
+   -fx-font-family: 'K2D';
 }
 
 /* ===== SUBTITLE ===== */
 .subtitle-label {
   -fx-text-fill: #555555;
+   -fx-font-family: 'K2D';
 }
 
 /* ===== OTP TEXT FIELDS ===== */
@@ -34,6 +31,7 @@
 /* ===== RESEND LABEL ===== */
 .resend-label {
   -fx-text-fill: #555555;
+   -fx-font-family: 'K2D';
 }
 
 /* ===== HYPERLINK ===== */
@@ -63,21 +61,4 @@
 }
 .cancel-btn:hover {
   -fx-border-color: #0d5c5c;
-}
-
-/* ===== VERIFY BUTTON ===== */
-.verify-btn {
-  -fx-background-color: #0d5c5c;
-  -fx-background-radius: 15px;
-  -fx-border-radius: 15px;
-  -fx-text-fill: white;
-  -fx-effect: dropshadow(gaussian, rgba(13, 92, 92, 0.38), 10, 0, 0, 4);
-}
-.verify-btn:hover {
-  -fx-background-color: #0a4a4a;
-  -fx-effect: dropshadow(gaussian, rgba(13, 92, 92, 0.55), 14, 0, 0, 5);
-}
-.verify-btn:pressed {
-  -fx-background-color: #083838;
-  -fx-effect: dropshadow(gaussian, rgba(13, 92, 92, 0.2), 4, 0, 0, 1);
 }

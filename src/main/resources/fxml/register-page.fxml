@@ -13,7 +13,7 @@
 
 <AnchorPane fx:id="root" prefHeight="1024.0" prefWidth="1440.0" stylesheets="@../css/register-page.css,@../css/Master.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.effortcure.controller.RegisterPageController">
   <children>
-    <Pane fx:id="firstContainer" layoutX="100.0" layoutY="100.0" prefHeight="824.0" prefWidth="1240.0" styleClass="card">
+    <Pane fx:id="firstContainer" layoutX="100.0" layoutY="100.0" prefHeight="824.0" prefWidth="1240.0" styleClass="registerpane">
       <children>
         <Pane fx:id="leftImageContainer" prefHeight="824.0" prefWidth="620.0" styleClass="side-image">
           <clip>
@@ -57,7 +57,7 @@
                     <Font size="25.0"/>
                   </font>
                 </TextField>
-                <Label fx:id="nameErrorMsg" layoutX="56.0" layoutY="116.0" prefHeight="35.0" prefWidth="364.0" style="-fx-text-fill: FF1B1B;" styleClass="allLabels" text="This field is required*">
+                <Label fx:id="nameErrorMsg" layoutX="56.0" layoutY="116.0" prefHeight="35.0" prefWidth="364.0"  styleClass="error-msg" text="This field is required*">
                   <font>
                     <Font size="24.0"/>
                   </font>
@@ -81,7 +81,7 @@
                     <Font size="25.0"/>
                   </font>
                 </TextField>
-                <Label fx:id="emailErrorMsg" layoutX="56.0" layoutY="116.0" prefHeight="35.0" prefWidth="364.0" style="-fx-text-fill: FF1B1B;" styleClass="allLabels" text="Email already registered*">
+                <Label fx:id="emailErrorMsg" layoutX="56.0" layoutY="116.0" prefHeight="35.0" prefWidth="364.0" styleClass="error-msg" text="Email already registered*">
                   <font>
                     <Font size="24.0"/>
                   </font>
@@ -105,7 +105,7 @@
                     <Font size="25.0"/>
                   </font>
                 </TextField>
-                <Label fx:id="passwordErrorMsg" layoutX="56.0" layoutY="116.0" prefHeight="31.0" prefWidth="376.0" style="-fx-text-fill: FF1B1B;" styleClass="allLabels" text="Passwords do not match *">
+                <Label fx:id="passwordErrorMsg" layoutX="56.0" layoutY="116.0" prefHeight="31.0" prefWidth="376.0" styleClass="error-msg" text="Passwords do not match *">
                   <font>
                     <Font size="24.0"/>
                   </font>

@@ -12,9 +12,11 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="root" prefHeight="1024.0" prefWidth="1440.0" stylesheets="@../css/login-page.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.effortcure.controller.LoginPageController">
+<AnchorPane fx:id="root" prefHeight="1024.0" prefWidth="1440.0" stylesheets="@../css/login-page.css,@../css/Master.css"
+  xmlns="http://javafx.com/javafx/25"
+  xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.effortcure.controller.LoginPageController">
   <children>
-    <Pane fx:id="mainpane" layoutX="100.0" layoutY="100.0" prefHeight="824.0" prefWidth="1240.0" style="-fx-background-color: white; -fx-background-radius: 25;">
+    <Pane fx:id="mainpane" layoutX="100.0" layoutY="100.0" prefHeight="824.0" prefWidth="1240.0" styleClass="loginpane">
       <children>
         <Pane fx:id="rightImageContainer" layoutX="620.0" prefHeight="824.0" prefWidth="620.0" styleClass="side-image">
           <clip>
@@ -24,17 +26,17 @@
             <children>
               <Pane fx:id="rightContentContainer" layoutX="51.0" layoutY="270.0" prefHeight="301.0" prefWidth="518.0">
                 <children>
-                  <Label fx:id="labelWelcome" alignment="CENTER" prefHeight="62.0" prefWidth="518.0" text="Welcome Back!">
+                  <Label fx:id="labelWelcome" prefHeight="62.0" prefWidth="518.0" text="" Welcome Back!" styleClass="welcome-label">
                     <font>
                       <Font size="48.0"/>
                     </font>
                   </Label>
-                  <Label fx:id="labelInfo" alignment="CENTER" layoutX="-1.0" layoutY="78.0" prefHeight="108.0" prefWidth="518.0" text="To keep connected with us please&#10;login with your personal info" textAlignment="CENTER" wrapText="true">
+                  <Label fx:id="labelInfo" layoutX="36.0" layoutY="78.0" prefHeight="108.0" prefWidth="472.0" text="To keep connected with us please login with your personal info" wrapText="true" styleClass="info-label">
                     <font>
                       <Font size="30.0"/>
                     </font>
                   </Label>
-                  <Button fx:id="buttonRegister" layoutX="119.0" layoutY="228.0" mnemonicParsing="false" prefHeight="56.0" prefWidth="280.0" text="Register" styleClass="loginBtn">
+                  <Button fx:id="buttonRegister" layoutX="119.0" layoutY="228.0" mnemonicParsing="false" prefHeight="56.0" prefWidth="280.0" text="Register" styleClass="registerBtn">
                     <font>
                       <Font size="32.0"/>
                     </font>
@@ -46,9 +48,9 @@
         </Pane>
         <Pane fx:id="formContainer" layoutX="92.0" layoutY="132.0" prefHeight="570.0" prefWidth="436.0">
           <children>
-            <Pane fx:id="emailContainer" prefHeight="147.0" prefWidth="436.0">
+            <Pane fx:id="emailContainer" prefHeight="108.0" prefWidth="436.0">
               <children>
-                <Label fx:id="labelEmail" layoutX="16.0" prefHeight="36.0" prefWidth="404.0" styleClass="field-label" text="Email">
+                <Label fx:id="labelEmail" layoutX="16.0" prefHeight="36.0" prefWidth="404.0" styleClass="allLabels" text="Email">
                   <font>
                     <Font size="28.0"/>
                   </font>
@@ -60,34 +62,29 @@
                 </ImageView>
                 <TextField fx:id="textFieldEmail" layoutX="56.0" layoutY="52.0" prefHeight="56.0" prefWidth="364.0" promptText="Enter your email" styleClass="input-field">
                   <font>
-                    <Font size="25.0"/>
-                  </font>
-                </TextField>
-                <Label fx:id="emailErrorMsg" layoutX="56.0" layoutY="116.0" prefHeight="33.0" prefWidth="308.0" style="-fx-text-fill: #FF1B1B;;" text="invalid email or password *">
-                  <font>
                     <Font size="24.0"/>
                   </font>
-                </Label>
+                </TextField>
               </children>
             </Pane>
-            <Pane fx:id="passwordContainer" layoutY="147.0" prefHeight="147.0" prefWidth="436.0">
+            <Pane fx:id="passwordContainer" layoutY="140.0" prefHeight="147.0" prefWidth="436.0">
               <children>
-                <Label fx:id="labelPassword" layoutX="16.0" prefHeight="36.0" prefWidth="404.0" styleClass="field-label" text="Password">
+                <Label fx:id="labelPassword" layoutX="16.0" prefHeight="36.0" prefWidth="404.0" styleClass="allLabels" text="Password">
                   <font>
                     <Font size="28.0"/>
                   </font>
                 </Label>
-                <TextField fx:id="passwordField" layoutX="56.0" layoutY="52.0" prefHeight="56.0" prefWidth="364.0" promptText="Enter password">
+                <PasswordField fx:id="passwordField" layoutX="56.0" layoutY="52.0" prefHeight="56.0" prefWidth="364.0" promptText="Enter password" styleClass="input-field">
                   <font>
-                    <Font size="25.0"/>
+                    <Font size="24.0"/>
                   </font>
-                </TextField>
+                </PasswordField>
                 <ImageView fx:id="passwordlIcon" fitHeight="24.0" fitWidth="24.0" layoutX="16.0" layoutY="68.0" pickOnBounds="true" preserveRatio="true">
                   <image>
                     <Image url="@../images/login-password.png"/>
                   </image>
                 </ImageView>
-                <Label fx:id="passwordErrorMsg" layoutX="56.0" layoutY="116.0" prefHeight="33.0" prefWidth="308.0" text="invalid email or password *">
+                <Label fx:id="passwordErrorMsg" layoutX="56.0" layoutY="116.0" prefHeight="33.0" prefWidth="308.0" text="invalid email or password *" styleClass="error-msg">
                   <font>
                     <Font size="24.0"/>
                   </font>
@@ -99,21 +96,21 @@
                 </ImageView>
               </children>
             </Pane>
-            <CheckBox fx:id="checkRememberMe" layoutX="16.0" layoutY="342.0" mnemonicParsing="false" prefHeight="24.0" prefWidth="162.0" text="Remember me">
+            <CheckBox fx:id="checkRememberMe" layoutX="16.0" layoutY="342.0" mnemonicParsing="false" prefHeight="24.0" prefWidth="141.0" text="Remember me" styleClass="remember-me">
               <font>
-                <Font size="18.0"/>
+                <Font size="16.0"/>
               </font>
             </CheckBox>
+            <Hyperlink fx:id="linkForgotPassword" layoutX="293.0" layoutY="454.0" prefHeight="33.0" prefWidth="141.0" text="Forgot Password?" styleClass="forgot-link">
+              <font>
+                <Font size="16.0"/>
+              </font>
+            </Hyperlink>
             <Button fx:id="buttonLogin" layoutX="78.0" layoutY="502.0" mnemonicParsing="false" prefHeight="58.0" prefWidth="280.0" styleClass="login-btn" text="Login">
               <font>
                 <Font size="32.0"/>
               </font>
             </Button>
-            <Hyperlink fx:id="linkForgotPassword" layoutX="293.0" layoutY="338.0" prefHeight="33.0" prefWidth="144.0" text="Forgot Password?">
-              <font>
-                <Font size="18.0"/>
-              </font>
-            </Hyperlink>
           </children>
         </Pane>
       </children>
