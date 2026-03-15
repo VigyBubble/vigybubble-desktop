@@ -52,6 +52,8 @@ public class EmailVerficationPageController {
     private Button cancelBtn;
     @FXML
     private Button verifyBtn;
+
+    
     private StringBuilder verficationCode = new StringBuilder("    ");
 
     @FXML
