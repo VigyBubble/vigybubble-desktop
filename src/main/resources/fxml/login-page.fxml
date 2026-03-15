@@ -34,7 +34,7 @@
                       <Font size="30.0"/>
                     </font>
                   </Label>
-                  <Button fx:id="buttonRegister" layoutX="119.0" layoutY="228.0" mnemonicParsing="false" prefHeight="56.0" prefWidth="280.0" text="Register" styleClass="registerBtn">
+                  <Button fx:id="buttonRegister" layoutX="119.0" layoutY="228.0" mnemonicParsing="false" onAction="#register" prefHeight="56.0" prefWidth="280.0" text="Register" styleClass="registerBtn">
                     <font>
                       <Font size="32.0"/>
                     </font>
@@ -92,7 +92,7 @@
                     <Font size="24.0"/>
                   </font>
                 </Label>
-                <ImageView fx:id="locklIcon" fitHeight="24.0" fitWidth="24.0" layoutX="380.0" layoutY="68.0" pickOnBounds="true" preserveRatio="true">
+                <ImageView fx:id="locklIcon" fitHeight="24.0" fitWidth="24.0" layoutX="380.0" layoutY="68.0" onMouseClicked="#hideAndShowPassword" pickOnBounds="true" preserveRatio="true">
                   <image>
                     <Image url="@../images/locked-eye.png"/>
                   </image>
@@ -104,7 +104,7 @@
                 <Font size="18.0"/>
               </font>
             </CheckBox>
-            <Button fx:id="buttonLogin" layoutX="78.0" layoutY="502.0" mnemonicParsing="false" prefHeight="58.0" prefWidth="280.0" styleClass="login-btn" text="Login">
+            <Button fx:id="buttonLogin" layoutX="78.0" layoutY="502.0" mnemonicParsing="false" onAction="#login" prefHeight="58.0" prefWidth="280.0" styleClass="login-btn" text="Login">
               <font>
                 <Font size="32.0"/>
               </font>
