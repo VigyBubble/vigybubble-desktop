@@ -3,6 +3,10 @@
     -fx-cursor: hand;
 }
 
+.input-field:focused {
+    -fx-border-color: #177b75;
+}
+
 .remember-me {
     -fx-text-fill: #787878;
     -fx-mark-color: #0e4e4a;

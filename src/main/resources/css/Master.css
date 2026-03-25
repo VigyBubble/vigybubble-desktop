@@ -29,12 +29,15 @@
 .input-field:focused {
   -fx-border-color: #177b75;
 }
-
+.input-field:focused {
+  -fx-border-color: #177b75;
+}
 .error-field {
   -fx-border-radius: 20;
   -fx-background-color: transparent;
   -fx-border-color: #FF1B1B;
 }
+
 
 .error-field:focused {
   -fx-border-color: #FF1B1B;
