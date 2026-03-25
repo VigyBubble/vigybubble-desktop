@@ -13,6 +13,13 @@ public class AuthService implements AuthServiceInterface {
     private final AuthApi authApi = new AuthApi();
 
     @Override
+    public ApiResponse<Void> checkEmailExistance(String email) throws Exception {
+        RegisterRequestDTO registerRequestDTO = new RegisterRequestDTO();
+        registerRequestDTO.setEmail(email);
+        return authApi.checkEmailExistance(registerRequestDTO);
+    }
+
+    @Override
     public ApiResponse<Void> register(String name, String email, String password, String confirmPassword)
             throws Exception {
         RegisterRequestDTO registerRequestDTO = new RegisterRequestDTO();
