@@ -5,10 +5,8 @@ import com.effortcure.service.implementation.AuthService;
 import com.effortcure.service.interfaces.AuthServiceInterface;
 import com.effortcure.util.BooleanWrapperUtil;
 import com.effortcure.util.ControllersUtil;
-import com.effortcure.util.JsonUtil;
 import com.effortcure.util.ViewUtil;
 import com.effortcure.util.SceneManager;
-import com.fasterxml.jackson.core.JsonProcessingException;
 
 import javafx.concurrent.Task;
 import javafx.fxml.FXML;
@@ -151,27 +149,28 @@ public class RegisterPageController {
     }
 
     @FXML
-    private void register() {
+    private void register() throws Exception {
         if (isValidRegisterData()) {
-            Task<ApiResponse<Void>> task = new Task<>() {
-                @Override
-                protected ApiResponse<Void> call() throws Exception {
-                    return authService.register(nameFeild.getText(), emailFeild.getText(), passwordFeild.getText(),
-                            confirmPasswordFeild.getText());
-                }
-            };
-            task.setOnSucceeded(e -> {
-                ApiResponse<Void> response = task.getValue();
-                try {
-                    System.out.println(JsonUtil.toJson(response));
-                } catch (JsonProcessingException e1) {
-                    e1.printStackTrace();
-                }
-            });
-            new Thread(task).start();
-            EmailVerficationPageController.email = emailFeild.getText();
-            EmailVerficationPageController.oldScene = "REGISTER";
-            SceneManager.switchScene("/fxml/email-verfication-page.fxml");
+            ApiResponse<Void> response = authService.checkEmailExistance(emailFeild.getText());
+            if (response.getStatus() == 200) {
+                Task<ApiResponse<Void>> task = new Task<>() {
+                    @Override
+                    protected ApiResponse<Void> call() throws Exception {
+                        return authService.register(nameFeild.getText(), emailFeild.getText(), password.toString(),
+                                confirmPassword.toString());
+                    }
+                };
+                new Thread(task).start();
+
+                EmailVerficationPageController.email = emailFeild.getText();
+                EmailVerficationPageController.oldScene = "REGISTER";
+                SceneManager.switchScene("/fxml/email-verfication-page.fxml");
+            }
+            if (response.getStatus() == 409) {
+                emailErrorMsg.setText("this email already exists *");
+                ViewUtil.showHiddenErrorMessages(new Label[] { emailErrorMsg });
+                emailFeild.getStyleClass().add("error-field");
+            }
         }
     }
 
@@ -242,8 +241,8 @@ public class RegisterPageController {
                 ViewUtil.showHiddenErrorMessages(new Label[] { emailErrorMsg });
                 emailFeild.getStyleClass().add("error-field");
                 isValidEmail = false;
-            } else if (!newValue.matches("^[a-z0-9]+(?:[._][a-z0-9]+)*(?:\\+[a-z0-9]+)?@gmail\\.com$")) {
-                emailErrorMsg.setText("must match a-z, 0-9, [._%+-] @gmail.com *");
+            } else if (!newValue.matches("^[a-zA-Z0-9]+(?:[._][a-zA-Z0-9]+)*(?:\\+[a-zA-Z0-9]+)?@gmail\\.com$")) {
+                emailErrorMsg.setText("only a-z, A-Z, 0-9, [._%+-] @gmail.com *");
                 ViewUtil.showHiddenErrorMessages(new Label[] { emailErrorMsg });
                 emailFeild.getStyleClass().add("error-field");
                 isValidEmail = false;

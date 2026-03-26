@@ -1,5 +1,9 @@
 package com.effortcure.controller;
 
+import com.effortcure.dto.response.ApiResponse;
+import com.effortcure.service.implementation.AuthService;
+import com.effortcure.service.interfaces.AuthServiceInterface;
+import com.effortcure.util.SceneManager;
 import com.effortcure.util.ViewUtil;
 
 import javafx.fxml.FXML;
@@ -53,6 +57,9 @@ public class EmailVerficationPageController {
     private Pane resendContainer;
 
     @FXML
+    private Label verificationErrorMsg;
+
+    @FXML
     private Label resendLabel;
 
     @FXML
@@ -70,13 +77,51 @@ public class EmailVerficationPageController {
     public static String email;
     public static String oldScene;
     private StringBuilder verficationCode = new StringBuilder("    ");
+    AuthServiceInterface authService = new AuthService();
 
     @FXML
     private void initialize() {
         ViewUtil.initiateResponsiveView(this);
         setupOtpFields();
-        System.out.println(email);
-        System.out.println(oldScene);
+    }
+
+    @FXML
+    private void handleVerify() throws Exception {
+        TextField[] otpFeilds = new TextField[] { otpField1, otpField2, otpField3, otpField4 };
+        for (TextField otpFeild : otpFeilds) {
+            if (otpFeild.getText().isBlank())
+                otpFeild.getStyleClass().add("otpFieldsError");
+        }
+        if (!verficationCode.toString().trim().isBlank() && email != null) {
+            ApiResponse<Void> response = authService.verifyEmail(email, verficationCode.toString().trim());
+            if (response.getStatus() == 200)
+                SceneManager.switchScene("/fxml/login-page.fxml");
+            if (response.getStatus() == 400) {
+                verificationErrorMsg.setText(response.getMessage() + " *");
+                verificationErrorMsg.setVisible(true);
+                for (TextField otpFeild : otpFeilds) {
+                    if (otpFeild.getText().isBlank())
+                        otpFeild.getStyleClass().add("otpFieldsError");
+                }
+            }
+            if (response.getStatus() == 401) {
+                verificationErrorMsg.setText(response.getMessage() + " *");
+                verificationErrorMsg.setVisible(true);
+                for (TextField otpFeild : otpFeilds)
+                    otpFeild.getStyleClass().add("otpFieldsError");
+            }
+        }
+    }
+
+    @FXML
+    private void resendCode() {
+
+    }
+
+    @FXML
+    private void back() {
+        if (oldScene.equals("REGISTER"))
+            SceneManager.switchScene("/fxml/register-page.fxml");
     }
 
     private void setupOtpFields() {
@@ -90,6 +135,8 @@ public class EmailVerficationPageController {
             TextField next = (i < fields.length - 1) ? fields[i + 1] : null;
 
             current.textProperty().addListener((obs, oldValue, newValue) -> {
+                verificationErrorMsg.setVisible(false);
+                current.getStyleClass().removeAll("otpFieldsError");
                 // ارقام فقط يمنع إدخال الحروف أو الرموز
                 if (!newValue.matches("\\d*")) {
                     current.setText(newValue.replaceAll("[^\\d]", ""));
@@ -137,22 +184,4 @@ public class EmailVerficationPageController {
 
         }
     }
-
-    @FXML
-    private void handleVerify() {
-
-        String code = verficationCode.toString().trim();
-
-        if (code.isEmpty()) {
-            System.out.println("Verification code is empty");
-            return;
-        }
-
-        if (!code.matches("\\d{4}")) {
-            System.out.println("Verification code must be 4 digits");
-            return;
-        }
-        System.out.println("Verification code: " + code);
-    }
-
 }

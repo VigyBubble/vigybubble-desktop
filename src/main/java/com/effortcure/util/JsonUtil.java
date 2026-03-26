@@ -1,6 +1,5 @@
 package com.effortcure.util;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
@@ -12,7 +11,7 @@ public class JsonUtil {
             .registerModule(new JavaTimeModule())
             .disable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS);
 
-    public static String toJson(Object object) throws JsonProcessingException {
+    public static String toJson(Object object) throws Exception {
         return mapper.writeValueAsString(object);
     }
 
