@@ -1,0 +1,123 @@
+.root{
+    -fx-effect: dropshadow(gaussian, #115D58, 4, 0, 0, 0);
+    -fx-background-radius: 25; 
+    -fx-background-radius: 25; 
+}
+  .all-labels{
+    -fx-text-fill: #0B3E3A;
+}
+.search-pane{
+    -fx-background-color: white; 
+    -fx-border-radius: 20;       
+    -fx-background-radius: 20; 
+    -fx-effect: dropshadow(gaussian, rgba(11, 62, 58, 0.5), 4, 0, 0, 2);
+}
+
+.inner-banes{
+   
+    -fx-background-color: white;
+    -fx-border-width: 0 1 0.25 1; 
+    -fx-border-color: transparent #36d4ca #7878784D transparent;
+}
+
+.innerapplist-banes{
+   
+    -fx-background-color: white;
+    -fx-border-width: 0 1 0.25 1; 
+    -fx-border-color: transparent transparent #7878784D transparent;
+    -fx-background-radius: 10 10 0 0;
+    -fx-border-radius: 10 10 0 0;
+
+}
+.secenapplisrt-pane{
+    -fx-background-color: white;
+    -fx-border-width: 0 1 0.25 1; 
+    -fx-border-color: transparent transparent #7878784D transparent;
+}
+
+.search-label{
+    -fx-text-fill: #BEC0BF;
+}
+
+.main-pane{
+    -fx-background-color: white;   
+    -fx-border-radius: 20;       
+    -fx-background-radius: 20; 
+    -fx-effect: dropshadow(gaussian, rgba(17, 93, 88, 0.7), 5, 0.3, 0, 0); 
+ }
+
+.scroll-bar{
+    -fx-background-radius: 20;
+}
+.scroll-bar:vertical .thumb {
+    -fx-background-color: gray;
+    -fx-background-insets: 0;
+    -fx-background-radius: 20; 
+    -fx-pref-height: 207px;    
+}
+
+.scroll-bar .increment-button,
+.scroll-bar .decrement-button {
+    -fx-padding: 0;
+    -fx-background-color: transparent;
+    -fx-background-insets: 0;
+    -fx-shape: "";
+    -fx-max-height: 0;
+    -fx-min-height: 0;
+    -fx-pref-height: 0;
+}
+
+
+.add-button{
+    -fx-text-fill: white;
+    -fx-background-color: #115D58;
+    -fx-background-radius: 25;
+    -fx-cursor: hand;
+}
+.add-button:hover {
+    -fx-background-color: #0a4a4a;
+  
+}
+
+.add-button:pressed {
+    -fx-background-color: #083838;
+    
+}
+.cancel-button{
+    -fx-text-fill: #115D58;
+    -fx-background-radius: 15;
+  -fx-border-radius: 15;
+  -fx-background-color: white;
+  -fx-effect: dropshadow(gaussian, #115D58, 4, 0, 0, 0);
+  -fx-cursor: hand;
+}
+.cancel-button:hover {
+    -fx-effect: dropshadow(gaussian, #115D58, 6, 0, 0, 0); /* ظل أقوى عند الهوفر */
+}
+.recommended-label{
+    -fx-background-color: rgba(34, 185, 175, 0.2);
+    -fx-text-fill: #115D58;
+    -fx-background-radius: 25;
+    -fx-border-radius: 25;
+}
+.applist-pane{
+    -fx-background-color: white;
+    -fx-effect: dropshadow(gaussian, #115D58, 4, 0, 0, 0);
+    -fx-background-radius: 20;
+    -fx-border-radius: 20;
+}
+
+
+.big-checkbox{
+    -fx-mark-color: #0e4e4a;
+}
+.big-checkbox .box {
+    -fx-cursor: hand;
+    -fx-pref-width: 24px;
+    -fx-pref-height: 24px;
+    -fx-background-color: white;
+    -fx-border-color:#0B3E3A;
+    -fx-border-width: 2;
+
+    
+}

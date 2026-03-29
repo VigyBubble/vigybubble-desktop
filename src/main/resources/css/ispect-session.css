@@ -1,0 +1,81 @@
+.main-pane{
+
+    -fx-background-color: white;
+   
+    -fx-border-radius: 20;       
+    -fx-background-radius: 20; 
+    -fx-border-width: 2; 
+    -fx-effect:
+    innershadow(gaussian, #7022B9, 10, 0.2, 0, 0);
+   
+}
+
+.recommendation-label{
+
+    -fx-background-color: rgba(70, 13, 175, 0.2);
+    -fx-text-fill: #54188D;
+    -fx-background-radius: 25;
+    -fx-border-radius: 25;
+}
+
+.all-panes{
+
+    -fx-background-color: white; 
+    -fx-border-radius: 10;        /* راديس للزوايا */
+    -fx-background-radius: 10; 
+    -fx-effect: dropshadow(gaussian, #177B75, 4, 0.1, 0, 0);
+   
+}
+.log-labels{
+
+    -fx-text-fill: #0B3E3A;
+}
+.delete-button{
+    -fx-text-fill: white;
+    -fx-background-color: #115D58;
+    -fx-background-radius: 15;
+    -fx-cursor: hand;
+}
+
+.delete-button:hover {
+    -fx-background-color: #0a4a4a;
+    -fx-effect: dropshadow(gaussian, rgba(13, 92, 92, 0.55), 14, 0, 0, 5);
+}
+
+.delete-button:pressed {
+    -fx-background-color: #083838;
+    -fx-effect: dropshadow(gaussian, rgba(13, 92, 92, 0.2), 4, 0, 0, 1);
+}
+.describtion-labels{
+
+    -fx-text-fill: #787878;
+}
+.inner-banes{
+    -fx-background-color: white;
+    -fx-border-width: 0 0 0.25 0; 
+    -fx-border-color: transparent transparent #7878784D transparent;
+}
+.scroll-bar{
+    -fx-background-radius: 10;
+}
+.scroll-bar:vertical .thumb {
+    -fx-background-color: gray; /* اللون اللي تحبيه */
+    -fx-background-insets: 0;
+    -fx-background-radius: 10; /* مدور الزوايا */
+    -fx-pref-height: 207px;     /* طول الثامب */
+}
+
+/* إزالة الأسهم فوق وتحت */
+.scroll-bar .increment-button,
+.scroll-bar .decrement-button {
+    -fx-padding: 0;
+    -fx-background-color: transparent;
+    -fx-background-insets: 0;
+    -fx-shape: "";
+    -fx-max-height: 0;
+    -fx-min-height: 0;
+    -fx-pref-height: 0;
+}
+.pause-btn{
+    -fx-cursor: hand;
+}
