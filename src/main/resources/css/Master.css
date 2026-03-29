@@ -5,6 +5,7 @@
 
 .side-image {
   -fx-background-image: url("../images/register-img.jpg");
+   -fx-background-image:url("../images/fluent_person-32-light.png") ;
   -fx-background-size: cover;
   -fx-background-position: center;
   -fx-background-radius: 25;
@@ -74,7 +75,7 @@
 
 .verify-btn:hover,
 .register-btn:hover,
-.save-btn:hover {
+.save-btn:hover{
   -fx-background-color: #0a4a4a;
   -fx-effect: dropshadow(gaussian, rgba(13, 92, 92, 0.55), 14, 0, 0, 5);
 }
