@@ -1,0 +1,111 @@
+
+.scroll-pane{
+    -fx-background-color: white;
+
+}
+.all-labels{
+    -fx-text-fill: #0B3E3A;
+}
+.all-panes{
+
+    -fx-background-color: white; 
+    -fx-border-radius: 20;        /* راديس للزوايا */
+    -fx-background-radius: 20;  
+    -fx-effect: dropshadow(gaussian, rgba(17, 93, 88, 0.7), 5, 0.3, 0, 0);   /* عشان الخلفية تتماشى مع البوردر */
+}
+
+
+.session-details-button{
+    -fx-text-fill: white;
+    -fx-background-color: #115D58;
+    -fx-background-radius: 15;
+    -fx-cursor: hand;
+}
+.session-details-button:hover {
+    -fx-background-color: #0a4a4a;
+  
+}
+
+.session-details-button:pressed {
+    -fx-background-color: #083838;
+    
+}
+
+.delete-button{
+    -fx-text-fill: #115D58;
+    -fx-background-radius: 15;
+  -fx-border-radius: 15;
+  -fx-background-color: white;
+  -fx-effect: dropshadow(gaussian, #115D58, 4, 0, 0, 0);
+  -fx-cursor: hand;
+}
+.delete-button:hover {
+    -fx-effect: dropshadow(gaussian, #115D58, 6, 0, 0, 0); /* ظل أقوى عند الهوفر */
+}
+
+
+.scroll-bar{
+    -fx-background-radius: 20;
+}
+.scroll-bar:vertical .thumb {
+    -fx-background-color: gray; /* اللون اللي تحبيه */
+    -fx-background-insets: 0;
+    -fx-background-radius: 10; /* مدور الزوايا */
+    -fx-pref-height: 207px;     /* طول الثامب */
+}
+
+/* إزالة الأسهم فوق وتحت */
+.scroll-bar .increment-button,
+.scroll-bar .decrement-button {
+    -fx-padding: 0;
+    -fx-background-color: transparent;
+    -fx-background-insets: 0;
+    -fx-shape: "";
+    -fx-max-height: 0;
+    -fx-min-height: 0;
+    -fx-pref-height: 0;
+}
+.pause-btn{
+    -fx-cursor: hand;
+}
+
+.innerapplist-banes{
+   
+    -fx-background-color: white;
+    -fx-border-width: 0 0 0.25 0; 
+    -fx-border-color: transparent transparent #7878784D transparent;
+    -fx-background-radius: 0 20 0 0;
+    -fx-border-radius: 0 20 0 0;
+
+}
+
+.secenapplisrt-pane{
+    -fx-background-color: white;
+    -fx-border-width: 0 1 0.25 1; 
+    -fx-border-color: transparent transparent #7878784D transparent;
+}
+
+
+.team-label{
+    -fx-background-color: rgba(185, 107, 34, 0.2);
+    -fx-text-fill: #5C3511;
+    -fx-background-radius: 25;
+-fx-border-radius: 25;
+}
+
+.pathlabel{
+    -fx-background-color: rgba(34, 185, 175, 0.2);
+    -fx-text-fill: #115D58;
+    -fx-background-radius: 25;
+    -fx-border-radius: 25;
+}
+.time-panes{
+    -fx-background-color: white;
+    -fx-background-radius: 10 0 0 10;
+    -fx-border-radius: 10 0 0 10;
+    -fx-effect: dropshadow(gaussian, rgba(23, 123, 117, 0.1), 4, 0.3, 0, 0);
+}
+.secondtime-panes{
+    -fx-background-color: white;
+    -fx-effect: dropshadow(gaussian, rgba(23, 123, 117, 0.1), 4, 0.3, 0, 0);
+}

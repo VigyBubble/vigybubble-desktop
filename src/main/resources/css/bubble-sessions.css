@@ -1,0 +1,75 @@
+.all-panes{
+
+    -fx-background-color: white; /* الخلفية بيضاء */
+    -fx-border-radius: 20;        /* راديس للزوايا */
+    -fx-background-radius: 20;  
+    -fx-border-radius: 20;       
+    -fx-background-radius: 20; 
+    -fx-effect: dropshadow(gaussian, #115D58, 4, 0, 0, 0);
+}
+
+
+.all-labels{
+
+    -fx-text-fill: #0B3E3A;
+    
+}
+.first-pane {
+    -fx-background-color: white;
+    -fx-border-radius:10 10 0 0;        /* راديس للزوايا */
+    -fx-background-radius: 10 10 0 0;
+    -fx-effect:
+        innershadow(gaussian, rgba(112, 34, 185, 0.3), 10, 0.2, 0, 0),
+        dropshadow(gaussian, rgba(23, 123, 117, 0.1), 4, 0.0, 0, 0);
+}
+.pause-label{
+
+    -fx-background-color: rgba(173, 175, 13, 0.2);
+    -fx-text-fill: #8D8618;
+    -fx-background-radius: 25;
+    -fx-border-radius: 25;
+}
+.second-pane{
+    -fx-background-color: white;
+    -fx-effect:
+        innershadow(gaussian, rgba(178, 33, 33, 0.3), 10, 0.2, 0, 0),
+        dropshadow(gaussian, rgba(23, 123, 117, 0.1), 4, 0.0, 0, 0);
+}
+
+.third-pane {
+    -fx-background-color: white;
+    -fx-border-radius:0 0 10 10;        /* راديس للزوايا */
+    -fx-background-radius: 0 0 10 10;
+    -fx-effect:
+        innershadow(gaussian, rgba(38, 166, 113, 0.3), 10, 0.2, 0, 0),
+        dropshadow(gaussian, rgba(23, 123, 117, 0.1), 4, 0.0, 0, 0);
+}
+
+.done-label{
+        -fx-background-color: rgba(34, 185, 175, 0.2);
+        -fx-text-fill: #115D58;
+        -fx-background-radius: 25;
+        -fx-border-radius: 25;
+    
+}
+
+.scroll-bar{
+    -fx-background-radius: 20;
+}
+.scroll-bar:vertical .thumb {
+    -fx-background-color: gray;
+    -fx-background-insets: 0;
+    -fx-background-radius: 20; 
+    -fx-pref-height: 207px;    
+}
+
+.scroll-bar .increment-button,
+.scroll-bar .decrement-button {
+    -fx-padding: 0;
+    -fx-background-color: transparent;
+    -fx-background-insets: 0;
+    -fx-shape: "";
+    -fx-max-height: 0;
+    -fx-min-height: 0;
+    -fx-pref-height: 0;
+}

@@ -1,0 +1,39 @@
+
+.cancel-button{
+  -fx-text-fill: #115D58;
+  -fx-background-radius: 15;
+-fx-border-radius: 15;
+-fx-background-color: white;
+-fx-effect: dropshadow(gaussian, #115D58, 4, 0, 0, 0);
+-fx-cursor: hand;
+}
+.cancel-button:hover {
+  -fx-effect: dropshadow(gaussian, #115D58, 6, 0, 0, 0); /* ظل أقوى عند الهوفر */
+}
+
+
+.main-pane{
+  -fx-background-color:white;
+  -fx-effect: dropshadow(gaussian, #115D58, 4, 0, 0, 0);
+    -fx-background-radius: 25; 
+    -fx-background-radius: 25; 
+
+}
+
+.confirm-button{
+
+  -fx-background-color: #115D58;/*c5c757*/
+  -fx-text-fill: white;
+  -fx-background-radius: 15;
+  -fx-border-radius: 15;
+  -fx-cursor: hand;
+}
+.confirm-button:hover {
+  -fx-background-color: #0a4a4a;
+
+}
+
+.confirm-button:pressed {
+  -fx-background-color: #083838;
+  
+}

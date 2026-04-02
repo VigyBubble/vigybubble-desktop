@@ -1,0 +1,103 @@
+.root{
+    -fx-effect: dropshadow(gaussian, #115D58, 4, 0, 0, 0);
+    -fx-background-radius: 25; 
+    -fx-background-radius: 25; 
+}
+
+.search-pane{
+    -fx-background-color: white; /* الخلفية بيضاء */
+    -fx-border-radius: 20;        /* راديس للزوايا */
+    -fx-background-radius: 20;  
+    -fx-border-radius: 20;       
+    -fx-background-radius: 20; 
+    -fx-effect: dropshadow(gaussian, #115D58, 4, 0, 0, 0);
+}
+
+.url-label{
+    -fx-text-fill: #BEC0BF;
+}
+
+.green-button{
+    -fx-text-fill: white;
+    -fx-background-color: #115D58;
+    -fx-background-radius: 25;
+    -fx-cursor: hand;
+}
+.green-button:hover {
+    -fx-background-color: #0a4a4a;
+  
+}
+
+.green-button:pressed {
+    -fx-background-color: #083838;
+    
+}
+
+.cancel-button{
+    -fx-text-fill: #115D58;
+    -fx-background-radius: 15;
+  -fx-border-radius: 15;
+  -fx-background-color: white;
+  -fx-effect: dropshadow(gaussian, #115D58, 4, 0, 0, 0);
+  -fx-cursor: hand;
+}
+.cancel-button:hover {
+    -fx-effect: dropshadow(gaussian, #115D58, 6, 0, 0, 0); /* ظل أقوى عند الهوفر */
+}
+
+.pathlabel{
+    -fx-background-color: rgba(34, 185, 175, 0.2);
+    -fx-text-fill: #115D58;
+    -fx-background-radius: 25;
+    -fx-border-radius: 25;
+}
+
+.scroll-pane {
+    -fx-background-color: white;
+    -fx-background-radius: 20;
+    -fx-border-radius: 20;
+    -fx-effect: dropshadow(gaussian, #115D58, 4, 0, 0, 0);
+}
+
+.scroll-pane .scroll-bar {
+    -fx-background-radius: 20;
+    
+}
+
+.scroll-pane .scroll-bar:vertical .track {
+    -fx-background-radius: 20;
+    -fx-background-color: transparent;
+}
+
+.scroll-pane .scroll-bar:vertical .thumb {
+    -fx-background-color: gray;
+    -fx-background-insets: 0;
+    -fx-background-radius: 20;
+    -fx-pref-height: 207px;
+}
+
+.scroll-pane .scroll-bar .increment-button,
+.scroll-pane .scroll-bar .decrement-button {
+    -fx-padding: 0;
+    -fx-background-color: transparent;
+    -fx-background-insets: 0;
+    -fx-shape: "";
+    -fx-max-height: 0;
+    -fx-min-height: 0;
+    -fx-pref-height: 0;
+}
+
+ .firstinnerpath-bane{
+   
+    -fx-background-color: white;
+    -fx-border-width: 0 1 0.25 1; 
+    -fx-border-color: transparent transparent #7878784D transparent;
+    -fx-background-radius: 10 10 0 0;
+    -fx-border-radius: 10 10 0 0;
+
+}
+.secendinnerpathpane-pane{
+    -fx-background-color: white;
+    -fx-border-width: 0 1 0.25 1; 
+    -fx-border-color: transparent transparent #7878784D transparent;
+}
