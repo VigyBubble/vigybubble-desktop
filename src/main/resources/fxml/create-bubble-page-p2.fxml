@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<Pane fx:id="paneContainer" prefHeight="1024.0" prefWidth="1440.0" stylesheets="@../css/create-bubble-p1.css"
+    xmlns="http://javafx.com/javafx/25"
+    xmlns:fx="http://javafx.com/fxml/1">
+    <children>
+        <ImageView fx:id="arrowBtn" fitHeight="25.0" fitWidth="24.0" layoutX="50.0" layoutY="211.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../images/left-arrow.png" />
+            </image>
+        </ImageView>
+        <Button fx:id="nextBtn" layoutX="1060.0" layoutY="868.0" mnemonicParsing="false" prefHeight="56.0" prefWidth="280.0" style="-fx-cursor: hand;" styleClass="next-btn" text="Next">
+            <font>
+                <Font size="32.0" />
+            </font>
+        </Button>
+        <ImageView fx:id="progressImg" fitHeight="150.0" fitWidth="150.0" layoutX="645.0" layoutY="800.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../images/Circular%20Chart%20-%2066%25.png" />
+            </image>
+        </ImageView>
+        <ImageView fx:id="bubbleImg1" fitHeight="159.0" fitWidth="159.0" layoutX="74.0" layoutY="768.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../images/bubble.png" />
+            </image>
+        </ImageView>
+        <ImageView fx:id="bubbleImg2" fitHeight="159.0" fitWidth="159.0" layoutX="413.0" layoutY="865.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../images/bubble.png" />
+            </image>
+        </ImageView>
+        <Label fx:id="selectLabel" layoutX="100.0" layoutY="266.0" prefHeight="39.0" prefWidth="404.0" text="Select Application" textFill="#0b3e3a">
+            <font>
+                <Font size="30.0" />
+            </font>
+        </Label>
+        <Pane fx:id="applicationsContainer" layoutX="116.0" layoutY="329.0" prefHeight="379.0" prefWidth="699.0" style="-fx-border-color: #0B3E3A; -fx-border-radius: 20;">
+            <children>
+                <TextField fx:id="addAppField" prefHeight="63.0" prefWidth="699.0" style="-fx-background-radius: 20; -fx-border-color: #0B3E3A; -fx-border-radius: 20;">
+                    <font>
+                        <Font size="24.0" />
+                    </font>
+                </TextField>
+                <ImageView fx:id="searchImg" fitHeight="24.0" fitWidth="24.0" layoutX="16.0" layoutY="16.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../images/search-icon.png" />
+                    </image>
+                </ImageView>
+                <Button fx:id="addBtn" layoutX="609.0" layoutY="8.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="74.0" styleClass="add-btn" text="Add">
+                    <font>
+                        <Font size="20.0" />
+                    </font>
+                </Button>
+                <Slider fx:id="slider" layoutX="688.0" layoutY="63.0" orientation="VERTICAL" prefHeight="301.0" prefWidth="7.0" />
+                <Pane fx:id="softwareItemPane" layoutY="71.0" prefHeight="79.0" prefWidth="699.0">
+                    <children>
+                        <CheckBox fx:id="checkBoxBtn" layoutX="17.0" layoutY="27.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="22.0" />
+                        <ImageView fx:id="softwareImg" fitHeight="40.0" fitWidth="40.0" layoutX="48.0" layoutY="18.5" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../images/logos_visual-studio-code.png" />
+                            </image>
+                        </ImageView>
+                        <Label fx:id="appNameLabel" layoutX="104.0" layoutY="19.0" prefHeight="36.0" prefWidth="299.0" text="Visual studio code">
+                            <font>
+                                <Font size="28.0" />
+                            </font>
+                        </Label>
+                        <Label fx:id="recommendedLabel" alignment="CENTER" layoutX="496.0" layoutY="16.0" prefHeight="47.0" prefWidth="187.0" style=" -fx-background-color: rgb(207,237,235); -fx-background-radius: 25;" text="Recommended" textFill="#186e68">
+                            <font>
+                                <Font size="24.0" />
+                            </font>
+                        </Label>
+                    </children>
+                </Pane>
+
+                <Pane layoutY="150.0" prefHeight="79.0" prefWidth="699.0">
+                    <children>
+                        <CheckBox layoutX="17.0" layoutY="27.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="22.0" />
+                        <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="48.0" layoutY="18.5" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../images/devicon_anaconda.png" />
+                            </image>
+                        </ImageView>
+                        <Label layoutX="104.0" layoutY="19.0" prefHeight="36.0" prefWidth="299.0" text="Anaconda">
+                            <font>
+                                <Font size="28.0" />
+                            </font>
+                        </Label>
+                        <Label alignment="CENTER" layoutX="496.0" layoutY="16.0" prefHeight="47.0" prefWidth="187.0" style=" -fx-background-color: rgb(207,237,235); -fx-background-radius: 25;" text="Recommended" textFill="#186e68">
+                            <font>
+                                <Font size="24.0" />
+                            </font>
+                        </Label>
+                    </children>
+                </Pane>
+
+                <Pane layoutY="229.0" prefHeight="79.0" prefWidth="699.0">
+                    <children>
+                        <CheckBox layoutX="17.0" layoutY="27.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="22.0" />
+                        <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="48.0" layoutY="18.5" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../images/devicon_pycharm.png" />
+                            </image>
+                        </ImageView>
+                        <Label layoutX="104.0" layoutY="19.0" prefHeight="36.0" prefWidth="299.0" text="PyCharm">
+                            <font>
+                                <Font size="28.0" />
+                            </font>
+                        </Label>
+                    </children>
+                </Pane>
+
+                <Pane layoutY="308.0" prefHeight="79.0" prefWidth="699.0">
+                    <children>
+                        <CheckBox layoutX="17.0" layoutY="27.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="22.0" />
+                        <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="48.0" layoutY="18.5" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../images/logos_visual-studio.png" />
+                            </image>
+                        </ImageView>
+                        <Label layoutX="104.0" layoutY="19.0" prefHeight="36.0" prefWidth="299.0" text="Visual studio">
+                            <font>
+                                <Font size="28.0" />
+                            </font>
+                        </Label>
+                    </children>
+                </Pane>
+
+
+            </children>
+        </Pane>
+        <Label fx:id="appListLabel" layoutX="835.0" layoutY="266.0" prefHeight="39.0" prefWidth="404.0" text="Application List" textFill="#0b3e3a">
+            <font>
+                <Font size="30.0" />
+            </font>
+        </Label>
+        <Pane fx:id="listContainer" layoutX="851.0" layoutY="329.0" prefHeight="379.0" prefWidth="489.0" style="-fx-border-color: #0B3E3A; -fx-border-radius: 20;">
+            <children>
+                <Pane fx:id="appItemPane1" prefHeight="74.0" prefWidth="489.0">
+                    <children>
+                        <ImageView fx:id="anacondaIcon" fitHeight="40.0" fitWidth="40.0" layoutX="16.0" layoutY="16.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../images/devicon_anaconda.png" />
+                            </image>
+                        </ImageView>
+                        <Label fx:id="anacondaNameLabel" layoutX="72.0" layoutY="19.0" prefHeight="36.0" prefWidth="124.0" text="Anaconda">
+                            <font>
+                                <Font size="25.0" />
+                            </font>
+                        </Label>
+                        <ImageView fx:id="deleteBtn1" fitHeight="24.0" fitWidth="24.0" layoutX="449.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../images/close-icon.png" />
+                            </image>
+                        </ImageView>
+                    </children>
+                </Pane>
+
+                <Pane fx:id="appItemPane2" layoutY="74.0" prefHeight="74.0" prefWidth="489.0">
+                    <children>
+                        <ImageView fx:id="pycharmIcon" fitHeight="40.0" fitWidth="40.0" layoutX="16.0" layoutY="16.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../images/devicon_pycharm.png" />
+                            </image>
+                        </ImageView>
+                        <Label fx:id="pycharmNameLabel" layoutX="72.0" layoutY="19.0" prefHeight="36.0" prefWidth="124.0" text="PyCharm">
+                            <font>
+                                <Font size="25.0" />
+                            </font>
+                        </Label>
+                        <ImageView fx:id="deleteBtn2" fitHeight="24.0" fitWidth="24.0" layoutX="449.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../images/close-icon.png" />
+                            </image>
+                        </ImageView>
+                    </children>
+                </Pane>
+
+
+            </children>
+        </Pane>
+    </children>
+</Pane>

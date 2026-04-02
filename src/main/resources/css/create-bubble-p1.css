@@ -1,20 +1,32 @@
 
-.next-btn,.add-btn{
+.next-btn,.add-btn,.select-btn,.confirm-btn {
     -fx-background-radius: 15;
   -fx-background-color: #115d58;
   -fx-text-fill: white;
   -fx-alignment: center;
   -fx-effect: dropshadow(gaussian, rgba(13, 92, 92, 0.38), 10, 0, 0, 4);
 }
+.select-btn{
+  -fx-background-radius: 20;
+}
 .add-btn{
 -fx-background-radius: 25;
 }
-.next-btn:hover,.add-btn:hover {
+.next-btn:hover,.add-btn:hover,.select-btn:hover,.confirm-btn:hover {
   -fx-background-color: #0a4a4a;
   -fx-effect: dropshadow(gaussian, rgba(13, 92, 92, 0.55), 14, 0, 0, 5);
 }
-.next-btn:pressed,.add-btn:pressed {
+.next-btn:pressed,.add-btn:pressed,.select-btn:pressed,.confirm-btn:pressed {
   -fx-background-color: #083838;
   -fx-effect: dropshadow(gaussian, rgba(13, 92, 92, 0.2), 4, 0, 0, 1);
- 
+}
+.cancel-btn {
+  -fx-background-color: transparent;
+  -fx-border-color: #aab8bc;
+  -fx-border-radius: 15px;
+    -fx-effect: dropshadow(gaussian, rgba(13, 92, 92, 0.38), 10, 0, 0, 4);
+}
+.cancel-btn:hover {
+  -fx-border-color: #0d5c5c;
+    -fx-effect: dropshadow(gaussian, rgba(13, 92, 92, 0.38), 10, 0, 0, 4);
 }
