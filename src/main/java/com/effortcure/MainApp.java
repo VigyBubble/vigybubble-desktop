@@ -2,8 +2,9 @@ package com.effortcure;
 
 import java.io.IOException;
 
+import com.effortcure.navigator.SceneManager;
 import com.effortcure.util.ViewUtil;
-import com.effortcure.util.SceneManager;
+
 import javafx.application.Application;
 import javafx.stage.Stage;
 

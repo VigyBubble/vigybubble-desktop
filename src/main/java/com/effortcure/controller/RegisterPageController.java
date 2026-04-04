@@ -1,12 +1,12 @@
 package com.effortcure.controller;
 
 import com.effortcure.dto.response.ApiResponse;
+import com.effortcure.navigator.SceneManager;
 import com.effortcure.service.implementation.AuthService;
 import com.effortcure.service.interfaces.AuthServiceInterface;
 import com.effortcure.util.BooleanWrapperUtil;
 import com.effortcure.util.ControllersUtil;
 import com.effortcure.util.ViewUtil;
-import com.effortcure.util.SceneManager;
 
 import javafx.concurrent.Task;
 import javafx.fxml.FXML;

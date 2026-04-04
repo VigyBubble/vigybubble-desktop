@@ -1,4 +1,4 @@
-package com.effortcure.util;
+package com.effortcure.navigator;
 
 import java.io.IOException;
 
