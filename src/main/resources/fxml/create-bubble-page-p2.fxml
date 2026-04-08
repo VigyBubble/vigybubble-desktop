@@ -3,16 +3,16 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.Slider?>
+<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<Pane fx:id="paneContainer" prefHeight="1024.0" prefWidth="1440.0" stylesheets="@../css/create-bubble-p1.css"
-    xmlns="http://javafx.com/javafx/25"
-    xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane fx:id="paneContainer" prefHeight="1024.0" prefWidth="1440.0" stylesheets="@../css/create-bubble-pages.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1">
     <children>
         <ImageView fx:id="arrowBtn" fitHeight="25.0" fitWidth="24.0" layoutX="50.0" layoutY="211.0" pickOnBounds="true" preserveRatio="true">
             <image>
@@ -44,95 +44,114 @@
                 <Font size="30.0" />
             </font>
         </Label>
-        <Pane fx:id="applicationsContainer" layoutX="116.0" layoutY="329.0" prefHeight="379.0" prefWidth="699.0" style="-fx-border-color: #0B3E3A; -fx-border-radius: 20;">
+        <Pane fx:id="applicationsContainer" layoutX="116.0" layoutY="329.0" prefHeight="379.0" prefWidth="699.0" styleClass="app-container">
             <children>
-                <TextField fx:id="addAppField" prefHeight="63.0" prefWidth="699.0" style="-fx-background-radius: 20; -fx-border-color: #0B3E3A; -fx-border-radius: 20;">
-                    <font>
-                        <Font size="24.0" />
-                    </font>
-                </TextField>
-                <ImageView fx:id="searchImg" fitHeight="24.0" fitWidth="24.0" layoutX="16.0" layoutY="16.0" pickOnBounds="true" preserveRatio="true">
-                    <image>
-                        <Image url="@../images/search-icon.png" />
-                    </image>
-                </ImageView>
-                <Button fx:id="addBtn" layoutX="609.0" layoutY="8.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="74.0" styleClass="add-btn" text="Add">
-                    <font>
-                        <Font size="20.0" />
-                    </font>
-                </Button>
-                <Slider fx:id="slider" layoutX="688.0" layoutY="63.0" orientation="VERTICAL" prefHeight="301.0" prefWidth="7.0" />
-                <Pane fx:id="softwareItemPane" layoutY="71.0" prefHeight="79.0" prefWidth="699.0">
+
+
+                <ScrollPane fx:id="scrollApplications" fitToWidth="true" hbarPolicy="NEVER" layoutY="63.0" prefHeight="316.0" prefWidth="699.0" style="-fx-background-color: transparent; ">
+                    <content>
+
+                        <VBox fx:id="vBoxAppsContainer">
+
+                            <children>
+                                <Pane fx:id="softwareItemPane" layoutY="71.0" prefHeight="79.0" prefWidth="699.0">
+                                    <children>
+                                        <CheckBox fx:id="checkBoxBtn" layoutX="17.0" layoutY="27.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="22.0" />
+                                        <ImageView fx:id="softwareImg" fitHeight="40.0" fitWidth="40.0" layoutX="48.0" layoutY="18.5" pickOnBounds="true" preserveRatio="true">
+                                            <image>
+                                                <Image url="@../images/logos_visual-studio-code.png" />
+                                            </image>
+                                        </ImageView>
+                                        <Label fx:id="appNameLabel" layoutX="104.0" layoutY="19.0" prefHeight="36.0" prefWidth="299.0" text="Visual studio code">
+                                            <font>
+                                                <Font size="28.0" />
+                                            </font>
+                                        </Label>
+                                        <Label fx:id="recommendedLabel" alignment="CENTER" layoutX="496.0" layoutY="16.0" prefHeight="47.0" prefWidth="187.0" styleClass="recommended-label" text="Recommended" textFill="#186e68">
+                                            <font>
+                                                <Font size="24.0" />
+                                            </font>
+                                        </Label>
+                                    </children>
+                                </Pane>
+
+                                <Pane layoutY="150.0" prefHeight="79.0" prefWidth="699.0">
+                                    <children>
+                                        <CheckBox layoutX="17.0" layoutY="27.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="22.0" />
+                                        <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="48.0" layoutY="18.5" pickOnBounds="true" preserveRatio="true">
+                                            <image>
+                                                <Image url="@../images/devicon_anaconda.png" />
+                                            </image>
+                                        </ImageView>
+                                        <Label layoutX="104.0" layoutY="19.0" prefHeight="36.0" prefWidth="299.0" text="Anaconda">
+                                            <font>
+                                                <Font size="28.0" />
+                                            </font>
+                                        </Label>
+                                        <Label fx:id="recommendedLabel" alignment="CENTER" layoutX="496.0" layoutY="16.0" prefHeight="47.0" prefWidth="187.0" styleClass="recommended-label" text="Recommended" textFill="#186e68">
+                                            <font>
+                                                <Font size="24.0" />
+                                            </font>
+                                        </Label>
+                                    </children>
+                                </Pane>
+
+                                <Pane layoutY="229.0" prefHeight="79.0" prefWidth="699.0">
+                                    <children>
+                                        <CheckBox layoutX="17.0" layoutY="27.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="22.0" />
+                                        <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="48.0" layoutY="18.5" pickOnBounds="true" preserveRatio="true">
+                                            <image>
+                                                <Image url="@../images/devicon_pycharm.png" />
+                                            </image>
+                                        </ImageView>
+                                        <Label layoutX="104.0" layoutY="19.0" prefHeight="36.0" prefWidth="299.0" text="PyCharm">
+                                            <font>
+                                                <Font size="28.0" />
+                                            </font>
+                                        </Label>
+                                    </children>
+                                </Pane>
+
+                                <Pane layoutY="308.0" prefHeight="79.0" prefWidth="699.0">
+                                    <children>
+                                        <CheckBox layoutX="17.0" layoutY="27.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="22.0" />
+                                        <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="48.0" layoutY="18.5" pickOnBounds="true" preserveRatio="true">
+                                            <image>
+                                                <Image url="@../images/logos_visual-studio.png" />
+                                            </image>
+                                        </ImageView>
+                                        <Label layoutX="104.0" layoutY="19.0" prefHeight="36.0" prefWidth="299.0" text="Visual studio">
+                                            <font>
+                                                <Font size="28.0" />
+                                            </font>
+                                        </Label>
+                                    </children>
+                                </Pane>
+
+                            </children>
+
+                        </VBox>
+
+                    </content>
+
+                </ScrollPane>
+                <Pane fx:id="addAppField" prefHeight="63.0" prefWidth="699.0" styleClass="add-app-field">
                     <children>
-                        <CheckBox fx:id="checkBoxBtn" layoutX="17.0" layoutY="27.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="22.0" />
-                        <ImageView fx:id="softwareImg" fitHeight="40.0" fitWidth="40.0" layoutX="48.0" layoutY="18.5" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="24.0" fitWidth="24.0" layoutX="16.0" layoutY="19.5" pickOnBounds="true" preserveRatio="true">
                             <image>
-                                <Image url="@../images/logos_visual-studio-code.png" />
+                                <Image url="@../images/search-icon.png" />
                             </image>
                         </ImageView>
-                        <Label fx:id="appNameLabel" layoutX="104.0" layoutY="19.0" prefHeight="36.0" prefWidth="299.0" text="Visual studio code">
-                            <font>
-                                <Font size="28.0" />
-                            </font>
-                        </Label>
-                        <Label fx:id="recommendedLabel" alignment="CENTER" layoutX="496.0" layoutY="16.0" prefHeight="47.0" prefWidth="187.0" style=" -fx-background-color: rgb(207,237,235); -fx-background-radius: 25;" text="Recommended" textFill="#186e68">
+                        <TextField fx:id="urlField" layoutX="56.0" layoutY="16.0" prefHeight="37.0" prefWidth="527.0" promptText="search app..." styleClass="url-field">
                             <font>
                                 <Font size="24.0" />
                             </font>
-                        </Label>
-                    </children>
-                </Pane>
-
-                <Pane layoutY="150.0" prefHeight="79.0" prefWidth="699.0">
-                    <children>
-                        <CheckBox layoutX="17.0" layoutY="27.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="22.0" />
-                        <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="48.0" layoutY="18.5" pickOnBounds="true" preserveRatio="true">
-                            <image>
-                                <Image url="@../images/devicon_anaconda.png" />
-                            </image>
-                        </ImageView>
-                        <Label layoutX="104.0" layoutY="19.0" prefHeight="36.0" prefWidth="299.0" text="Anaconda">
+                        </TextField>
+                        <Button fx:id="addBtn" layoutX="609.0" layoutY="8.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="74.0" styleClass="add-btn" text="Add">
                             <font>
-                                <Font size="28.0" />
+                                <Font size="20.0" />
                             </font>
-                        </Label>
-                        <Label alignment="CENTER" layoutX="496.0" layoutY="16.0" prefHeight="47.0" prefWidth="187.0" style=" -fx-background-color: rgb(207,237,235); -fx-background-radius: 25;" text="Recommended" textFill="#186e68">
-                            <font>
-                                <Font size="24.0" />
-                            </font>
-                        </Label>
-                    </children>
-                </Pane>
-
-                <Pane layoutY="229.0" prefHeight="79.0" prefWidth="699.0">
-                    <children>
-                        <CheckBox layoutX="17.0" layoutY="27.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="22.0" />
-                        <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="48.0" layoutY="18.5" pickOnBounds="true" preserveRatio="true">
-                            <image>
-                                <Image url="@../images/devicon_pycharm.png" />
-                            </image>
-                        </ImageView>
-                        <Label layoutX="104.0" layoutY="19.0" prefHeight="36.0" prefWidth="299.0" text="PyCharm">
-                            <font>
-                                <Font size="28.0" />
-                            </font>
-                        </Label>
-                    </children>
-                </Pane>
-
-                <Pane layoutY="308.0" prefHeight="79.0" prefWidth="699.0">
-                    <children>
-                        <CheckBox layoutX="17.0" layoutY="27.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="22.0" />
-                        <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="48.0" layoutY="18.5" pickOnBounds="true" preserveRatio="true">
-                            <image>
-                                <Image url="@../images/logos_visual-studio.png" />
-                            </image>
-                        </ImageView>
-                        <Label layoutX="104.0" layoutY="19.0" prefHeight="36.0" prefWidth="299.0" text="Visual studio">
-                            <font>
-                                <Font size="28.0" />
-                            </font>
-                        </Label>
+                        </Button>
                     </children>
                 </Pane>
 
@@ -144,7 +163,7 @@
                 <Font size="30.0" />
             </font>
         </Label>
-        <Pane fx:id="listContainer" layoutX="851.0" layoutY="329.0" prefHeight="379.0" prefWidth="489.0" style="-fx-border-color: #0B3E3A; -fx-border-radius: 20;">
+        <Pane fx:id="listContainer" layoutX="851.0" layoutY="329.0" prefHeight="379.0" prefWidth="489.0" styleClass="list-container">
             <children>
                 <Pane fx:id="appItemPane1" prefHeight="74.0" prefWidth="489.0">
                     <children>
@@ -190,4 +209,4 @@
             </children>
         </Pane>
     </children>
-</Pane>
+</AnchorPane>

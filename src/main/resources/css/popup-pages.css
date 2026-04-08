@@ -1,0 +1,9 @@
+.popup-root {
+  -fx-border-radius: 25;
+  -fx-border-color: #f3f4f4;
+  -fx-background-color: white;
+  -fx-background-radius: 25;
+}
+.popup-background{
+    -fx-background-color: rgba(0, 0, 0, 0.123);
+}

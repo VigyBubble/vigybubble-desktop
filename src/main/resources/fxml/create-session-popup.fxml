@@ -9,7 +9,9 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="563.0" prefWidth="1283.0" style="-fx-background-color: white;" styleClass="main-pane" stylesheets="@../css/create-session-popup.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="563.0" prefWidth="1283.0" style="-fx-background-color: white;" styleClass="main-pane" stylesheets="@../css/create-session-popup.css"
+   xmlns="http://javafx.com/javafx/25"
+   xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <Label layoutX="16.0" layoutY="24.0" text="Start Session">
          <font>

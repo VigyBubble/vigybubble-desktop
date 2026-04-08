@@ -6,11 +6,13 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.ScrollPane?>
 
-<AnchorPane prefHeight="1024.0" prefWidth="1440.0" stylesheets="@../css/create-bubble-p1.css"
+<AnchorPane fx:id="paneContainer" prefHeight="1024.0" prefWidth="1440.0" stylesheets="@../css/create-bubble-pages.css"
    xmlns="http://javafx.com/javafx/25"
    xmlns:fx="http://javafx.com/fxml/1">
    <children>
@@ -45,14 +47,14 @@
             <Image url="@../images/bubble.png" />
          </image>
       </ImageView>
-      <Pane fx:id="enterUrlPane" layoutX="100.0" layoutY="279.0" prefHeight="79.0" prefWidth="746.0" style="-fx-border-color: #0B3E3A; -fx-border-radius: 20;">
+      <Pane fx:id="enterUrlPane" styleClass="enter-url-pane" layoutX="100.0" layoutY="279.0" prefHeight="79.0" prefWidth="746.0">
          <children>
             <ImageView fx:id="urlIcon" fitHeight="24.0" fitWidth="24.0" layoutX="16.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../images/url-icon.png" />
                </image>
             </ImageView>
-            <TextField fx:id="urlLabel" layoutX="56.0" layoutY="19.0" prefHeight="37.0" prefWidth="583.0" promptText="Enter URL" style="-fx-border-color: transparent; -fx-background-color: transparent; -fx-padding: 0;">
+            <TextField fx:id="urlField" styleClass="url-field" layoutX="56.0" layoutY="19.0" prefHeight="37.0" prefWidth="583.0" promptText="Enter URL">
                <font>
                   <Font size="24.0" />
                </font>
@@ -86,112 +88,142 @@
             <Image url="@../images/grommet-icons_select.png" />
          </image>
       </ImageView>
-      <Pane fx:id="resourcesContainer" layoutX="100.0" layoutY="390.0" prefHeight="354.0" prefWidth="1240.0" style="-fx-border-color: #115d58; -fx-border-radius: 20;">
-         <children>
-            <Pane fx:id="itemPane1" prefHeight="79.0" prefWidth="1240.0">
-               <children>
-                  <ImageView fx:id="icon1" fitHeight="40.0" fitWidth="40.0" layoutX="16.0" layoutY="19.5" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../images/url-icon(horiz).png" />
-                     </image>
-                  </ImageView>
-                  <Label fx:id="textLabel1" layoutX="72.0" layoutY="20.0" prefHeight="40.0" prefWidth="980.0" text="https://www.canva.com/templates">
-                     <font>
-                        <Font size="28.0" />
-                     </font>
-                  </Label>
-                  <Label fx:id="typeLabel1" alignment="CENTER" layoutX="1097.0" layoutY="16.0" prefHeight="47.0" prefWidth="79.0" style="-fx-background-color: #CFEDEB; -fx-background-radius: 25;" text="URL" textFill="#115d58">
-                     <font>
-                        <Font size="24.0" />
-                     </font>
-                  </Label>
-                  <ImageView fx:id="removeIcon1" fitHeight="24.0" fitWidth="24.0" layoutX="1200.0" layoutY="27.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../images/close-icon.png" />
-                     </image>
-                  </ImageView>
-               </children>
-            </Pane>
-            <Separator fx:id="separator1" layoutY="79.0" prefHeight="0.5" prefWidth="1240.0" />
+      <ScrollPane fx:id="scrollPane" styleClass="resources-pane" layoutX="100.0" layoutY="390.0" prefHeight="354.0" prefWidth="1260.0" fitToWidth="true" hbarPolicy="NEVER">
 
-            <Pane fx:id="itemPane2" layoutY="79.0" prefHeight="79.0" prefWidth="1240.0">
+         <content>
+            <VBox fx:id="resourcesContainer" spacing="0">
                <children>
-                  <ImageView fx:id="icon2" fitHeight="40.0" fitWidth="40.0" layoutX="16.0" layoutY="19.5" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../images/file-icon.png" />
-                     </image>
-                  </ImageView>
-                  <Label fx:id="textLabel2" layoutX="72.0" layoutY="20.0" prefHeight="40.0" prefWidth="980.0" text="G:\grad project\Sequence diagrams\Sequence diagram (Analytics &amp; Reports Management System).drawio">
-                     <font>
-                        <Font size="28.0" />
-                     </font>
-                  </Label>
-                  <Label fx:id="typeLabel2" alignment="CENTER" layoutX="1097.0" layoutY="16.0" prefHeight="47.0" prefWidth="79.0" style="-fx-background-color: #CFEDEB; -fx-background-radius: 25;" text="File" textFill="#115d58">
-                     <font>
-                        <Font size="24.0" />
-                     </font>
-                  </Label>
-                  <ImageView fx:id="removeIcon2" fitHeight="24.0" fitWidth="24.0" layoutX="1200.0" layoutY="27.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../images/close-icon.png" />
-                     </image>
-                  </ImageView>
-               </children>
-            </Pane>
-            <Separator fx:id="separator2" layoutY="158.0" prefHeight="0.5" prefWidth="1240.0" />
 
-            <Pane fx:id="itemPane3" layoutY="158.0" prefHeight="79.0" prefWidth="1240.0">
-               <children>
-                  <ImageView fx:id="icon3" fitHeight="40.0" fitWidth="40.0" layoutX="16.0" layoutY="19.5" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../images/folder-icon.png" />
-                     </image>
-                  </ImageView>
-                  <Label fx:id="textLabel3" layoutX="72.0" layoutY="20.0" prefHeight="40.0" prefWidth="980.0" text="C:\Programs">
-                     <font>
-                        <Font size="28.0" />
-                     </font>
-                  </Label>
-                  <Label fx:id="typeLabel3" alignment="CENTER" layoutX="1097.0" layoutY="16.0" prefHeight="47.0" prefWidth="79.0" style="-fx-background-color: #CFEDEB; -fx-background-radius: 25;" text="Folder" textFill="#115d58">
-                     <font>
-                        <Font size="24.0" />
-                     </font>
-                  </Label>
-                  <ImageView fx:id="removeIcon3" fitHeight="24.0" fitWidth="24.0" layoutX="1200.0" layoutY="27.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../images/close-icon.png" />
-                     </image>
-                  </ImageView>
-               </children>
-            </Pane>
-            <Separator fx:id="separator3" layoutY="237.0" prefHeight="0.5" prefWidth="1240.0" />
+                  <Pane fx:id="itemPane1" prefHeight="79.0" prefWidth="1240.0">
+                     <children>
+                        <ImageView fx:id="icon1" fitHeight="40.0" fitWidth="40.0" layoutX="16.0" layoutY="19.5" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../images/url-icon(horiz).png" />
+                           </image>
+                        </ImageView>
+                        <Label fx:id="textLabel1" layoutX="72.0" layoutY="20.0" prefHeight="40.0" prefWidth="980.0" text="https://www.canva.com/templates">
+                           <font>
+                              <Font size="28.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="typeLabel1" styleClass="type-labels" alignment="CENTER" layoutX="1097.0" layoutY="16.0" prefHeight="47.0" prefWidth="79.0" text="URL" textFill="#115d58">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </Label>
+                        <ImageView fx:id="removeIcon1" fitHeight="24.0" fitWidth="24.0" layoutX="1200.0" layoutY="27.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../images/close-icon.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </Pane>
+                  <Separator fx:id="separator1" prefHeight="0.5" prefWidth="1240.0" />
+                  <Pane fx:id="itemPane2" layoutY="79.0" prefHeight="79.0" prefWidth="1240.0">
+                     <children>
+                        <ImageView fx:id="icon2" fitHeight="40.0" fitWidth="40.0" layoutX="16.0" layoutY="19.5" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../images/file-icon.png" />
+                           </image>
+                        </ImageView>
+                        <Label fx:id="textLabel2" layoutX="72.0" layoutY="20.0" prefHeight="40.0" prefWidth="980.0" text="G:\grad project\Sequence diagrams\Sequence diagram (Analytics &amp; Reports Management System).drawio">
+                           <font>
+                              <Font size="28.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="typeLabel3" styleClass="type-labels" alignment="CENTER" layoutX="1097.0" layoutY="16.0" prefHeight="47.0" prefWidth="79.0" text="File" textFill="#115d58">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </Label>
+                        <ImageView fx:id="removeIcon2" fitHeight="24.0" fitWidth="24.0" layoutX="1200.0" layoutY="27.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../images/close-icon.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </Pane>
+                  <Separator fx:id="separator2" layoutY="158.0" prefHeight="0.5" prefWidth="1240.0" />
 
-            <Pane fx:id="itemPane4" layoutY="237.0" prefHeight="79.0" prefWidth="1240.0">
-               <children>
-                  <ImageView fx:id="icon4" fitHeight="40.0" fitWidth="40.0" layoutX="16.0" layoutY="19.5" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../images/folder-icon.png" />
-                     </image>
-                  </ImageView>
-                  <Label fx:id="textLabel4" layoutX="72.0" layoutY="20.0" prefHeight="40.0" prefWidth="980.0" text="G:\grad project\Sequence diagrams">
-                     <font>
-                        <Font size="28.0" />
-                     </font>
-                  </Label>
-                  <Label fx:id="typeLabel4" alignment="CENTER" layoutX="1097.0" layoutY="16.0" prefHeight="47.0" prefWidth="79.0" style="-fx-background-color: #CFEDEB; -fx-background-radius: 25;" text="Folder" textFill="#115d58">
-                     <font>
-                        <Font size="24.0" />
-                     </font>
-                  </Label>
-                  <ImageView fx:id="removeIcon4" fitHeight="24.0" fitWidth="24.0" layoutX="1200.0" layoutY="27.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../images/close-icon.png" />
-                     </image>
-                  </ImageView>
+                  <Pane fx:id="itemPane3" layoutY="158.0" prefHeight="79.0" prefWidth="1240.0">
+                     <children>
+                        <ImageView fx:id="icon3" fitHeight="40.0" fitWidth="40.0" layoutX="16.0" layoutY="19.5" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../images/folder-icon.png" />
+                           </image>
+                        </ImageView>
+                        <Label fx:id="textLabel3" layoutX="72.0" layoutY="20.0" prefHeight="40.0" prefWidth="980.0" text="C:\Programs">
+                           <font>
+                              <Font size="28.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="typeLabel4" styleClass="type-labels" alignment="CENTER" layoutX="1097.0" layoutY="16.0" prefHeight="47.0" prefWidth="79.0" text="Folder" textFill="#115d58">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </Label>
+                        <ImageView fx:id="removeIcon3" fitHeight="24.0" fitWidth="24.0" layoutX="1200.0" layoutY="27.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../images/close-icon.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </Pane>
+                  <Separator fx:id="separator3" layoutY="237.0" prefHeight="0.5" prefWidth="1240.0" />
+
+                  <Pane fx:id="itemPane4" layoutY="237.0" prefHeight="79.0" prefWidth="1240.0">
+                     <children>
+                        <ImageView fx:id="icon4" fitHeight="40.0" fitWidth="40.0" layoutX="16.0" layoutY="19.5" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../images/folder-icon.png" />
+                           </image>
+                        </ImageView>
+                        <Label fx:id="textLabel4" layoutX="72.0" layoutY="20.0" prefHeight="40.0" prefWidth="980.0" text="G:\grad project\Sequence diagrams">
+                           <font>
+                              <Font size="28.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="typeLabel5" styleClass="type-labels" alignment="CENTER" layoutX="1097.0" layoutY="16.0" prefHeight="47.0" prefWidth="79.0" text="Folder" textFill="#115d58">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </Label>
+                        <ImageView fx:id="removeIcon4" fitHeight="24.0" fitWidth="24.0" layoutX="1200.0" layoutY="27.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../images/close-icon.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </Pane>
+                  <Separator fx:id="separator4" layoutY="316.0" prefHeight="0.5" prefWidth="1240.0" />
+                  <Pane fx:id="itemPane5" layoutY="237.0" prefHeight="79.0" prefWidth="1240.0">
+                     <children>
+                        <ImageView fx:id="icon5" fitHeight="40.0" fitWidth="40.0" layoutX="16.0" layoutY="19.5" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../images/folder-icon.png" />
+                           </image>
+                        </ImageView>
+                        <Label fx:id="textLabel5" layoutX="72.0" layoutY="20.0" prefHeight="40.0" prefWidth="980.0" text="G:\grad project\Sequence diagrams">
+                           <font>
+                              <Font size="28.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="typeLabel5" styleClass="type-labels" alignment="CENTER" layoutX="1097.0" layoutY="16.0" prefHeight="47.0" prefWidth="79.0" text="Folder" textFill="#115d58">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </Label>
+                        <ImageView fx:id="removeIcon5" fitHeight="24.0" fitWidth="24.0" layoutX="1200.0" layoutY="27.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../images/close-icon.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </Pane>
+                  <Separator fx:id="separator5" layoutY="316.0" prefHeight="0.5" prefWidth="1240.0" />
                </children>
-            </Pane>
-            <Separator fx:id="separator4" layoutY="316.0" prefHeight="0.5" prefWidth="1240.0" />
-         </children>
-      </Pane>
+            </VBox>
+         </content>
+      </ScrollPane>
    </children>
 </AnchorPane>
