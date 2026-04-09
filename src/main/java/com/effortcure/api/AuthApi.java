@@ -16,7 +16,6 @@ public class AuthApi {
 
     public ApiResponse<Void> checkEmailExistance(String email) throws Exception {
         HttpResponse<String> response = ApiClientUtil.get(BASE_URL + "/email-exists/" + email, null, null, null);
-        System.out.println("response body:" + response.body());
         return JsonUtil.fromJson(response.body(), new TypeReference<ApiResponse<Void>>() {
         });
     }
