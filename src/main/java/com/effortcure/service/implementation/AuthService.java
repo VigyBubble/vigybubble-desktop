@@ -14,20 +14,7 @@ public class AuthService implements AuthServiceInterface {
 
     @Override
     public ApiResponse<Void> checkEmailExistance(String email) throws Exception {
-        RegisterRequestDTO registerRequestDTO = new RegisterRequestDTO();
-        registerRequestDTO.setEmail(email);
-        return authApi.checkEmailExistance(registerRequestDTO);
-    }
-
-    @Override
-    public ApiResponse<Void> register(String name, String email, String password, String confirmPassword)
-            throws Exception {
-        RegisterRequestDTO registerRequestDTO = new RegisterRequestDTO();
-        registerRequestDTO.setName(name);
-        registerRequestDTO.setEmail(email);
-        registerRequestDTO.setPassword(password);
-        registerRequestDTO.setConfirmPassword(confirmPassword);
-        return authApi.register(registerRequestDTO);
+        return authApi.checkEmailExistance(email);
     }
 
     @Override
@@ -52,4 +39,13 @@ public class AuthService implements AuthServiceInterface {
     }
 
     
+    public ApiResponse<Void> register(String name, String email, String password, String confirmPassword)
+            throws Exception {
+        RegisterRequestDTO registerRequestDTO = new RegisterRequestDTO();
+        registerRequestDTO.setName(name);
+        registerRequestDTO.setEmail(email);
+        registerRequestDTO.setPassword(password);
+        registerRequestDTO.setConfirmPassword(confirmPassword);
+        return authApi.register(registerRequestDTO);
+    }
 }

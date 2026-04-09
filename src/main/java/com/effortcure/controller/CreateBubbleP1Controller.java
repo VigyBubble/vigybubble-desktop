@@ -10,25 +10,36 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.image.ImageView;
 
 public class CreateBubbleP1Controller {
-@FXML private AnchorPane painContainer;
+    @FXML
+    private AnchorPane painContainer;
 
-@FXML private ImageView arrowBtn;
+    @FXML
+    private ImageView arrowBtn;
 
-@FXML private Label nameLabel;
+    @FXML
+    private Label nameLabel;
 
-@FXML private TextField bubbleNameField;
+    @FXML
+    private TextField bubbleNameField;
 
-@FXML private Label descriptionLabel;
+    @FXML
+    private Label descriptionLabel;
 
-@FXML private TextArea bubbleDescriptionField;
+    @FXML
+    private TextArea bubbleDescriptionField;
 
-@FXML private Button nextBtn;
+    @FXML
+    private Button nextBtn;
 
-@FXML private ImageView progressImg;
+    @FXML
+    private ImageView progressImg;
 
-@FXML private ImageView bubbleImg;
+    @FXML
+    private ImageView bubbleImg;
 
-@FXML private Label typeLabel;
+    @FXML
+    private Label typeLabel;
 
-@FXML private ComboBox comboBox;
+    @FXML
+    private ComboBox<String> comboBox;
 }
