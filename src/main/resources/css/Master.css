@@ -5,7 +5,6 @@
 
 .side-image {
   -fx-background-image: url("../images/register-img.jpg");
-  -fx-background-image: url("../images/fluent_person-32-light.png");
   -fx-background-size: cover;
   -fx-background-position: center;
   -fx-background-radius: 25;

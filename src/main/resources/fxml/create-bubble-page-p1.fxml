@@ -31,7 +31,7 @@
             <Font size="24.0" />
          </font>
       </TextField>
-      <Label layoutX="100.0" layoutY="409.0" prefHeight="29.0" prefWidth="404.0" text="Describtion" textFill="#0b3e3a">
+      <Label fx:id="descriptionLabel" layoutX="100.0" layoutY="409.0" prefHeight="29.0" prefWidth="404.0" text="Describtion" textFill="#0b3e3a">
          <font>
             <Font size="30.0" />
          </font>
