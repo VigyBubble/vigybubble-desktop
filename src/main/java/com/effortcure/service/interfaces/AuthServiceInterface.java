@@ -12,4 +12,6 @@ public interface AuthServiceInterface {
     public ApiResponse<Void> verifyEmail(String email, String code) throws Exception;
 
     public ApiResponse<LoginResponseDTO> login(String email, String password) throws Exception;
+
+    public void resendCode(String email) throws Exception;
 }

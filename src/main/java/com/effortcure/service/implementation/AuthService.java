@@ -45,4 +45,11 @@ public class AuthService implements AuthServiceInterface {
         loginRequestDTO.setPassword(password);
         return authApi.login(loginRequestDTO);
     }
+
+    @Override
+    public void resendCode(String email) throws Exception {
+         authApi.resendCode(email);
+    }
+
+    
 }

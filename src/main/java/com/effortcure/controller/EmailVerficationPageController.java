@@ -114,8 +114,9 @@ public class EmailVerficationPageController {
     }
 
     @FXML
-    private void resendCode() {
-
+    private void resendCode() throws Exception {
+        if (email != null)
+            authService.resendCode(email);
     }
 
     @FXML

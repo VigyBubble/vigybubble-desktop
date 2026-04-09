@@ -42,4 +42,9 @@ public class AuthApi {
         return JsonUtil.fromJson(response.body(), new TypeReference<ApiResponse<LoginResponseDTO>>() {
         });
     }
+
+    public void resendCode(String email) throws Exception {
+        ApiClientUtil.post(BASE_URL + "/resend-code/" + email, null, null, null);
+
+    }
 }
