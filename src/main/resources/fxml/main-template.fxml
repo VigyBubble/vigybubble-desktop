@@ -4,106 +4,111 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.text.Font?>
 
-<Pane fx:id="navbarPane" styleClass="navbar-pane" prefHeight="171.0" prefWidth="1440.0"
-    xmlns="http://javafx.com/javafx/25"
-    xmlns:fx="http://javafx.com/fxml/1"  stylesheets="@../css/Master.css">
-    <children>
-        <Pane fx:id="userCard" styleClass="user-card" layoutX="16.0" layoutY="19.5" prefHeight="132.0" prefWidth="383.0">
-            <children>
-                <Label fx:id="userNameLabel" layoutX="121.0" layoutY="16.0" prefHeight="36.0" prefWidth="221.0" text="Shahd Ahmed">
-                    <font>
-                        <Font size="28.0" />
-                    </font>
-                </Label>
-                <Label fx:id="dwsLabel" layoutX="121.0" layoutY="68.0" prefHeight="31.0" prefWidth="87.0" text="DWS : 0">
-                    <font>
-                        <Font size="24.0" />
-                    </font>
-                </Label>
-                <Pane fx:id="profileImgContainer" styleClass="profileImgContainer" layoutX="24.0" layoutY="29.5" prefHeight="73.0" prefWidth="73.0">
-                    <children>
-                        <ImageView fx:id="profileImg" fitHeight="40.0" fitWidth="40.0" layoutX="17.0" layoutY="16.0" pickOnBounds="true" preserveRatio="true">
-                            <image>
-                                <Image url="@../images/fluent_person-32-light.png" />
-                            </image>
-                        </ImageView>
-                    </children>
-                </Pane>
-            </children>
+<AnchorPane fx:id="painContainer" prefHeight="1024.0" prefWidth="1440.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1">
+  <children>
+    <Pane fx:id="navbarPane" prefHeight="171.0" prefWidth="1440.0" styleClass="navbar-pane"> 
+      <children>
+        <Pane fx:id="userCard" layoutX="16.0" layoutY="19.5" prefHeight="132.0" prefWidth="383.0" styleClass="user-card">
+          <children>
+            <Label fx:id="userNameLabel" layoutX="121.0" layoutY="16.0" prefHeight="36.0" prefWidth="221.0" text="Shahd Ahmed">
+              <font>
+                <Font size="28.0"/>
+              </font>
+            </Label>
+            <Label fx:id="dwsLabel" layoutX="121.0" layoutY="68.0" prefHeight="31.0" prefWidth="87.0" text="DWS : 0">
+              <font>
+                <Font size="24.0"/>
+              </font>
+            </Label>
+            <Pane fx:id="profileImgContainer" layoutX="24.0" layoutY="29.5" prefHeight="73.0" prefWidth="73.0" styleClass="profileImgContainer">
+              <children>
+                <ImageView fx:id="profileImg" fitHeight="40.0" fitWidth="40.0" layoutX="17.0" layoutY="16.0" pickOnBounds="true" preserveRatio="true">
+                  <image>
+                    <Image url="@../images/fluent_person-32-light.png"/>
+                  </image>
+                </ImageView>
+              </children>
+            </Pane>
+          </children>
         </Pane>
         <Pane fx:id="rightControlsContainer" layoutX="1124.0" layoutY="16.0" prefHeight="68.0" prefWidth="300.0">
-            <children>
-                <Pane fx:id="planPane" styleClass="plan-pane" prefHeight="68.0" prefWidth="148.0">
-                    <children>
-                        <Label fx:id="planLabel" layoutX="16.0" layoutY="16.0" prefHeight="36.0" prefWidth="116.0" text="Standard" textFill="WHITE">
-                            <font>
-                                <Font size="28.0" />
-                            </font>
-                        </Label>
-                    </children>
-                </Pane>
-                <Pane fx:id="settingsBtn" styleClass="settingsBtn" layoutX="160.0" layoutY="6.0" prefHeight="56.0" prefWidth="56.0">
-                    <children>
-                        <ImageView fx:id="settingsIcon" fitHeight="24.0" fitWidth="24.0" layoutX="16.0" layoutY="16.0" pickOnBounds="true" preserveRatio="true">
-                            <image>
-                                <Image url="@../images/setting-icon.png" />
-                            </image>
-                        </ImageView>
-                    </children>
-                </Pane>
-                <Pane fx:id="notificationBtn" styleClass="settingsBtn" layoutX="235.0" layoutY="6.0" prefHeight="56.0" prefWidth="56.0" style=" -fx-cursor: hand;">
-                    <children>
-                        <ImageView fitHeight="24.0" fitWidth="24.0" layoutX="16.0" layoutY="16.0" pickOnBounds="true" preserveRatio="true">
-                            <image>
-                                <Image url="@../images/bell-icon.png" />
-                            </image>
-                        </ImageView>
-                    </children>
-                </Pane>
-            </children>
+          <children>
+            <Pane fx:id="planPane" prefHeight="68.0" prefWidth="148.0" styleClass="plan-pane">
+              <children>
+                <Label fx:id="planLabel" layoutX="16.0" layoutY="16.0" prefHeight="36.0" prefWidth="116.0" text="Standard" textFill="WHITE">
+                  <font>
+                    <Font size="28.0"/>
+                  </font>
+                </Label>
+              </children>
+            </Pane>
+            <Pane fx:id="settingsBtn" layoutX="160.0" layoutY="6.0" prefHeight="56.0" prefWidth="56.0" styleClass="settingsBtn">
+              <children>
+                <ImageView fx:id="settingsIcon" fitHeight="24.0" fitWidth="24.0" layoutX="16.0" layoutY="16.0" pickOnBounds="true" preserveRatio="true">
+                  <image>
+                    <Image url="@../images/setting-icon.png"/>
+                  </image>
+                </ImageView>
+              </children>
+            </Pane>
+            <Pane fx:id="notificationBtn" layoutX="235.0" layoutY="6.0" prefHeight="56.0" prefWidth="56.0" style="-fx-cursor: hand;" styleClass="settingsBtn">
+              <children>
+                <ImageView fitHeight="24.0" fitWidth="24.0" layoutX="16.0" layoutY="16.0" pickOnBounds="true" preserveRatio="true">
+                  <image>
+                    <Image url="@../images/bell-icon.png"/>
+                  </image>
+                </ImageView>
+              </children>
+            </Pane>
+          </children>
         </Pane>
-        <Pane fx:id="navBar" styleClass="navBar" layoutX="737.0" layoutY="113.0" prefHeight="39.0" prefWidth="687.0">
-            <children>
-                <Pane fx:id="homeTab" styleClass="navTabs" prefHeight="39.0" prefWidth="107.0" style=" -fx-cursor: hand; -fx-background-radius: 15 0 0 15;">
-                    <children>
-                        <Hyperlink fx:id="homeLink" alignment="CENTER" graphicTextGap="0.0" prefHeight="10.0" prefWidth="107.0" text="Home" textFill="WHITE">
-                            <font>
-                                <Font size="25.0" />
-                            </font>
-                        </Hyperlink>
-                    </children>
-                </Pane>
-                <Pane fx:id="peripheralsTab" styleClass="navTabs" layoutX="107.0" prefHeight="39.0" prefWidth="171.0" style=" -fx-cursor: hand;">
-                    <children>
-                        <Hyperlink fx:id="peripheralsLink" alignment="CENTER" prefHeight="0.0" prefWidth="171.0" text="Periphrals" textFill="WHITE">
-                            <font>
-                                <Font size="25.0" />
-                            </font>
-                        </Hyperlink>
-                    </children>
-                </Pane>
-                <Pane fx:id="analyticsTab" styleClass="navTabs" layoutX="278.0" prefHeight="39.0" prefWidth="161.0" style=" -fx-cursor: hand;">
-                    <children>
-                        <Hyperlink fx:id="analyticsLink" alignment="CENTER" prefHeight="0.0" prefWidth="161.0" text="Analytics" textFill="WHITE">
-                            <font>
-                                <Font size="25.0" />
-                            </font>
-                        </Hyperlink>
-                    </children>
-                </Pane>
-                <Pane fx:id="teamsTab" styleClass="navTabs" layoutX="439.0" prefHeight="39.0" prefWidth="248.0" style=" -fx-cursor: hand; -fx-background-radius: 0 15 15 0;">
-                    <children>
-                        <Hyperlink fx:id="teamsLink" alignment="CENTER" prefHeight="0.0" prefWidth="248.0" text="Teams &amp; Groups" textFill="WHITE">
-                            <font>
-                                <Font size="25.0" />
-                            </font>
-                        </Hyperlink>
-                    </children>
-                </Pane>
-            </children>
+        <Pane fx:id="navBar" layoutX="737.0" layoutY="113.0" prefHeight="39.0" prefWidth="687.0" styleClass="navBar">
+          <children>
+            <Pane fx:id="homeTab" prefHeight="39.0" prefWidth="107.0" style=" -fx-cursor: hand; -fx-background-radius: 15 0 0 15;" styleClass="navTabs">
+              <children>
+                <Hyperlink fx:id="homeLink" alignment="CENTER" graphicTextGap="0.0" prefHeight="10.0" prefWidth="107.0" text="Home" textFill="WHITE">
+                  <font>
+                    <Font size="25.0"/>
+                  </font>
+                </Hyperlink>
+              </children>
+            </Pane>
+            <Pane fx:id="peripheralsTab" layoutX="107.0" prefHeight="39.0" prefWidth="171.0" style="-fx-cursor: hand;" styleClass="navTabs">
+              <children>
+                <Hyperlink fx:id="peripheralsLink" alignment="CENTER" prefHeight="0.0" prefWidth="171.0" text="Periphrals" textFill="WHITE">
+                  <font>
+                    <Font size="25.0"/>
+                  </font>
+                </Hyperlink>
+              </children>
+            </Pane>
+            <Pane fx:id="analyticsTab" layoutX="278.0" prefHeight="39.0" prefWidth="161.0" style="-fx-cursor: hand;" styleClass="navTabs">
+              <children>
+                <Hyperlink fx:id="analyticsLink" alignment="CENTER" prefHeight="0.0" prefWidth="161.0" text="Analytics" textFill="WHITE">
+                  <font>
+                    <Font size="25.0"/>
+                  </font>
+                </Hyperlink>
+              </children>
+            </Pane>
+            <Pane fx:id="teamsTab" layoutX="439.0" prefHeight="39.0" prefWidth="248.0" style="-fx-cursor: hand; -fx-background-radius: 0 15 15 0;" styleClass="navTabs">
+              <children>
+                <Hyperlink fx:id="teamsLink" alignment="CENTER" prefHeight="0.0" prefWidth="248.0" text="Teams &amp; Groups" textFill="WHITE">
+                  <font>
+                    <Font size="25.0"/>
+                  </font>
+                </Hyperlink>
+              </children>
+            </Pane>
+          </children>
         </Pane>
-    </children>
-</Pane>
+      </children>
+    </Pane>
+    <StackPane fx:id="stackPane" layoutY="171.0" prefHeight="855.0" prefWidth="1440.0"/>
+  </children>
+</AnchorPane>

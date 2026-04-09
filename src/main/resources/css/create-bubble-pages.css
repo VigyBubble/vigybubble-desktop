@@ -1,7 +1,6 @@
 .next-btn,
 .add-btn,
-.select-btn,
-.confirm-btn {
+.select-btn {
   -fx-background-radius: 15;
   -fx-background-color: #115d58;
   -fx-text-fill: white;
@@ -16,15 +15,13 @@
 }
 .next-btn:hover,
 .add-btn:hover,
-.select-btn:hover,
-.confirm-btn:hover {
+.select-btn:hover {
   -fx-background-color: #0a4a4a;
   -fx-effect: dropshadow(gaussian, rgba(13, 92, 92, 0.55), 14, 0, 0, 5);
 }
 .next-btn:pressed,
 .add-btn:pressed,
-.select-btn:pressed,
-.confirm-btn:pressed {
+.select-btn:pressed {
   -fx-background-color: #083838;
   -fx-effect: dropshadow(gaussian, rgba(13, 92, 92, 0.2), 4, 0, 0, 1);
 }
