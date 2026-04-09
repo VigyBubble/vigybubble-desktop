@@ -14,9 +14,7 @@ public class AuthService implements AuthServiceInterface {
 
     @Override
     public ApiResponse<Void> checkEmailExistance(String email) throws Exception {
-        RegisterRequestDTO registerRequestDTO = new RegisterRequestDTO();
-        registerRequestDTO.setEmail(email);
-        return authApi.checkEmailExistance(registerRequestDTO);
+        return authApi.checkEmailExistance(email);
     }
 
     @Override

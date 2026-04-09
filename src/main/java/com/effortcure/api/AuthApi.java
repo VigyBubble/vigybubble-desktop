@@ -14,10 +14,9 @@ import com.fasterxml.jackson.core.type.TypeReference;
 public class AuthApi {
     private final String BASE_URL = "http://localhost:9090/api/v1/auth";
 
-    public ApiResponse<Void> checkEmailExistance(RegisterRequestDTO registerRequestDTO) throws Exception {
-        HttpResponse<String> response = ApiClientUtil.post(BASE_URL + "/email-exists",
-                JsonUtil.toJson(registerRequestDTO), null,
-                null);
+    public ApiResponse<Void> checkEmailExistance(String email) throws Exception {
+        HttpResponse<String> response = ApiClientUtil.get(BASE_URL + "/email-exists/" + email, null, null, null);
+        System.out.println("response body:" + response.body());
         return JsonUtil.fromJson(response.body(), new TypeReference<ApiResponse<Void>>() {
         });
     }
