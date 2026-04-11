@@ -35,10 +35,9 @@ public class AuthService implements AuthServiceInterface {
 
     @Override
     public void resendCode(String email) throws Exception {
-         authApi.resendCode(email);
+        authApi.resendCode(email);
     }
 
-    
     public ApiResponse<Void> register(String name, String email, String password, String confirmPassword)
             throws Exception {
         RegisterRequestDTO registerRequestDTO = new RegisterRequestDTO();
@@ -47,5 +46,10 @@ public class AuthService implements AuthServiceInterface {
         registerRequestDTO.setPassword(password);
         registerRequestDTO.setConfirmPassword(confirmPassword);
         return authApi.register(registerRequestDTO);
+    }
+
+    @Override
+    public void deleteUnverifiedAccount(String email) throws Exception {
+        authApi.deleteUnverifiedAccount(email);
     }
 }

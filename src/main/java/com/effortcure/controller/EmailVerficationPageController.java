@@ -6,6 +6,7 @@ import com.effortcure.service.implementation.AuthService;
 import com.effortcure.service.interfaces.AuthServiceInterface;
 import com.effortcure.util.ViewUtil;
 
+import javafx.concurrent.Task;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Hyperlink;
@@ -121,8 +122,18 @@ public class EmailVerficationPageController {
 
     @FXML
     private void back() {
-        if (oldScene.equals("REGISTER"))
+        if (oldScene.equals("REGISTER")) {
+            Task<Void> task = new Task<>() {
+                @Override
+                protected Void call() throws Exception {
+                    authService.deleteUnverifiedAccount(email);
+                    return null;
+                }
+            };
+            new Thread(task).start();
             SceneManager.switchScene("/fxml/register-page.fxml");
+        }
+
     }
 
     private void setupOtpFields() {

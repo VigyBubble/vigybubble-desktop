@@ -43,6 +43,9 @@ public class AuthApi {
 
     public void resendCode(String email) throws Exception {
         ApiClientUtil.post(BASE_URL + "/resend-code/" + email, null, null, null);
+    }
 
+    public void deleteUnverifiedAccount(String email) throws Exception {
+        ApiClientUtil.delete(BASE_URL + "/remove-unverified-account/" + email, null, null, null);
     }
 }
