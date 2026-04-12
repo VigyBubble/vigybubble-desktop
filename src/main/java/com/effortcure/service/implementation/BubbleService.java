@@ -29,9 +29,11 @@ public class BubbleService implements BubbleServiceInterface {
         CreateBubbleRequestDTO.setApplicationsNameList(applicationsNameList);
         CreateBubbleRequestDTO.setDirectoriesList(directoriesList);
         ApiResponse<Void> response = bubbleApi.createBubble(CreateBubbleRequestDTO);
-        if (response.getStatus() == 400) {
-            authServiceInterface.refreshAccessAndRefreshTokens();
-            response = bubbleApi.createBubble(CreateBubbleRequestDTO);
+        if (response != null) {
+            if (response.getStatus() == 400) {
+                authServiceInterface.refreshAccessAndRefreshTokens();
+                response = bubbleApi.createBubble(CreateBubbleRequestDTO);
+            }
         }
         return response;
     }
