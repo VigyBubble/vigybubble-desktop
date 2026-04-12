@@ -2,6 +2,7 @@ package com.effortcure.service.implementation;
 
 import com.effortcure.api.AuthApi;
 import com.effortcure.auth.AccessTokenManager;
+import com.effortcure.auth.RefreshTokenManager;
 import com.effortcure.dto.request.LoginRequestDTO;
 import com.effortcure.dto.request.RegisterRequestDTO;
 import com.effortcure.dto.request.VerifyEmailRequestDTO;
@@ -65,4 +66,12 @@ public class AuthService implements AuthServiceInterface {
     public ApiResponse<Void> forgotPassword(String email) throws Exception {
         return authApi.forgotPassword(email);
     }
+
+    @Override
+    public void logout() throws Exception {
+        authApi.logout();
+        RefreshTokenManager.deleteRefreshToken();
+        AccessTokenManager.getInstance().clearAccessToken();
+    }
+
 }

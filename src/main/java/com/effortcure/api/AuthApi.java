@@ -62,4 +62,8 @@ public class AuthApi {
         });
     }
 
+    public void logout() throws Exception {
+        ApiClientUtil.post(BASE_URL + "/logout", null, null, RefreshTokenManager.getRefreshToken());
+    }
+
 }

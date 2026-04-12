@@ -24,4 +24,8 @@ public class AccessTokenManager {
         this.accessToken = accessToken;
     }
 
+    public void clearAccessToken() {
+        this.accessToken = null;
+    }
+
 }

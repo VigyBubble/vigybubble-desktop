@@ -18,4 +18,6 @@ public interface AuthServiceInterface {
     public void deleteUnverifiedAccount(String email) throws Exception;
 
     public ApiResponse<Void> forgotPassword(String email) throws Exception;
+
+    public void logout() throws Exception;
 }
