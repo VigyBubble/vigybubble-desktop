@@ -41,6 +41,9 @@ public class AuthApi {
     public ApiResponse<LoginResponseDTO> login(LoginRequestDTO loginRequestDTO) throws Exception {
         HttpResponse<String> response = ApiClientUtil.post(BASE_URL + "/login", JsonUtil.toJson(loginRequestDTO), null,
                 null);
+        if (response.statusCode() == 200) {
+            RefreshTokenManager.saveRefreshToken(ApiClientUtil.extractRefreshToken(response));
+        }
         return JsonUtil.fromJson(response.body(), new TypeReference<ApiResponse<LoginResponseDTO>>() {
         });
     }

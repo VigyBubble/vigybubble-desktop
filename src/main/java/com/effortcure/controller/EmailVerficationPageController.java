@@ -128,6 +128,9 @@ public class EmailVerficationPageController {
             new Thread(task).start();
             SceneManager.switchScene("/fxml/register-page.fxml");
         }
+        if (oldScene.equals("LOGIN")) {
+            SceneManager.switchScene("/fxml/login-page.fxml");
+        }
 
     }
 

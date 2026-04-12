@@ -35,7 +35,10 @@ public class AuthService implements AuthServiceInterface {
         LoginRequestDTO loginRequestDTO = new LoginRequestDTO();
         loginRequestDTO.setEmail(email);
         loginRequestDTO.setPassword(password);
-        return authApi.login(loginRequestDTO);
+        ApiResponse<LoginResponseDTO> response = authApi.login(loginRequestDTO);
+        if (response.getData() != null)
+            AccessTokenManager.getInstance().setAccessToken(response.getData().getAccessToken());
+        return response;
     }
 
     @Override
