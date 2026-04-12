@@ -66,4 +66,12 @@ public class AuthApi {
         ApiClientUtil.post(BASE_URL + "/logout", null, null, RefreshTokenManager.getRefreshToken());
     }
 
+    public ApiResponse<LoginResponseDTO> refreshAccessAndRefreshTokens() throws Exception {
+        HttpResponse<String> response = ApiClientUtil.post(BASE_URL + "/refresh", null, null,
+                RefreshTokenManager.getRefreshToken());
+        if (response.statusCode() == 200)
+            RefreshTokenManager.saveRefreshToken(ApiClientUtil.extractRefreshToken(response));
+        return JsonUtil.fromJson(response.body(), new TypeReference<ApiResponse<LoginResponseDTO>>() {
+        });
+    }
 }

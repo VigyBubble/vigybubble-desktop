@@ -74,4 +74,12 @@ public class AuthService implements AuthServiceInterface {
         AccessTokenManager.getInstance().clearAccessToken();
     }
 
+    @Override
+    public ApiResponse<LoginResponseDTO> refreshAccessAndRefreshTokens() throws Exception {
+        ApiResponse<LoginResponseDTO> response = authApi.refreshAccessAndRefreshTokens();
+        if (response.getData() != null)
+            AccessTokenManager.getInstance().setAccessToken(response.getData().getAccessToken());
+        return response;
+    }
+
 }
