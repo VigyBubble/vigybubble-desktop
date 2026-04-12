@@ -1,7 +1,5 @@
 package com.effortcure.controller;
 
-import com.effortcure.auth.AccessTokenManager;
-import com.effortcure.auth.RefreshTokenManager;
 import com.effortcure.dto.response.ApiResponse;
 import com.effortcure.dto.response.LoginResponseDTO;
 import com.effortcure.navigator.SceneManager;
