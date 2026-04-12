@@ -12,8 +12,11 @@ import com.effortcure.util.ApiClientUtil;
 import com.effortcure.util.JsonUtil;
 import com.fasterxml.jackson.core.type.TypeReference;
 
+
+
 public class AuthApi {
     private final String BASE_URL = "http://localhost:9090/api/v1/auth";
+
 
     public ApiResponse<Void> checkEmailExistance(String email) throws Exception {
         HttpResponse<String> response = ApiClientUtil.get(BASE_URL + "/email-exists/" + email, null, null, null);
@@ -55,4 +58,5 @@ public class AuthApi {
     public void deleteUnverifiedAccount(String email) throws Exception {
         ApiClientUtil.delete(BASE_URL + "/remove-unverified-account/" + email, null, null, null);
     }
+
 }

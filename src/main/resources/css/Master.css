@@ -86,31 +86,5 @@
   -fx-background-color: #083838;
   -fx-effect: dropshadow(gaussian, rgba(13, 92, 92, 0.2), 4, 0, 0, 1);
 }
-/* main-template */
-.navbar-pane,
-.navBar {
-  -fx-background-color: #177b75;
-}
-.user-card {
-  -fx-background-color: white;
-  -fx-background-radius: 20;
-}
-.profileImgContainer {
-  -fx-effect: dropshadow(gaussian, rgba(13, 92, 92, 0.38), 10, 0, 0, 4);
-  -fx-background-radius: 50;
-  -fx-background-color: white;
-}
-.plan-pane {
-  -fx-background-color: #22b9af;
-  -fx-background-radius: 30;
-  -fx-effect: dropshadow(gaussian, rgba(13, 92, 92, 0.38), 10, 0, 0, 4);
-}
-.settingsBtn {
-  -fx-background-color: #177b75;
-  -fx-background-radius: 10;
-  -fx-effect: dropshadow(gaussian, rgba(13, 92, 92, 0.38), 10, 0, 0, 4);
-}
-.navTabs {
-  -fx-background-color: #177b75;
-  -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.38), 10, 0, 0, 4);
-}
+
+
