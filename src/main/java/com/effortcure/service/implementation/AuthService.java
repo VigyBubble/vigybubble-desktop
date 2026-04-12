@@ -60,4 +60,9 @@ public class AuthService implements AuthServiceInterface {
     public void deleteUnverifiedAccount(String email) throws Exception {
         authApi.deleteUnverifiedAccount(email);
     }
+
+    @Override
+    public ApiResponse<Void> forgotPassword(String email) throws Exception {
+        return authApi.forgotPassword(email);
+    }
 }

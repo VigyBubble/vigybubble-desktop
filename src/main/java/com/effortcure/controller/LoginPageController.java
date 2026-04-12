@@ -9,6 +9,7 @@ import com.effortcure.util.BooleanWrapperUtil;
 import com.effortcure.util.ControllersUtil;
 import com.effortcure.util.ViewUtil;
 
+import javafx.concurrent.Task;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
@@ -145,6 +146,29 @@ public class LoginPageController {
             if (!isValidPassword) {
                 passwordField.setText(passwordField.getText() + " ");
                 passwordField.setText(passwordField.getText().trim());
+            }
+        }
+    }
+
+    @FXML
+    private void forgotPassword() throws Exception {
+        if (isValidEmail) {
+            ApiResponse<Void> response = authService.checkEmailExistance(textFieldEmail.getText());
+            if (response.getStatus() == 409) {
+                Task<ApiResponse<Void>> task = new Task<ApiResponse<Void>>() {
+                    @Override
+                    protected ApiResponse<Void> call() throws Exception {
+                        return authService.forgotPassword(textFieldEmail.getText());
+                    }
+                };
+                new Thread(task).start();
+                EmailVerficationPageController.email = textFieldEmail.getText();
+                EmailVerficationPageController.oldScene = "FORGOT_PASSWORD";
+                SceneManager.switchScene("/fxml/email-verfication-page.fxml");
+            } else {
+                emailErrorMsg.setText("Email doesn't exist *");
+                ViewUtil.showHiddenErrorMessages(new Label[] { emailErrorMsg });
+                textFieldEmail.getStyleClass().add("error-field");
             }
         }
     }
