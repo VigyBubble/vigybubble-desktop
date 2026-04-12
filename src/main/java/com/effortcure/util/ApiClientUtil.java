@@ -4,6 +4,7 @@ import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
+import java.util.List;
 
 public class ApiClientUtil {
     private static final HttpClient client = HttpClient.newHttpClient();
@@ -68,5 +69,17 @@ public class ApiClientUtil {
             builder.header("Cookie", "refresh-token=" + refreshToken);
         }
         return builder;
+    }
+
+    public static String extractRefreshToken(HttpResponse<String> response) {
+        List<String> cookies = response.headers().allValues("Set-Cookie");
+        for (String cookie : cookies) {
+            for (String part : cookie.split(";")) {
+                if (part.trim().startsWith("refresh-token=")) {
+                    return part.trim().substring("refresh-token=".length());
+                }
+            }
+        }
+        return null;
     }
 }

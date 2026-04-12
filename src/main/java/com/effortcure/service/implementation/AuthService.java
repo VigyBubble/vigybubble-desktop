@@ -1,6 +1,7 @@
 package com.effortcure.service.implementation;
 
 import com.effortcure.api.AuthApi;
+import com.effortcure.auth.AccessTokenManager;
 import com.effortcure.dto.request.LoginRequestDTO;
 import com.effortcure.dto.request.RegisterRequestDTO;
 import com.effortcure.dto.request.VerifyEmailRequestDTO;
@@ -18,11 +19,15 @@ public class AuthService implements AuthServiceInterface {
     }
 
     @Override
-    public ApiResponse<Void> verifyEmail(String email, String code) throws Exception {
+    public ApiResponse<LoginResponseDTO> verifyEmail(String email, String code) throws Exception {
         VerifyEmailRequestDTO verifyEmailRequestDTO = new VerifyEmailRequestDTO();
         verifyEmailRequestDTO.setEmail(email);
         verifyEmailRequestDTO.setCode(code);
-        return authApi.verifyEmail(verifyEmailRequestDTO);
+        ApiResponse<LoginResponseDTO> response = authApi.verifyEmail(verifyEmailRequestDTO);
+        if (response.getData() != null) {
+            AccessTokenManager.getInstance().setAccessToken(response.getData().getAccessToken());
+        }
+        return response;
     }
 
     @Override

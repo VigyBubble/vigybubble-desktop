@@ -2,6 +2,7 @@ package com.effortcure.api;
 
 import java.net.http.HttpResponse;
 
+import com.effortcure.auth.RefreshTokenManager;
 import com.effortcure.dto.request.LoginRequestDTO;
 import com.effortcure.dto.request.RegisterRequestDTO;
 import com.effortcure.dto.request.VerifyEmailRequestDTO;
@@ -27,10 +28,13 @@ public class AuthApi {
         });
     }
 
-    public ApiResponse<Void> verifyEmail(VerifyEmailRequestDTO verifyEmailRequestDTO) throws Exception {
+    public ApiResponse<LoginResponseDTO> verifyEmail(VerifyEmailRequestDTO verifyEmailRequestDTO) throws Exception {
         HttpResponse<String> response = ApiClientUtil.post(BASE_URL + "/verify-email",
                 JsonUtil.toJson(verifyEmailRequestDTO), null, null);
-        return JsonUtil.fromJson(response.body(), new TypeReference<ApiResponse<Void>>() {
+        if (response.statusCode() == 200) {
+            RefreshTokenManager.saveRefreshToken(ApiClientUtil.extractRefreshToken(response));
+        }
+        return JsonUtil.fromJson(response.body(), new TypeReference<ApiResponse<LoginResponseDTO>>() {
         });
     }
 
