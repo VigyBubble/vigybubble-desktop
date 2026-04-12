@@ -69,4 +69,18 @@ public class NewPasswordPageController {
 
     }
 
+    @FXML
+    private void save() {
+
+    }
+
+    @FXML
+    private void hideAndShowPassword() {
+
+    }
+
+    @FXML
+    private void hideAndShowConfirmPassword() {
+
+    }
 }

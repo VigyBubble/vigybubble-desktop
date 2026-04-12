@@ -12,11 +12,8 @@ import com.effortcure.util.ApiClientUtil;
 import com.effortcure.util.JsonUtil;
 import com.fasterxml.jackson.core.type.TypeReference;
 
-
-
 public class AuthApi {
     private final String BASE_URL = "http://localhost:9090/api/v1/auth";
-
 
     public ApiResponse<Void> checkEmailExistance(String email) throws Exception {
         HttpResponse<String> response = ApiClientUtil.get(BASE_URL + "/email-exists/" + email, null, null, null);
@@ -59,4 +56,22 @@ public class AuthApi {
         ApiClientUtil.delete(BASE_URL + "/remove-unverified-account/" + email, null, null, null);
     }
 
+    public ApiResponse<Void> forgotPassword(String email) throws Exception {
+        HttpResponse<String> response = ApiClientUtil.post(BASE_URL + "/forget-password/" + email, null, null, null);
+        return JsonUtil.fromJson(response.body(), new TypeReference<ApiResponse<Void>>() {
+        });
+    }
+
+    public void logout() throws Exception {
+        ApiClientUtil.post(BASE_URL + "/logout", null, null, RefreshTokenManager.getRefreshToken());
+    }
+
+    public ApiResponse<LoginResponseDTO> refreshAccessAndRefreshTokens() throws Exception {
+        HttpResponse<String> response = ApiClientUtil.post(BASE_URL + "/refresh", null, null,
+                RefreshTokenManager.getRefreshToken());
+        if (response.statusCode() == 200)
+            RefreshTokenManager.saveRefreshToken(ApiClientUtil.extractRefreshToken(response));
+        return JsonUtil.fromJson(response.body(), new TypeReference<ApiResponse<LoginResponseDTO>>() {
+        });
+    }
 }

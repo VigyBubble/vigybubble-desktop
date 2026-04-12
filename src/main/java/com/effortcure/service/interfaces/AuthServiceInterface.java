@@ -16,4 +16,10 @@ public interface AuthServiceInterface {
     public void resendCode(String email) throws Exception;
 
     public void deleteUnverifiedAccount(String email) throws Exception;
+
+    public ApiResponse<Void> forgotPassword(String email) throws Exception;
+
+    public void logout() throws Exception;
+
+    public ApiResponse<LoginResponseDTO> refreshAccessAndRefreshTokens() throws Exception;
 }

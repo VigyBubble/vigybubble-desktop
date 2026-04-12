@@ -97,7 +97,10 @@ public class EmailVerficationPageController {
         if (!verficationCode.toString().trim().isBlank() && email != null) {
             ApiResponse<LoginResponseDTO> response = authService.verifyEmail(email, verficationCode.toString().trim());
             if (response.getStatus() == 200) {
-                SceneManager.switchScene("/fxml/main-template.fxml");
+                if (oldScene.equals("FORGOT_PASSWORD"))
+                    SceneManager.switchScene("/fxml/new-password-page.fxml");
+                else
+                    SceneManager.switchScene("/fxml/main-template.fxml");
             } else {
                 verificationErrorMsg.setText(response.getMessage() + " *");
                 verificationErrorMsg.setVisible(true);
@@ -127,11 +130,9 @@ public class EmailVerficationPageController {
             };
             new Thread(task).start();
             SceneManager.switchScene("/fxml/register-page.fxml");
-        }
-        if (oldScene.equals("LOGIN")) {
+        } else {
             SceneManager.switchScene("/fxml/login-page.fxml");
         }
-
     }
 
     private void setupOtpFields() {
