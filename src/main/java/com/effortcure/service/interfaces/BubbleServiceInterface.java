@@ -11,9 +11,7 @@ public interface BubbleServiceInterface {
             List<String> applicationsNameList, List<DirectoryRequestDTO> directoriesList)
             throws Exception;
 
-    public ApiResponse<Void> modifyBubbleName(UUID bubbleUuid,String name, String description, List<String> applicationsNameList,
-            List<DirectoryRequestDTO> directoriesList) throws Exception;
-    public ApiResponse<Void> modifyBubbleDirectories(UUID bubbleUuid,String name, String description, List<String> applicationsNameList,
-            List<DirectoryRequestDTO> directoriesList) throws Exception;        
+    public ApiResponse<Void> modifyBubble(UUID bubbleUuid,String name, String description, List<String> applicationsNameList,
+            List<DirectoryRequestDTO> directoriesList) throws Exception;      
 
 }

@@ -8,8 +8,7 @@ import com.effortcure.util.ApiClientUtil;
 import com.effortcure.util.JsonUtil;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.effortcure.dto.response.ApiResponse;
-import com.effortcure.dto.request.ModifyBubbleNameRequestDTO;
-
+import com.effortcure.dto.request.ModifyBubbleRequestDTO;
 public class BubbleApi {
 
     private final String BASE_URL = "http://localhost:9090//api/v1/bubbles/";
@@ -21,22 +20,33 @@ public class BubbleApi {
         });
     }
 
-    public ApiResponse<Void> modifyBubbleName(UUID bubbleUuid, ModifyBubbleNameRequestDTO modifyBubbleNameRequestDTO)
+    public ApiResponse<Void> modifyBubbleName(UUID bubbleUuid, ModifyBubbleRequestDTO modifyBubbleRequestDTO)
             throws Exception {
         HttpResponse<String> response = ApiClientUtil.patch(BASE_URL + bubbleUuid + "/name",
-                JsonUtil.toJson(modifyBubbleNameRequestDTO), null,
+                JsonUtil.toJson(modifyBubbleRequestDTO), null,
                 null);
         return JsonUtil.fromJson(response.body(), new TypeReference<ApiResponse<Void>>() {
         });
     }
 
-    public ApiResponse<Void> modifyBubbleDirectories(UUID bubbleUuid, ModifyBubbleNameRequestDTO modifyBubbleDirectoriesRequestDTO)
+    public ApiResponse<Void> modifyBubbleDirectories(UUID bubbleUuid, ModifyBubbleRequestDTO modifyBubbleRequestDTO)
             throws Exception {
         HttpResponse<String> response = ApiClientUtil.patch(BASE_URL + bubbleUuid + "/directories-list",
-                JsonUtil.toJson(modifyBubbleDirectoriesRequestDTO), null,
+                JsonUtil.toJson(modifyBubbleRequestDTO), null,
                 null);
         return JsonUtil.fromJson(response.body(), new TypeReference<ApiResponse<Void>>() {
         });
     }
+
+
+      public ApiResponse<Void> modifyBubbleDescription(UUID bubbleUuid, ModifyBubbleRequestDTO modifyBubbleRequestDTO)
+            throws Exception {
+        HttpResponse<String> response = ApiClientUtil.patch(BASE_URL + bubbleUuid + "/description",
+                JsonUtil.toJson(modifyBubbleRequestDTO), null,
+                null);
+        return JsonUtil.fromJson(response.body(), new TypeReference<ApiResponse<Void>>() {
+        });
+    }
+
 
 }

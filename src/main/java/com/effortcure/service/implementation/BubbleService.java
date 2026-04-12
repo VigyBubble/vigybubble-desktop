@@ -9,7 +9,7 @@ import com.effortcure.dto.request.DirectoryRequestDTO;
 import com.effortcure.dto.response.ApiResponse;
 import com.effortcure.enums.BubbleType;
 import com.effortcure.service.interfaces.BubbleServiceInterface;
-import com.effortcure.dto.request.ModifyBubbleNameRequestDTO;
+import com.effortcure.dto.request.ModifyBubbleRequestDTO;
 
 public class BubbleService implements BubbleServiceInterface {
     private final BubbleApi bubbleApi = new BubbleApi();
@@ -29,10 +29,10 @@ public class BubbleService implements BubbleServiceInterface {
     }
 
     @Override
-    public ApiResponse<Void> modifyBubbleName(UUID bubbleUuid, String name, String description,
+    public ApiResponse<Void> modifyBubble(UUID bubbleUuid, String name, String description,
             List<String> applicationsNameList,
             List<DirectoryRequestDTO> directoriesList) throws Exception {
-        ModifyBubbleNameRequestDTO modifyBubbleNameRequestDTO = new ModifyBubbleNameRequestDTO();
+        ModifyBubbleRequestDTO modifyBubbleNameRequestDTO = new ModifyBubbleRequestDTO();
         modifyBubbleNameRequestDTO.setName(name);
         modifyBubbleNameRequestDTO.setDescription(description);
         modifyBubbleNameRequestDTO.setApplicationsNameList(applicationsNameList);
@@ -41,16 +41,7 @@ public class BubbleService implements BubbleServiceInterface {
     }
 
 
-    @Override
-    public ApiResponse<Void> modifyBubbleDirectories(UUID bubbleUuid, String name, String description,
-            List<String> applicationsNameList,
-            List<DirectoryRequestDTO> directoriesList) throws Exception {
-        ModifyBubbleNameRequestDTO modifyBubbleDirectoriesRequestDTO = new ModifyBubbleNameRequestDTO();
-        modifyBubbleDirectoriesRequestDTO.setName(name);
-        modifyBubbleDirectoriesRequestDTO.setDescription(description);
-        modifyBubbleDirectoriesRequestDTO.setApplicationsNameList(applicationsNameList);
-        modifyBubbleDirectoriesRequestDTO.setDirectoriesList(directoriesList);
-        return bubbleApi.modifyBubbleDirectories(bubbleUuid, modifyBubbleDirectoriesRequestDTO);
-            }
+   
+
 
 }
