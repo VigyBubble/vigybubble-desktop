@@ -48,4 +48,9 @@ public class AuthService implements AuthServiceInterface {
         registerRequestDTO.setConfirmPassword(confirmPassword);
         return authApi.register(registerRequestDTO);
     }
+
+    @Override
+    public void removeUnverfiedEmail(String email) throws Exception {
+        authApi.removeUnverfiedEmail(email);
+    }
 }
