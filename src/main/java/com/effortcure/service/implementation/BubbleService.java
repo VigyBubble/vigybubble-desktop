@@ -40,4 +40,17 @@ public class BubbleService implements BubbleServiceInterface {
         return bubbleApi.modifyBubbleName(bubbleUuid, modifyBubbleNameRequestDTO);
     }
 
+
+    @Override
+    public ApiResponse<Void> modifyBubbleDirectories(UUID bubbleUuid, String name, String description,
+            List<String> applicationsNameList,
+            List<DirectoryRequestDTO> directoriesList) throws Exception {
+        ModifyBubbleNameRequestDTO modifyBubbleDirectoriesRequestDTO = new ModifyBubbleNameRequestDTO();
+        modifyBubbleDirectoriesRequestDTO.setName(name);
+        modifyBubbleDirectoriesRequestDTO.setDescription(description);
+        modifyBubbleDirectoriesRequestDTO.setApplicationsNameList(applicationsNameList);
+        modifyBubbleDirectoriesRequestDTO.setDirectoriesList(directoriesList);
+        return bubbleApi.modifyBubbleDirectories(bubbleUuid, modifyBubbleDirectoriesRequestDTO);
+            }
+
 }

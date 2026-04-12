@@ -30,4 +30,13 @@ public class BubbleApi {
         });
     }
 
+    public ApiResponse<Void> modifyBubbleDirectories(UUID bubbleUuid, ModifyBubbleNameRequestDTO modifyBubbleDirectoriesRequestDTO)
+            throws Exception {
+        HttpResponse<String> response = ApiClientUtil.patch(BASE_URL + bubbleUuid + "/directories-list",
+                JsonUtil.toJson(modifyBubbleDirectoriesRequestDTO), null,
+                null);
+        return JsonUtil.fromJson(response.body(), new TypeReference<ApiResponse<Void>>() {
+        });
+    }
+
 }
