@@ -51,6 +51,11 @@ public class BubbleService implements BubbleServiceInterface {
         return bubbleApi.getBubbleDetails(bubbleUuid);
     }
 
+    @Override
+    public ApiResponse<GetBubbleResponseDTO> getAccountBubbles() throws Exception {
+        return bubbleApi.getAccountBubbles();
+    }
+
 
    
 

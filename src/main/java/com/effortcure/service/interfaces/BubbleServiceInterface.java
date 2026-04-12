@@ -17,5 +17,6 @@ public interface BubbleServiceInterface {
             
             public void deleteBubble(UUID bubbleUuid) throws Exception;
             public ApiResponse<GetBubbleResponseDTO> getBubbleDetails(UUID bubbleUuid) throws Exception;
+            public ApiResponse<GetBubbleResponseDTO> getAccountBubbles()throws Exception;
 
 }

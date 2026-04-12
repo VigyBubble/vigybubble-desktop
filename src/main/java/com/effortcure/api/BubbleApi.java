@@ -69,4 +69,10 @@ public class BubbleApi {
         });
     }
 
+       public ApiResponse<GetBubbleResponseDTO> getAccountBubbles() throws Exception {
+        HttpResponse<String> response = ApiClientUtil.get(BASE_URL, null, null, null);
+        return JsonUtil.fromJson(response.body(), new TypeReference<ApiResponse<GetBubbleResponseDTO>>() {
+        });
+    }
+
 }
