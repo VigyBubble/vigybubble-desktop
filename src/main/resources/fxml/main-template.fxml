@@ -108,6 +108,6 @@
         </Pane>
       </children>
     </Pane>
-      <AnchorPane layoutY="171.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="853.0" prefWidth="1440.0" />
+      <AnchorPane fx:id="anchorPaneBody" layoutY="171.0" prefHeight="853.0" prefWidth="1440.0" />
   </children>
 </AnchorPane>
