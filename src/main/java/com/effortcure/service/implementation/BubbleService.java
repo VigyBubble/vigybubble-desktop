@@ -7,6 +7,7 @@ import com.effortcure.api.BubbleApi;
 import com.effortcure.dto.request.CreateBubbleRequestDTO;
 import com.effortcure.dto.request.DirectoryRequestDTO;
 import com.effortcure.dto.response.ApiResponse;
+import com.effortcure.dto.response.GetBubbleResponseDTO;
 import com.effortcure.enums.BubbleType;
 import com.effortcure.service.interfaces.BubbleServiceInterface;
 import com.effortcure.dto.request.ModifyBubbleRequestDTO;
@@ -38,6 +39,16 @@ public class BubbleService implements BubbleServiceInterface {
         modifyBubbleNameRequestDTO.setApplicationsNameList(applicationsNameList);
         modifyBubbleNameRequestDTO.setDirectoriesList(directoriesList);
         return bubbleApi.modifyBubbleName(bubbleUuid, modifyBubbleNameRequestDTO);
+    }
+
+    @Override
+    public void deleteBubble(UUID bubbleUuid) throws Exception {
+      bubbleApi.deleteBubble(bubbleUuid);
+    }
+
+    @Override
+    public ApiResponse<GetBubbleResponseDTO> getBubbleDetails(UUID bubbleUuid) throws Exception {
+        return bubbleApi.getBubbleDetails(bubbleUuid);
     }
 
 

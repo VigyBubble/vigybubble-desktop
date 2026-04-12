@@ -8,6 +8,7 @@ import com.effortcure.util.ApiClientUtil;
 import com.effortcure.util.JsonUtil;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.effortcure.dto.response.ApiResponse;
+import com.effortcure.dto.response.GetBubbleResponseDTO;
 import com.effortcure.dto.request.ModifyBubbleRequestDTO;
 public class BubbleApi {
 
@@ -48,5 +49,24 @@ public class BubbleApi {
         });
     }
 
+        public ApiResponse<Void> modifyBubbleApplicationsList(UUID bubbleUuid, ModifyBubbleRequestDTO modifyBubbleRequestDTO)
+            throws Exception {
+        HttpResponse<String> response = ApiClientUtil.patch(BASE_URL + bubbleUuid + "/applications-list",
+                JsonUtil.toJson(modifyBubbleRequestDTO), null,
+                null);
+        return JsonUtil.fromJson(response.body(), new TypeReference<ApiResponse<Void>>() {
+        });      
+    }
+
+
+      public void deleteBubble(UUID bubbleUuid) throws Exception {
+        ApiClientUtil.delete(BASE_URL + bubbleUuid, null, null, null);
+    }
+
+    public ApiResponse<GetBubbleResponseDTO> getBubbleDetails(UUID bubbleUuid) throws Exception {
+        HttpResponse<String> response = ApiClientUtil.get(BASE_URL + bubbleUuid, null, null, null);
+        return JsonUtil.fromJson(response.body(), new TypeReference<ApiResponse<GetBubbleResponseDTO>>() {
+        });
+    }
 
 }
