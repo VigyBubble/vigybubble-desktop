@@ -3,6 +3,7 @@ package com.effortcure.api;
 import java.net.http.HttpResponse;
 import java.util.UUID;
 
+import com.effortcure.auth.AccessTokenManager;
 import com.effortcure.dto.request.CreateBubbleRequestDTO;
 import com.effortcure.util.ApiClientUtil;
 import com.effortcure.util.JsonUtil;
@@ -10,13 +11,16 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import com.effortcure.dto.response.ApiResponse;
 import com.effortcure.dto.response.GetBubbleResponseDTO;
 import com.effortcure.dto.request.ModifyBubbleRequestDTO;
+
 public class BubbleApi {
 
     private final String BASE_URL = "http://localhost:9090//api/v1/bubbles/";
 
     public ApiResponse<Void> createBubble(CreateBubbleRequestDTO createBubbleRequestDTO) throws Exception {
-        HttpResponse<String> response = ApiClientUtil.post(BASE_URL, JsonUtil.toJson(createBubbleRequestDTO), null,
+        HttpResponse<String> response = ApiClientUtil.post(BASE_URL, JsonUtil.toJson(createBubbleRequestDTO),
+                AccessTokenManager.getInstance().getAccessToken(),
                 null);
+
         return JsonUtil.fromJson(response.body(), new TypeReference<ApiResponse<Void>>() {
         });
     }
@@ -39,8 +43,7 @@ public class BubbleApi {
         });
     }
 
-
-      public ApiResponse<Void> modifyBubbleDescription(UUID bubbleUuid, ModifyBubbleRequestDTO modifyBubbleRequestDTO)
+    public ApiResponse<Void> modifyBubbleDescription(UUID bubbleUuid, ModifyBubbleRequestDTO modifyBubbleRequestDTO)
             throws Exception {
         HttpResponse<String> response = ApiClientUtil.patch(BASE_URL + bubbleUuid + "/description",
                 JsonUtil.toJson(modifyBubbleRequestDTO), null,
@@ -49,17 +52,17 @@ public class BubbleApi {
         });
     }
 
-        public ApiResponse<Void> modifyBubbleApplicationsList(UUID bubbleUuid, ModifyBubbleRequestDTO modifyBubbleRequestDTO)
+    public ApiResponse<Void> modifyBubbleApplicationsList(UUID bubbleUuid,
+            ModifyBubbleRequestDTO modifyBubbleRequestDTO)
             throws Exception {
         HttpResponse<String> response = ApiClientUtil.patch(BASE_URL + bubbleUuid + "/applications-list",
                 JsonUtil.toJson(modifyBubbleRequestDTO), null,
                 null);
         return JsonUtil.fromJson(response.body(), new TypeReference<ApiResponse<Void>>() {
-        });      
+        });
     }
 
-
-      public void deleteBubble(UUID bubbleUuid) throws Exception {
+    public void deleteBubble(UUID bubbleUuid) throws Exception {
         ApiClientUtil.delete(BASE_URL + bubbleUuid, null, null, null);
     }
 
@@ -69,7 +72,7 @@ public class BubbleApi {
         });
     }
 
-       public ApiResponse<GetBubbleResponseDTO> getAccountBubbles() throws Exception {
+    public ApiResponse<GetBubbleResponseDTO> getAccountBubbles() throws Exception {
         HttpResponse<String> response = ApiClientUtil.get(BASE_URL, null, null, null);
         return JsonUtil.fromJson(response.body(), new TypeReference<ApiResponse<GetBubbleResponseDTO>>() {
         });

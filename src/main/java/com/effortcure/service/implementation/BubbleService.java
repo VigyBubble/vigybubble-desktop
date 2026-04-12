@@ -9,11 +9,13 @@ import com.effortcure.dto.request.DirectoryRequestDTO;
 import com.effortcure.dto.response.ApiResponse;
 import com.effortcure.dto.response.GetBubbleResponseDTO;
 import com.effortcure.enums.BubbleType;
+import com.effortcure.service.interfaces.AuthServiceInterface;
 import com.effortcure.service.interfaces.BubbleServiceInterface;
 import com.effortcure.dto.request.ModifyBubbleRequestDTO;
 
 public class BubbleService implements BubbleServiceInterface {
     private final BubbleApi bubbleApi = new BubbleApi();
+    private AuthServiceInterface authServiceInterface = new AuthService();
 
     @Override
     public ApiResponse<Void> createBubble(String name, String description, BubbleType type, String teamUuid,
@@ -26,7 +28,12 @@ public class BubbleService implements BubbleServiceInterface {
         CreateBubbleRequestDTO.setTeamUuid(teamUuid);
         CreateBubbleRequestDTO.setApplicationsNameList(applicationsNameList);
         CreateBubbleRequestDTO.setDirectoriesList(directoriesList);
-        return bubbleApi.createBubble(CreateBubbleRequestDTO);
+        ApiResponse<Void> response = bubbleApi.createBubble(CreateBubbleRequestDTO);
+        if (response.getStatus() == 400) {
+            authServiceInterface.refreshAccessAndRefreshTokens();
+            response = bubbleApi.createBubble(CreateBubbleRequestDTO);
+        }
+        return response;
     }
 
     @Override
@@ -43,7 +50,7 @@ public class BubbleService implements BubbleServiceInterface {
 
     @Override
     public void deleteBubble(UUID bubbleUuid) throws Exception {
-      bubbleApi.deleteBubble(bubbleUuid);
+        bubbleApi.deleteBubble(bubbleUuid);
     }
 
     @Override
@@ -55,9 +62,5 @@ public class BubbleService implements BubbleServiceInterface {
     public ApiResponse<GetBubbleResponseDTO> getAccountBubbles() throws Exception {
         return bubbleApi.getAccountBubbles();
     }
-
-
-   
-
 
 }

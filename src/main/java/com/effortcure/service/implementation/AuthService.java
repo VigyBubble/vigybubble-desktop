@@ -8,6 +8,7 @@ import com.effortcure.dto.request.RegisterRequestDTO;
 import com.effortcure.dto.request.VerifyEmailRequestDTO;
 import com.effortcure.dto.response.ApiResponse;
 import com.effortcure.dto.response.LoginResponseDTO;
+import com.effortcure.navigator.SceneManager;
 import com.effortcure.service.interfaces.AuthServiceInterface;
 
 public class AuthService implements AuthServiceInterface {
@@ -75,11 +76,14 @@ public class AuthService implements AuthServiceInterface {
     }
 
     @Override
-    public ApiResponse<LoginResponseDTO> refreshAccessAndRefreshTokens() throws Exception {
+    public void refreshAccessAndRefreshTokens() throws Exception {
         ApiResponse<LoginResponseDTO> response = authApi.refreshAccessAndRefreshTokens();
         if (response.getData() != null)
             AccessTokenManager.getInstance().setAccessToken(response.getData().getAccessToken());
-        return response;
+        if (response.getStatus() != 200) {
+            SceneManager.switchScene("/fxml/login-page.fxml");
+            logout();
+        }
     }
 
 }

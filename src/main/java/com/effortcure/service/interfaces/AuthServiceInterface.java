@@ -21,5 +21,5 @@ public interface AuthServiceInterface {
 
     public void logout() throws Exception;
 
-    public ApiResponse<LoginResponseDTO> refreshAccessAndRefreshTokens() throws Exception;
+    public void refreshAccessAndRefreshTokens() throws Exception;
 }
