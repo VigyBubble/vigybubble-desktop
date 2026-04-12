@@ -171,6 +171,23 @@ public class RegisterPageController {
                 ViewUtil.showHiddenErrorMessages(new Label[] { emailErrorMsg });
                 emailFeild.getStyleClass().add("error-field");
             }
+        } else {
+            if (!isValidName) {
+                nameFeild.setText(nameFeild.getText() + " ");
+                nameFeild.setText(nameFeild.getText().trim());
+            }
+            if (!isValidEmail) {
+                emailFeild.setText(emailFeild.getText() + " ");
+                emailFeild.setText(emailFeild.getText().trim());
+            }
+            if (!isValidPassword) {
+                passwordFeild.setText(passwordFeild.getText() + " ");
+                passwordFeild.setText(passwordFeild.getText().trim());
+            }
+            if (!isValidConfirmPassword) {
+                confirmPasswordFeild.setText(confirmPasswordFeild.getText() + " ");
+                confirmPasswordFeild.setText(confirmPasswordFeild.getText().trim());
+            }
         }
     }
 
