@@ -170,6 +170,9 @@ public class LoginPageController {
                 ViewUtil.showHiddenErrorMessages(new Label[] { emailErrorMsg });
                 textFieldEmail.getStyleClass().add("error-field");
             }
+        } else {
+            textFieldEmail.setText(textFieldEmail.getText() + " ");
+            textFieldEmail.setText(textFieldEmail.getText().trim());
         }
     }
 
