@@ -1,11 +1,13 @@
 package com.effortcure.controller;
 
 import com.effortcure.dto.response.ApiResponse;
+import com.effortcure.dto.response.LoginResponseDTO;
 import com.effortcure.navigator.SceneManager;
 import com.effortcure.service.implementation.AuthService;
 import com.effortcure.service.interfaces.AuthServiceInterface;
 import com.effortcure.util.ViewUtil;
 
+import javafx.concurrent.Task;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Hyperlink;
@@ -93,22 +95,16 @@ public class EmailVerficationPageController {
                 otpFeild.getStyleClass().add("otpFieldsError");
         }
         if (!verficationCode.toString().trim().isBlank() && email != null) {
-            ApiResponse<Void> response = authService.verifyEmail(email, verficationCode.toString().trim());
-            if (response.getStatus() == 200)
-                SceneManager.switchScene("/fxml/login-page.fxml");
-            if (response.getStatus() == 400) {
+            ApiResponse<LoginResponseDTO> response = authService.verifyEmail(email, verficationCode.toString().trim());
+            if (response.getStatus() == 200) {
+                SceneManager.switchScene("/fxml/main-template.fxml");
+            } else {
                 verificationErrorMsg.setText(response.getMessage() + " *");
                 verificationErrorMsg.setVisible(true);
                 for (TextField otpFeild : otpFeilds) {
                     if (otpFeild.getText().isBlank())
                         otpFeild.getStyleClass().add("otpFieldsError");
                 }
-            }
-            if (response.getStatus() == 401) {
-                verificationErrorMsg.setText(response.getMessage() + " *");
-                verificationErrorMsg.setVisible(true);
-                for (TextField otpFeild : otpFeilds)
-                    otpFeild.getStyleClass().add("otpFieldsError");
             }
         }
     }
@@ -121,8 +117,18 @@ public class EmailVerficationPageController {
 
     @FXML
     private void back() {
-        if (oldScene.equals("REGISTER"))
+        if (oldScene.equals("REGISTER")) {
+            Task<Void> task = new Task<>() {
+                @Override
+                protected Void call() throws Exception {
+                    authService.deleteUnverifiedAccount(email);
+                    return null;
+                }
+            };
+            new Thread(task).start();
             SceneManager.switchScene("/fxml/register-page.fxml");
+        }
+
     }
 
     private void setupOtpFields() {
