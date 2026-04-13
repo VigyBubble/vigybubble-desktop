@@ -17,7 +17,7 @@ public class MainApp extends Application {
         System.setProperty("os.screen.width", String.valueOf(screenDimensions[0]));
         System.setProperty("os.screen.hight", String.valueOf(screenDimensions[1]));
         SceneManager.setStage(stage);
-        SceneManager.switchScene("/fxml/main-template.fxml", null);
+        SceneManager.switchScene("/fxml/login-page.fxml", null);
     }
 
     public static void main(String[] args) {
