@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.UUID;
 
 public interface BubbleServiceInterface {
-    public ApiResponse<Void> createBubble(String name, String description, BubbleType type, String teamUuid,
+    public ApiResponse<Void> createBubble(String name, String description, BubbleType type, UUID teamUuid,
             List<String> applicationsNameList, List<DirectoryRequestDTO> directoriesList)
             throws Exception;
 

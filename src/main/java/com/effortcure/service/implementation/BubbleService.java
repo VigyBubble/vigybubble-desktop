@@ -18,7 +18,7 @@ public class BubbleService implements BubbleServiceInterface {
     private AuthServiceInterface authServiceInterface = new AuthService();
 
     @Override
-    public ApiResponse<Void> createBubble(String name, String description, BubbleType type, String teamUuid,
+    public ApiResponse<Void> createBubble(String name, String description, BubbleType type, UUID teamUuid,
             List<String> applicationsNameList, List<DirectoryRequestDTO> directoriesList) throws Exception {
 
         CreateBubbleRequestDTO CreateBubbleRequestDTO = new CreateBubbleRequestDTO();
