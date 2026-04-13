@@ -1,14 +1,13 @@
 package com.effortcure.controller;
 
 import com.effortcure.dto.response.ApiResponse;
+import com.effortcure.dto.response.LoginResponseDTO;
+import com.effortcure.navigator.SceneManager;
 import com.effortcure.service.implementation.AuthService;
 import com.effortcure.service.interfaces.AuthServiceInterface;
 import com.effortcure.util.BooleanWrapperUtil;
 import com.effortcure.util.ControllersUtil;
-import com.effortcure.util.JsonUtil;
-import com.effortcure.util.SceneManager;
 import com.effortcure.util.ViewUtil;
-import com.fasterxml.jackson.core.JsonProcessingException;
 
 import javafx.concurrent.Task;
 import javafx.fxml.FXML;
@@ -98,13 +97,11 @@ public class LoginPageController {
 
     private AuthServiceInterface authService = new AuthService();
 
-
     private boolean isValidEmail;
     private boolean isValidPassword;
+
     private StringBuilder password = new StringBuilder();
     private BooleanWrapperUtil maskPasswordFeild = new BooleanWrapperUtil();
-
-
 
     @FXML
     private void initialize() {
@@ -119,14 +116,69 @@ public class LoginPageController {
         ViewUtil.maskTextFeildContent(passwordField, maskPasswordFeild);
     }
 
-      @FXML
-    private void login(){
-   
+    @FXML
+    private void login() throws Exception {
+        if (isValidLoginData()) {
+            ApiResponse<LoginResponseDTO> response = authService.login(textFieldEmail.getText(), password.toString());
+            if (response.getStatus() == 200) {
+                SceneManager.switchScene("/fxml/main-template.fxml", null);
+            }
+            if (response.getStatus() == 401) {
+                passwordErrorMsg.setText(response.getMessage() + " *");
+                ViewUtil.showHiddenErrorMessages(new Label[] { passwordErrorMsg });
+                passwordField.getStyleClass().add("error-field");
+            }
+            if (response.getStatus() == 403) {
+                EmailVerficationPageController.email = textFieldEmail.getText();
+                EmailVerficationPageController.oldScene = "LOGIN";
+                SceneManager.switchScene("/fxml/email-verfication-page.fxml", null);
+            }
+            if (response.getStatus() == 404) {
+                emailErrorMsg.setText("Email doesn't exist *");
+                ViewUtil.showHiddenErrorMessages(new Label[] { emailErrorMsg });
+                textFieldEmail.getStyleClass().add("error-field");
+            }
+        } else {
+            if (!isValidEmail) {
+                textFieldEmail.setText(textFieldEmail.getText() + " ");
+                textFieldEmail.setText(textFieldEmail.getText().trim());
+            }
+            if (!isValidPassword) {
+                passwordField.setText(passwordField.getText() + " ");
+                passwordField.setText(passwordField.getText().trim());
+            }
+        }
+    }
+
+    @FXML
+    private void forgotPassword() throws Exception {
+        if (isValidEmail) {
+            ApiResponse<Void> response = authService.checkEmailExistance(textFieldEmail.getText());
+            if (response.getStatus() == 409) {
+                Task<ApiResponse<Void>> task = new Task<ApiResponse<Void>>() {
+                    @Override
+                    protected ApiResponse<Void> call() throws Exception {
+                        return authService.forgotPassword(textFieldEmail.getText());
+                    }
+                };
+                new Thread(task).start();
+                EmailVerficationPageController.email = textFieldEmail.getText();
+                EmailVerficationPageController.oldScene = "FORGOT_PASSWORD";
+                SceneManager.switchScene("/fxml/email-verfication-page.fxml", null);
+            } else {
+                emailErrorMsg.setText("Email doesn't exist *");
+                ViewUtil.showHiddenErrorMessages(new Label[] { emailErrorMsg });
+                textFieldEmail.getStyleClass().add("error-field");
+            }
+        } else {
+            textFieldEmail.setText(textFieldEmail.getText() + " ");
+            textFieldEmail.setText(textFieldEmail.getText().trim());
+        }
     }
 
     @FXML
     private void register() {
-        SceneManager.switchScene("/fxml/new-password-page.fxml");
+        SceneManager.switchScene("/fxml/register-page.fxml", null);
     }
 
     @FXML
@@ -154,8 +206,8 @@ public class LoginPageController {
                 ViewUtil.showHiddenErrorMessages(new Label[] { emailErrorMsg });
                 textFieldEmail.getStyleClass().add("error-field");
                 isValidEmail = false;
-            } else if (!newValue.matches("^[a-z0-9]+(?:[._][a-z0-9]+)*(?:\\+[a-z0-9]+)?@gmail\\.com$")) {
-                emailErrorMsg.setText("must match a-z, 0-9, [._%+-] @gmail.com *");
+            } else if (!newValue.matches("^[a-zA-Z0-9]+(?:[._][a-zA-Z0-9]+)*(?:\\+[a-zA-Z0-9]+)?@gmail\\.com$")) {
+                emailErrorMsg.setText("only a-z, A-Z, 0-9, [._%+-] @gmail.com *");
                 ViewUtil.showHiddenErrorMessages(new Label[] { emailErrorMsg });
                 textFieldEmail.getStyleClass().add("error-field");
                 isValidEmail = false;
@@ -173,13 +225,6 @@ public class LoginPageController {
                 passwordField.getStyleClass().add("error-field");
                 password.setLength(0);
                 isValidPassword = false;
-            } else if (!password.toString().matches("^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[^a-zA-Z0-9]).{8,25}$")) {
-                passwordErrorMsg.setText("must have A-Z, a-z, 0-9, special characters *");
-                if (password.toString().length() < 8 || password.toString().length() > 25)
-                    passwordErrorMsg.setText("must be between 8-25 characters *");
-                ViewUtil.showHiddenErrorMessages(new Label[] { passwordErrorMsg });
-                passwordField.getStyleClass().add("error-field");
-                isValidPassword = false;
             } else {
                 ViewUtil.hideErrorMessages(new Label[] { passwordErrorMsg });
                 passwordField.getStyleClass().removeAll("error-field");
@@ -187,10 +232,8 @@ public class LoginPageController {
             }
         });
     }
+
     private boolean isValidLoginData() {
-        return isValidEmail && isValidPassword ;
+        return isValidEmail && isValidPassword;
     }
 }
-
-
-

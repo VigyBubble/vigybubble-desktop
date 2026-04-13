@@ -1,0 +1,25 @@
+.popup-root {
+  -fx-border-radius: 25;
+  -fx-border-color:  gray;
+  -fx-background-color: white;
+  -fx-background-radius: 25;
+
+  
+}
+.confirm-btn{
+  -fx-background-color: #B00C0F;
+  -fx-text-fill: white;
+  -fx-background-radius: 20;
+  -fx-border-radius: 20;
+   -fx-effect: dropshadow(gaussian, rgba(13, 92, 92, 0.38), 10, 0, 0, 4);
+}
+.confirm-btn:hover {
+  -fx-background-color: #8a090a;
+  -fx-effect: dropshadow(gaussian, rgba(13, 92, 92, 0.55), 14, 0, 0, 5);
+}
+.confirm-btn:pressed {
+  -fx-effect: dropshadow(gaussian, rgba(13, 92, 92, 0.2), 4, 0, 0, 1);
+}
+.cancel-btn:pressed{
+    -fx-effect: dropshadow(gaussian, rgba(13, 92, 92, 0.2), 4, 0, 0, 1);
+}

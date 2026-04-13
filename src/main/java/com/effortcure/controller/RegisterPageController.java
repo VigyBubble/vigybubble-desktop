@@ -1,12 +1,12 @@
 package com.effortcure.controller;
 
 import com.effortcure.dto.response.ApiResponse;
+import com.effortcure.navigator.SceneManager;
 import com.effortcure.service.implementation.AuthService;
 import com.effortcure.service.interfaces.AuthServiceInterface;
 import com.effortcure.util.BooleanWrapperUtil;
 import com.effortcure.util.ControllersUtil;
 import com.effortcure.util.ViewUtil;
-import com.effortcure.util.SceneManager;
 
 import javafx.concurrent.Task;
 import javafx.fxml.FXML;
@@ -164,19 +164,42 @@ public class RegisterPageController {
 
                 EmailVerficationPageController.email = emailFeild.getText();
                 EmailVerficationPageController.oldScene = "REGISTER";
-                SceneManager.switchScene("/fxml/email-verfication-page.fxml");
+                SceneManager.switchScene("/fxml/email-verfication-page.fxml", () -> {
+                    try {
+                        authService.deleteUnverifiedAccount(emailFeild.getText());
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                });
             }
             if (response.getStatus() == 409) {
                 emailErrorMsg.setText("this email already exists *");
                 ViewUtil.showHiddenErrorMessages(new Label[] { emailErrorMsg });
                 emailFeild.getStyleClass().add("error-field");
             }
+        } else {
+            if (!isValidName) {
+                nameFeild.setText(nameFeild.getText() + " ");
+                nameFeild.setText(nameFeild.getText().trim());
+            }
+            if (!isValidEmail) {
+                emailFeild.setText(emailFeild.getText() + " ");
+                emailFeild.setText(emailFeild.getText().trim());
+            }
+            if (!isValidPassword) {
+                passwordFeild.setText(passwordFeild.getText() + " ");
+                passwordFeild.setText(passwordFeild.getText().trim());
+            }
+            if (!isValidConfirmPassword) {
+                confirmPasswordFeild.setText(confirmPasswordFeild.getText() + " ");
+                confirmPasswordFeild.setText(confirmPasswordFeild.getText().trim());
+            }
         }
     }
 
     @FXML
     private void login() {
-        SceneManager.switchScene("/fxml/login-page.fxml");
+        SceneManager.switchScene("/fxml/login-page.fxml", null);
     }
 
     @FXML

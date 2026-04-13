@@ -1,25 +1,26 @@
 .root {
   -fx-background-color: linear-gradient(to right, #22b9af, #115d58);
-  -fx-font-family: 'K2D';
+  -fx-font-family: "K2D";
 }
 
 .side-image {
   -fx-background-image: url("../images/register-img.jpg");
-   -fx-background-image:url("../images/fluent_person-32-light.png") ;
   -fx-background-size: cover;
   -fx-background-position: center;
   -fx-background-radius: 25;
 }
 
 .image-gradient {
-  -fx-background-color: linear-gradient(to bottom,
-      rgba(0, 0, 0, 0.2),
-      rgba(34, 185, 175, 0.25));
+  -fx-background-color: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.2),
+    rgba(34, 185, 175, 0.25)
+  );
 }
 
 .allLabels {
-  -fx-text-fill: #0B3E3A;
-  -fx-font-family: 'K2D';
+  -fx-text-fill: #0b3e3a;
+  -fx-font-family: "K2D";
 }
 
 .input-field {
@@ -36,18 +37,17 @@
 .error-field {
   -fx-border-radius: 20;
   -fx-background-color: transparent;
-  -fx-border-color: #FF1B1B;
+  -fx-border-color: #ff1b1b;
 }
 
-
 .error-field:focused {
-  -fx-border-color: #FF1B1B;
+  -fx-border-color: #ff1b1b;
 }
 
 .error-msg {
-  -fx-font-family: 'K2D';
+  -fx-font-family: "K2D";
   -fx-font-weight: 400;
-  -fx-text-fill: #FF1B1B;
+  -fx-text-fill: #ff1b1b;
 }
 
 .registerpane,
@@ -75,7 +75,7 @@
 
 .verify-btn:hover,
 .register-btn:hover,
-.save-btn:hover{
+.save-btn:hover {
   -fx-background-color: #0a4a4a;
   -fx-effect: dropshadow(gaussian, rgba(13, 92, 92, 0.55), 14, 0, 0, 5);
 }
@@ -86,3 +86,5 @@
   -fx-background-color: #083838;
   -fx-effect: dropshadow(gaussian, rgba(13, 92, 92, 0.2), 4, 0, 0, 1);
 }
+
+

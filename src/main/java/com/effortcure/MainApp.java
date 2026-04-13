@@ -2,8 +2,9 @@ package com.effortcure;
 
 import java.io.IOException;
 
+import com.effortcure.navigator.SceneManager;
 import com.effortcure.util.ViewUtil;
-import com.effortcure.util.SceneManager;
+
 import javafx.application.Application;
 import javafx.stage.Stage;
 
@@ -16,7 +17,7 @@ public class MainApp extends Application {
         System.setProperty("os.screen.width", String.valueOf(screenDimensions[0]));
         System.setProperty("os.screen.hight", String.valueOf(screenDimensions[1]));
         SceneManager.setStage(stage);
-        SceneManager.switchScene("/fxml/register-page.fxml");
+        SceneManager.switchScene("/fxml/main-template.fxml", null);
     }
 
     public static void main(String[] args) {

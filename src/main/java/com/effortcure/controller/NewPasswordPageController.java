@@ -1,7 +1,9 @@
 package com.effortcure.controller;
 
-import com.effortcure.service.implementation.AuthService;
-import com.effortcure.service.interfaces.AuthServiceInterface;
+import com.effortcure.dto.response.ApiResponse;
+import com.effortcure.navigator.SceneManager;
+import com.effortcure.service.implementation.AccountService;
+import com.effortcure.service.interfaces.AccountServiceInterface;
 import com.effortcure.util.BooleanWrapperUtil;
 import com.effortcure.util.ControllersUtil;
 import com.effortcure.util.ViewUtil;
@@ -69,9 +71,15 @@ public class NewPasswordPageController {
     private ImageView confirmPasswordLock;
 
     @FXML
+    private Label successChangedPassword;
+
+    @FXML
+    private ImageView infoIcon;
+
+    @FXML
     private Button saveButton;
 
-    private AuthServiceInterface authService = new AuthService();
+    private AccountServiceInterface accountServiceInterface = new AccountService();
 
     private boolean isValidPassword;
     private boolean isValidConfirmPassword;
@@ -83,8 +91,9 @@ public class NewPasswordPageController {
     @FXML
     private void initialize() {
         ViewUtil.initiateResponsiveView(this);
-        validateNewPasswordData();
-
+        infoIcon.setVisible(false);
+        successChangedPassword.setVisible(false);
+        ValidateNewPasswordData();
         ControllersUtil.onMouseSelection(new TextField[] { passwordField, confirmPasswordField });
         ControllersUtil.disableTextFeildPasting(new TextField[] { passwordField, confirmPasswordField });
         ControllersUtil.getTypedTextOnKeyTypedOrDelete(passwordField, (typedText) -> {
@@ -98,11 +107,34 @@ public class NewPasswordPageController {
         ViewUtil.maskTextFeildContent(passwordField, maskPasswordFeild);
         ViewUtil.maskTextFeildContent(confirmPasswordField, maskConfirmPasswordFeild);
     }
-    @FXML
-    private void Save() {
 
+    @FXML
+    private void save() throws Exception {
+        if (isValidNewPasswordData()) {
+            ApiResponse<Void> response = accountServiceInterface.changePassword(password.toString(),
+                    confirmPassword.toString());
+            if (response != null) {
+                if (response.getStatus() == 200) {
+                    infoIcon.setVisible(true);
+                    successChangedPassword.setVisible(true);
+                }
+            }
+        } else {
+            passwordField.setText(passwordField.getText() + " ");
+            passwordField.setText(passwordField.getText().trim());
+            confirmPasswordField.setText(confirmPasswordField.getText() + " ");
+            confirmPasswordField.setText(confirmPasswordField.getText().trim());
+        }
     }
-    
+
+    @FXML
+    private void back() {
+        if (successChangedPassword.isVisible())
+            SceneManager.switchScene("/fxml/login-page.fxml", null);
+        else
+            SceneManager.switchScene("/fxml/main-template.fxml", null);
+    }
+
     @FXML
     private void hideAndShowPassword() {
         if (maskPasswordFeild.getBool()) {
@@ -137,7 +169,8 @@ public class NewPasswordPageController {
             confirmPasswordField.positionCaret(cursorPositionBeforeSettingFeild);
         }
     }
-    private void validateNewPasswordData() {
+
+    private void ValidateNewPasswordData() {
         passwordField.textProperty().addListener((obs, oldValue, newValue) -> {
             if (newValue.isBlank()) {
                 if (!passwordErrorMsg.getText().equals("can't paste here *"))
@@ -180,8 +213,7 @@ public class NewPasswordPageController {
         });
     }
 
-    private boolean isValidRegisterData() {
-        return  isValidPassword && isValidConfirmPassword;
+    private boolean isValidNewPasswordData() {
+        return isValidConfirmPassword && isValidPassword;
     }
-
 }
