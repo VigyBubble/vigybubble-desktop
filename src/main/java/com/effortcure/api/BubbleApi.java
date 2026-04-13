@@ -11,6 +11,7 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import com.effortcure.dto.response.ApiResponse;
 import com.effortcure.dto.response.GetBubbleResponseDTO;
 import com.effortcure.dto.request.ModifyBubbleRequestDTO;
+import com.effortcure.enums.ModifyBubbleType;
 
 public class BubbleApi {
 
@@ -20,60 +21,52 @@ public class BubbleApi {
         HttpResponse<String> response = ApiClientUtil.post(BASE_URL, JsonUtil.toJson(createBubbleRequestDTO),
                 AccessTokenManager.getInstance().getAccessToken(),
                 null);
-
-        return JsonUtil.fromJson(response.body(), new TypeReference<ApiResponse<Void>>() {
-        });
+        if (response.statusCode() == 201)
+            return JsonUtil.fromJson(response.body(), new TypeReference<ApiResponse<Void>>() {
+            });
+        else
+            return null;
     }
 
-    public ApiResponse<Void> modifyBubbleName(UUID bubbleUuid, ModifyBubbleRequestDTO modifyBubbleRequestDTO)
+    public ApiResponse<Void> modifyBubble(UUID bubbleUuid, ModifyBubbleRequestDTO modifyBubbleRequestDTO,
+            ModifyBubbleType type)
             throws Exception {
-        HttpResponse<String> response = ApiClientUtil.patch(BASE_URL + bubbleUuid + "/name",
-                JsonUtil.toJson(modifyBubbleRequestDTO), null,
+        String url = BASE_URL + bubbleUuid;
+        if (type == ModifyBubbleType.NAME) {
+            url += "/name";
+        } else if (type == ModifyBubbleType.DESCRIPTION) {
+            url += "/description";
+        } else if (type == ModifyBubbleType.APPLICATIONS_LIST) {
+            url += "/applications-list";
+        } else if (type == ModifyBubbleType.DIRECTORIES_LIST) {
+            url += "/directories-list";
+        }
+        HttpResponse<String> response = ApiClientUtil.patch(url,
+                JsonUtil.toJson(modifyBubbleRequestDTO), AccessTokenManager.getInstance().getAccessToken(),
                 null);
+        if (response.statusCode() == 403)
+            return null;
         return JsonUtil.fromJson(response.body(), new TypeReference<ApiResponse<Void>>() {
         });
-    }
 
-    public ApiResponse<Void> modifyBubbleDirectories(UUID bubbleUuid, ModifyBubbleRequestDTO modifyBubbleRequestDTO)
-            throws Exception {
-        HttpResponse<String> response = ApiClientUtil.patch(BASE_URL + bubbleUuid + "/directories-list",
-                JsonUtil.toJson(modifyBubbleRequestDTO), null,
-                null);
-        return JsonUtil.fromJson(response.body(), new TypeReference<ApiResponse<Void>>() {
-        });
-    }
-
-    public ApiResponse<Void> modifyBubbleDescription(UUID bubbleUuid, ModifyBubbleRequestDTO modifyBubbleRequestDTO)
-            throws Exception {
-        HttpResponse<String> response = ApiClientUtil.patch(BASE_URL + bubbleUuid + "/description",
-                JsonUtil.toJson(modifyBubbleRequestDTO), null,
-                null);
-        return JsonUtil.fromJson(response.body(), new TypeReference<ApiResponse<Void>>() {
-        });
-    }
-
-    public ApiResponse<Void> modifyBubbleApplicationsList(UUID bubbleUuid,
-            ModifyBubbleRequestDTO modifyBubbleRequestDTO)
-            throws Exception {
-        HttpResponse<String> response = ApiClientUtil.patch(BASE_URL + bubbleUuid + "/applications-list",
-                JsonUtil.toJson(modifyBubbleRequestDTO), null,
-                null);
-        return JsonUtil.fromJson(response.body(), new TypeReference<ApiResponse<Void>>() {
-        });
     }
 
     public void deleteBubble(UUID bubbleUuid) throws Exception {
-        ApiClientUtil.delete(BASE_URL + bubbleUuid, null, null, null);
+
+        ApiClientUtil.delete(BASE_URL + bubbleUuid, null, AccessTokenManager.getInstance().getAccessToken(), null);
+
     }
 
     public ApiResponse<GetBubbleResponseDTO> getBubbleDetails(UUID bubbleUuid) throws Exception {
-        HttpResponse<String> response = ApiClientUtil.get(BASE_URL + bubbleUuid, null, null, null);
+        HttpResponse<String> response = ApiClientUtil.get(BASE_URL + bubbleUuid, null,
+                AccessTokenManager.getInstance().getAccessToken(), null);
         return JsonUtil.fromJson(response.body(), new TypeReference<ApiResponse<GetBubbleResponseDTO>>() {
         });
     }
 
     public ApiResponse<GetBubbleResponseDTO> getAccountBubbles() throws Exception {
-        HttpResponse<String> response = ApiClientUtil.get(BASE_URL, null, null, null);
+        HttpResponse<String> response = ApiClientUtil.get(BASE_URL, null,
+                AccessTokenManager.getInstance().getAccessToken(), null);
         return JsonUtil.fromJson(response.body(), new TypeReference<ApiResponse<GetBubbleResponseDTO>>() {
         });
     }

@@ -12,6 +12,8 @@ import com.effortcure.enums.BubbleType;
 import com.effortcure.service.interfaces.AuthServiceInterface;
 import com.effortcure.service.interfaces.BubbleServiceInterface;
 import com.effortcure.dto.request.ModifyBubbleRequestDTO;
+import com.effortcure.enums.ModifyBubbleType;
+import com.effortcure.navigator.SceneManager;
 
 public class BubbleService implements BubbleServiceInterface {
     private final BubbleApi bubbleApi = new BubbleApi();
@@ -41,13 +43,24 @@ public class BubbleService implements BubbleServiceInterface {
     @Override
     public ApiResponse<Void> modifyBubble(UUID bubbleUuid, String name, String description,
             List<String> applicationsNameList,
-            List<DirectoryRequestDTO> directoriesList) throws Exception {
+            List<DirectoryRequestDTO> directoriesList, ModifyBubbleType type) throws Exception {
         ModifyBubbleRequestDTO modifyBubbleNameRequestDTO = new ModifyBubbleRequestDTO();
         modifyBubbleNameRequestDTO.setName(name);
         modifyBubbleNameRequestDTO.setDescription(description);
         modifyBubbleNameRequestDTO.setApplicationsNameList(applicationsNameList);
         modifyBubbleNameRequestDTO.setDirectoriesList(directoriesList);
-        return bubbleApi.modifyBubbleName(bubbleUuid, modifyBubbleNameRequestDTO);
+        ApiResponse<Void> response = bubbleApi.modifyBubble(bubbleUuid, modifyBubbleNameRequestDTO, type);
+        if(response!=null){
+            if(response.getStatus() == 400 ){
+             authServiceInterface.refreshAccessAndRefreshTokens();
+             response = bubbleApi.modifyBubble(bubbleUuid, modifyBubbleNameRequestDTO, type);
+            }
+            if(response.getStatus() == 401){
+                SceneManager.switchScene("/fxml/login-page.fxml",null);
+               authServiceInterface.logout();
+            }
+        }
+        return response;
     }
 
     @Override
