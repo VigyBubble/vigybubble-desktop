@@ -98,9 +98,9 @@ public class EmailVerficationPageController {
             ApiResponse<LoginResponseDTO> response = authService.verifyEmail(email, verficationCode.toString().trim());
             if (response.getStatus() == 200) {
                 if (oldScene.equals("FORGOT_PASSWORD"))
-                    SceneManager.switchScene("/fxml/new-password-page.fxml");
+                    SceneManager.switchScene("/fxml/new-password-page.fxml", null);
                 else
-                    SceneManager.switchScene("/fxml/main-template.fxml");
+                    SceneManager.switchScene("/fxml/main-template.fxml", null);
             } else {
                 verificationErrorMsg.setText(response.getMessage() + " *");
                 verificationErrorMsg.setVisible(true);
@@ -129,9 +129,9 @@ public class EmailVerficationPageController {
                 }
             };
             new Thread(task).start();
-            SceneManager.switchScene("/fxml/register-page.fxml");
+            SceneManager.switchScene("/fxml/register-page.fxml", null);
         } else {
-            SceneManager.switchScene("/fxml/login-page.fxml");
+            SceneManager.switchScene("/fxml/login-page.fxml", null);
         }
     }
 

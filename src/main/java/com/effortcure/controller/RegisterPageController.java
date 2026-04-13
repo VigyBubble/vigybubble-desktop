@@ -164,7 +164,13 @@ public class RegisterPageController {
 
                 EmailVerficationPageController.email = emailFeild.getText();
                 EmailVerficationPageController.oldScene = "REGISTER";
-                SceneManager.switchScene("/fxml/email-verfication-page.fxml");
+                SceneManager.switchScene("/fxml/email-verfication-page.fxml", () -> {
+                    try {
+                        authService.deleteUnverifiedAccount(emailFeild.getText());
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                });
             }
             if (response.getStatus() == 409) {
                 emailErrorMsg.setText("this email already exists *");
@@ -193,7 +199,7 @@ public class RegisterPageController {
 
     @FXML
     private void login() {
-        SceneManager.switchScene("/fxml/login-page.fxml");
+        SceneManager.switchScene("/fxml/login-page.fxml", null);
     }
 
     @FXML

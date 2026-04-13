@@ -81,7 +81,7 @@ public class AuthService implements AuthServiceInterface {
         if (response.getData() != null)
             AccessTokenManager.getInstance().setAccessToken(response.getData().getAccessToken());
         if (response.getStatus() != 200) {
-            SceneManager.switchScene("/fxml/login-page.fxml");
+            SceneManager.switchScene("/fxml/login-page.fxml", null);
             logout();
         }
     }

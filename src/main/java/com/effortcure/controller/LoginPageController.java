@@ -121,7 +121,7 @@ public class LoginPageController {
         if (isValidLoginData()) {
             ApiResponse<LoginResponseDTO> response = authService.login(textFieldEmail.getText(), password.toString());
             if (response.getStatus() == 200) {
-                SceneManager.switchScene("/fxml/main-template.fxml");
+                SceneManager.switchScene("/fxml/main-template.fxml", null);
             }
             if (response.getStatus() == 401) {
                 passwordErrorMsg.setText(response.getMessage() + " *");
@@ -131,7 +131,7 @@ public class LoginPageController {
             if (response.getStatus() == 403) {
                 EmailVerficationPageController.email = textFieldEmail.getText();
                 EmailVerficationPageController.oldScene = "LOGIN";
-                SceneManager.switchScene("/fxml/email-verfication-page.fxml");
+                SceneManager.switchScene("/fxml/email-verfication-page.fxml", null);
             }
             if (response.getStatus() == 404) {
                 emailErrorMsg.setText("Email doesn't exist *");
@@ -164,7 +164,7 @@ public class LoginPageController {
                 new Thread(task).start();
                 EmailVerficationPageController.email = textFieldEmail.getText();
                 EmailVerficationPageController.oldScene = "FORGOT_PASSWORD";
-                SceneManager.switchScene("/fxml/email-verfication-page.fxml");
+                SceneManager.switchScene("/fxml/email-verfication-page.fxml", null);
             } else {
                 emailErrorMsg.setText("Email doesn't exist *");
                 ViewUtil.showHiddenErrorMessages(new Label[] { emailErrorMsg });
@@ -178,7 +178,7 @@ public class LoginPageController {
 
     @FXML
     private void register() {
-        SceneManager.switchScene("/fxml/register-page.fxml");
+        SceneManager.switchScene("/fxml/register-page.fxml", null);
     }
 
     @FXML
