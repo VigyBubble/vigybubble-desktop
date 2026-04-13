@@ -26,6 +26,10 @@ public class AccountService implements AccountServiceInterface {
             if (response.getStatus() == 200) {
                 authServiceInterface.logout();
             }
+            if (response.getStatus() == 401) {
+                SceneManager.switchScene("/fxml/login-page.fxml", null);
+                authServiceInterface.logout();
+            }
         } else {
             SceneManager.switchScene("/fxml/login-page.fxml", null);
             authServiceInterface.logout();
