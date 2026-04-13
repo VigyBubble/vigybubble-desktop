@@ -4,6 +4,8 @@ import com.effortcure.dto.request.DirectoryRequestDTO;
 import com.effortcure.dto.response.ApiResponse;
 import com.effortcure.dto.response.GetBubbleResponseDTO;
 import com.effortcure.enums.BubbleType;
+import com.effortcure.enums.ModifyBubbleType;
+
 import java.util.List;
 import java.util.UUID;
 
@@ -13,7 +15,7 @@ public interface BubbleServiceInterface {
             throws Exception;
 
     public ApiResponse<Void> modifyBubble(UUID bubbleUuid,String name, String description, List<String> applicationsNameList,
-            List<DirectoryRequestDTO> directoriesList) throws Exception;  
+            List<DirectoryRequestDTO> directoriesList,ModifyBubbleType type) throws Exception;  
             
             public void deleteBubble(UUID bubbleUuid) throws Exception;
             public ApiResponse<GetBubbleResponseDTO> getBubbleDetails(UUID bubbleUuid) throws Exception;
