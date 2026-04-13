@@ -79,3 +79,9 @@
 .pause-btn{
     -fx-cursor: hand;
 }
+.circle{
+    -fx-fill: transparent;
+     -fx-stroke: lightgray;
+}
+
+

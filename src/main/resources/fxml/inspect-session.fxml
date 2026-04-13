@@ -89,7 +89,7 @@
                      <children>
                         <StackPane layoutX="51.5" layoutY="16.0" prefHeight="125" prefWidth="125">
                            <children>
-                              <Circle radius="50" strokeWidth="8" style="-fx-fill: transparent; -fx-stroke: lightgray;" />
+                              <Circle radius="50" strokeWidth="8" styleClass="circle" />
                               <Circle fx:id="progressCircle1" fill="transparent" radius="50" stroke="green" strokeWidth="8" />
                               <Label fx:id="progressLabel1" style="-fx-font-size: 18px;" text="0%" />
                            </children>
@@ -136,7 +136,10 @@
                            <children>
                               <Circle radius="50" strokeWidth="8" style="-fx-fill: transparent; -fx-stroke: lightgray;" />
                               <Circle fx:id="progressCircle4" fill="transparent" radius="50" stroke="green" strokeWidth="8" />
-                              <Label fx:id="progressLabel4" style="-fx-font-size: 18px;" text="0%" />
+                              <Label fx:id="progressLabel4" text="0%">
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font></Label>
                            </children>
                         </StackPane>
                         <Label alignment="CENTER" contentDisplay="CENTER" layoutY="165.0" prefHeight="19.0" prefWidth="228.0" text="Distraction">
