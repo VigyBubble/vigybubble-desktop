@@ -8,27 +8,27 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="painContainer" prefHeight="1024.0" prefWidth="1440.0" stylesheets="@../css/main-template.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane fx:id="root" prefHeight="1024.0" prefWidth="1440.0" stylesheets="@../css/main-template.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.effortcure.controller.MainTemplateController">
   <children>
-    <Pane fx:id="navbarPane" prefHeight="171.0" prefWidth="1440.0" styleClass="navbar-pane"> 
+    <Pane fx:id="navbarPane" prefHeight="171.0" prefWidth="1440.0" styleClass="navbar-pane">
       <children>
         <Pane fx:id="userCard" layoutX="16.0" layoutY="19.5" prefHeight="132.0" prefWidth="383.0" styleClass="user-card">
           <children>
             <Label fx:id="userNameLabel" layoutX="121.0" layoutY="16.0" prefHeight="36.0" prefWidth="221.0" text="Shahd Ahmed">
               <font>
-                <Font size="28.0" />
+                <Font size="28.0"/>
               </font>
             </Label>
             <Label fx:id="dwsLabel" layoutX="121.0" layoutY="68.0" prefHeight="31.0" prefWidth="87.0" text="DWS : 0">
               <font>
-                <Font size="24.0" />
+                <Font size="24.0"/>
               </font>
             </Label>
             <Pane fx:id="profileImgContainer" layoutX="24.0" layoutY="29.5" prefHeight="73.0" prefWidth="73.0" styleClass="profileImgContainer">
               <children>
                 <ImageView fx:id="profileImg" fitHeight="40.0" fitWidth="40.0" layoutX="17.0" layoutY="16.0" pickOnBounds="true" preserveRatio="true">
                   <image>
-                    <Image url="@../images/fluent_person-32-light.png" />
+                    <Image url="@../images/fluent_person-32-light.png"/>
                   </image>
                 </ImageView>
               </children>
@@ -41,7 +41,7 @@
               <children>
                 <Label fx:id="planLabel" layoutX="16.0" layoutY="16.0" prefHeight="36.0" prefWidth="116.0" text="Standard" textFill="WHITE">
                   <font>
-                    <Font size="28.0" />
+                    <Font size="28.0"/>
                   </font>
                 </Label>
               </children>
@@ -50,7 +50,7 @@
               <children>
                 <ImageView fx:id="settingsIcon" fitHeight="24.0" fitWidth="24.0" layoutX="16.0" layoutY="16.0" pickOnBounds="true" preserveRatio="true">
                   <image>
-                    <Image url="@../images/setting-icon.png" />
+                    <Image url="@../images/setting-icon.png"/>
                   </image>
                 </ImageView>
               </children>
@@ -59,7 +59,7 @@
               <children>
                 <ImageView fitHeight="24.0" fitWidth="24.0" layoutX="16.0" layoutY="16.0" pickOnBounds="true" preserveRatio="true">
                   <image>
-                    <Image url="@../images/bell-icon.png" />
+                    <Image url="@../images/bell-icon.png"/>
                   </image>
                 </ImageView>
               </children>
@@ -68,11 +68,11 @@
         </Pane>
         <Pane fx:id="navBar" layoutX="737.0" layoutY="113.0" prefHeight="39.0" prefWidth="687.0" styleClass="navBar">
           <children>
-            <Pane fx:id="homeTab" prefHeight="39.0" prefWidth="107.0" style=" -fx-cursor: hand; -fx-background-radius: 15 0 0 15;" styleClass="navTabs">
+            <Pane fx:id="homeTab" prefHeight="39.0" prefWidth="107.0" style="-fx-cursor: hand; -fx-background-radius: 15 0 0 15;" styleClass="navTabs">
               <children>
                 <Hyperlink fx:id="homeLink" alignment="CENTER" graphicTextGap="0.0" prefHeight="10.0" prefWidth="107.0" text="Home" textFill="WHITE">
                   <font>
-                    <Font size="25.0" />
+                    <Font size="25.0"/>
                   </font>
                 </Hyperlink>
               </children>
@@ -81,7 +81,7 @@
               <children>
                 <Hyperlink fx:id="peripheralsLink" alignment="CENTER" prefHeight="0.0" prefWidth="171.0" text="Periphrals" textFill="WHITE">
                   <font>
-                    <Font size="25.0" />
+                    <Font size="25.0"/>
                   </font>
                 </Hyperlink>
               </children>
@@ -90,7 +90,7 @@
               <children>
                 <Hyperlink fx:id="analyticsLink" alignment="CENTER" prefHeight="0.0" prefWidth="161.0" text="Analytics" textFill="WHITE">
                   <font>
-                    <Font size="25.0" />
+                    <Font size="25.0"/>
                   </font>
                 </Hyperlink>
               </children>
@@ -99,7 +99,7 @@
               <children>
                 <Hyperlink fx:id="teamsLink" alignment="CENTER" prefHeight="0.0" prefWidth="248.0" text="Teams &amp; Groups" textFill="WHITE">
                   <font>
-                    <Font size="25.0" />
+                    <Font size="25.0"/>
                   </font>
                 </Hyperlink>
               </children>
@@ -108,6 +108,6 @@
         </Pane>
       </children>
     </Pane>
-      <AnchorPane fx:id="anchorPaneBody" layoutY="171.0" prefHeight="853.0" prefWidth="1440.0" />
+    <AnchorPane fx:id="anchorPaneBody" layoutY="171.0" prefHeight="853.0" prefWidth="1440.0"/>
   </children>
 </AnchorPane>
