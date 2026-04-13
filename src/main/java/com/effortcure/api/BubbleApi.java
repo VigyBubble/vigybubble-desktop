@@ -21,9 +21,9 @@ public class BubbleApi {
         HttpResponse<String> response = ApiClientUtil.post(BASE_URL, JsonUtil.toJson(createBubbleRequestDTO),
                 AccessTokenManager.getInstance().getAccessToken(),
                 null);
-           if(response.statusCode() == 201)
-        return JsonUtil.fromJson(response.body(), new TypeReference<ApiResponse<Void>>() {
-        });
+        if (response.statusCode() == 201)
+            return JsonUtil.fromJson(response.body(), new TypeReference<ApiResponse<Void>>() {
+            });
         else
             return null;
     }
@@ -44,25 +44,29 @@ public class BubbleApi {
         HttpResponse<String> response = ApiClientUtil.patch(url,
                 JsonUtil.toJson(modifyBubbleRequestDTO), AccessTokenManager.getInstance().getAccessToken(),
                 null);
-                if(response.statusCode() == 200)
+        if (response.statusCode() == 403)
+            return null;
         return JsonUtil.fromJson(response.body(), new TypeReference<ApiResponse<Void>>() {
         });
-        else
-            return null;
+
     }
 
     public void deleteBubble(UUID bubbleUuid) throws Exception {
-        ApiClientUtil.delete(BASE_URL + bubbleUuid, null, null, null);
+
+        ApiClientUtil.delete(BASE_URL + bubbleUuid, null, AccessTokenManager.getInstance().getAccessToken(), null);
+
     }
 
     public ApiResponse<GetBubbleResponseDTO> getBubbleDetails(UUID bubbleUuid) throws Exception {
-        HttpResponse<String> response = ApiClientUtil.get(BASE_URL + bubbleUuid, null, null, null);
+        HttpResponse<String> response = ApiClientUtil.get(BASE_URL + bubbleUuid, null,
+                AccessTokenManager.getInstance().getAccessToken(), null);
         return JsonUtil.fromJson(response.body(), new TypeReference<ApiResponse<GetBubbleResponseDTO>>() {
         });
     }
 
     public ApiResponse<GetBubbleResponseDTO> getAccountBubbles() throws Exception {
-        HttpResponse<String> response = ApiClientUtil.get(BASE_URL, null, null, null);
+        HttpResponse<String> response = ApiClientUtil.get(BASE_URL, null,
+                AccessTokenManager.getInstance().getAccessToken(), null);
         return JsonUtil.fromJson(response.body(), new TypeReference<ApiResponse<GetBubbleResponseDTO>>() {
         });
     }

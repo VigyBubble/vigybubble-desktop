@@ -13,6 +13,7 @@ import com.effortcure.service.interfaces.AuthServiceInterface;
 import com.effortcure.service.interfaces.BubbleServiceInterface;
 import com.effortcure.dto.request.ModifyBubbleRequestDTO;
 import com.effortcure.enums.ModifyBubbleType;
+import com.effortcure.navigator.SceneManager;
 
 public class BubbleService implements BubbleServiceInterface {
     private final BubbleApi bubbleApi = new BubbleApi();
@@ -49,9 +50,15 @@ public class BubbleService implements BubbleServiceInterface {
         modifyBubbleNameRequestDTO.setApplicationsNameList(applicationsNameList);
         modifyBubbleNameRequestDTO.setDirectoriesList(directoriesList);
         ApiResponse<Void> response = bubbleApi.modifyBubble(bubbleUuid, modifyBubbleNameRequestDTO, type);
-        if(response==null){
+        if(response!=null){
+            if(response.getStatus() == 400 ){
              authServiceInterface.refreshAccessAndRefreshTokens();
              response = bubbleApi.modifyBubble(bubbleUuid, modifyBubbleNameRequestDTO, type);
+            }
+            if(response.getStatus() == 401){
+                SceneManager.switchScene("/fxml/login-page.fxml",null);
+               authServiceInterface.logout();
+            }
         }
         return response;
     }
