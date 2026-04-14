@@ -8,6 +8,9 @@ import javafx.scene.control.Hyperlink;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
+import javafx.scene.shape.Circle;
+import javafx.scene.text.Text;
+import javafx.scene.text.TextFlow;
 import javafx.scene.image.ImageView;
 
 public class MainTemplateController {
@@ -22,9 +25,6 @@ public class MainTemplateController {
 
     @FXML
     private Label userNameLabel;
-
-    @FXML
-    private Label dwsLabel;
 
     @FXML
     private Pane profileImgContainer;
@@ -85,24 +85,42 @@ public class MainTemplateController {
 
     @FXML
     private ImageView bellIcon;
-    
+
     @FXML
     private Button settingBtn;
 
     @FXML
     private ImageView settingIcon;
-    
-    @FXML
-    private Button teamsBtn;
 
     @FXML
-    private Button analyticsBtn;
+    private Label teamsBtn;
 
     @FXML
-    private Button peripheralsBtn;
+    private Label analyticsBtn;
 
     @FXML
-    private Button homeBtn;
+    private Label peripheralsBtn;
+
+    @FXML
+    private Label homeBtn;
+
+    @FXML
+    private Circle circleProfile;
+
+    @FXML
+    private ImageView profileImageView;
+
+    @FXML
+    private Text labelText;
+
+    @FXML
+    private Text valueText;
+
+    @FXML
+    private TextFlow dwsLabel;
+
+    @FXML
+    private Pane rightControlsPane;
 
     @FXML
     private void initialize() {

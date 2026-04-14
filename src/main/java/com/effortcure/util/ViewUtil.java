@@ -16,8 +16,11 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.Region;
+import javafx.scene.shape.Circle;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Font;
+import javafx.scene.text.Text;
+import javafx.scene.text.TextFlow;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
 
@@ -88,6 +91,15 @@ public class ViewUtil {
             rectangle.setWidth(rectangle.getWidth() * widthRatio);
             rectangle.setHeight(rectangle.getHeight() * hightRatio);
         }
+        if (node instanceof Circle circle) {
+            circle.setCenterX(circle.getCenterX() * widthRatio);
+            circle.setCenterY(circle.getCenterY() * hightRatio);
+            circle.setRadius(circle.getRadius() * Math.min(widthRatio, hightRatio));
+        }
+        if (node instanceof TextFlow textFlow) {
+            textFlow.setPrefWidth(textFlow.getPrefWidth() * widthRatio);
+            textFlow.setPrefHeight(textFlow.getPrefHeight() * hightRatio);
+        }
     }
 
     private static void relocateNodeXAndY(Node node, double widthRatio, double hightRatio) {
@@ -118,7 +130,12 @@ public class ViewUtil {
                 hyperlink.setFont(new Font(hyperlink.getFont().getSize() * fontScale));
             if (region instanceof CheckBox checkBox)
                 checkBox.setFont(new Font(checkBox.getFont().getSize() * fontScale));
-
+        }
+        if (n instanceof Text text) {
+            TextFlow textFlow = (TextFlow) text.getParent();
+            double fontScale = Math.min(textFlow.getPrefWidth() / (textFlow.getPrefWidth() / widthRatio),
+                    textFlow.getPrefHeight() / (textFlow.getPrefHeight() / hightRatio));
+            text.setFont(new Font(text.getFont().getSize() * fontScale));
         }
     }
 

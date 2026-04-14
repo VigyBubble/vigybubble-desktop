@@ -3,6 +3,27 @@
   -fx-background-color: #177b75;
 }
 
+.text-font {
+  -fx-font-family: "K2D";
+}
+
+.title-font {
+  -fx-font-family: "K2D";
+  -fx-font-weight: 700;
+}
+
+.label-text {
+  -fx-font-family: "K2D";
+  -fx-font-weight: 400;
+  -fx-fill: black;
+}
+
+.value-text {
+  -fx-font-family: "K2D";
+  -fx-font-weight: 400;
+  -fx-fill: red;
+}
+
 .user-card {
   -fx-background-color: white;
   -fx-background-radius: 20;
@@ -15,7 +36,7 @@
 }
 
 .plan-pane {
-  -fx-background-color: #22b9af;
+  -fx-background-color: rgba(34, 185, 175, 0.2);
   -fx-background-radius: 30;
   -fx-effect: dropshadow(gaussian, rgba(13, 92, 92, 0.38), 10, 0, 0, 4);
 }
