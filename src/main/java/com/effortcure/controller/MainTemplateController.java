@@ -1,7 +1,12 @@
 package com.effortcure.controller;
 
+import com.effortcure.dto.response.ApiResponse;
+import com.effortcure.dto.response.BreifAccountInfoResponseDTO;
+import com.effortcure.service.implementation.AccountService;
+import com.effortcure.service.interfaces.AccountServiceInterface;
 import com.effortcure.util.ViewUtil;
 
+import javafx.concurrent.Task;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Hyperlink;
@@ -122,8 +127,26 @@ public class MainTemplateController {
     @FXML
     private Pane rightControlsPane;
 
+    private AccountServiceInterface accountServiceInterface = new AccountService();
+
     @FXML
     private void initialize() {
+        Task<Void> task = new Task<>() {
+            @Override
+            protected Void call() throws Exception {
+                ApiResponse<BreifAccountInfoResponseDTO> response = accountServiceInterface.getBreifAccountInfo();
+                if (response != null) {
+                    if (response.getStatus() == 200) {
+                        userNameLabel.setText(response.getData().getUsername());
+                        valueText.setText(
+                                (response.getData().getDws()) != null ? response.getData().getDws().toString() : null);
+                        planLabel.setText(response.getData().getPlan());
+                    }
+                }
+                return null;
+            }
+        };
+        new Thread(task).run();
         ViewUtil.initiateResponsiveView(this);
     }
 
