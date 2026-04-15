@@ -1,5 +1,6 @@
 package com.effortcure.service.implementation;
 
+import java.util.Set;
 import java.util.UUID;
 
 import com.effortcure.api.BubbleSessionApi;
@@ -13,12 +14,28 @@ public class BubbleSessionService implements BubbleSessionServiceInterface {
     private final BubbleSessionApi bubbleSessionApi = new BubbleSessionApi();
     private AuthServiceInterface authServiceInterface = new AuthService();
 
-    public ApiResponse<BubbleSessionsResponseDTo> getBubbleSession(UUID bubbleUuid) throws Exception {
-        ApiResponse<BubbleSessionsResponseDTo> response = bubbleSessionApi.getBubbleSession(bubbleUuid);
+    public ApiResponse<Set<BubbleSessionsResponseDTo>> getBubbleSession(UUID bubbleUuid) throws Exception {
+        ApiResponse<Set<BubbleSessionsResponseDTo>> response = bubbleSessionApi.getBubbleSession(bubbleUuid);
         if (response != null) {
             if (response.getStatus() == 400) {
                 authServiceInterface.refreshAccessAndRefreshTokens();
                 response = bubbleSessionApi.getBubbleSession(bubbleUuid);
+            }
+            if (response.getStatus() == 403) {
+                SceneManager.switchScene("/fxml/login-page.fxml", null);
+                authServiceInterface.logout();
+            }
+        }
+        return response;
+    }
+
+    @Override
+    public ApiResponse<Void> createSession(UUID bubbleUuid) throws Exception {
+        ApiResponse<Void> response = bubbleSessionApi.createSession(bubbleUuid);
+        if (response != null) {
+            if (response.getStatus() == 400) {
+                authServiceInterface.refreshAccessAndRefreshTokens();
+                response = bubbleSessionApi.createSession(bubbleUuid);
             }
             if (response.getStatus() == 403) {
                 SceneManager.switchScene("/fxml/login-page.fxml", null);
