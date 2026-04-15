@@ -5,6 +5,7 @@ import java.util.Set;
 import java.util.UUID;
 
 import com.effortcure.auth.AccessTokenManager;
+import com.effortcure.dto.request.CreateSessionRequestDTO;
 import com.effortcure.dto.response.ApiResponse;
 import com.effortcure.dto.response.BubbleSessionsResponseDTo;
 import com.effortcure.util.ApiClientUtil;
@@ -28,7 +29,7 @@ public class BubbleSessionApi {
     }
 
 
-    public ApiResponse<Void> createSession(UUID bubbleUuid) throws Exception {
+    public ApiResponse<Void> createSession(UUID bubbleUuid,CreateSessionRequestDTO createSessionRequestDTO) throws Exception {
         HttpResponse<String> response = ApiClientUtil.post(BASE_URL + bubbleUuid + "/sessions/", null,
                 AccessTokenManager.getInstance().getAccessToken(),
                 null);

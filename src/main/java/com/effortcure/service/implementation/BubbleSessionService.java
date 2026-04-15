@@ -4,6 +4,7 @@ import java.util.Set;
 import java.util.UUID;
 
 import com.effortcure.api.BubbleSessionApi;
+import com.effortcure.dto.request.CreateSessionRequestDTO;
 import com.effortcure.dto.response.ApiResponse;
 import com.effortcure.dto.response.BubbleSessionsResponseDTo;
 import com.effortcure.navigator.SceneManager;
@@ -30,12 +31,12 @@ public class BubbleSessionService implements BubbleSessionServiceInterface {
     }
 
     @Override
-    public ApiResponse<Void> createSession(UUID bubbleUuid) throws Exception {
-        ApiResponse<Void> response = bubbleSessionApi.createSession(bubbleUuid);
+    public ApiResponse<Void> createSession(UUID bubbleUuid, CreateSessionRequestDTO createSessionRequestDTO) throws Exception {
+        ApiResponse<Void> response = bubbleSessionApi.createSession(bubbleUuid, createSessionRequestDTO);
         if (response != null) {
             if (response.getStatus() == 400) {
                 authServiceInterface.refreshAccessAndRefreshTokens();
-                response = bubbleSessionApi.createSession(bubbleUuid);
+                response = bubbleSessionApi.createSession(bubbleUuid, createSessionRequestDTO);
             }
             if (response.getStatus() == 403) {
                 SceneManager.switchScene("/fxml/login-page.fxml", null);
