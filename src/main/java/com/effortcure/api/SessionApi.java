@@ -7,7 +7,9 @@ import java.util.UUID;
 import com.effortcure.auth.AccessTokenManager;
 import com.effortcure.dto.response.ApiResponse;
 import com.effortcure.dto.response.LoggedNotificationResponseDTO;
+import com.effortcure.dto.response.PerformanceMetricsResponseDTO;
 import com.effortcure.dto.response.SessionBriefResponseDTO;
+import com.effortcure.enums.SessionStatus;
 import com.effortcure.util.ApiClientUtil;
 import com.effortcure.util.JsonUtil;
 import com.fasterxml.jackson.core.type.TypeReference;
@@ -28,8 +30,7 @@ public class SessionApi {
 
     }
 
-
-     public ApiResponse<Void> DeleteSession(UUID sessionUuid) throws Exception {
+    public ApiResponse<Void> DeleteSession(UUID sessionUuid) throws Exception {
 
         HttpResponse<String> response = ApiClientUtil.delete(BASE_URL + sessionUuid, null,
                 AccessTokenManager.getInstance().getAccessToken(),
@@ -48,6 +49,27 @@ public class SessionApi {
         if (response.statusCode() == 403)
             return null;
         return JsonUtil.fromJson(response.body(), new TypeReference<ApiResponse<Set<LoggedNotificationResponseDTO>>>() {
+        });
+    }
+
+    public ApiResponse<PerformanceMetricsResponseDTO> getPerformanceMetrics(UUID sessionUuid) throws Exception {
+        HttpResponse<String> response = ApiClientUtil.get(BASE_URL + sessionUuid + "/performance-metrics", null,
+                AccessTokenManager.getInstance().getAccessToken(),
+                null);
+        if (response.statusCode() == 403)
+            return null;
+        return JsonUtil.fromJson(response.body(), new TypeReference<ApiResponse<PerformanceMetricsResponseDTO>>() {
+        });
+    }
+
+    public ApiResponse<Void> ModifySessionStatus(UUID sessionUuid, SessionStatus status) throws Exception {
+        HttpResponse<String> response = ApiClientUtil.patch(BASE_URL + sessionUuid,
+                null,
+                AccessTokenManager.getInstance().getAccessToken(),
+                null);
+        if (response.statusCode() == 403)
+            return null;
+        return JsonUtil.fromJson(response.body(), new TypeReference<ApiResponse<Void>>() {
         });
     }
 
