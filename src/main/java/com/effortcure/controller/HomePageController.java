@@ -1,5 +1,7 @@
 package com.effortcure.controller;
 
+import com.effortcure.util.ViewUtil;
+
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
@@ -13,9 +15,9 @@ import javafx.scene.control.Separator;
 import javafx.scene.image.ImageView;
 
 public class HomePageController {
-    @FXML
-    private AnchorPane paneContainer;
 
+
+    @FXML private AnchorPane root;
     @FXML
     private ImageView bubbleImg1;
     @FXML
@@ -26,33 +28,28 @@ public class HomePageController {
     private ImageView bubbleImg4;
     @FXML
     private ImageView bubbleImg5;
-
     @FXML
     private Pane searchPane;
     @FXML
     private Label dayLabel;
     @FXML
-    private Separator searchSeparator;
-    @FXML
     private TextField searchField;
     @FXML
     private ImageView searchIcon;
-
     @FXML
-    private ComboBox<String> typeComboBox;
-
+    private Separator searchSeparator;
     @FXML
     private Button addBtn;
     @FXML
     private ImageView addIcon;
-
+    @FXML
+    private ComboBox<String> typeComboBox;
     @FXML
     private ScrollPane scrollPane;
     @FXML
-    private VBox resourcesContainer;
-
+    private VBox vboxContainer;
     @FXML
-    private Pane bubbleCard;
+    private Pane bubbleCardPane;
     @FXML
     private ImageView closeIcon;
     @FXML
@@ -62,48 +59,60 @@ public class HomePageController {
     @FXML
     private Label teamLabel;
     @FXML
-    private Label datePane;
-
+    private Label dateLabel;
     @FXML
-    private Pane actualDurationPane;
+    private Pane actualdurationPane;
     @FXML
-    private Label actualLabel;
+    private Pane InnerActualDurationPane;
     @FXML
-    private Label actualDaysValue;
+    private Label ActualDurationlabel;
     @FXML
-    private Label actualHoursValue;
+    private Pane dayPane;
     @FXML
-    private Separator actualSeparator1;
+    private Label NumofDayLabel;
     @FXML
-    private Label actualDaysLabel;
+    private Label dLabel;
     @FXML
-    private Label actualHoursLabel;
+    private Pane hourPane;
     @FXML
-    private Separator actualSeparator2;
+    private Label hoursLabel;
     @FXML
-    private Label actualMinutesValue;
+    private Label hLabel;
     @FXML
-    private Label actualMinutesLabel;
-
+    private Pane minutesPane;
+    @FXML
+    private Label minutesLabel;
+    @FXML
+    private Label mLabel;
     @FXML
     private Pane estimatedDurationPane;
     @FXML
-    private Label estimatedLabel;
+    private Pane InnerEstimatedDurationPane;
     @FXML
-    private Label estimatedDaysValue;
+    private Label estimatedDurationLabel;
     @FXML
-    private Label estimatedHoursValue;
+    private Pane estimatedDaysInnerPane;
     @FXML
-    private Separator estimatedSep1;
+    private Label estimatedNumofdaysLabel;
     @FXML
-    private Label estimatedDaysLabel;
+    private Label d2label;
     @FXML
-    private Label estimatedHoursLabel;
+    private Pane hourPane2;
     @FXML
-    private Separator estimatedSep2;
+    private Label hoursLabel2;
     @FXML
-    private Label estimatedMinutesValue;
+    private Label hLabel2;
     @FXML
-    private Label estimatedMinutesLabel;
+    private Pane minutesPane2;
+    @FXML
+    private Label minutesLabel2;
+    @FXML
+    private Label mLabel2;
+    @FXML
+    private Pane dateofBubblePane;
+     @FXML
+     
+    private void initialize() {
+        ViewUtil.initiateResponsiveView(this);}
 
-}
+    }
