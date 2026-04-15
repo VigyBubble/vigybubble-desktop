@@ -17,7 +17,7 @@ public interface BubbleServiceInterface {
     public ApiResponse<Void> modifyBubble(UUID bubbleUuid,String name, String description, List<String> applicationsNameList,
             List<DirectoryRequestDTO> directoriesList,ModifyBubbleType type) throws Exception;  
             
-            public void deleteBubble(UUID bubbleUuid) throws Exception;
+            public ApiResponse<Void> deleteBubble(UUID bubbleUuid) throws Exception;
             public ApiResponse<GetBubbleResponseDTO> getBubbleDetails(UUID bubbleUuid) throws Exception;
             public ApiResponse<GetBubbleResponseDTO> getAccountBubbles()throws Exception;
 

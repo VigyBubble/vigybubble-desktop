@@ -36,6 +36,10 @@ public class BubbleService implements BubbleServiceInterface {
                 authServiceInterface.refreshAccessAndRefreshTokens();
                 response = bubbleApi.createBubble(CreateBubbleRequestDTO);
             }
+            if (response.getStatus() == 403) {
+                SceneManager.switchScene("/fxml/login-page.fxml", null);
+                authServiceInterface.logout();
+            }
         }
         return response;
     }
@@ -50,32 +54,66 @@ public class BubbleService implements BubbleServiceInterface {
         modifyBubbleNameRequestDTO.setApplicationsNameList(applicationsNameList);
         modifyBubbleNameRequestDTO.setDirectoriesList(directoriesList);
         ApiResponse<Void> response = bubbleApi.modifyBubble(bubbleUuid, modifyBubbleNameRequestDTO, type);
-        if(response!=null){
-            if(response.getStatus() == 400 ){
-             authServiceInterface.refreshAccessAndRefreshTokens();
-             response = bubbleApi.modifyBubble(bubbleUuid, modifyBubbleNameRequestDTO, type);
+        if (response != null) {
+            if (response.getStatus() == 400) {
+                authServiceInterface.refreshAccessAndRefreshTokens();
+                response = bubbleApi.modifyBubble(bubbleUuid, modifyBubbleNameRequestDTO, type);
             }
-            if(response.getStatus() == 401){
-                SceneManager.switchScene("/fxml/login-page.fxml",null);
-               authServiceInterface.logout();
+            if (response.getStatus() == 401) {
+                SceneManager.switchScene("/fxml/login-page.fxml", null);
+                authServiceInterface.logout();
             }
         }
         return response;
     }
 
     @Override
-    public void deleteBubble(UUID bubbleUuid) throws Exception {
-        bubbleApi.deleteBubble(bubbleUuid);
+    public ApiResponse<Void> deleteBubble(UUID bubbleUuid) throws Exception {
+        ApiResponse<Void> response = bubbleApi.deleteBubble(bubbleUuid);
+        if (response != null) {
+            if (response.getStatus() == 400) {
+                authServiceInterface.refreshAccessAndRefreshTokens();
+                response = bubbleApi.deleteBubble(bubbleUuid);
+            }
+            if (response.getStatus() == 403) {
+                SceneManager.switchScene("/fxml/login-page.fxml", null);
+                authServiceInterface.logout();
+            }
+        }
+        return response;
     }
 
     @Override
     public ApiResponse<GetBubbleResponseDTO> getBubbleDetails(UUID bubbleUuid) throws Exception {
-        return bubbleApi.getBubbleDetails(bubbleUuid);
+        ApiResponse<GetBubbleResponseDTO> response = bubbleApi.getBubbleDetails(bubbleUuid);
+        if (response != null) {
+            if (response.getStatus() == 400) {
+                authServiceInterface.refreshAccessAndRefreshTokens();
+                response = bubbleApi.getBubbleDetails(bubbleUuid);
+            }
+            if (response.getStatus() == 403) {
+                SceneManager.switchScene("/fxml/login-page.fxml", null);
+                authServiceInterface.logout();
+            }
+        }
+        return response;
+
     }
 
     @Override
     public ApiResponse<GetBubbleResponseDTO> getAccountBubbles() throws Exception {
-        return bubbleApi.getAccountBubbles();
+        ApiResponse<GetBubbleResponseDTO> response = bubbleApi.getAccountBubbles();
+        if (response != null) {
+            if (response.getStatus() == 400) {
+                authServiceInterface.refreshAccessAndRefreshTokens();
+                response = bubbleApi.getAccountBubbles();
+            }
+            if (response.getStatus() == 403) {
+                SceneManager.switchScene("/fxml/login-page.fxml", null);
+                authServiceInterface.logout();
+            }
+        }
+        return response;
     }
 
 }
