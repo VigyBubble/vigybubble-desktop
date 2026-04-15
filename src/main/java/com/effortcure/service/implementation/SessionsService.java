@@ -1,9 +1,11 @@
 package com.effortcure.service.implementation;
 
+import java.util.Set;
 import java.util.UUID;
 
 import com.effortcure.api.SessionApi;
 import com.effortcure.dto.response.ApiResponse;
+import com.effortcure.dto.response.LoggedNotificationResponseDTO;
 import com.effortcure.dto.response.SessionBriefResponseDTO;
 import com.effortcure.navigator.SceneManager;
 import com.effortcure.service.interfaces.AuthServiceInterface;
@@ -44,5 +46,23 @@ private AuthServiceInterface authServiceInterface = new AuthService();
         }
         return response;
     }
+
+    @Override
+    public ApiResponse<Set<LoggedNotificationResponseDTO>> getLoggedNotifications(UUID sessionUuid) throws Exception {
+        ApiResponse<Set<LoggedNotificationResponseDTO>> response = sessionApi.getLoggedNotifications(sessionUuid);      
+          if (response != null) {
+            if (response.getStatus() == 400) {
+                authServiceInterface.refreshAccessAndRefreshTokens();
+                response = sessionApi.getLoggedNotifications(sessionUuid);
+            }
+            if (response.getStatus() == 403) {
+                SceneManager.switchScene("/fxml/login-page.fxml", null);
+                authServiceInterface.logout();
+            }
+        }
+        return response;
+    }
+ 
+
     
 }
