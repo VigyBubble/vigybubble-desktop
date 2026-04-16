@@ -1,3 +1,7 @@
+.main-container
+{
+    -fx-background-color: white; 
+}
 .all-panes{
 
     -fx-background-color: white; /* الخلفية بيضاء */
@@ -7,12 +11,18 @@
     -fx-background-radius: 20; 
     -fx-effect: dropshadow(gaussian, #115D58, 4, 0, 0, 0);
 }
+.regular-labels {
+    -fx-font-family: "K2D";
+    -fx-font-weight: 400;
+}
 
+.bold-labels{
+    -fx-font-family: "K2D";
+    -fx-font-weight: 700;
+}
 
 .all-labels{
-
     -fx-text-fill: #0B3E3A;
-    
 }
 .first-pane {
     -fx-background-color: white;
@@ -52,7 +62,6 @@
         -fx-border-radius: 25;
     
 }
-
 .scroll-bar{
     -fx-background-radius: 20;
 }
@@ -72,4 +81,21 @@
     -fx-max-height: 0;
     -fx-min-height: 0;
     -fx-pref-height: 0;
+}
+
+.search-field {
+    -fx-border-color: transparent;
+    -fx-background-color: transparent;
+    -fx-padding: 0;
+    -fx-font-family: "K2D"; 
+    -fx-font-weight: 400;
+    -fx-font-size: 24px;
+
+
+}
+
+.search-field:prompt-text {
+    -fx-font-family: "K2D";
+    -fx-font-weight: 400;
+
 }
