@@ -118,7 +118,7 @@
 }
 .inner-banes{
    
-    -fx-background-color: white;
+    -fx-background-color: transparent;
     -fx-border-width: 0 1 0.25 1; 
     -fx-border-color: transparent transparent #7878784D transparent;
     -fx-background-color: transparent;
@@ -204,4 +204,22 @@
     -fx-text-fill: #115D58;
     -fx-background-radius: 25;
     -fx-border-radius: 25;
+}
+.popups-container
+{
+    -fx-background-color: white;
+    -fx-effect: dropshadow(gaussian, #115D58, 4, 0, 0, 0);
+    -fx-background-radius: 25;
+    -fx-border-radius: 25;
+}
+.cancel-button{
+    -fx-text-fill: #115D58;
+    -fx-background-radius: 15;
+  -fx-border-radius: 15;
+  -fx-background-color: white;
+  -fx-effect: dropshadow(gaussian, #115D58, 4, 0, 0, 0);
+  -fx-cursor: hand;
+}
+.cancel-button:hover {
+    -fx-effect: dropshadow(gaussian, #115D58, 6, 0, 0, 0); /* ظل أقوى عند الهوفر */
 }
