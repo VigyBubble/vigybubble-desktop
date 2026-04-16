@@ -6,7 +6,7 @@ import java.util.UUID;
 
 import com.effortcure.enums.SessionStatus;
 
-public class BubbleSessionsResponseDTo {
+public class BubbleSessionsResponseDTO {
 
     private UUID uuid;
     private String creator;
@@ -15,10 +15,10 @@ public class BubbleSessionsResponseDTo {
     private LocalDateTime statusUpdatedAt;
     private LocalDateTime createdAt;
 
-    public BubbleSessionsResponseDTo() {
+    public BubbleSessionsResponseDTO() {
     }
 
-    public BubbleSessionsResponseDTo(UUID uuid, String creator, BigDecimal dwp, SessionStatus sessionStatus,
+    public BubbleSessionsResponseDTO(UUID uuid, String creator, BigDecimal dwp, SessionStatus sessionStatus,
             LocalDateTime statusUpdatedAt, LocalDateTime createdAt) {
         this.uuid = uuid;
         this.creator = creator;

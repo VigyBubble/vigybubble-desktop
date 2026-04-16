@@ -8,8 +8,9 @@ import com.effortcure.dto.request.CreateBubbleRequestDTO;
 import com.effortcure.util.ApiClientUtil;
 import com.effortcure.util.JsonUtil;
 import com.fasterxml.jackson.core.type.TypeReference;
+import com.effortcure.dto.response.AccountBubblesResponseDTO;
 import com.effortcure.dto.response.ApiResponse;
-import com.effortcure.dto.response.GetBubbleResponseDTO;
+import com.effortcure.dto.response.BubbleDetailsResponseDTO;
 import com.effortcure.dto.request.ModifyBubbleRequestDTO;
 import com.effortcure.enums.ModifyBubbleType;
 
@@ -59,21 +60,21 @@ public class BubbleApi {
         });
     }
 
-    public ApiResponse<GetBubbleResponseDTO> getBubbleDetails(UUID bubbleUuid) throws Exception {
+    public ApiResponse<BubbleDetailsResponseDTO> getBubbleDetails(UUID bubbleUuid) throws Exception {
         HttpResponse<String> response = ApiClientUtil.get(BASE_URL + bubbleUuid, null,
                 AccessTokenManager.getInstance().getAccessToken(), null);
         if (response.statusCode() == 403)
             return null;
-        return JsonUtil.fromJson(response.body(), new TypeReference<ApiResponse<GetBubbleResponseDTO>>() {
+        return JsonUtil.fromJson(response.body(), new TypeReference<ApiResponse<BubbleDetailsResponseDTO>>() {
         });
     }
 
-    public ApiResponse<GetBubbleResponseDTO> getAccountBubbles() throws Exception {
+    public ApiResponse<AccountBubblesResponseDTO> getAccountBubbles() throws Exception {
         HttpResponse<String> response = ApiClientUtil.get(BASE_URL, null,
                 AccessTokenManager.getInstance().getAccessToken(), null);
         if (response.statusCode() == 403)
             return null;
-        return JsonUtil.fromJson(response.body(), new TypeReference<ApiResponse<GetBubbleResponseDTO>>() {
+        return JsonUtil.fromJson(response.body(), new TypeReference<ApiResponse<AccountBubblesResponseDTO>>() {
         });
     }
 

@@ -7,13 +7,14 @@ import com.effortcure.api.BubbleApi;
 import com.effortcure.dto.request.CreateBubbleRequestDTO;
 import com.effortcure.dto.request.DirectoryRequestDTO;
 import com.effortcure.dto.response.ApiResponse;
-import com.effortcure.dto.response.GetBubbleResponseDTO;
+import com.effortcure.dto.response.BubbleDetailsResponseDTO;
 import com.effortcure.enums.BubbleType;
 import com.effortcure.service.interfaces.AuthServiceInterface;
 import com.effortcure.service.interfaces.BubbleServiceInterface;
 import com.effortcure.dto.request.ModifyBubbleRequestDTO;
 import com.effortcure.enums.ModifyBubbleType;
 import com.effortcure.navigator.SceneManager;
+import com.effortcure.dto.response.AccountBubblesResponseDTO;
 
 public class BubbleService implements BubbleServiceInterface {
     private final BubbleApi bubbleApi = new BubbleApi();
@@ -84,8 +85,8 @@ public class BubbleService implements BubbleServiceInterface {
     }
 
     @Override
-    public ApiResponse<GetBubbleResponseDTO> getBubbleDetails(UUID bubbleUuid) throws Exception {
-        ApiResponse<GetBubbleResponseDTO> response = bubbleApi.getBubbleDetails(bubbleUuid);
+    public ApiResponse<BubbleDetailsResponseDTO> getBubbleDetails(UUID bubbleUuid) throws Exception {
+        ApiResponse<BubbleDetailsResponseDTO> response = bubbleApi.getBubbleDetails(bubbleUuid);
         if (response != null) {
             if (response.getStatus() == 400) {
                 authServiceInterface.refreshAccessAndRefreshTokens();
@@ -101,8 +102,8 @@ public class BubbleService implements BubbleServiceInterface {
     }
 
     @Override
-    public ApiResponse<GetBubbleResponseDTO> getAccountBubbles() throws Exception {
-        ApiResponse<GetBubbleResponseDTO> response = bubbleApi.getAccountBubbles();
+    public ApiResponse<AccountBubblesResponseDTO> getAccountBubbles() throws Exception {
+        ApiResponse<AccountBubblesResponseDTO> response = bubbleApi.getAccountBubbles();
         if (response != null) {
             if (response.getStatus() == 400) {
                 authServiceInterface.refreshAccessAndRefreshTokens();
