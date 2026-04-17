@@ -2,6 +2,7 @@ package com.effortcure.controller;
 
 import com.effortcure.dto.response.ApiResponse;
 import com.effortcure.dto.response.BreifAccountInfoResponseDTO;
+import com.effortcure.navigator.ContentManager;
 import com.effortcure.service.implementation.AccountService;
 import com.effortcure.service.interfaces.AccountServiceInterface;
 import com.effortcure.util.ViewUtil;
@@ -148,6 +149,8 @@ public class MainTemplateController {
         };
         new Thread(task).run();
         ViewUtil.initiateResponsiveView(this);
+        ContentManager.setAnchorPane(anchorPaneBody);
+        ContentManager.switchContent("/fxml/home-page.fxml");
     }
 
 }

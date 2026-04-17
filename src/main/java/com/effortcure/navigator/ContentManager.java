@@ -4,19 +4,19 @@ import java.io.IOException;
 
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
-import javafx.scene.layout.StackPane;
+import javafx.scene.layout.AnchorPane;
 
 public class ContentManager {
-    private static StackPane stackPane;
+    private static AnchorPane anchorPane;
 
-    public static void setStackPane(StackPane stackPane) {
-        ContentManager.stackPane = stackPane;
+    public static void setAnchorPane(AnchorPane anchorPane) {
+        ContentManager.anchorPane = anchorPane;
     }
 
     public static void switchContent(String fxml) {
         try {
             Parent view = FXMLLoader.load(ContentManager.class.getResource(fxml));
-            stackPane.getChildren().setAll(view);
+            anchorPane.getChildren().setAll(view);
         } catch (IOException e) {
             e.printStackTrace();
         }
