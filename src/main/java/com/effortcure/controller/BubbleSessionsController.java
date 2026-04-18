@@ -12,7 +12,6 @@ import javafx.scene.layout.Pane;
 import javafx.scene.text.TextFlow;
 import javafx.scene.shape.Circle;
 import javafx.scene.text.Text;
-import javafx.scene.text.TextFlow;
 import javafx.scene.image.ImageView;
 import javafx.scene.control.Separator;
 

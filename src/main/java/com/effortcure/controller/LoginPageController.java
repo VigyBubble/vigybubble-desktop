@@ -1,5 +1,7 @@
 package com.effortcure.controller;
 
+import java.sql.Ref;
+
 import com.effortcure.dto.response.ApiResponse;
 import com.effortcure.dto.response.LoginResponseDTO;
 import com.effortcure.navigator.SceneManager;
@@ -122,6 +124,7 @@ public class LoginPageController {
             ApiResponse<LoginResponseDTO> response = authService.login(textFieldEmail.getText(), password.toString());
             if (response.getStatus() == 200) {
                 SceneManager.switchScene("/fxml/main-template.fxml", null);
+              
             }
             if (response.getStatus() == 401) {
                 passwordErrorMsg.setText(response.getMessage() + " *");
