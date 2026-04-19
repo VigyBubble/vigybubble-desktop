@@ -16,6 +16,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.Region;
+import javafx.scene.layout.VBox;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Font;
@@ -75,7 +76,7 @@ public class ViewUtil {
     }
 
     private static void resizeNodeWidthAndHight(Node node, double widthRatio, double hightRatio) {
-        if (node instanceof Region region) {
+        if (node instanceof Region region && !(node instanceof VBox)) {
             region.setPrefWidth(region.getPrefWidth() * widthRatio);
             region.setPrefHeight(region.getPrefHeight() * hightRatio);
             region.setMinWidth(region.getPrefWidth());
