@@ -1,5 +1,8 @@
 package com.effortcure.util;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 import javafx.application.Platform;
 import javafx.collections.ObservableList;
 import javafx.geometry.Insets;
@@ -9,6 +12,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.Hyperlink;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
@@ -70,8 +74,8 @@ public class ViewUtil {
     private static double[] evaluateScreenWidthAndHightRatios(Region root) {
         double screenWidth = Double.valueOf(System.getProperty("os.screen.width"));
         double screenHight = Double.valueOf(System.getProperty("os.screen.hight"));
-        double widthRatio = screenWidth / root.getPrefWidth();
-        double hightRatio = screenHight / root.getPrefHeight();
+        double widthRatio = screenWidth / 1440.0;
+        double hightRatio = screenHight / 1024.0;
         return new double[] { widthRatio, hightRatio };
     }
 
@@ -131,6 +135,9 @@ public class ViewUtil {
                 hyperlink.setFont(new Font(hyperlink.getFont().getSize() * fontScale));
             if (region instanceof CheckBox checkBox)
                 checkBox.setFont(new Font(checkBox.getFont().getSize() * fontScale));
+            if (region instanceof ComboBox comboBox) {
+                comboBox.setStyle("-fx-font-size: " + getFontSizeFromStyle(comboBox.getStyle()) * fontScale + "px;");
+            }
         }
         if (n instanceof Text text) {
             TextFlow textFlow = (TextFlow) text.getParent();
@@ -180,5 +187,17 @@ public class ViewUtil {
             if (mask.getBool())
                 textField.setText("\u25CF".repeat(textField.getText().stripTrailing().length()));
         });
+    }
+
+    public static double getFontSizeFromStyle(String style) {
+        Pattern pattern = Pattern.compile("-fx-font-size:\\s*(\\d+(\\.\\d+)?)px");
+        Matcher matcher = pattern.matcher(style);
+
+        double fontSize = 0;
+
+        if (matcher.find()) {
+            fontSize = Double.parseDouble(matcher.group(1));
+        }
+        return fontSize;
     }
 }

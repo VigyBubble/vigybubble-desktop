@@ -23,6 +23,6 @@ public interface BubbleServiceInterface {
 
         public ApiResponse<BubbleDetailsResponseDTO> getBubbleDetails(UUID bubbleUuid) throws Exception;
 
-        public ApiResponse<AccountBubblesResponseDTO> getAccountBubbles() throws Exception;
+        public ApiResponse<List<AccountBubblesResponseDTO>> getAccountBubbles() throws Exception;
 
 }

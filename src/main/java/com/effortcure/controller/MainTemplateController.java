@@ -138,7 +138,6 @@ public class MainTemplateController {
                 ApiResponse<BreifAccountInfoResponseDTO> response = accountServiceInterface.getBreifAccountInfo();
                 if (response != null) {
                     if (response.getStatus() == 200) {
-                        System.out.println("test");
                         userNameLabel.setText(response.getData().getUsername());
                         valueText.setText(
                                 (response.getData().getDws()) != null ? response.getData().getDws().toString() : null);
@@ -158,7 +157,44 @@ public class MainTemplateController {
         new Thread(task).run();
         ViewUtil.initiateResponsiveView(this);
         ContentManager.setAnchorPane(anchorPaneBody);
-        ContentManager.switchContent("/fxml/home-page2.fxml");
+        ContentManager.switchContent("/fxml/home-page.fxml");
+        homeBtn.getStyleClass().add("activeNavTabs");
+        navigationToggle();
+    }
+
+    private void navigationToggle() {
+        homeBtn.setOnMouseClicked(e -> {
+            homeBtn.getStyleClass().add("activeNavTabs");
+            peripheralsBtn.getStyleClass().removeAll("activeNavTabs");
+            analyticsBtn.getStyleClass().removeAll("activeNavTabs");
+            teamsBtn.getStyleClass().removeAll("activeNavTabs");
+            ContentManager.setAnchorPane(anchorPaneBody);
+            ContentManager.switchContent("/fxml/home-page.fxml");
+        });
+        peripheralsBtn.setOnMouseClicked(e -> {
+            homeBtn.getStyleClass().removeAll("activeNavTabs");
+            peripheralsBtn.getStyleClass().add("activeNavTabs");
+            analyticsBtn.getStyleClass().removeAll("activeNavTabs");
+            teamsBtn.getStyleClass().removeAll("activeNavTabs");
+            ContentManager.setAnchorPane(anchorPaneBody);
+            ContentManager.switchContent("/fxml/create-bubble-page-p1.fxml");
+        });
+        analyticsBtn.setOnMouseClicked(e -> {
+            homeBtn.getStyleClass().removeAll("activeNavTabs");
+            peripheralsBtn.getStyleClass().removeAll("activeNavTabs");
+            analyticsBtn.getStyleClass().add("activeNavTabs");
+            teamsBtn.getStyleClass().removeAll("activeNavTabs");
+            ContentManager.setAnchorPane(anchorPaneBody);
+            ContentManager.switchContent("/fxml/create-bubble-page-p2.fxml");
+        });
+        teamsBtn.setOnMouseClicked(e -> {
+            homeBtn.getStyleClass().removeAll("activeNavTabs");
+            peripheralsBtn.getStyleClass().removeAll("activeNavTabs");
+            analyticsBtn.getStyleClass().removeAll("activeNavTabs");
+            teamsBtn.getStyleClass().add("activeNavTabs");
+            ContentManager.setAnchorPane(anchorPaneBody);
+            ContentManager.switchContent("/fxml/create-bubble-page-p3.fxml");
+        });
     }
 
 }

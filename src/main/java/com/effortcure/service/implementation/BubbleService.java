@@ -102,14 +102,14 @@ public class BubbleService implements BubbleServiceInterface {
     }
 
     @Override
-    public ApiResponse<AccountBubblesResponseDTO> getAccountBubbles() throws Exception {
-        ApiResponse<AccountBubblesResponseDTO> response = bubbleApi.getAccountBubbles();
+    public ApiResponse<List<AccountBubblesResponseDTO>> getAccountBubbles() throws Exception {
+        ApiResponse<List<AccountBubblesResponseDTO>> response = bubbleApi.getAccountBubbles();
         if (response != null) {
             if (response.getStatus() == 400) {
                 authServiceInterface.refreshAccessAndRefreshTokens();
                 response = bubbleApi.getAccountBubbles();
             }
-            if (response.getStatus() == 403) {
+            if (response.getStatus() == 401) {
                 SceneManager.switchScene("/fxml/login-page.fxml", null);
                 authServiceInterface.logout();
             }
