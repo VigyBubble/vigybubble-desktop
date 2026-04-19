@@ -49,5 +49,11 @@
 
 .navTabs {
   -fx-background-color: #177b75;
+  -fx-cursor: hand;
   -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.38), 10, 0, 0, 0);
+}
+
+.activeNavTabs {
+  -fx-background-color: #ffff;
+  -fx-text-fill: #177b75;
 }

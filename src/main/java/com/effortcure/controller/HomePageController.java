@@ -1,23 +1,37 @@
 package com.effortcure.controller;
 
+import java.util.List;
+
+import com.effortcure.dto.response.AccountBubblesResponseDTO;
+import com.effortcure.dto.response.ApiResponse;
+import com.effortcure.service.implementation.BubbleService;
+import com.effortcure.service.interfaces.BubbleServiceInterface;
 import com.effortcure.util.ViewUtil;
 
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Background;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
 import javafx.scene.control.Separator;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
 public class HomePageController {
 
     @FXML
     private AnchorPane root;
+
     @FXML
     private ImageView bubbleImg1;
 
@@ -32,6 +46,7 @@ public class HomePageController {
 
     @FXML
     private ImageView bubbleImg5;
+
     @FXML
     private Pane searchPane;
 
@@ -43,91 +58,50 @@ public class HomePageController {
 
     @FXML
     private ImageView searchIcon;
+
     @FXML
     private Separator searchSeparator;
+
     @FXML
     private Button addBtn;
 
     @FXML
     private ImageView addIcon;
+
     @FXML
     private ComboBox<String> typeComboBox;
+
     @FXML
     private ScrollPane scrollPane;
 
     @FXML
     private VBox vboxContainer;
-    @FXML
-    private Pane bubbleCardPane;
-    @FXML
-    private ImageView closeIcon;
+
+    private BubbleServiceInterface bubbleServiceInterface = new BubbleService();
 
     @FXML
-    private Label titleLabel;
-
-    @FXML
-    private Label descriptionLabel;
-
-    @FXML
-    private Label teamLabel;
-
-    @FXML
-    private Label dateLabel;
-    @FXML
-    private Pane actualdurationPane;
-    @FXML
-    private Pane InnerActualDurationPane;
-    @FXML
-    private Label ActualDurationlabel;
-    @FXML
-    private Pane dayPane;
-    @FXML
-    private Label NumofDayLabel;
-    @FXML
-    private Label dLabel;
-    @FXML
-    private Pane hourPane;
-    @FXML
-    private Label hoursLabel;
-    @FXML
-    private Label hLabel;
-    @FXML
-    private Pane minutesPane;
-    @FXML
-    private Label minutesLabel;
-    @FXML
-    private Label mLabel;
-    @FXML
-    private Pane estimatedDurationPane;
-
-    @FXML
-    private Pane InnerEstimatedDurationPane;
-    @FXML
-    private Label estimatedDurationLabel;
-    @FXML
-    private Pane estimatedDaysInnerPane;
-    @FXML
-    private Label estimatedNumofdaysLabel;
-    @FXML
-    private Label d2label;
-    @FXML
-    private Pane hourPane2;
-    @FXML
-    private Label hoursLabel2;
-    @FXML
-    private Label hLabel2;
-    @FXML
-    private Pane minutesPane2;
-    @FXML
-    private Label minutesLabel2;
-    @FXML
-    private Label mLabel2;
-    @FXML
-    private Pane dateofBubblePane;
-
-    @FXML
-    private void initialize() {
+    private void initialize() throws Exception {
         ViewUtil.initiateResponsiveView(this);
+        getBubbles();
+    }
+
+    private void getBubbles() throws Exception {
+        ApiResponse<List<AccountBubblesResponseDTO>> response = bubbleServiceInterface.getAccountBubbles();
+        if (response != null) {
+
+        }
+        for (int x = 0; x < 5; x++) {
+            Parent pane = FXMLLoader.load(getClass().getResource("/fxml/bubble-card.fxml"));
+            // ObservableList<Node> childs = pane.getChildren();
+            // for(Node child :childs){
+
+            // }
+            vboxContainer.getChildren().add(pane);
+            Pane margiPane = new Pane();
+            margiPane.setPrefHeight(50);
+            margiPane.setPrefWidth(5);
+            vboxContainer.getChildren().add(margiPane);
+        }
     }
 
 }

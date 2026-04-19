@@ -1,12 +1,14 @@
 .main-container {
   -fx-background-color: white;
 }
+
 .all-panes {
   -fx-background-color: white;
   -fx-border-radius: 20;
   -fx-background-radius: 20;
   -fx-effect: dropshadow(gaussian, #115d58, 4, 0, 0, 0);
 }
+
 .search-field {
   -fx-border-color: transparent;
   -fx-background-color: transparent;
@@ -22,7 +24,6 @@
 }
 
 .combo-box {
-  -fx-font-size: 30px;
   -fx-background-radius: 20;
   -fx-border-radius: 20;
   -fx-background-color: white;
@@ -31,15 +32,17 @@
   /* -fx-font-family: "K2D"; */
   -fx-font-weight: 400;
 }
+
 .combo-box .list-cell {
-  -fx-font-size: 30px;
   -fx-text-fill: #0b3e3a;
   /* -fx-font-family: "K2D"; */
   -fx-font-weight: 400;
 }
+
 .combo-box .arrow {
   -fx-background-color: #0b3e3a;
 }
+
 .combo-box .arrow-button {
   -fx-background-color: transparent;
 }
@@ -47,19 +50,23 @@
 .scroll-pane {
   -fx-background-color: transparent;
 }
-.scroll-pane > .viewport {
+
+.scroll-pane>.viewport {
   -fx-background-color: transparent;
 }
+
 .scroll-bar:vertical {
   -fx-background-color: transparent;
   -fx-pref-width: 6;
 }
+
 .scroll-bar:vertical .thumb {
   -fx-background-color: gray;
   -fx-background-radius: 10;
   -fx-background-insets: 0;
   -fx-pref-height: 207px;
 }
+
 .scroll-bar:vertical .increment-arrow,
 .scroll-bar:vertical .decrement-arrow {
   -fx-shape: " ";
@@ -71,6 +78,7 @@
   -fx-border-radius: 20;
   -fx-background-radius: 20;
 }
+
 .time-banes {
   -fx-background-color: white;
   -fx-effect: dropshadow(gaussian, #115d58, 4, 0, 0, 0);

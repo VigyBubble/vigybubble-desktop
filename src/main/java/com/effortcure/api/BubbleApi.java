@@ -1,6 +1,7 @@
 package com.effortcure.api;
 
 import java.net.http.HttpResponse;
+import java.util.List;
 import java.util.UUID;
 
 import com.effortcure.auth.AccessTokenManager;
@@ -53,8 +54,9 @@ public class BubbleApi {
     }
 
     public ApiResponse<Void> deleteBubble(UUID bubbleUuid) throws Exception {
-         HttpResponse<String> response = ApiClientUtil.delete(BASE_URL + bubbleUuid, null, AccessTokenManager.getInstance().getAccessToken(), null);
-         if (response.statusCode() == 403)
+        HttpResponse<String> response = ApiClientUtil.delete(BASE_URL + bubbleUuid, null,
+                AccessTokenManager.getInstance().getAccessToken(), null);
+        if (response.statusCode() == 403)
             return null;
         return JsonUtil.fromJson(response.body(), new TypeReference<ApiResponse<Void>>() {
         });
@@ -69,12 +71,12 @@ public class BubbleApi {
         });
     }
 
-    public ApiResponse<AccountBubblesResponseDTO> getAccountBubbles() throws Exception {
+    public ApiResponse<List<AccountBubblesResponseDTO>> getAccountBubbles() throws Exception {
         HttpResponse<String> response = ApiClientUtil.get(BASE_URL, null,
                 AccessTokenManager.getInstance().getAccessToken(), null);
         if (response.statusCode() == 403)
             return null;
-        return JsonUtil.fromJson(response.body(), new TypeReference<ApiResponse<AccountBubblesResponseDTO>>() {
+        return JsonUtil.fromJson(response.body(), new TypeReference<ApiResponse<List<AccountBubblesResponseDTO>>>() {
         });
     }
 
