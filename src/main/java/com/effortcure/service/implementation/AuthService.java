@@ -40,6 +40,7 @@ public class AuthService implements AuthServiceInterface {
         ApiResponse<LoginResponseDTO> response = authApi.login(loginRequestDTO);
         if (response.getData() != null)
             AccessTokenManager.getInstance().setAccessToken(response.getData().getAccessToken());
+
         return response;
     }
 

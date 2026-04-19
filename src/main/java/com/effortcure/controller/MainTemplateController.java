@@ -138,10 +138,18 @@ public class MainTemplateController {
                 ApiResponse<BreifAccountInfoResponseDTO> response = accountServiceInterface.getBreifAccountInfo();
                 if (response != null) {
                     if (response.getStatus() == 200) {
+                        System.out.println("test");
                         userNameLabel.setText(response.getData().getUsername());
                         valueText.setText(
                                 (response.getData().getDws()) != null ? response.getData().getDws().toString() : null);
-                        planLabel.setText(response.getData().getPlan());
+                        String plan = response.getData().getPlan();
+
+                        if (plan == null || plan.isEmpty()) {
+                            planLabel.setVisible(false);
+                        } else {
+                            planLabel.setText(plan);
+                            planLabel.setVisible(true);
+                        }
                     }
                 }
                 return null;
@@ -150,7 +158,7 @@ public class MainTemplateController {
         new Thread(task).run();
         ViewUtil.initiateResponsiveView(this);
         ContentManager.setAnchorPane(anchorPaneBody);
-        ContentManager.switchContent("/fxml/home-page.fxml");
+        ContentManager.switchContent("/fxml/home-page2.fxml");
     }
 
 }
