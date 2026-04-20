@@ -85,6 +85,10 @@ public class HomePageController {
         if (response != null) {
 
         }
+        Pane margiPan = new Pane();
+        margiPan.setPrefHeight(5);
+        margiPan.setPrefWidth(5);
+        vboxContainer.getChildren().add(margiPan);
         for (int x = 0; x < 5; x++) {
             Parent pane = FXMLLoader.load(getClass().getResource("/fxml/bubble-card.fxml"));
             // ObservableList<Node> childs = pane.getChildren();
