@@ -85,14 +85,9 @@
         <Cursor fx:constant="HAND"/>
       </cursor>
     </ComboBox>
-    <ScrollPane fx:id="scrollPane" hbarPolicy="NEVER" layoutX="100.0" layoutY="302.0" prefHeight="451.0" prefWidth="1240.0" styleClass="details-pane" vbarPolicy="ALWAYS">
+    <ScrollPane fx:id="scrollPane" hbarPolicy="NEVER" fitToWidth="true" layoutX="100.0" layoutY="302.0" prefHeight="451.0" prefWidth="1240.0" styleClass="details-pane" vbarPolicy="ALWAYS">
       <content>
-        <VBox fx:id="vboxContainer">
-
-
-
-
-          
+        <VBox fx:id="vboxContainer" >      
         </VBox>
       </content>
     </ScrollPane>

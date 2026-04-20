@@ -45,10 +45,10 @@
   -fx-background-color: transparent;
 }
 
-/* .scroll-pane {
-  -fx-background-color: transparent;
-} */
- 
+.scroll-pane {
+    -fx-background-color: transparent;
+    -fx-background-insets: 0;
+}
  .bubble-card {
   -fx-background-color: white;
   -fx-background-radius: 20;
@@ -58,6 +58,7 @@
 } 
 .scroll-pane > .viewport {
   -fx-background-color: transparent;
+  -fx-shape: null;
 }
 
 .scroll-bar:vertical {
@@ -81,7 +82,6 @@
   -fx-effect: dropshadow(gaussian, #115d58, 4, 0, 0, 0);
   -fx-border-radius: 20;
   -fx-background-radius: 20;
-  -fx-padding: 10;
 }
 .time-banes {
   -fx-background-color: white;
