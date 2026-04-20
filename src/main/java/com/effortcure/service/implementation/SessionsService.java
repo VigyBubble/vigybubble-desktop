@@ -25,7 +25,7 @@ public class SessionsService implements SessionsServiceInterface {
                 authServiceInterface.refreshAccessAndRefreshTokens();
                 response = sessionApi.getSessionDetails(sessionUuid);
             }
-            if (response.getStatus() == 403) {
+            if (response.getStatus() == 401) {
                 SceneManager.switchScene("/fxml/login-page.fxml", null);
                 authServiceInterface.logout();
             }
@@ -41,7 +41,7 @@ public class SessionsService implements SessionsServiceInterface {
                 authServiceInterface.refreshAccessAndRefreshTokens();
                 response = sessionApi.DeleteSession(sessionUuid);
             }
-            if (response.getStatus() == 403) {
+            if (response.getStatus() == 401) {
                 SceneManager.switchScene("/fxml/login-page.fxml", null);
                 authServiceInterface.logout();
             }
@@ -57,7 +57,7 @@ public class SessionsService implements SessionsServiceInterface {
                 authServiceInterface.refreshAccessAndRefreshTokens();
                 response = sessionApi.getLoggedNotifications(sessionUuid);
             }
-            if (response.getStatus() == 403) {
+            if (response.getStatus() == 401) {
                 SceneManager.switchScene("/fxml/login-page.fxml", null);
                 authServiceInterface.logout();
             }
@@ -73,7 +73,7 @@ public class SessionsService implements SessionsServiceInterface {
                 authServiceInterface.refreshAccessAndRefreshTokens();
                 response = sessionApi.getPerformanceMetrics(sessionUuid);
             }
-            if (response.getStatus() == 403) {
+            if (response.getStatus() == 401) {
                 SceneManager.switchScene("/fxml/login-page.fxml", null);
                 authServiceInterface.logout();
             }
@@ -89,7 +89,7 @@ public class SessionsService implements SessionsServiceInterface {
                 authServiceInterface.refreshAccessAndRefreshTokens();
                 response = sessionApi.ModifySessionStatus(sessionUuid, status);
             }
-            if (response.getStatus() == 403) {
+            if (response.getStatus() == 401) {
                 SceneManager.switchScene("/fxml/login-page.fxml", null);
                 authServiceInterface.logout();
             }

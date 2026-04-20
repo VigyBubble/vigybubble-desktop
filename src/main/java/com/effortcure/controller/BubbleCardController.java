@@ -102,6 +102,9 @@ public class BubbleCardController {
     private Pane dateofBubblePane;
 
     @FXML
+    private Label bubbleUuid;
+
+    @FXML
     private void initialize() {
         ViewUtil.initiateResponsiveView(this);
     }

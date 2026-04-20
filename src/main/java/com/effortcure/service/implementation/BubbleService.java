@@ -37,7 +37,7 @@ public class BubbleService implements BubbleServiceInterface {
                 authServiceInterface.refreshAccessAndRefreshTokens();
                 response = bubbleApi.createBubble(CreateBubbleRequestDTO);
             }
-            if (response.getStatus() == 403) {
+            if (response.getStatus() == 401) {
                 SceneManager.switchScene("/fxml/login-page.fxml", null);
                 authServiceInterface.logout();
             }
@@ -76,7 +76,7 @@ public class BubbleService implements BubbleServiceInterface {
                 authServiceInterface.refreshAccessAndRefreshTokens();
                 response = bubbleApi.deleteBubble(bubbleUuid);
             }
-            if (response.getStatus() == 403) {
+            if (response.getStatus() == 401) {
                 SceneManager.switchScene("/fxml/login-page.fxml", null);
                 authServiceInterface.logout();
             }
@@ -92,7 +92,7 @@ public class BubbleService implements BubbleServiceInterface {
                 authServiceInterface.refreshAccessAndRefreshTokens();
                 response = bubbleApi.getBubbleDetails(bubbleUuid);
             }
-            if (response.getStatus() == 403) {
+            if (response.getStatus() == 401) {
                 SceneManager.switchScene("/fxml/login-page.fxml", null);
                 authServiceInterface.logout();
             }

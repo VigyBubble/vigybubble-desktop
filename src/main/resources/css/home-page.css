@@ -1,6 +1,4 @@
-.main-container {
-  -fx-background-color: white;
-}
+
 
 .all-panes {
   -fx-background-color: white;
@@ -13,13 +11,13 @@
   -fx-border-color: transparent;
   -fx-background-color: transparent;
   -fx-padding: 0;
-  /* -fx-font-family: "K2D";  */
+  -fx-font-family: "K2D"; 
   -fx-font-weight: 400;
   -fx-font-size: 24px;
 }
 
 .search-field:prompt-text {
-  /* -fx-font-family: "K2D"; */
+  -fx-font-family: "K2D";
   -fx-font-weight: 400;
 }
 
@@ -29,13 +27,13 @@
   -fx-background-color: white;
   -fx-padding: 0 0 0 10;
   -fx-text-fill: #0b3e3a;
-  /* -fx-font-family: "K2D"; */
+  -fx-font-family: "K2D";
   -fx-font-weight: 400;
 }
 
 .combo-box .list-cell {
   -fx-text-fill: #0b3e3a;
-  /* -fx-font-family: "K2D"; */
+  -fx-font-family: "K2D";
   -fx-font-weight: 400;
 }
 
@@ -47,11 +45,18 @@
   -fx-background-color: transparent;
 }
 
-.scroll-pane {
+/* .scroll-pane {
   -fx-background-color: transparent;
-}
-
-.scroll-pane>.viewport {
+} */
+ 
+ .bubble-card {
+  -fx-background-color: white;
+  -fx-background-radius: 20;
+  -fx-background-insets: 0;
+  -fx-border-insets: 0;
+  -fx-effect: dropshadow(gaussian, #115d58, 4, 0, 0, 0);
+} 
+.scroll-pane > .viewport {
   -fx-background-color: transparent;
 }
 
@@ -71,14 +76,13 @@
 .scroll-bar:vertical .decrement-arrow {
   -fx-shape: " ";
 }
-
 .details-pane {
   -fx-background-color: white;
   -fx-effect: dropshadow(gaussian, #115d58, 4, 0, 0, 0);
   -fx-border-radius: 20;
   -fx-background-radius: 20;
+  -fx-padding: 10;
 }
-
 .time-banes {
   -fx-background-color: white;
   -fx-effect: dropshadow(gaussian, #115d58, 4, 0, 0, 0);
@@ -117,6 +121,7 @@
 .description {
   -fx-text-fill: #787878;
 }
+
 
 /* .regular-labels {
   -fx-font-family: "K2D";

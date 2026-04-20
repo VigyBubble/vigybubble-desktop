@@ -7,43 +7,43 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<Pane fx:id="bubbleCardPane" prefHeight="334.0" prefWidth="1230.0" styleClass="main-container" stylesheets="@../css/home-page.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.effortcure.controller.BubbleCardController">
+<Pane fx:id="bubbleCardPane" prefHeight="334.0" prefWidth="1230.0" styleClass="bubble-card" stylesheets="@../css/home-page.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.effortcure.controller.BubbleCardController">
   <children>
     <ImageView fx:id="closeIcon" fitHeight="24.0" fitWidth="24.0" layoutX="1192.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true">
       <image>
-        <Image url="@../images/close-icon.png"/>
+        <Image url="@../images/close-icon.png" />
       </image>
     </ImageView>
     <Label fx:id="titleLabel" layoutX="24.0" layoutY="72.0" prefHeight="42.0" prefWidth="361.0" styleClass="regular-labels" text="Create Ui for Vigy bubble">
       <font>
-        <Font size="32.0"/>
+        <Font size="32.0" />
       </font>
     </Label>
     <Label fx:id="descriptionLabel" layoutX="24.0" layoutY="138.0" prefHeight="72.0" prefWidth="647.0" text="description ">
       <font>
-        <Font size="28.0"/>
+        <Font size="28.0" />
       </font>
       <styleClass>
-        <String fx:value="description"/>
-        <String fx:value="regular-labels"/>
+        <String fx:value="description" />
+        <String fx:value="regular-labels" />
       </styleClass>
     </Label>
     <Label fx:id="teamLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="1115.0" layoutY="74.0" prefHeight="47.0" prefWidth="101.0" text="Team 1">
       <font>
-        <Font size="24.0"/>
+        <Font size="24.0" />
       </font>
       <styleClass>
-        <String fx:value="team-label"/>
-        <String fx:value="regular-labels"/>
+        <String fx:value="team-label" />
+        <String fx:value="regular-labels" />
       </styleClass>
     </Label>
     <Pane fx:id="actualdurationPane" layoutX="288.0" layoutY="242.0" prefHeight="68.0" prefWidth="431.0" styleClass="time-banes">
       <children>
         <Pane fx:id="InnerActualDurationPane" prefHeight="68.0" prefWidth="223.0">
           <children>
-            <Label fx:id="ActualDurationlabel" layoutY="14.0" prefHeight="40.0" prefWidth="227.0" styleClass="regular-labels" text="">
+            <Label fx:id="ActualDurationlabel" layoutX="16.0" layoutY="14.0" prefHeight="40.0" prefWidth="209.0" styleClass="regular-labels" text="Actual duration :">
               <font>
-                <Font size="28.0"/>
+                <Font size="28.0" />
               </font>
             </Label>
           </children>
@@ -52,16 +52,16 @@
           <children>
             <Label fx:id="hoursLabel" layoutX="7.5" layoutY="16.0" prefHeight="31.0" prefWidth="49.0" styleClass="bold-labels" text="20">
               <font>
-                <Font size="24.0"/>
+                <Font size="24.0" />
               </font>
             </Label>
-            <Label fx:id="hLabel" layoutX="32.0" layoutY="16.0" prefHeight="35.0" prefWidth="31.0" text="">
+            <Label fx:id="hLabel" layoutX="32.0" layoutY="16.0" prefHeight="35.0" prefWidth="31.0" text="H">
               <font>
-                <Font size="24.0"/>
+                <Font size="24.0" />
               </font>
               <styleClass>
-                <String fx:value="time-label"/>
-                <String fx:value="bold-labels"/>
+                <String fx:value="time-label" />
+                <String fx:value="bold-labels" />
               </styleClass>
             </Label>
           </children>
@@ -70,16 +70,16 @@
           <children>
             <Label fx:id="minutesLabel" layoutX="7.5" layoutY="16.0" prefHeight="31.0" prefWidth="49.0" styleClass="bold-labels" text="05">
               <font>
-                <Font size="24.0"/>
+                <Font size="24.0" />
               </font>
             </Label>
-            <Label fx:id="mLabel" layoutX="32.0" layoutY="16.0" prefHeight="35.0" prefWidth="31.0" text="">
+            <Label fx:id="mLabel" layoutX="32.0" layoutY="16.0" prefHeight="35.0" prefWidth="31.0" text="M">
               <font>
-                <Font size="24.0"/>
+                <Font size="24.0" />
               </font>
               <styleClass>
-                <String fx:value="time-label"/>
-                <String fx:value="bold-labels"/>
+                <String fx:value="time-label" />
+                <String fx:value="bold-labels" />
               </styleClass>
             </Label>
           </children>
@@ -88,16 +88,16 @@
           <children>
             <Label fx:id="NumofDayLabel" layoutX="7.5" layoutY="16.0" prefHeight="31.0" prefWidth="49.0" styleClass="bold-labels" text="00">
               <font>
-                <Font size="24.0"/>
+                <Font size="24.0" />
               </font>
             </Label>
-            <Label fx:id="dLabel" layoutX="32.0" layoutY="16.0" prefHeight="35.0" prefWidth="30.0" text="">
+            <Label fx:id="dLabel" layoutX="32.0" layoutY="16.0" prefHeight="35.0" prefWidth="30.0" text="D">
               <font>
-                <Font size="24.0"/>
+                <Font size="24.0" />
               </font>
               <styleClass>
-                <String fx:value="time-label"/>
-                <String fx:value="bold-labels"/>
+                <String fx:value="time-label" />
+                <String fx:value="bold-labels" />
               </styleClass>
             </Label>
           </children>
@@ -108,9 +108,9 @@
       <children>
         <Pane fx:id="InnerEstimatedDurationPane" prefHeight="68.0" prefWidth="265.0">
           <children>
-            <Label fx:id="estimatedDurationLabel" layoutY="16.0" prefHeight="40.0" prefWidth="265.0" styleClass="regular-labels" text="">
+            <Label fx:id="estimatedDurationLabel" layoutX="16.0" layoutY="16.0" prefHeight="40.0" prefWidth="253.0" styleClass="regular-labels" text="Estimated duration :">
               <font>
-                <Font size="28.0"/>
+                <Font size="28.0" />
               </font>
             </Label>
           </children>
@@ -119,16 +119,16 @@
           <children>
             <Label fx:id="estimatedNumofdaysLabel" layoutX="7.5" layoutY="16.0" prefHeight="31.0" prefWidth="49.0" styleClass="bold-labels" text="00">
               <font>
-                <Font size="24.0"/>
+                <Font size="24.0" />
               </font>
             </Label>
-            <Label fx:id="d2label" layoutX="32.0" layoutY="16.0" prefHeight="35.0" prefWidth="30.0" text="">
+            <Label fx:id="d2label" layoutX="32.0" layoutY="16.0" prefHeight="35.0" prefWidth="30.0" text="D">
               <font>
-                <Font size="24.0"/>
+                <Font size="24.0" />
               </font>
               <styleClass>
-                <String fx:value="time-label"/>
-                <String fx:value="bold-labels"/>
+                <String fx:value="time-label" />
+                <String fx:value="bold-labels" />
               </styleClass>
             </Label>
           </children>
@@ -137,16 +137,16 @@
           <children>
             <Label fx:id="hoursLabel2" layoutX="7.5" layoutY="16.0" prefHeight="31.0" prefWidth="49.0" styleClass="bold-labels" text="00">
               <font>
-                <Font size="24.0"/>
+                <Font size="24.0" />
               </font>
             </Label>
-            <Label fx:id="hLabel2" layoutX="32.0" layoutY="16.0" prefHeight="35.0" prefWidth="31.0" text="">
+            <Label fx:id="hLabel2" layoutX="32.0" layoutY="16.0" prefHeight="35.0" prefWidth="31.0" text="H">
               <font>
-                <Font size="24.0"/>
+                <Font size="24.0" />
               </font>
               <styleClass>
-                <String fx:value="time-label"/>
-                <String fx:value="bold-labels"/>
+                <String fx:value="time-label" />
+                <String fx:value="bold-labels" />
               </styleClass>
             </Label>
           </children>
@@ -155,16 +155,16 @@
           <children>
             <Label fx:id="minutesLabel2" layoutX="7.5" layoutY="16.0" prefHeight="31.0" prefWidth="49.0" styleClass="bold-labels" text="00">
               <font>
-                <Font size="24.0"/>
+                <Font size="24.0" />
               </font>
             </Label>
-            <Label fx:id="mLabel2" layoutX="32.0" layoutY="16.0" prefHeight="35.0" prefWidth="31.0" text="">
+            <Label fx:id="mLabel2" layoutX="32.0" layoutY="16.0" prefHeight="35.0" prefWidth="31.0" text="M">
               <font>
-                <Font size="24.0"/>
+                <Font size="24.0" />
               </font>
               <styleClass>
-                <String fx:value="time-label"/>
-                <String fx:value="bold-labels"/>
+                <String fx:value="time-label" />
+                <String fx:value="bold-labels" />
               </styleClass>
             </Label>
           </children>
@@ -175,10 +175,11 @@
       <children>
         <Label fx:id="dateLabel" alignment="CENTER" layoutY="13.0" prefHeight="37.0" prefWidth="245.0" styleClass="bold-labels" text="25-08-2026 02:13">
           <font>
-            <Font size="24.0"/>
+            <Font size="24.0" />
           </font>
         </Label>
       </children>
     </Pane>
+      <Label fx:id="bubbleUuid" layoutX="943.0" layoutY="48.0" prefHeight="0.0" prefWidth="0.0" style="visibility: hidden;" />
   </children>
 </Pane>
