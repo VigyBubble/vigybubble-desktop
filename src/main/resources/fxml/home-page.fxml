@@ -18,70 +18,70 @@
   <children>
     <ImageView fx:id="bubbleImg1" fitHeight="139.71" fitWidth="139.7" pickOnBounds="true" preserveRatio="true">
       <image>
-        <Image url="@../images/bubble.png" />
+        <Image url="@../images/bubble.png"/>
       </image>
     </ImageView>
     <ImageView fx:id="bubbleImg5" fitHeight="139.71" fitWidth="139.7" layoutX="703.0" layoutY="152.0" pickOnBounds="true" preserveRatio="true">
       <image>
-        <Image url="@../images/bubble.png" />
+        <Image url="@../images/bubble.png"/>
       </image>
     </ImageView>
     <ImageView fx:id="bubbleImg4" fitHeight="139.71" fitWidth="139.7" layoutX="1284.0" layoutY="360.0" pickOnBounds="true" preserveRatio="true">
       <image>
-        <Image url="@../images/bubble.png" />
+        <Image url="@../images/bubble.png"/>
       </image>
     </ImageView>
     <ImageView fx:id="bubbleImg3" fitHeight="139.71" fitWidth="139.7" layoutX="1084.0" layoutY="699.0" pickOnBounds="true" preserveRatio="true">
       <image>
-        <Image url="@../images/bubble.png" />
+        <Image url="@../images/bubble.png"/>
       </image>
     </ImageView>
     <ImageView fx:id="bubbleImg2" fitHeight="139.71" fitWidth="139.7" layoutX="7.0" layoutY="641.0" pickOnBounds="true" preserveRatio="true">
       <image>
-        <Image url="@../images/bubble.png" />
+        <Image url="@../images/bubble.png"/>
       </image>
     </ImageView>
     <Pane fx:id="searchPane" layoutX="100.0" layoutY="80.0" prefHeight="71.0" prefWidth="550.0" styleClass="all-panes">
       <children>
         <Label fx:id="dayLabel" layoutX="16.0" layoutY="16.0" prefHeight="39.0" prefWidth="69.0" styleClass="regular-labels" text="Day">
           <font>
-            <Font size="30.0" />
+            <Font size="30.0"/>
           </font>
         </Label>
-        <Separator fx:id="searchSeparator" layoutX="84.0" layoutY="25.0" orientation="VERTICAL" prefHeight="22.0" prefWidth="1.0" />
+        <Separator fx:id="searchSeparator" layoutX="84.0" layoutY="25.0" orientation="VERTICAL" prefHeight="22.0" prefWidth="1.0"/>
         <TextField fx:id="searchField" layoutX="99.0" layoutY="20.0" prefHeight="37.0" prefWidth="373.0" promptText="Filter by day..." styleClass="search-field">
           <font>
-            <Font size="24.0" />
+            <Font size="24.0"/>
           </font>
         </TextField>
         <ImageView fx:id="searchIcon" fitHeight="24.0" fitWidth="24.0" layoutX="510.0" layoutY="23.5" pickOnBounds="true" preserveRatio="true">
           <image>
-            <Image url="@../images/search-icon.png" />
+            <Image url="@../images/search-icon.png"/>
           </image>
           <cursor>
-            <Cursor fx:constant="HAND" />
+            <Cursor fx:constant="HAND"/>
           </cursor>
         </ImageView>
       </children>
     </Pane>
-    <Button fx:id="addBtn" layoutX="100.0" layoutY="191.0" mnemonicParsing="false" prefHeight="71.0" prefWidth="1240.0" styleClass="all-panes" text="Add New Bubble">
+    <Button fx:id="addBtn" onAction="#addBubble" layoutX="100.0" layoutY="191.0" mnemonicParsing="false" prefHeight="71.0" prefWidth="1240.0" styleClass="all-panes" text="Add New Bubble">
       <font>
-        <Font size="30.0" />
+        <Font size="30.0"/>
       </font>
       <graphic>
         <ImageView fx:id="addIcon" fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
           <image>
-            <Image url="@../images/add-icon.png" />
+            <Image url="@../images/add-icon.png"/>
           </image>
         </ImageView>
       </graphic>
       <cursor>
-        <Cursor fx:constant="HAND" />
+        <Cursor fx:constant="HAND"/>
       </cursor>
     </Button>
     <ComboBox fx:id="typeComboBox" layoutX="939.0" layoutY="80.0" prefHeight="71.0" prefWidth="401.0" promptText="Type of bubble" style="-fx-font-size: 30px;" styleClass="all-panes">
       <cursor>
-        <Cursor fx:constant="HAND" />
+        <Cursor fx:constant="HAND"/>
       </cursor>
     </ComboBox>
     <ScrollPane fx:id="scrollPane" fitToWidth="true" hbarPolicy="NEVER" layoutX="100.0" layoutY="302.0" prefHeight="451.0" prefWidth="1240.0" styleClass="details-pane" vbarPolicy="NEVER">

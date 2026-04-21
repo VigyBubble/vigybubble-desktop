@@ -4,7 +4,7 @@ import com.effortcure.enums.DirectoryType;
 
 public class DirectoryRequestDTO {
     private String path;
- private DirectoryType type;
+    private DirectoryType type;
 
     public DirectoryRequestDTO() {
     }
