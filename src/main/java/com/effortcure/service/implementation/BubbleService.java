@@ -8,7 +8,6 @@ import com.effortcure.dto.request.CreateBubbleRequestDTO;
 import com.effortcure.dto.request.DirectoryRequestDTO;
 import com.effortcure.dto.response.ApiResponse;
 import com.effortcure.dto.response.BubbleDetailsResponseDTO;
-import com.effortcure.enums.BubbleType;
 import com.effortcure.service.interfaces.AuthServiceInterface;
 import com.effortcure.service.interfaces.BubbleServiceInterface;
 import com.effortcure.dto.request.ModifyBubbleRequestDTO;
@@ -21,16 +20,7 @@ public class BubbleService implements BubbleServiceInterface {
     private AuthServiceInterface authServiceInterface = new AuthService();
 
     @Override
-    public ApiResponse<Void> createBubble(String name, String description, BubbleType type, UUID teamUuid,
-            List<String> applicationsNameList, List<DirectoryRequestDTO> directoriesList) throws Exception {
-
-        CreateBubbleRequestDTO CreateBubbleRequestDTO = new CreateBubbleRequestDTO();
-        CreateBubbleRequestDTO.setName(name);
-        CreateBubbleRequestDTO.setDescription(description);
-        CreateBubbleRequestDTO.setType(type);
-        CreateBubbleRequestDTO.setTeamUuid(teamUuid);
-        CreateBubbleRequestDTO.setApplicationsNameList(applicationsNameList);
-        CreateBubbleRequestDTO.setDirectoriesList(directoriesList);
+    public ApiResponse<Void> createBubble(CreateBubbleRequestDTO CreateBubbleRequestDTO) throws Exception {
         ApiResponse<Void> response = bubbleApi.createBubble(CreateBubbleRequestDTO);
         if (response != null) {
             if (response.getStatus() == 400) {
