@@ -159,15 +159,18 @@
         </TextFlow>
       </children>
     </Pane>
-    <Pane fx:id="dateofBubblePane" layoutX="24.0" layoutY="242.0" prefHeight="63.0" prefWidth="245.0" styleClass="time-banes">
-      <children>
-        <Label fx:id="dateLabel" alignment="CENTER" layoutY="13.0" prefHeight="37.0" prefWidth="245.0" styleClass="bold-labels" text="25-08-2026 02:13">
-          <font>
-            <Font size="24.0"/>
-          </font>
-        </Label>
-      </children>
-    </Pane>
+    <Label fx:id="dateLabel"
+       layoutX="24.0"
+       layoutY="242.0"
+       prefHeight="63.0"
+       prefWidth="245.0"
+       alignment="CENTER"
+       styleClass="time-banes"
+       text="25-08-2026 02:13">
+    <font>
+        <Font size="24.0"/>
+    </font>
+</Label>
     <Label fx:id="bubbleUuid" layoutX="943.0" layoutY="48.0" prefHeight="0.0" prefWidth="0.0" style="visibility: hidden;"/>
   </children>
 </Pane>

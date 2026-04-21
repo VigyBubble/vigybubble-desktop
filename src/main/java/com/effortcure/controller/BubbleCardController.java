@@ -24,10 +24,7 @@ public class BubbleCardController {
 
     @FXML
     private Label teamLabel;
-
-    @FXML
-    private Label dateLabel;
-
+    
     @FXML
     private Pane actualdurationPane;
 
@@ -101,7 +98,7 @@ public class BubbleCardController {
     private Text mLabel2;
 
     @FXML
-    private Pane dateofBubblePane;
+    private Label dateLabel;
 
     @FXML
     private Label bubbleUuid;
