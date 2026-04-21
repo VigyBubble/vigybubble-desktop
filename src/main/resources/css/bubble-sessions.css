@@ -26,8 +26,8 @@
 }
 .first-pane {
     -fx-background-color: white;
-    -fx-border-radius:10 10 0 0;        /* راديس للزوايا */
-    -fx-background-radius: 10 10 0 0;
+    -fx-border-radius:20;        /* راديس للزوايا */
+    -fx-background-radius: 20;
     -fx-effect:
         innershadow(gaussian, rgba(112, 34, 185, 0.3), 10, 0.2, 0, 0),
         dropshadow(gaussian, rgba(23, 123, 117, 0.1), 4, 0.0, 0, 0);
@@ -41,6 +41,9 @@
 }
 .second-pane{
     -fx-background-color: white;
+    -fx-border-radius:20;        /* راديس للزوايا */
+    -fx-background-radius: 20;
+    -fx-background-color: white;
     -fx-effect:
         innershadow(gaussian, rgba(178, 33, 33, 0.3), 10, 0.2, 0, 0),
         dropshadow(gaussian, rgba(23, 123, 117, 0.1), 4, 0.0, 0, 0);
@@ -48,8 +51,8 @@
 
 .third-pane {
     -fx-background-color: white;
-    -fx-border-radius:0 0 10 10;        /* راديس للزوايا */
-    -fx-background-radius: 0 0 10 10;
+    -fx-border-radius:20;        /* راديس للزوايا */
+    -fx-background-radius: 20;
     -fx-effect:
         innershadow(gaussian, rgba(38, 166, 113, 0.3), 10, 0.2, 0, 0),
         dropshadow(gaussian, rgba(23, 123, 117, 0.1), 4, 0.0, 0, 0);
@@ -62,27 +65,6 @@
         -fx-border-radius: 25;
     
 }
-.scroll-bar{
-    -fx-background-radius: 20;
-}
-.scroll-bar:vertical .thumb {
-    -fx-background-color: gray;
-    -fx-background-insets: 0;
-    -fx-background-radius: 20; 
-    -fx-pref-height: 207px;    
-}
-
-.scroll-bar .increment-button,
-.scroll-bar .decrement-button {
-    -fx-padding: 0;
-    -fx-background-color: transparent;
-    -fx-background-insets: 0;
-    -fx-shape: "";
-    -fx-max-height: 0;
-    -fx-min-height: 0;
-    -fx-pref-height: 0;
-}
-
 .search-field {
     -fx-border-color: transparent;
     -fx-background-color: transparent;
@@ -90,12 +72,76 @@
     -fx-font-family: "K2D"; 
     -fx-font-weight: 400;
     -fx-font-size: 24px;
-
-
 }
 
 .search-field:prompt-text {
     -fx-font-family: "K2D";
     -fx-font-weight: 400;
 
+}
+
+.scroll-pane {
+  -fx-background-color: transparent;
+  -fx-background-insets: 0;
+}
+
+.scroll-pane > .viewport {
+  -fx-background-color: transparent;
+  -fx-shape: null;
+}
+
+.scroll-bar:vertical {
+  -fx-background-color: transparent;
+  -fx-pref-width: 6;
+}
+
+.scroll-bar:vertical .thumb {
+  -fx-background-color: gray;
+  -fx-background-radius: 10;
+  -fx-background-insets: 0;
+  -fx-pref-height: 207px;
+}
+
+.scroll-bar:vertical .increment-arrow,
+.scroll-bar:vertical .decrement-arrow {
+  -fx-shape: " ";
+}
+
+
+.date-picker {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-padding: 0;
+    -fx-font-family: "K2D";
+    -fx-font-weight: 400;
+    -fx-font-size: 24px;
+  }
+
+
+.date-picker .text-field {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+}
+
+.date-picker:focused {
+    -fx-border-color: transparent;
+}
+.date-picker .arrow-button {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+}
+
+.date-picker .arrow-button:focused {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+}
+.date-picker-popup .day-cell {
+    -fx-min-width: 25px;
+    -fx-min-height: 25px;
+    -fx-pref-width: 25px;
+    -fx-pref-height: 25px;
+    -fx-max-width: 25px;
+    -fx-max-height: 25px;
+    -fx-font-size: 15px;
+    -fx-padding: 0;
 }

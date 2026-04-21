@@ -3,18 +3,16 @@
 <?import java.lang.String?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.Separator?>
-<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
-<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
-<?import javafx.scene.text.Text?>
-<?import javafx.scene.text.TextFlow?>
 
 <AnchorPane fx:id="root" prefHeight="853.0" prefWidth="1440.0" styleClass="main-container" stylesheets="@../css/bubble-sessions.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.effortcure.controller.BubbleSessionsController">
    <children>
@@ -41,26 +39,14 @@
       <Pane fx:id="searchpane" layoutX="100.0" layoutY="80.0" prefHeight="71.0" prefWidth="600.0" style="-fx-background-color: white;" styleClass="all-panes">
          <children>
             <Separator fx:id="separator" layoutX="84.0" layoutY="25.0" orientation="VERTICAL" prefHeight="22.0" prefWidth="1.0" />
-            <ImageView fx:id="searchicon" fitHeight="24.0" fitWidth="24.0" layoutX="560.0" layoutY="23.5" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../images/search-icon.png" />
-               </image>
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-            </ImageView>
             <Label fx:id="daylabel" layoutX="16.0" layoutY="16.0" prefHeight="39.0" prefWidth="52.0" styleClass="regular-labels" text="Day">
                <font>
                   <Font size="30.0" />
                </font>
             </Label>
-            <TextField fx:id="searchField" layoutX="99.0" layoutY="20.0" prefHeight="37.0" prefWidth="373.0" promptText="Filter by day..." styleClass="search-field">
-               <font>
-                  <Font size="24.0" />
-               </font>
-            </TextField>
+            <DatePicker fx:id="datePicker" layoutX="90.0" layoutY="11.0" prefHeight="56.0" prefWidth="499.0" promptText="Filter by day..." styleClass="date-picker" />
          </children></Pane>
-      <Pane fx:id="sessionspane" layoutX="100.0" layoutY="305.0" prefHeight="448.0" prefWidth="1240.0" styleClass="all-panes">
+      <Pane fx:id="sessionspane" layoutX="100.0" layoutY="304.0" prefHeight="449.0" prefWidth="1240.0" styleClass="all-panes">
          <children>
             <Label fx:id="startlabel" alignment="CENTER" contentDisplay="CENTER" layoutX="-1.0" layoutY="23.0" prefHeight="45.0" prefWidth="209.0" text="Start a session">
                <font>
@@ -73,184 +59,7 @@
             </Label>
             <ScrollPane fx:id="scrolpane" hbarPolicy="NEVER" layoutX="206.0" prefHeight="448.0" prefWidth="1034.0" vbarPolicy="ALWAYS">
                <content>
-                  <Pane fx:id="allsessionpane" prefHeight="448.0" prefWidth="1034.0">
-                     <children>
-                        <Pane fx:id="sessionpane1" layoutY="268.0" prefHeight="134.0" prefWidth="1034.0" styleClass="third-pane">
-                           <children>
-                              <ImageView fx:id="usericon1" fitHeight="73.0" fitWidth="73.0" layoutX="16.0" layoutY="30.5">
-                                 <clip>
-                                    <Circle fx:id="circleProfile1" centerX="36.5" centerY="36.5" radius="36.5" />
-                                  </clip>
-                                  <image>
-                                    <Image url="@../images/mm.png" />
-                                  </image>
-                              </ImageView>
-                              <Label fx:id="namelabel" layoutX="113.0" layoutY="26.0" prefHeight="40.0" prefWidth="373.0" styleClass="regular-labels" text="Basmala Sayed">
-                                 <font>
-                                    <Font size="28.0" />
-                                 </font>
-                              </Label>
-                              <TextFlow fx:id="pausedTextflow1" layoutX="560.5" layoutY="24.0" prefHeight="31.0" prefWidth="333.0">
-                                 <Text fx:id="pausedatText" styleClass="regular-labels" text="Paused at :">
-                                   <font>
-                                     <Font size="24" />
-                                   </font>
-                                 </Text>
-                                 <Text fx:id="dateofpausedText1" styleClass="bold-labels" text=" 30-08-2026 18:25 " wrappingWidth="219.796875">
-                                   <font>
-                                     <Font size="24" />
-                                   </font>
-                                 </Text>
-                               </TextFlow>
-                              
-                              <Label fx:id="pauselabel1" alignment="CENTER" layoutX="917.5" layoutY="16.0" prefHeight="47.0" prefWidth="98.0" text="Pause">
-                                 <font>
-                                    <Font size="24.0" />
-                                 </font>
-                                 <styleClass>
-                                    <String fx:value="pause-label" />
-                                    <String fx:value="regular-labels" />
-                                 </styleClass>
-                              </Label>
-                              <TextFlow fx:id="cteateTextflow1" layoutX="665.0" layoutY="87.0" prefHeight="31.0" prefWidth="353.0">
-                                 <Text fx:id="createdatText1" styleClass="regular-labels" text="Created at :">
-                                   <font>
-                                     <Font size="24" />
-                                   </font>
-                                 </Text>
-                                 <Text fx:id="dateofCreated1" styleClass="bold-labels" text=" 28-08-2026 06:45" wrappingWidth="211.796875">
-                                   <font>
-                                     <Font size="24" />
-                                   </font>
-                                 </Text>
-                               </TextFlow>
-                              <Label fx:id="dwplabel1" layoutX="113.0" layoutY="78.0" prefHeight="35.0" prefWidth="140.0" styleClass="regular-labels" text="DWP : 10%">
-                                 <font>
-                                    <Font size="24.0" />
-                                 </font>
-                              </Label>
-                           </children>
-                        </Pane>
-                        <Pane fx:id="sessionpane2" prefHeight="134.0" prefWidth="1034.0" styleClass="first-pane">
-                           <children>
-                              <Label fx:id="namelabel3" layoutX="113.0" layoutY="26.0" prefHeight="40.0" prefWidth="362.0" styleClass="regular-labels" text="Me">
-                                 <font>
-                                    <Font size="28.0" />
-                                 </font>
-                              </Label>
-                              <ImageView fx:id="usericon3" fitHeight="73.0" fitWidth="73.0" layoutX="16.0" layoutY="30.5">
-                                 <clip>
-                                    <Circle fx:id="circleProfile2" centerX="36.5" centerY="36.5" radius="36.5" />
-                                  </clip>
-                                  <image>
-                                    <Image url="@../images/mm.png" />
-                                  </image>
-                              </ImageView>
-                              <Label fx:id="dwplabel3" layoutX="113.0" layoutY="78.0" prefHeight="35.0" prefWidth="140.0" styleClass="regular-labels" text="DWP : 10%">
-                                 <font>
-                                    <Font size="24.0" />
-                                 </font>
-                              </Label>
-                              <Label fx:id="pauselabel3" alignment="CENTER" layoutX="917.5" layoutY="16.0" prefHeight="47.0" prefWidth="98.0" text="Pause">
-                                 <font>
-                                    <Font size="24.0" />
-                                 </font>
-                                 <styleClass>
-                                    <String fx:value="pause-label" />
-                                    <String fx:value="regular-labels" />
-                                 </styleClass>
-                              </Label>
-                              <TextFlow fx:id="createTextflow3" layoutX="665.0" layoutY="87.0" prefHeight="31.0" prefWidth="353.0">
-                                 <children>
-                                    <Text fx:id="createsatText3" styleClass="regular-labels" text="Created at :">
-                                       <font>
-                                          <Font size="24" />
-                                       </font>
-                                    </Text>
-                                    <Text fx:id="createdDateText3" styleClass="bold-labels" text=" 28-08-2026 06:45" wrappingWidth="211.796875">
-                                       <font>
-                                          <Font size="24" />
-                                       </font>
-                                    </Text>
-                                 </children>
-                              </TextFlow>
-                              <TextFlow fx:id="pausedateTextfow3" layoutX="560.5" layoutY="24.0" prefHeight="31.0" prefWidth="333.0">
-                                 <children>
-                                    <Text fx:id="pausedattext3" styleClass="regular-labels" text="Paused at :">
-                                       <font>
-                                          <Font size="24" />
-                                       </font>
-                                    </Text>
-                                    <Text fx:id="pausedDateText3" styleClass="bold-labels" text=" 30-08-2026 18:25 " wrappingWidth="219.796875">
-                                       <font>
-                                          <Font size="24" />
-                                       </font>
-                                    </Text>
-                                 </children>
-                              </TextFlow>
-                           </children>
-                        </Pane>
-                        <Pane fx:id="sessionpane3" layoutY="134.0" prefHeight="134.0" prefWidth="1034.0" styleClass="second-pane">
-                           <children>
-                              <ImageView fx:id="usericon2" fitHeight="73.0" fitWidth="73.0" layoutX="16.0" layoutY="30.5">
-                                 <clip>
-                                    <Circle fx:id="circleProfile3" centerX="36.5" centerY="36.5" radius="36.5" />
-                                  </clip>
-                                  <image>
-                                    <Image url="@../images/mm.png" />
-                                  </image>
-                              </ImageView>
-                              <Label fx:id="namelabel2" layoutX="113.0" layoutY="26.0" prefHeight="40.0" prefWidth="439.0" styleClass="regular-labels" text="Radwa Hany">
-                                 <font>
-                                    <Font size="28.0" />
-                                 </font>
-                              </Label>
-                              <Label fx:id="donelabel2" alignment="CENTER" layoutX="931.0" layoutY="16.0" prefHeight="47.0" prefWidth="87.0" text="Done">
-                                 <font>
-                                    <Font size="24.0" />
-                                 </font>
-                                 <styleClass>
-                                    <String fx:value="done-label" />
-                                    <String fx:value="regular-labels" />
-                                 </styleClass>
-                              </Label>
-                              <Label fx:id="dwplabel2" layoutX="113.0" layoutY="78.0" prefHeight="35.0" prefWidth="140.0" styleClass="regular-labels" text="DWP : 10%">
-                                 <font>
-                                    <Font size="24.0" />
-                                 </font>
-                              </Label>
-                              <TextFlow fx:id="createTextflow2" layoutX="665.0" layoutY="87.0" prefHeight="31.0" prefWidth="353.0">
-                                 <children>
-                                    <Text fx:id="createdatText" styleClass="regular-labels" text="Created at :">
-                                       <font>
-                                          <Font size="24" />
-                                       </font>
-                                    </Text>
-                                    <Text fx:id="createDateText2" styleClass="bold-labels" text=" 28-08-2026 06:45" wrappingWidth="211.796875">
-                                       <font>
-                                          <Font size="24" />
-                                       </font>
-                                    </Text>
-                                 </children>
-                              </TextFlow>
-                              <TextFlow fx:id="doneTextflow2" layoutX="596.0" layoutY="24.0" prefHeight="31.0" prefWidth="311.0">
-                                 <children>
-                                    <Text fx:id="doneatText2" styleClass="regular-labels" text="Done at :">
-                                       <font>
-                                          <Font size="24" />
-                                       </font>
-                                    </Text>
-                                    <Text fx:id="doneDate2" styleClass="bold-labels" text=" 30-08-2026 18:25 " wrappingWidth="219.796875">
-                                       <font>
-                                          <Font size="24" />
-                                       </font>
-                                    </Text>
-                                 </children>
-                              </TextFlow>
-                           </children>
-                        </Pane>
-                     </children>
-                  </Pane>
+                  <VBox prefHeight="448.0" prefWidth="1032.0" />
                </content>
             </ScrollPane>
          </children>

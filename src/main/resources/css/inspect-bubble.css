@@ -43,26 +43,31 @@
 }
 
 
-.scroll-bar{
-    -fx-background-radius: 20;
-}
-.scroll-bar:vertical .thumb {
-    -fx-background-color: gray; /* اللون اللي تحبيه */
-    -fx-background-insets: 0;
-    -fx-background-radius: 10; /* مدور الزوايا */
-    -fx-pref-height: 207px;     /* طول الثامب */
+.scroll-pane {
+  -fx-background-color: transparent;
+  -fx-background-insets: 0;
 }
 
-/* إزالة الأسهم فوق وتحت */
-.scroll-bar .increment-button,
-.scroll-bar .decrement-button {
-    -fx-padding: 0;
-    -fx-background-color: transparent;
-    -fx-background-insets: 0;
-    -fx-shape: "";
-    -fx-max-height: 0;
-    -fx-min-height: 0;
-    -fx-pref-height: 0;
+.scroll-pane > .viewport {
+  -fx-background-color: transparent;
+  -fx-shape: null;
+}
+
+.scroll-bar:vertical {
+  -fx-background-color: transparent;
+  -fx-pref-width: 6;
+}
+
+.scroll-bar:vertical .thumb {
+  -fx-background-color: gray;
+  -fx-background-radius: 10;
+  -fx-background-insets: 0;
+  -fx-pref-height: 207px;
+}
+
+.scroll-bar:vertical .increment-arrow,
+.scroll-bar:vertical .decrement-arrow {
+  -fx-shape: " ";
 }
 .pause-btn{
     -fx-cursor: hand;
@@ -79,7 +84,7 @@
 }
 
 .secenapplisrt-pane{
-    -fx-background-color: white;
+    -fx-background-color: transparent;
     -fx-border-width: 0 1 0.25 1; 
     -fx-border-color: transparent transparent #7878784D transparent;
 }

@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import java.lang.String?>
-<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TextField?>
@@ -54,113 +52,10 @@
             <children>
 
 
-                <ScrollPane fx:id="scrollApplications" fitToWidth="true" hbarPolicy="NEVER" layoutY="63.0" prefHeight="316.0" prefWidth="699.0">
+                <ScrollPane fx:id="scrollApplications" fitToWidth="true" hbarPolicy="NEVER" layoutY="63.0" prefHeight="316.0" prefWidth="699.0" vbarPolicy="ALWAYS">
                     <content>
 
-                        <VBox fx:id="vBoxAppsContainer">
-
-                            <children>
-                                <Pane fx:id="appPane1" layoutY="71.0" prefHeight="79.0" prefWidth="702.0" styleClass="inner-banes">
-                                    <children>
-                                        <CheckBox fx:id="checkBoxBtn1" layoutX="16.0" layoutY="27.0" mnemonicParsing="false" prefHeight="24.0" prefWidth="24.0">
-                                 <styleClass>
-                                    <String fx:value="checkbox" />
-                                    <String fx:value="box" />
-                                 </styleClass></CheckBox>
-                                        <ImageView fx:id="appLogo1" fitHeight="40.0" fitWidth="40.0" layoutX="48.0" layoutY="18.5" pickOnBounds="true" preserveRatio="true">
-                                            <image>
-                                                <Image url="@../images/logos_visual-studio-code.png" />
-                                            </image>
-                                        </ImageView>
-                                        <Label fx:id="appNameLabel1" layoutX="104.0" layoutY="19.0" prefHeight="40.0" prefWidth="337.0" styleClass="regular-labels" text="Visual studio code">
-                                            <font>
-                                                <Font size="28.0" />
-                                            </font>
-                                        </Label>
-                                        <Label fx:id="recommendedLabel1" alignment="CENTER" layoutX="496.0" layoutY="16.0" prefHeight="47.0" prefWidth="187.0" text="Recommended" textFill="#186e68">
-                                            <font>
-                                                <Font size="24.0" />
-                                            </font>
-                                 <styleClass>
-                                    <String fx:value="recommended-label" />
-                                    <String fx:value="regular-labels" />
-                                 </styleClass>
-                                        </Label>
-                                    </children>
-                                </Pane>
-
-                                <Pane fx:id="appPane2" layoutY="150.0" prefHeight="79.0" prefWidth="699.0" styleClass="inner-banes">
-                                    <children>
-                                        <CheckBox fx:id="checkBox2" layoutX="16.0" layoutY="27.0" mnemonicParsing="false" prefHeight="24.0" prefWidth="24.0">
-                                 <styleClass>
-                                    <String fx:value="checkbox" />
-                                    <String fx:value="checkbox" />
-                                 </styleClass></CheckBox>
-                                        <ImageView fx:id="appLogo2" fitHeight="40.0" fitWidth="40.0" layoutX="48.0" layoutY="18.5" pickOnBounds="true" preserveRatio="true">
-                                            <image>
-                                                <Image url="@../images/logos_visual-studio-code.png" />
-                                            </image>
-                                        </ImageView>
-                                        <Label fx:id="appNameLabel2" layoutX="104.0" layoutY="19.0" prefHeight="40.0" prefWidth="329.0" styleClass="regular-labels" text="Anaconda">
-                                            <font>
-                                                <Font size="28.0" />
-                                            </font>
-                                        </Label>
-                                        <Label fx:id="recommendedLabe2" alignment="CENTER" layoutX="496.0" layoutY="16.0" prefHeight="47.0" prefWidth="187.0" text="Recommended" textFill="#186e68">
-                                            <font>
-                                                <Font size="24.0" />
-                                            </font>
-                                 <styleClass>
-                                    <String fx:value="recommended-label" />
-                                    <String fx:value="regular-labels" />
-                                 </styleClass>
-                                        </Label>
-                                    </children>
-                                </Pane>
-
-                                <Pane fx:id="appPane3" layoutY="229.0" prefHeight="79.0" prefWidth="699.0" styleClass="inner-banes">
-                                    <children>
-                                        <CheckBox fx:id="checkbox3" layoutX="16.0" layoutY="27.0" mnemonicParsing="false" prefHeight="24.0" prefWidth="24.0">
-                                 <styleClass>
-                                    <String fx:value="checkbox" />
-                                    <String fx:value="box" />
-                                 </styleClass></CheckBox>
-                                        <ImageView fx:id="appLogo3" fitHeight="40.0" fitWidth="40.0" layoutX="48.0" layoutY="18.5" pickOnBounds="true" preserveRatio="true">
-                                            <image>
-                                                <Image url="@../images/logos_visual-studio-code.png" />
-                                            </image>
-                                        </ImageView>
-                                        <Label fx:id="appNameLabel3" layoutX="104.0" layoutY="19.0" prefHeight="40.0" prefWidth="369.0" styleClass="regular-labels" text="Visual studio code">
-                                            <font>
-                                                <Font size="28.0" />
-                                            </font>
-                                        </Label>
-                                    </children>
-                                </Pane>
-
-                                <Pane fx:id="appPane4" layoutY="308.0" prefHeight="79.0" prefWidth="699.0" styleClass="inner-banes">
-                                    <children>
-                                        <CheckBox fx:id="checkbox3" layoutX="16.0" layoutY="27.0" mnemonicParsing="false" prefHeight="24.0" prefWidth="24.0">
-                                 <styleClass>
-                                    <String fx:value="checkbox" />
-                                    <String fx:value="box" />
-                                 </styleClass></CheckBox>
-                                        <ImageView fx:id="appLogo4" fitHeight="40.0" fitWidth="40.0" layoutX="48.0" layoutY="18.5" pickOnBounds="true" preserveRatio="true">
-                                            <image>
-                                                <Image url="@../images/logos_visual-studio-code.png" />
-                                            </image>
-                                        </ImageView>
-                                        <Label fx:id="appNameLabel4" layoutX="104.0" layoutY="19.0" prefHeight="40.0" prefWidth="329.0" styleClass="regular-labels" text="Visual studio">
-                                            <font>
-                                                <Font size="28.0" />
-                                            </font>
-                                        </Label>
-                                    </children>
-                                </Pane>
-
-                            </children>
-
-                        </VBox>
+                        <VBox fx:id="vBoxAppsContainer" />
 
                     </content>
 
@@ -198,55 +93,14 @@
          </styleClass>
         </Label>
         <Pane fx:id="listofAppsPane" layoutX="851.0" layoutY="186.0" prefHeight="379.0" prefWidth="489.0" styleClass="applist-pane">
-            <children>
-                <Pane fx:id="appItemPane1" prefHeight="74.0" prefWidth="489.0" styleClass="innerapplist-banes">
-                    <children>
-                        <ImageView fx:id="selectedappLogo1" fitHeight="40.0" fitWidth="40.0" layoutX="16.0" layoutY="16.0" pickOnBounds="true" preserveRatio="true">
-                            <image>
-                                <Image url="@../images/logos_visual-studio-code.png" />
-                            </image>
-                        </ImageView>
-                        <Label fx:id="SelectedAppnameLabel" layoutX="72.0" layoutY="19.0" prefHeight="36.0" prefWidth="124.0" text="Anaconda">
-                            <font>
-                                <Font size="25.0" />
-                            </font>
-                        </Label>
-                        <ImageView fx:id="deleteBtn1" fitHeight="24.0" fitWidth="24.0" layoutX="449.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true">
-                            <image>
-                                <Image url="@../images/close-icon.png" />
-                            </image>
-                     <cursor>
-                        <Cursor fx:constant="HAND" />
-                     </cursor>
-                        </ImageView>
-                    </children>
-                </Pane>
-
-                <Pane fx:id="seslectedAppPane2" layoutY="74.0" prefHeight="74.0" prefWidth="489.0" styleClass="inner-banes">
-                    <children>
-                        <ImageView fx:id="selectedappLogo2" fitHeight="40.0" fitWidth="40.0" layoutX="16.0" layoutY="16.0" pickOnBounds="true" preserveRatio="true">
-                            <image>
-                                <Image url="@../images/logos_visual-studio-code.png" />
-                            </image>
-                        </ImageView>
-                        <Label fx:id="SelectedAppnameLabel2" layoutX="72.0" layoutY="19.0" prefHeight="36.0" prefWidth="124.0" text="PyCharm">
-                            <font>
-                                <Font size="25.0" />
-                            </font>
-                        </Label>
-                        <ImageView fx:id="deleteBtn2" fitHeight="24.0" fitWidth="24.0" layoutX="449.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true">
-                            <image>
-                                <Image url="@../images/close-icon.png" />
-                            </image>
-                     <cursor>
-                        <Cursor fx:constant="HAND" />
-                     </cursor>
-                        </ImageView>
-                    </children>
-                </Pane>
-
-
-            </children>
+         <children>
+            <ScrollPane fx:id="scrollApplications1" fitToWidth="true" hbarPolicy="NEVER" prefHeight="379.0" prefWidth="489.0" vbarPolicy="ALWAYS">
+               <content>
+                  <VBox fx:id="vBoxAppsContainer1" />
+               </content>
+            </ScrollPane>
+            <VBox fx:id="vBoxAppsContainer2" layoutX="-2.0" prefHeight="379.0" prefWidth="489.0" />
+         </children>
         </Pane>
     </children>
 </AnchorPane>

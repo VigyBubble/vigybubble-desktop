@@ -132,14 +132,6 @@
     -fx-effect: dropshadow(gaussian, rgba(11, 62, 58, 0.5), 4, 0, 0, 2);
 }
 
-.innerapplist-banes{
-   
-    -fx-background-color: transparent;
-    -fx-border-width: 0 1 0.25 1; 
-    -fx-border-color: transparent transparent #7878784D transparent;
-   /* -fx-background-radius: 20 20 0  0;
-    -fx-border-radius: 20 20 0 0;*/
-}
 
 .recommended-label{
     -fx-background-color: rgba(34, 185, 175, 0.2);
@@ -176,19 +168,26 @@
 
 .scroll-pane {
   -fx-background-color: transparent;
+  -fx-background-insets: 0;
 }
+
 .scroll-pane > .viewport {
   -fx-background-color: transparent;
+  -fx-shape: null;
 }
+
 .scroll-bar:vertical {
   -fx-background-color: transparent;
   -fx-pref-width: 6;
 }
+
 .scroll-bar:vertical .thumb {
   -fx-background-color: gray;
   -fx-background-radius: 10;
   -fx-background-insets: 0;
+  -fx-pref-height: 207px;
 }
+
 .scroll-bar:vertical .increment-arrow,
 .scroll-bar:vertical .decrement-arrow {
   -fx-shape: " ";
@@ -223,3 +222,9 @@
 .cancel-button:hover {
     -fx-effect: dropshadow(gaussian, #115D58, 6, 0, 0, 0); /* ظل أقوى عند الهوفر */
 }
+.details-pane {
+    -fx-background-color: transparent;
+    /* -fx-effect: dropshadow(gaussian, #115d58, 4, 0, 0, 0); */
+    -fx-border-radius: 20;
+    -fx-background-radius: 20;
+  }
