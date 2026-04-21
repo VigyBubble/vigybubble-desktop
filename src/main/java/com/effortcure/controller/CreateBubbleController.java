@@ -297,6 +297,7 @@ public class CreateBubbleController {
     @FXML
     private void initialize() {
         ViewUtil.initiateResponsiveView(this);
+        collectBubbleData();
         if (comboBox != null)
             comboBox.getItems().add("Local");
     }
@@ -363,17 +364,20 @@ public class CreateBubbleController {
     }
 
     private void collectBubbleData() {
-        bubbleNameField.textProperty().addListener((obs, oldValue, newValue) -> {
-            createBubbleRequestDTO.setName(newValue);
-        });
-        bubbleDescriptionField.textProperty().addListener((obs, oldValue, newValue) -> {
-            createBubbleRequestDTO.setDescription(newValue);
-        });
-        comboBox.setOnAction(e -> {
-            if (comboBox.getValue() != null)
-                createBubbleRequestDTO
-                        .setType(comboBox.getValue().toString() == "Local" ? BubbleType.LOCAL : BubbleType.TEAM);
-        });
+        if (bubbleNameField != null)
+            bubbleNameField.textProperty().addListener((obs, oldValue, newValue) -> {
+                createBubbleRequestDTO.setName(newValue);
+            });
+        if (bubbleDescriptionField != null)
+            bubbleDescriptionField.textProperty().addListener((obs, oldValue, newValue) -> {
+                createBubbleRequestDTO.setDescription(newValue);
+            });
+        if (comboBox != null)
+            comboBox.setOnAction(e -> {
+                if (comboBox.getValue() != null)
+                    createBubbleRequestDTO
+                            .setType(comboBox.getValue().toString() == "Local" ? BubbleType.LOCAL : BubbleType.TEAM);
+            });
     }
 
 }
