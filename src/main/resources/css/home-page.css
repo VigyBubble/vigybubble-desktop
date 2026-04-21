@@ -1,5 +1,3 @@
-
-
 .all-panes {
   -fx-background-color: white;
   -fx-border-radius: 20;
@@ -11,7 +9,7 @@
   -fx-border-color: transparent;
   -fx-background-color: transparent;
   -fx-padding: 0;
-  -fx-font-family: "K2D"; 
+  -fx-font-family: "K2D";
   -fx-font-weight: 400;
   -fx-font-size: 24px;
 }
@@ -46,16 +44,16 @@
 }
 
 .scroll-pane {
-    -fx-background-color: transparent;
-    -fx-background-insets: 0;
+  -fx-background-color: transparent;
+  -fx-background-insets: 0;
 }
- .bubble-card {
+.bubble-card {
   -fx-background-color: white;
   -fx-background-radius: 20;
   -fx-background-insets: 0;
   -fx-border-insets: 0;
   -fx-effect: dropshadow(gaussian, #115d58, 4, 0, 0, 0);
-} 
+}
 .scroll-pane > .viewport {
   -fx-background-color: transparent;
   -fx-shape: null;
@@ -78,7 +76,7 @@
   -fx-shape: " ";
 }
 .details-pane {
-  -fx-background-color:transparent;
+  -fx-background-color: transparent;
   /* -fx-effect: dropshadow(gaussian, #115d58, 4, 0, 0, 0); */
   -fx-border-radius: 20;
   -fx-background-radius: 20;
@@ -91,7 +89,7 @@
 }
 
 .time-label {
-  -fx-text-fill: #bec0bf;
+  -fx-fill: #bec0bf;
 }
 
 /* .bold-labels {
@@ -104,11 +102,19 @@
   -fx-background-radius: 10 0 0 10;
   -fx-border-radius: 10 0 0 10;
   -fx-effect: dropshadow(gaussian, rgba(23, 123, 117, 0.1), 4, 0.3, 0, 0);
+  -fx-alignment: center;
+  -fx-padding: 10 8 10 8;
 }
 
 .secondtime-panes {
   -fx-background-color: white;
   -fx-effect: dropshadow(gaussian, rgba(23, 123, 117, 0.1), 4, 0.3, 0, 0);
+  -fx-alignment: center;
+  -fx-padding: 10 8 10 8;
+}
+.minutes-panes {
+  -fx-alignment: center;
+  -fx-padding: 10 8 10 8;
 }
 
 .team-label {
@@ -121,7 +127,6 @@
 .description {
   -fx-text-fill: #787878;
 }
-
 
 /* .regular-labels {
   -fx-font-family: "K2D";

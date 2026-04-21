@@ -6,6 +6,8 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
+import javafx.scene.text.Text;
+import javafx.scene.text.TextFlow;
 
 public class BubbleCardController {
     @FXML
@@ -36,31 +38,31 @@ public class BubbleCardController {
     private Label ActualDurationlabel;
 
     @FXML
-    private Pane dayPane;
+    private TextFlow dayPane;
 
     @FXML
-    private Label NumofDayLabel;
+    private Text NumofDayLabel;
 
     @FXML
-    private Label dLabel;
+    private Text dLabel;
 
     @FXML
-    private Pane hourPane;
+    private TextFlow hourPane;
 
     @FXML
-    private Label hoursLabel;
+    private Text hoursLabel;
 
     @FXML
-    private Label hLabel;
+    private Text hLabel;
 
     @FXML
-    private Pane minutesPane;
+    private TextFlow minutesPane;
 
     @FXML
-    private Label minutesLabel;
+    private Text minutesLabel;
 
     @FXML
-    private Label mLabel;
+    private Text mLabel;
 
     @FXML
     private Pane estimatedDurationPane;
@@ -72,31 +74,31 @@ public class BubbleCardController {
     private Label estimatedDurationLabel;
 
     @FXML
-    private Pane estimatedDaysInnerPane;
+    private  TextFlow estimatedDaysInnerPane;
 
     @FXML
-    private Label estimatedNumofdaysLabel;
+    private  Text estimatedNumofdaysLabel;
 
     @FXML
-    private Label d2label;
+    private Text d2label;
 
     @FXML
-    private Pane hourPane2;
+    private TextFlow hourPane2;
 
     @FXML
-    private Label hoursLabel2;
+    private Text hoursLabel2;
 
     @FXML
-    private Label hLabel2;
+    private Text hLabel2;
 
     @FXML
-    private Pane minutesPane2;
+    private TextFlow minutesPane2;
 
     @FXML
-    private Label minutesLabel2;
+    private Text minutesLabel2;
 
     @FXML
-    private Label mLabel2;
+    private Text mLabel2;
 
     @FXML
     private Pane dateofBubblePane;
