@@ -15,6 +15,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextField;
@@ -51,8 +52,7 @@ public class HomePageController {
     private Label dayLabel;
 
     @FXML
-    private TextField searchField;
-
+    private DatePicker datePicker;
     @FXML
     private ImageView searchIcon;
 

@@ -1,154 +1,93 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.String?>
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="722.0" prefWidth="1288.0" style="-fx-background-color: white;" styleClass="root" stylesheets="@../css/update-path-list.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane fx:id="root" prefHeight="722.0" prefWidth="1288.0" styleClass="main-container" stylesheets="@../css/create-bubble.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Label layoutX="16.0" layoutY="24.0" prefHeight="44.0" prefWidth="340.0" text="Update Path/URL List">
+      <Label fx:id="update" layoutX="16.0" layoutY="24.0" prefHeight="44.0" prefWidth="340.0" styleClass="regular-labels" text="Update Path/URL List">
          <font>
             <Font size="34.0" />
          </font>
       </Label>
-      <Separator layoutX="25.5" layoutY="92.0" prefHeight="1.0" prefWidth="1237.0" />
-      <ImageView fitHeight="24.0" fitWidth="24.0" layoutX="1248.0" layoutY="34.0" pickOnBounds="true" preserveRatio="true">
+      <Separator fx:id="separator" layoutX="25.5" layoutY="92.0" prefHeight="1.0" prefWidth="1237.0" />
+      <ImageView fx:id="img" fitHeight="24.0" fitWidth="24.0" layoutX="1248.0" layoutY="34.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/close-icon.png" />
          </image>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
       </ImageView>
-      <Pane layoutX="24.0" layoutY="125.0" prefHeight="79.0" prefWidth="746.0" styleClass="search-pane">
+      <Pane fx:id="pane1" layoutX="24.0" layoutY="125.0" prefHeight="79.0" prefWidth="746.0" styleClass="url-pane">
          <children>
-            <ImageView fitHeight="24.0" fitWidth="24.0" layoutX="16.0" layoutY="27.5" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="img2" fitHeight="24.0" fitWidth="24.0" layoutX="16.0" layoutY="27.5" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../images/url2-icon.png" />
                </image>
             </ImageView>
-            <Label layoutX="56.0" layoutY="24.0" prefHeight="31.0" prefWidth="113.0" styleClass="url-label" text="Enter URL">
-               <font>
-                  <Font size="24.0" />
-               </font>
-            </Label>
-            <Button layoutX="656.0" layoutY="16.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="81.0" styleClass="green-button" text="Add">
+            <Button fx:id="button" layoutX="656.0" layoutY="16.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="81.0" styleClass="add-button" text="Add">
                <font>
                   <Font size="24.0" />
                </font>
             </Button>
+            <TextField fx:id="urlField" layoutX="56.0" layoutY="19.0" prefHeight="37.0" prefWidth="583.0" promptText="Enter URL">
+               <font>
+                  <Font size="24.0" />
+               </font>
+               <styleClass>
+                  <String fx:value="search-field" />
+                  <String fx:value="prompt-text" />
+               </styleClass>
+            </TextField>
          </children>
       </Pane>
-      <Button alignment="CENTER" contentDisplay="TOP" layoutX="805.0" layoutY="125.0" mnemonicParsing="false" prefHeight="79.0" prefWidth="234.0" styleClass="green-button" text="   Select folder">
+      <Button fx:id="b" alignment="CENTER" contentDisplay="TOP" layoutX="805.0" layoutY="125.0" mnemonicParsing="false" prefHeight="79.0" prefWidth="234.0" styleClass="add-button" text="   Select folder">
          <font>
             <Font size="28.0" />
          </font>
       </Button>
-      <Button layoutX="1063.0" layoutY="125.0" mnemonicParsing="false" prefHeight="79.0" prefWidth="201.0" styleClass="green-button" text=" Select file">
+      <Button fx:id="s" layoutX="1063.0" layoutY="125.0" mnemonicParsing="false" prefHeight="79.0" prefWidth="201.0" styleClass="add-button" text=" Select file">
          <font>
             <Font size="28.0" />
          </font></Button>
-      <ImageView fitHeight="25.0" fitWidth="35.0" layoutX="821.0" layoutY="152.5" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="f" fitHeight="25.0" fitWidth="35.0" layoutX="821.0" layoutY="152.5" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/update-path.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="25.0" fitWidth="35.0" layoutX="1079.0" layoutY="152.5" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="c" fitHeight="25.0" fitWidth="35.0" layoutX="1079.0" layoutY="152.5" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/update-path.png" />
          </image>
       </ImageView>
-      <Button layoutX="24.0" layoutY="638.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="148.0" styleClass="cancel-button" text="cancel">
+      <Button fx:id="d" layoutX="24.0" layoutY="638.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="148.0" styleClass="cancel-button" text="cancel">
          <font>
             <Font size="32.0" />
          </font>
       </Button>
-      <Button layoutX="1143.0" layoutY="638.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="121.0" styleClass="green-button" text="done">
+      <Button fx:id="g" layoutX="1143.0" layoutY="638.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="121.0" styleClass="next-btn" text="done">
          <font>
             <Font size="32.0" />
          </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
       </Button>
-      <ScrollPane hbarPolicy="NEVER" layoutX="24.0" layoutY="236.0" prefHeight="354.0" prefWidth="1246.0" vbarPolicy="ALWAYS">
+      <ScrollPane fx:id="scrollPane" fitToWidth="true" hbarPolicy="NEVER" layoutX="24.0" layoutY="235.0" prefHeight="354.0" prefWidth="1246.0" styleClass="url-pane" vbarPolicy="ALWAYS">
          <content>
-            <Pane prefHeight="354.0" prefWidth="1235.0" style="-fx-background-color: white;">
-               <children>
-                  <Pane layoutX="-2.0" prefHeight="79.0" prefWidth="1240.0" styleClass="firstinnerpath-bane">
-                     <children>
-                        <Label layoutX="72.0" layoutY="21.5" prefHeight="36.0" prefWidth="441.0" text="https://www.canva.com/templates">
-                           <font>
-                              <Font size="28.0" />
-                           </font>
-                        </Label>
-                        <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="16.0" layoutY="19.5" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../images/url-icon.png" />
-                           </image>
-                        </ImageView>
-                        <Label layoutX="1097.0" layoutY="16.0" prefHeight="47.0" prefWidth="79.0" styleClass="pathlabel" text="   URL">
-                           <font>
-                              <Font size="24.0" />
-                           </font>
-                        </Label>
-                        <ImageView fitHeight="24.0" fitWidth="24.0" layoutX="1200.0" layoutY="27.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../images/close-icon.png" />
-                           </image>
-                        </ImageView>
-                     </children>
-                  </Pane>
-                  <Pane layoutY="79.0" prefHeight="79.0" prefWidth="1240.0" styleClass="secendinnerpathpane-pane">
-                     <children>
-                        <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="16.0" layoutY="19.5" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../images/file-icon.png" />
-                           </image>
-                        </ImageView>
-                        <Label layoutX="72.0" layoutY="22.0" prefHeight="40.0" prefWidth="678.0" text="G:\grad project\Sequence diagrams\Sequence diagram (Analytics &amp; Reports Management System).drawio">
-                           <font>
-                              <Font size="28.0" />
-                           </font>
-                        </Label>
-                        <Label layoutX="1104.0" layoutY="16.0" prefHeight="47.0" prefWidth="72.0" styleClass="pathlabel" text="   File">
-                           <font>
-                              <Font size="24.0" />
-                           </font>
-                        </Label>
-                        <ImageView fitHeight="24.0" fitWidth="24.0" layoutX="1200.0" layoutY="27.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../images/close-icon.png" />
-                           </image>
-                        </ImageView>
-                     </children>
-                  </Pane>
-                  <Pane layoutY="158.0" prefHeight="79.0" prefWidth="1240.0" styleClass="secendinnerpathpane-pane">
-                     <children>
-                        <ImageView fitHeight="24.0" fitWidth="24.0" layoutX="1200.0" layoutY="27.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../images/close-icon.png" />
-                           </image>
-                        </ImageView>
-                        <Label layoutX="72.0" layoutY="21.5" prefHeight="36.0" prefWidth="452.0" text="G:\grad project\Sequence diagrams">
-                           <font>
-                              <Font size="28.0" />
-                           </font>
-                        </Label>
-                        <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="16.0" layoutY="19.5" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../images/folder-icon.png" />
-                           </image>
-                        </ImageView>
-                        <Label layoutX="1077.0" layoutY="16.0" prefHeight="47.0" prefWidth="99.0" styleClass="pathlabel" text="   Folder">
-                           <font>
-                              <Font size="24.0" />
-                           </font>
-                        </Label>
-                     </children>
-                  </Pane>
-               </children>
-            </Pane>
+            <VBox fx:id="resourcesContainer" spacing="0" />
          </content>
       </ScrollPane>
    </children>
