@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="root" prefHeight="1463.0" prefWidth="1440.0" stylesheets="@../css/inspect-bubble.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane fx:id="root" prefHeight="853.0" prefWidth="1440.0" styleClass="main-container" stylesheets="@../css/inspect-bubble.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.effortcure.controller.InspectBubbleController">
    <children>
       <ImageView fx:id="bubble1" fitHeight="139.7" fitWidth="139.7" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -48,10 +48,11 @@
             <Image url="@../images/Group%20(3).png" />
          </image>
       </ImageView>
-      <ScrollPane fx:id="scrolpane" hbarPolicy="NEVER" layoutY="-8.0" prefHeight="1463.0" prefWidth="1440.0" styleClass="scroll-pane" vbarPolicy="ALWAYS">
+      <ScrollPane fx:id="scrolpane" hbarPolicy="NEVER" layoutY="0" prefHeight="853.0" prefWidth="1440.0" styleClass="scroll-pane" vbarPolicy="ALWAYS">
          <content>
-            <VBox prefHeight="1463.0" prefWidth="1440.0">
-            <Pane fx:id="mainpane" prefHeight="1622.0" prefWidth="1440.0">
+
+            <VBox alignment="TOP_CENTER">
+            <Pane fx:id="mainpane" prefHeight="1600.0" prefWidth="1440.0">
                <children>
                   <Pane fx:id="namepane" layoutX="100.0" layoutY="80.0" prefHeight="84.0" prefWidth="541.0" styleClass="all-panes">
                      <children>
@@ -80,7 +81,7 @@
                               <Font size="30.0" />
                            </font>
                         </Label>
-                        <Label fx:id="bubblediscriotionlabel" layoutX="220.0" layoutY="33.5" prefHeight="220.0" prefWidth="669.0" text="create ui for different page Lorem ipsum dolor sit amet consectetur create ui for different page Lorem ipsum dolor sit amet consectetur create ui for different page Lorem ipsum dolor sit amet consectetur" wrapText="true">
+                        <Label fx:id="bubblediscriotionlabel" layoutX="220.0" layoutY="34.0" prefHeight="251.0" prefWidth="669.0" text="create ui for different page Lorem ipsum dolor sit amet consectetur create ui for different page Lorem ipsum dolor sit amet consectetur create ui for different page Lorem ipsum dolor sit amet consectetur" wrapText="true">
                            <font>
                               <Font size="34.0" />
                            </font>
@@ -103,7 +104,7 @@
                         <Separator fx:id="separator2" layoutX="251.0" layoutY="16.0" orientation="VERTICAL" prefHeight="202.0" prefWidth="6.0" />
                            <ScrollPane hbarPolicy="NEVER" layoutX="254.0" prefHeight="234.0" prefWidth="489.0">
                               <content>
-                                 <VBox prefHeight="236.0" prefWidth="486.0" styleClass="scroll-pane" />
+                                 <VBox alignment="TOP_CENTER" />
                               </content>
                            </ScrollPane>
                      </children>
@@ -121,70 +122,10 @@
                            </font>
                         </Label>
                         <Separator fx:id="separator3" layoutX="226.0" layoutY="21.0" orientation="VERTICAL" prefHeight="288.0" prefWidth="7.0" />
-                        <ScrollPane fx:id="pathscronpane" hbarPolicy="NEVER" layoutX="237.0" prefHeight="320.0" prefWidth="963.0" styleClass="scroll-bar">
-                           <content>
-                              <Pane fx:id="MainUrlsPane" layoutX="237.0" prefHeight="320.0" prefWidth="963.0" style="-fx-background-color: white;">
-                                 <children>
-                                    <Pane fx:id="urlpane" prefHeight="79.0" prefWidth="963.0" styleClass="innerapplist-banes">
-                                       <children>
-                                          <ImageView fx:id="urlicon" fitHeight="40.0" fitWidth="40.0" layoutX="16.0" layoutY="19.5" pickOnBounds="true" preserveRatio="true">
-                                             <image>
-                                                <Image url="@../images/url-icon.png" />
-                                             </image>
-                                          </ImageView>
-                                          <Label fx:id="path2label" layoutX="72.0" layoutY="21.5" prefHeight="49.0" prefWidth="464.0" text="https://www.canva.com/templates">
-                                             <font>
-                                                <Font size="28.0" />
-                                             </font>
-                                          </Label>
-                                          <Label fx:id="urllabel" layoutX="868.0" layoutY="16.0" prefHeight="47.0" prefWidth="79.0" styleClass="pathlabel" text="   URL">
-                                             <font>
-                                                <Font size="24.0" />
-                                             </font>
-                                          </Label>
-                                       </children>
-                                    </Pane>
-                                    <Pane fx:id="filepane" layoutY="79.0" prefHeight="79.0" prefWidth="963.0" styleClass="secenapplisrt-pane">
-                                       <children>
-                                          <ImageView fx:id="fileicon" fitHeight="40.0" fitWidth="40.0" layoutX="16.0" layoutY="19.5" pickOnBounds="true" preserveRatio="true">
-                                             <image>
-                                                <Image url="@../images/file-icon.png" />
-                                             </image>
-                                          </ImageView>
-                                          <Label fx:id="path1label" layoutX="72.0" layoutY="21.0" prefHeight="49.0" prefWidth="760.0" text="G:\grad project\Sequence diagrams\Sequence diagram (Analytics &amp; Reports Management System).drawio">
-                                             <font>
-                                                <Font size="28.0" />
-                                             </font>
-                                          </Label>
-                                          <Label fx:id="filelabel" alignment="CENTER" layoutX="875.0" layoutY="16.0" prefHeight="47.0" prefWidth="72.0" styleClass="pathlabel" text="File">
-                                             <font>
-                                                <Font size="24.0" />
-                                             </font>
-                                          </Label>
-                                       </children>
-                                    </Pane>
-                                    <Pane fx:id="folderpane" layoutY="158.0" prefHeight="79.0" prefWidth="963.0" styleClass="secenapplisrt-pane">
-                                       <children>
-                                          <ImageView fx:id="foldericon" fitHeight="40.0" fitWidth="40.0" layoutX="16.0" layoutY="19.5" pickOnBounds="true" preserveRatio="true">
-                                             <image>
-                                                <Image url="@../images/folder-icon.png" />
-                                             </image>
-                                          </ImageView>
-                                          <Label fx:id="path3label" layoutX="72.0" layoutY="21.0" prefHeight="49.0" prefWidth="760.0" text="G:\grad project\Sequence diagrams">
-                                             <font>
-                                                <Font size="28.0" />
-                                             </font>
-                                          </Label>
-                                          <Label fx:id="folderlabel" alignment="CENTER" layoutX="848.0" layoutY="16.0" prefHeight="47.0" prefWidth="99.0" styleClass="pathlabel" text="Folder">
-                                             <font>
-                                                <Font size="24.0" />
-                                             </font>
-                                          </Label>
-                                       </children>
-                                    </Pane>
-                                 </children>
-                              </Pane>
-                           </content>
+                        <ScrollPane fx:id="pathscronpane" hbarPolicy="NEVER" layoutX="237.0" prefHeight="320.0" prefWidth="963.0">
+                              <content>
+                                 <VBox alignment="TOP_CENTER" />
+                              </content>
                         </ScrollPane>
                      </children>
                   </Pane>
@@ -313,44 +254,16 @@
                         <Font size="32.0" />
                      </font>
                   </Button>
-                  <Label fx:id="teamlabel" layoutX="1220.0" layoutY="94.0" prefHeight="55.0" prefWidth="120.0" styleClass="team-label" text="  Team1">
+                  <Label fx:id="teamlabel" alignment="CENTER" layoutX="1220.0" layoutY="94.0" prefHeight="55.0" prefWidth="120.0" styleClass="team-label" text="Team1">
                      <font>
                         <Font size="30.0" />
                      </font>
                   </Label>
-                  <Button fx:id="sessionsdetailsbutton" layoutX="1060.0" layoutY="1289.0" mnemonicParsing="false" styleClass="session-details-button" text="Session Details">
+                  <Button fx:id="sessionsdetailsbutton" layoutX="1058.0" layoutY="1288.0" mnemonicParsing="false" prefHeight="74.0" prefWidth="280.0" styleClass="session-details-button" text="Session Details">
                      <font>
                         <Font size="32.0" />
                      </font>
                   </Button>
-                  <Pane fx:id="AppPane1" layoutX="956.0" layoutY="607.0" prefHeight="74.0" prefWidth="489.0" styleClass="innerapplist-banes">
-                     <children>
-                        <Label fx:id="appname1" layoutX="72.0" layoutY="19.0" prefHeight="40.0" prefWidth="135.0" text="Anaconda">
-                           <font>
-                              <Font size="28.0" />
-                           </font>
-                        </Label>
-                        <ImageView fx:id="appicon1" fitHeight="40.0" fitWidth="40.0" layoutX="16.0" layoutY="17.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../images/program-icon.png" />
-                           </image>
-                        </ImageView>
-                     </children>
-                  </Pane>
-                  <Pane fx:id="AppPane2" layoutX="851.0" layoutY="523.0" prefHeight="74.0" prefWidth="489.0" styleClass="secenapplisrt-pane">
-                     <children>
-                        <Label fx:id="appname2" layoutX="72.0" layoutY="19.0" text="Anaconda">
-                           <font>
-                              <Font size="28.0" />
-                           </font>
-                        </Label>
-                        <ImageView fx:id="appicon2" fitHeight="40.0" fitWidth="40.0" layoutX="16.0" layoutY="17.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../images/program-icon.png" />
-                           </image>
-                        </ImageView>
-                     </children>
-                  </Pane>
                </children>
             </Pane>
             </VBox>
