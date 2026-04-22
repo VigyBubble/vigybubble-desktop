@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.String?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
@@ -8,11 +9,10 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
-<?import javafx.scene.layout.StackPane?>
-<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="2291.0" prefWidth="1440.0" style="-fx-background-color: white;" stylesheets="@../css/ispect-session.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.effortcure.controller.inspectSessionsController">
+<AnchorPane prefHeight="853.0" prefWidth="1440.0" styleClass="main-container" stylesheets="@../css/inspect-session.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.effortcure.controller.InspectSessionsController">
    <children>
       <ImageView fitHeight="139.7" fitWidth="139.7" layoutY="171.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -44,12 +44,19 @@
             <Image url="@../images/Group%20(3).png" />
          </image>
       </ImageView>
+      <ScrollPane fx:id="scrolpane" hbarPolicy="NEVER" layoutY="0" prefHeight="853.0" prefWidth="1440.0" styleClass="scroll-pane" vbarPolicy="ALWAYS">
+         <content>
+       <VBox alignment="TOP_CENTER">
       <Pane layoutX="100.0" layoutY="251.0" prefHeight="1940.0" prefWidth="1240.0" style="-fx-background-color: white;" styleClass="main-pane">
          <children>
-            <Label layoutX="40.0" layoutY="40.0" prefHeight="75.0" prefWidth="350.0" styleClass="recommendation-label" text="  Vigy recommendation ">
+            <Label layoutX="40.0" layoutY="40.0" prefHeight="75.0" prefWidth="350.0" text="  Vigy recommendation ">
                <font>
                   <Font size="32.0" />
                </font>
+               <styleClass>
+                  <String fx:value="recommendation-label" />
+                  <String fx:value="regular-labels" />
+               </styleClass>
             </Label>
             <Pane layoutX="1096.0" layoutY="41.0" prefHeight="73.0" prefWidth="104.0" styleClass="all-panes">
                <children>
@@ -85,374 +92,33 @@
             </Pane>
             <Pane layoutX="28.0" layoutY="261.0" prefHeight="1176.0" prefWidth="1184.0" style="-fx-background-color: white;" styleClass="all-panes">
                <children>
-                  <Pane layoutX="608.0" layoutY="24.0" prefHeight="200.0" prefWidth="260.0">
-                     <children>
-                        <StackPane layoutX="51.5" layoutY="16.0" prefHeight="125" prefWidth="125">
-                           <children>
-                              <Circle radius="50" strokeWidth="8" styleClass="circle" />
-                              <Circle fx:id="progressCircle1" fill="transparent" radius="50" stroke="green" strokeWidth="8" />
-                              <Label fx:id="progressLabel1" style="-fx-font-size: 18px;" text="0%" />
-                           </children>
-                        </StackPane>
-                        <Label alignment="CENTER" contentDisplay="CENTER" layoutY="165.0" prefHeight="19.0" prefWidth="228.0" text="Cardiovascular issues">
-                           <font>
-                              <Font size="16.0" />
-                           </font>
-                        </Label>
-                     </children></Pane>
-                  <Pane layoutX="316.0" layoutY="24.0" prefHeight="200.0" prefWidth="260.0">
-                     <children>
-                        <StackPane layoutX="51.5" layoutY="16.0" prefHeight="125" prefWidth="125">
-                           <children>
-                              <Circle radius="50" strokeWidth="8" style="-fx-fill: transparent; -fx-stroke: lightgray;" />
-                              <Circle fx:id="progressCircle2" fill="transparent" radius="50" stroke="green" strokeWidth="8" />
-                              <Label fx:id="progressLabel2" style="-fx-font-size: 18px;" text="0%" />
-                           </children>
-                        </StackPane>
-                        <Label alignment="CENTER" contentDisplay="CENTER" layoutY="165.0" prefHeight="19.0" prefWidth="228.0" text="Obesity">
-                           <font>
-                              <Font size="16.0" />
-                           </font>
-                        </Label>
-                     </children></Pane>
-                  <Pane layoutX="900.0" layoutY="24.0" prefHeight="200.0" prefWidth="260.0">
-                     <children>
-                        <StackPane layoutX="51.5" layoutY="16.0" prefHeight="125" prefWidth="125">
-                           <children>
-                              <Circle radius="50" strokeWidth="8" style="-fx-fill: transparent; -fx-stroke: lightgray;" />
-                              <Circle fx:id="progressCircle3" fill="transparent" radius="50" stroke="green" strokeWidth="8" />
-                              <Label fx:id="progressLabel3" style="-fx-font-size: 18px;" text="0%" />
-                           </children>
-                        </StackPane>
-                        <Label alignment="CENTER" contentDisplay="CENTER" layoutY="165.0" prefHeight="19.0" prefWidth="228.0" text="Back &amp; neck pain">
-                           <font>
-                              <Font size="16.0" />
-                           </font>
-                        </Label>
-                     </children></Pane>
-                  <Pane layoutX="24.0" layoutY="24.0" prefHeight="200.0" prefWidth="260.0">
-                     <children>
-                        <StackPane layoutX="51.5" layoutY="16.0" prefHeight="125" prefWidth="125">
-                           <children>
-                              <Circle radius="50" strokeWidth="8" style="-fx-fill: transparent; -fx-stroke: lightgray;" />
-                              <Circle fx:id="progressCircle4" fill="transparent" radius="50" stroke="green" strokeWidth="8" />
-                              <Label fx:id="progressLabel4" text="0%">
-                                 <font>
-                                    <Font size="16.0" />
-                                 </font></Label>
-                           </children>
-                        </StackPane>
-                        <Label alignment="CENTER" contentDisplay="CENTER" layoutY="165.0" prefHeight="19.0" prefWidth="228.0" text="Distraction">
-                           <font>
-                              <Font size="16.0" />
-                           </font>
-                        </Label>
-                     </children>
-                  </Pane>
-                  <Pane layoutX="608.0" layoutY="256.0" prefHeight="200.0" prefWidth="260.0">
-                     <children>
-                        <StackPane layoutX="51.5" layoutY="16.0" prefHeight="125" prefWidth="125">
-                           <children>
-                              <Circle radius="50" strokeWidth="8" style="-fx-fill: transparent; -fx-stroke: lightgray;" />
-                              <Circle fx:id="progressCircle5" fill="transparent" radius="50" stroke="green" strokeWidth="8" />
-                              <Label fx:id="progressLabel5" style="-fx-font-size: 18px;" text="0%" />
-                           </children>
-                        </StackPane>
-                        <Label alignment="CENTER" contentDisplay="CENTER" layoutY="165.0" prefHeight="19.0" prefWidth="228.0" text="Diabetes">
-                           <font>
-                              <Font size="16.0" />
-                           </font>
-                        </Label>
-                     </children>
-                  </Pane>
-                  <Pane layoutX="316.0" layoutY="256.0" prefHeight="200.0" prefWidth="260.0">
-                     <children>
-                        <StackPane layoutX="51.5" layoutY="16.0" prefHeight="125" prefWidth="125">
-                           <children>
-                              <Circle radius="50" strokeWidth="8" style="-fx-fill: transparent; -fx-stroke: lightgray;" />
-                              <Circle fx:id="progressCircle6" fill="transparent" radius="50" stroke="green" strokeWidth="8" />
-                              <Label fx:id="progressLabel6" style="-fx-font-size: 18px;" text="0%" />
-                           </children>
-                        </StackPane>
-                        <Label alignment="CENTER" contentDisplay="CENTER" layoutY="165.0" prefHeight="19.0" prefWidth="228.0" text="Digestive issues">
-                           <font>
-                              <Font size="16.0" />
-                           </font>
-                        </Label>
-                     </children>
-                  </Pane>
-                  <Pane layoutX="24.0" layoutY="488.0" prefHeight="200.0" prefWidth="260.0">
-                     <children>
-                        <StackPane layoutX="51.5" layoutY="16.0" prefHeight="125" prefWidth="125">
-                           <children>
-                              <Circle radius="50" strokeWidth="8" style="-fx-fill: transparent; -fx-stroke: lightgray;" />
-                              <Circle fx:id="progressCircle7" fill="transparent" radius="50" stroke="green" strokeWidth="8" />
-                              <Label fx:id="progressLabel7" style="-fx-font-size: 18px;" text="0%" />
-                           </children>
-                        </StackPane>
-                        <Label alignment="CENTER" contentDisplay="CENTER" layoutY="166.0" prefHeight="19.0" prefWidth="228.0" text="Breath bottlenecks">
-                           <font>
-                              <Font size="16.0" />
-                           </font>
-                        </Label>
-                     </children>
-                  </Pane>
-                  <Pane layoutX="900.0" layoutY="488.0" prefHeight="200.0" prefWidth="260.0">
-                     <children>
-                        <StackPane layoutX="51.5" layoutY="16.0" prefHeight="125" prefWidth="125">
-                           <children>
-                              <Circle radius="50" strokeWidth="8" style="-fx-fill: transparent; -fx-stroke: lightgray;" />
-                              <Circle fx:id="progressCircle8" fill="transparent" radius="50" stroke="green" strokeWidth="8" />
-                              <Label fx:id="progressLabel8" style="-fx-font-size: 18px;" text="0%" />
-                           </children>
-                        </StackPane>
-                        <Label alignment="CENTER" contentDisplay="CENTER" layoutY="165.0" prefHeight="19.0" prefWidth="228.0" text="Dizziness">
-                           <font>
-                              <Font size="16.0" />
-                           </font>
-                        </Label>
-                     </children>
-                  </Pane>
-                  <Pane layoutX="900.0" layoutY="256.0" prefHeight="200.0" prefWidth="260.0">
-                     <children>
-                        <StackPane layoutX="51.5" layoutY="16.0" prefHeight="125" prefWidth="125">
-                           <children>
-                              <Circle radius="50" strokeWidth="8" style="-fx-fill: transparent; -fx-stroke: lightgray;" />
-                              <Circle fx:id="progressCircle9" fill="transparent" radius="50" stroke="green" strokeWidth="8" />
-                              <Label fx:id="progressLabel9" style="-fx-font-size: 18px;" text="0%" />
-                           </children>
-                        </StackPane>
-                        <Label alignment="CENTER" contentDisplay="CENTER" layoutY="165.0" prefHeight="19.0" prefWidth="228.0" text="Certain cancers">
-                           <font>
-                              <Font size="16.0" />
-                           </font>
-                        </Label>
-                     </children>
-                  </Pane>
-                  <Pane layoutX="900.0" layoutY="952.0" prefHeight="200.0" prefWidth="260.0">
-                     <children>
-                        <StackPane layoutX="51.5" layoutY="16.0" prefHeight="125" prefWidth="125">
-                           <children>
-                              <Circle radius="50" strokeWidth="8" style="-fx-fill: transparent; -fx-stroke: lightgray;" />
-                              <Circle fx:id="progressCircle10" fill="transparent" radius="50" stroke="green" strokeWidth="8" />
-                              <Label fx:id="progressLabel10" style="-fx-font-size: 18px;" text="0%" />
-                           </children>
-                        </StackPane>
-                        <Label alignment="CENTER" contentDisplay="CENTER" layoutY="165.0" prefHeight="19.0" prefWidth="228.0" text="Poor sleep quality">
-                           <font>
-                              <Font size="16.0" />
-                           </font>
-                        </Label>
-                     </children>
-                  </Pane>
-                  <Pane layoutX="608.0" layoutY="488.0" prefHeight="200.0" prefWidth="260.0">
-                     <children>
-                        <StackPane layoutX="51.5" layoutY="16.0" prefHeight="125" prefWidth="125">
-                           <children>
-                              <Circle radius="50" strokeWidth="8" style="-fx-fill: transparent; -fx-stroke: lightgray;" />
-                              <Circle fx:id="progressCircle11" fill="transparent" radius="50" stroke="green" strokeWidth="8" />
-                              <Label fx:id="progressLabel11" style="-fx-font-size: 18px;" text="0%" />
-                           </children>
-                        </StackPane>
-                        <Label alignment="CENTER" contentDisplay="CENTER" layoutY="165.0" prefHeight="19.0" prefWidth="228.0" text="Eye Strain">
-                           <font>
-                              <Font size="16.0" />
-                           </font>
-                        </Label>
-                     </children>
-                  </Pane>
-                  <Pane layoutX="316.0" layoutY="720.0" prefHeight="200.0" prefWidth="260.0">
-                     <children>
-                        <StackPane layoutX="51.5" layoutY="16.0" prefHeight="125" prefWidth="125">
-                           <children>
-                              <Circle radius="50" strokeWidth="8" style="-fx-fill: transparent; -fx-stroke: lightgray;" />
-                              <Circle fx:id="progressCircle12" fill="transparent" radius="50" stroke="green" strokeWidth="8" />
-                              <Label fx:id="progressLabel12" style="-fx-font-size: 18px;" text="0%" />
-                           </children>
-                        </StackPane>
-                        <Label alignment="CENTER" contentDisplay="CENTER" layoutY="165.0" prefHeight="19.0" prefWidth="228.0" text="Temporary blurred vision">
-                           <font>
-                              <Font size="16.0" />
-                           </font>
-                        </Label>
-                     </children>
-                  </Pane>
-                  <Pane layoutX="900.0" layoutY="720.0" prefHeight="200.0" prefWidth="260.0">
-                     <children>
-                        <StackPane layoutX="51.5" layoutY="16.0" prefHeight="125" prefWidth="125">
-                           <children>
-                              <Circle radius="50" strokeWidth="8" style="-fx-fill: transparent; -fx-stroke: lightgray;" />
-                              <Circle fx:id="progressCircle13" fill="transparent" radius="50" stroke="green" strokeWidth="8" />
-                              <Label fx:id="progressLabel13" style="-fx-font-size: 18px;" text="0%" />
-                           </children>
-                        </StackPane>
-                        <Label alignment="CENTER" contentDisplay="CENTER" layoutY="165.0" prefHeight="19.0" prefWidth="228.0" text="Temporary stress">
-                           <font>
-                              <Font size="16.0" />
-                           </font>
-                        </Label>
-                     </children>
-                  </Pane>
-                  <Pane layoutX="24.0" layoutY="256.0" prefHeight="200.0" prefWidth="260.0">
-                     <children>
-                        <StackPane layoutX="51.5" layoutY="16.0" prefHeight="125" prefWidth="125">
-                           <children>
-                              <Circle radius="50" strokeWidth="8" style="-fx-fill: transparent; -fx-stroke: lightgray;" />
-                              <Circle fx:id="progressCircle14" fill="transparent" radius="50" stroke="green" strokeWidth="8" />
-                              <Label fx:id="progressLabel14" style="-fx-font-size: 18px;" text="0%" />
-                           </children>
-                        </StackPane>
-                        <Label alignment="CENTER" contentDisplay="CENTER" layoutY="165.0" prefHeight="19.0" prefWidth="228.0" text="Digestive issues">
-                           <font>
-                              <Font size="16.0" />
-                           </font>
-                        </Label>
-                     </children>
-                  </Pane>
-                  <Pane layoutX="316.0" layoutY="488.0" prefHeight="200.0" prefWidth="260.0">
-                     <children>
-                        <StackPane layoutX="51.5" layoutY="16.0" prefHeight="125" prefWidth="125">
-                           <children>
-                              <Circle radius="50" strokeWidth="8" style="-fx-fill: transparent; -fx-stroke: lightgray;" />
-                              <Circle fx:id="progressCircle15" fill="transparent" radius="50" stroke="green" strokeWidth="8" />
-                              <Label fx:id="progressLabel15" style="-fx-font-size: 18px;" text="0%" />
-                           </children>
-                        </StackPane>
-                        <Label alignment="CENTER" contentDisplay="CENTER" layoutY="165.0" prefHeight="19.0" prefWidth="228.0" text="Dry eyes">
-                           <font>
-                              <Font size="16.0" />
-                           </font>
-                        </Label>
-                     </children>
-                  </Pane>
-                  <Pane layoutX="316.0" layoutY="952.0" prefHeight="200.0" prefWidth="260.0">
-                     <children>
-                        <StackPane layoutX="51.5" layoutY="16.0" prefHeight="125" prefWidth="125">
-                           <children>
-                              <Circle radius="50" strokeWidth="8" style="-fx-fill: transparent; -fx-stroke: lightgray;" />
-                              <Circle fx:id="progressCircle16" fill="transparent" radius="50" stroke="green" strokeWidth="8" />
-                              <Label fx:id="progressLabel16" style="-fx-font-size: 18px;" text="0%" />
-                           </children>
-                        </StackPane>
-                        <Label alignment="CENTER" contentDisplay="CENTER" layoutY="165.0" prefHeight="19.0" prefWidth="228.0" text="Cold and cough disease">
-                           <font>
-                              <Font size="16.0" />
-                           </font>
-                        </Label>
-                     </children>
-                  </Pane>
-                  <Pane layoutX="24.0" layoutY="952.0" prefHeight="200.0" prefWidth="260.0">
-                     <children>
-                        <StackPane layoutX="51.5" layoutY="16.0" prefHeight="125" prefWidth="125">
-                           <children>
-                              <Circle radius="50" strokeWidth="8" style="-fx-fill: transparent; -fx-stroke: lightgray;" />
-                              <Circle fx:id="progressCircle17" fill="transparent" radius="50" stroke="green" strokeWidth="8" />
-                              <Label fx:id="progressLabel17" style="-fx-font-size: 18px;" text="0%" />
-                           </children>
-                        </StackPane>
-                        <Label alignment="CENTER" contentDisplay="CENTER" layoutY="165.0" prefHeight="19.0" prefWidth="228.0" text="Cognitive impairment">
-                           <font>
-                              <Font size="16.0" />
-                           </font>
-                        </Label>
-                     </children>
-                  </Pane>
-                  <Pane layoutX="24.0" layoutY="720.0" prefHeight="200.0" prefWidth="260.0">
-                     <children>
-                        <StackPane layoutX="51.5" layoutY="16.0" prefHeight="125" prefWidth="125">
-                           <children>
-                              <Circle radius="50" strokeWidth="8" style="-fx-fill: transparent; -fx-stroke: lightgray;" />
-                              <Circle fx:id="progressCircle18" fill="transparent" radius="50" stroke="green" strokeWidth="8" />
-                              <Label fx:id="progressLabel18" style="-fx-font-size: 18px;" text="0%" />
-                           </children>
-                        </StackPane>
-                        <Label alignment="CENTER" contentDisplay="CENTER" layoutY="165.0" prefHeight="19.0" prefWidth="228.0" text="Headaches">
-                           <font>
-                              <Font size="16.0" />
-                           </font>
-                        </Label>
-                     </children>
-                  </Pane>
-                  <Pane layoutX="608.0" layoutY="952.0" prefHeight="200.0" prefWidth="260.0">
-                     <children>
-                        <StackPane layoutX="51.5" layoutY="16.0" prefHeight="125" prefWidth="125">
-                           <children>
-                              <Circle radius="50" strokeWidth="8" style="-fx-fill: transparent; -fx-stroke: lightgray;" />
-                              <Circle fx:id="progressCircle19" fill="transparent" radius="50" stroke="green" strokeWidth="8" />
-                              <Label fx:id="progressLabel19" style="-fx-font-size: 18px;" text="0%" />
-                           </children>
-                        </StackPane>
-                        <Label alignment="CENTER" contentDisplay="CENTER" layoutY="165.0" prefHeight="19.0" prefWidth="228.0" text="Sluggishness">
-                           <font>
-                              <Font size="16.0" />
-                           </font>
-                        </Label>
-                     </children>
-                  </Pane>
-                  <Pane layoutX="608.0" layoutY="720.0" prefHeight="200.0" prefWidth="260.0">
-                     <children>
-                        <StackPane layoutX="51.5" layoutY="16.0" prefHeight="125" prefWidth="125">
-                           <children>
-                              <Circle radius="50" strokeWidth="8" style="-fx-fill: transparent; -fx-stroke: lightgray;" />
-                              <Circle fx:id="progressCircle20" fill="transparent" radius="50" stroke="green" strokeWidth="8" />
-                              <Label fx:id="progressLabel20" style="-fx-font-size: 18px;" text="0%" />
-                           </children>
-                        </StackPane>
-                        <Label alignment="CENTER" contentDisplay="CENTER" layoutY="165.0" prefHeight="19.0" prefWidth="228.0" text="Temporary auditory discomfort">
-                           <font>
-                              <Font size="16.0" />
-                           </font>
-                        </Label>
-                     </children>
-                  </Pane>
+                  <Pane layoutX="608.0" layoutY="24.0" prefHeight="200.0" prefWidth="260.0" />
+                  <Pane layoutX="316.0" layoutY="24.0" prefHeight="200.0" prefWidth="260.0" />
+                  <Pane layoutX="900.0" layoutY="24.0" prefHeight="200.0" prefWidth="260.0" />
+                  <Pane layoutX="24.0" layoutY="24.0" prefHeight="200.0" prefWidth="260.0" />
+                  <Pane layoutX="608.0" layoutY="256.0" prefHeight="200.0" prefWidth="260.0" />
+                  <Pane layoutX="316.0" layoutY="256.0" prefHeight="200.0" prefWidth="260.0" />
+                  <Pane layoutX="24.0" layoutY="488.0" prefHeight="200.0" prefWidth="260.0" />
+                  <Pane layoutX="900.0" layoutY="488.0" prefHeight="200.0" prefWidth="260.0" />
+                  <Pane layoutX="900.0" layoutY="256.0" prefHeight="200.0" prefWidth="260.0" />
+                  <Pane layoutX="900.0" layoutY="952.0" prefHeight="200.0" prefWidth="260.0" />
+                  <Pane layoutX="608.0" layoutY="488.0" prefHeight="200.0" prefWidth="260.0" />
+                  <Pane layoutX="316.0" layoutY="720.0" prefHeight="200.0" prefWidth="260.0" />
+                  <Pane layoutX="900.0" layoutY="720.0" prefHeight="200.0" prefWidth="260.0" />
+                  <Pane layoutX="24.0" layoutY="256.0" prefHeight="200.0" prefWidth="260.0" />
+                  <Pane layoutX="316.0" layoutY="488.0" prefHeight="200.0" prefWidth="260.0" />
+                  <Pane layoutX="316.0" layoutY="952.0" prefHeight="200.0" prefWidth="260.0" />
+                  <Pane layoutX="24.0" layoutY="952.0" prefHeight="200.0" prefWidth="260.0" />
+                  <Pane layoutX="24.0" layoutY="720.0" prefHeight="200.0" prefWidth="260.0" />
+                  <Pane layoutX="608.0" layoutY="952.0" prefHeight="200.0" prefWidth="260.0" />
+                  <Pane layoutX="608.0" layoutY="720.0" prefHeight="200.0" prefWidth="260.0" />
                </children>
             </Pane>
             <Pane layoutX="40.0" layoutY="1477.0" prefHeight="309.0" prefWidth="1160.0" style="-fx-background-color: white;" styleClass="all-panes">
                <children>
                   <ScrollPane hbarPolicy="NEVER" layoutX="251.0" prefHeight="309.0" prefWidth="909.0" style="-fx-background-color: white;" styleClass="scroll-bar" vbarPolicy="ALWAYS">
                      <content>
-                        <Pane prefHeight="309.0" prefWidth="909.0" style="-fx-background-color: white;">
-                           <children>
-                              <Pane prefHeight="152.0" prefWidth="909.0" styleClass="inner-banes">
-                                 <children>
-                                    <Label layoutX="16.0" layoutY="16.0" prefHeight="36.0" prefWidth="253.0" text="Take 5 minute break">
-                                       <font>
-                                          <Font size="28.0" />
-                                       </font>
-                                    </Label>
-                                    <Label layoutX="16.0" layoutY="68.0" prefHeight="68.0" prefWidth="489.0" styleClass="describtion-labels" text="Lorem ipsum dolor sit amet consectetur. Arcu nunc nulla eleifend nunc" wrapText="true">
-                                       <font>
-                                          <Font size="26.0" />
-                                       </font>
-                                    </Label>
-                                    <Label layoutX="679.0" layoutY="18.5" prefHeight="31.0" prefWidth="214.0" text="25-08-2026 19:30">
-                                       <font>
-                                          <Font size="24.0" />
-                                       </font>
-                                    </Label>
-                                 </children>
-                              </Pane>
-                              <Pane layoutY="152.0" prefHeight="152.0" prefWidth="909.0">
-                                 <children>
-                                    <Label layoutX="16.0" layoutY="16.0" prefHeight="36.0" prefWidth="124.0" text="Set linear">
-                                       <font>
-                                          <Font size="28.0" />
-                                       </font>
-                                    </Label>
-                                    <Label layoutX="16.0" layoutY="68.0" prefHeight="68.0" prefWidth="489.0" styleClass="describtion-labels" text="Lorem ipsum dolor sit amet consectetur. Arcu nunc nulla eleifend nunc" wrapText="true">
-                                       <font>
-                                          <Font size="26.0" />
-                                       </font>
-                                    </Label>
-                                    <Label layoutX="688.0" layoutY="18.5" prefHeight="31.0" prefWidth="205.0" text="25-08-2026 19:30">
-                                       <font>
-                                          <Font size="24.0" />
-                                       </font>
-                                    </Label>
-                                 </children>
-                              </Pane>
-                           </children>
-                        </Pane>
+                        <VBox prefHeight="313.0" prefWidth="907.0" />
                      </content>
                   </ScrollPane>
                   <Label layoutX="16.0" layoutY="16.0" prefHeight="45.0" prefWidth="218.0" styleClass="log-labels" text="Notification Log">
@@ -477,6 +143,10 @@
                   <Font size="31.0" />
                </font>
             </Button>
-         </children></Pane>
+         </children>
+      </Pane>
+   </VBox>
+</content>
+</ScrollPane>
    </children>
 </AnchorPane>

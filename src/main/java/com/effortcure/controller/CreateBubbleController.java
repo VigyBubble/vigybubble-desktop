@@ -1,7 +1,9 @@
 package com.effortcure.controller;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 import com.effortcure.dto.request.CreateBubbleRequestDTO;
 import com.effortcure.dto.request.DirectoryRequestDTO;
@@ -10,10 +12,13 @@ import com.effortcure.enums.DirectoryType;
 import com.effortcure.navigator.ContentManager;
 import com.effortcure.service.implementation.BubbleService;
 import com.effortcure.service.interfaces.BubbleServiceInterface;
+import com.effortcure.util.DirectoryPickerUtil;
 import com.effortcure.util.ViewUtil;
 
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
+import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.ComboBox;
@@ -24,6 +29,8 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
 public class CreateBubbleController {
@@ -340,31 +347,82 @@ public class CreateBubbleController {
 
     @FXML
     private void save() throws Exception {
-        List<DirectoryRequestDTO> directoryRequestDTOs = new ArrayList<>();
-        for (Node node : resourcesContainer.getChildren()) {
-            Pane pane = (Pane) node;
-            for (Node n : pane.getChildren()) {
-                DirectoryRequestDTO directoryRequestDTO = new DirectoryRequestDTO();
-                if (n.getId() == "path")
-                    directoryRequestDTO.setPath(((Label) n).getText());
-                if (n.getId() == "type") {
-                    DirectoryType directoryType;
-                    if (((Label) n).getText() == "URL")
-                        directoryType = DirectoryType.URL;
-                    else if (((Label) n).getText() == "FOLDER")
-                        directoryType = DirectoryType.FOLDER;
-                    else
-                        directoryType = DirectoryType.FILE;
-
-                    directoryRequestDTO.setType(directoryType);
-                }
-                directoryRequestDTOs.add(directoryRequestDTO);
-            }
-        }
-        createBubbleRequestDTO.setDirectoriesList(directoryRequestDTOs);
         bubbleServiceInterface.createBubble(createBubbleRequestDTO);
         // show sucess popup
         System.out.println("Bubble is saved");
+    }
+
+    @FXML
+    private void addDirectory() throws IOException {
+        if (!urlField.getText().isBlank()) {
+            Parent parent = FXMLLoader.load(getClass().getResource("/fxml/path-card.fxml"));
+            Pane pane = (Pane) parent;
+            for (Node n : pane.getChildren()) {
+                if (n.getId().equals("textLabel1"))
+                    ((Label) n).setText(urlField.getText());
+                if (n.getId().equals("removeIcon1"))
+                    ((ImageView) n).setOnMouseClicked(e -> {
+                        createBubbleRequestDTO.getDirectoriesList().remove(new DirectoryRequestDTO(
+                                ((Label) pane.lookup("#textLabel1")).getText(), DirectoryType.URL));
+                        resourcesContainer.getChildren().remove(pane);
+                    });
+            }
+            if (!createBubbleRequestDTO.getDirectoriesList()
+                    .contains(new DirectoryRequestDTO(urlField.getText(), DirectoryType.URL))) {
+                resourcesContainer.getChildren().add(pane);
+                createBubbleRequestDTO.getDirectoriesList()
+                        .add(new DirectoryRequestDTO(urlField.getText(), DirectoryType.URL));
+            }
+        }
+    }
+
+    @FXML
+    private void selectFolder() throws IOException {
+        String folder = DirectoryPickerUtil.pickAFolder((Stage) selectFolderBtn.getScene().getWindow());
+        if (folder != null) {
+            Parent parent = FXMLLoader.load(getClass().getResource("/fxml/path-card.fxml"));
+            Pane pane = (Pane) parent;
+            ((Label) pane.lookup("#textLabel1")).setText(folder);
+            ((ImageView) pane.lookup("#icon1"))
+                    .setImage(new Image(getClass().getResource("/images/folder-icon.png").toExternalForm()));
+            ((Label) pane.lookup("#typeLabel1")).setText(DirectoryType.FOLDER.toString());
+            ((ImageView) pane.lookup("#removeIcon1")).setOnMouseClicked(e -> {
+                createBubbleRequestDTO.getDirectoriesList().remove(new DirectoryRequestDTO(
+                        ((Label) pane.lookup("#textLabel1")).getText(), DirectoryType.FOLDER));
+                resourcesContainer.getChildren().remove(pane);
+            });
+            if (!createBubbleRequestDTO.getDirectoriesList()
+                    .contains(new DirectoryRequestDTO(folder, DirectoryType.FOLDER))) {
+                resourcesContainer.getChildren().add(pane);
+                createBubbleRequestDTO.getDirectoriesList().add(new DirectoryRequestDTO(folder, DirectoryType.FOLDER));
+            }
+        }
+    }
+
+    @FXML
+    private void selectFiles() throws IOException {
+        Set<String> files = DirectoryPickerUtil.pickFiles((Stage) selectFileBtn.getScene().getWindow());
+        for (String file : files) {
+            if (file != null) {
+                Parent parent = FXMLLoader.load(getClass().getResource("/fxml/path-card.fxml"));
+                Pane pane = (Pane) parent;
+                ((Label) pane.lookup("#textLabel1")).setText(file);
+                ((ImageView) pane.lookup("#icon1"))
+                        .setImage(new Image(getClass().getResource("/images/file-icon.png").toExternalForm()));
+                ((Label) pane.lookup("#typeLabel1")).setText(DirectoryType.FILE.toString());
+                ((ImageView) pane.lookup("#removeIcon1")).setOnMouseClicked(e -> {
+                    createBubbleRequestDTO.getDirectoriesList().remove(new DirectoryRequestDTO(
+                            ((Label) pane.lookup("#textLabel1")).getText(), DirectoryType.FILE));
+                    resourcesContainer.getChildren().remove(pane);
+                });
+                if (!createBubbleRequestDTO.getDirectoriesList()
+                        .contains(new DirectoryRequestDTO(file, DirectoryType.FILE))) {
+                    resourcesContainer.getChildren().add(pane);
+                    createBubbleRequestDTO.getDirectoriesList()
+                            .add(new DirectoryRequestDTO(file, DirectoryType.FILE));
+                }
+            }
+        }
     }
 
     private void collectBubbleData() {

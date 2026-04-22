@@ -58,7 +58,7 @@
             <String fx:value="prompt-text"/>
           </styleClass>
         </TextField>
-        <Button fx:id="addBtn2" layoutX="656.0" layoutY="16.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="74.0" styleClass="add-button" text="Add">
+        <Button fx:id="addBtn2" onAction="#addDirectory" layoutX="656.0" layoutY="16.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="74.0" styleClass="add-button" text="Add">
           <font>
             <Font size="20.0"/>
           </font>
@@ -73,7 +73,7 @@
         </ImageView>
       </children>
     </Pane>
-    <Button fx:id="selectFolderBtn" alignment="CENTER" layoutX="881.0" layoutY="108.0" mnemonicParsing="false" prefHeight="79.0" prefWidth="234.0" styleClass="add-button" text="Select folder" textFill="WHITE">
+    <Button fx:id="selectFolderBtn" onAction="#selectFolder" alignment="CENTER" layoutX="881.0" layoutY="108.0" mnemonicParsing="false" prefHeight="79.0" prefWidth="234.0" styleClass="add-button" text="Select folder" textFill="WHITE">
       <font>
         <Font size="28.0"/>
       </font>
@@ -88,7 +88,7 @@
         <Cursor fx:constant="HAND"/>
       </cursor>
     </Button>
-    <Button fx:id="selectFileBtn" alignment="CENTER" layoutX="1139.0" layoutY="108.0" mnemonicParsing="false" prefHeight="79.0" prefWidth="201.0" styleClass="add-button" text="Select file" textFill="WHITE">
+    <Button fx:id="selectFileBtn" onAction="#selectFiles" alignment="CENTER" layoutX="1139.0" layoutY="108.0" mnemonicParsing="false" prefHeight="79.0" prefWidth="201.0" styleClass="add-button" text="Select file" textFill="WHITE">
       <font>
         <Font size="28.0"/>
       </font>

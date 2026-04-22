@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.text.Font?>
+
+<Pane prefHeight="200.0" prefWidth="260.0" stylesheets="@../css/inspect-session.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <StackPane layoutX="51.5" layoutY="16.0" prefHeight="125" prefWidth="125">
+         <children>
+            <Circle radius="50" strokeWidth="8" styleClass="circle" />
+            <Circle fx:id="progressCircle4" fill="transparent" radius="50" stroke="green" strokeWidth="8" />
+            <Label fx:id="progressLabel4" text="0%">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+         </children>
+      </StackPane>
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutY="165.0" prefHeight="19.0" prefWidth="228.0" text="Distraction">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+   </children>
+</Pane>
