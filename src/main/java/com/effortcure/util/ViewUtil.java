@@ -13,6 +13,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.DatePicker;
 import javafx.scene.control.Hyperlink;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
@@ -140,6 +141,9 @@ public class ViewUtil {
                 comboBox.setStyle("-fx-font-size: " + getFontSizeFromStyle(comboBox.getStyle()) * fontScale + "px;");
             if (region instanceof TextArea textArea)
                 textArea.setFont(new Font(textArea.getFont().getSize() * fontScale));
+            if (region instanceof DatePicker datePicker)
+                datePicker
+                        .setStyle("-fx-font-size: " + getFontSizeFromStyle(datePicker.getStyle()) * fontScale + "px;");
         }
         if (n instanceof Text text) {
             TextFlow textFlow = (TextFlow) text.getParent();

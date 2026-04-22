@@ -4,6 +4,7 @@ import com.effortcure.util.ViewUtil;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
+import javafx.scene.control.Separator;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 
@@ -41,12 +42,17 @@ public class BubbleCardController {
     @FXML
     private Label estimatedDuration;
 
-
     @FXML
     private Label createdAtLabel;
 
     @FXML
     private Label bubbleUuid;
+
+    @FXML
+    private Separator actualSeparator;
+
+    @FXML
+    private Separator estimatedSeparator;
 
     @FXML
     private void initialize() {

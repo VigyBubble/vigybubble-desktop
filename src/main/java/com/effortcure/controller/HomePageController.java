@@ -18,7 +18,6 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
-import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
@@ -53,6 +52,7 @@ public class HomePageController {
 
     @FXML
     private DatePicker datePicker;
+
     @FXML
     private ImageView searchIcon;
 
@@ -116,7 +116,7 @@ public class HomePageController {
                                 ((Label) child).setText(accountBubblesResponseDTO.getActualDuration());
                         }
                     }
-                    if (node.getId().equals("estimateddurationPane")) {
+                    if (node.getId().equals("estimatedPane")) {
                         for (Node child : ((Pane) node).getChildren()) {
                             if (child.getId().equals("estimatedDuration"))
                                 ((Label) child).setText(accountBubblesResponseDTO.getEstimatedDuration());
