@@ -2,9 +2,7 @@ package com.effortcure.controller;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 import com.effortcure.dto.request.CreateBubbleRequestDTO;
 import com.effortcure.dto.request.DirectoryRequestDTO;
