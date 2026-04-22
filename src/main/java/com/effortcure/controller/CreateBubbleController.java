@@ -291,7 +291,10 @@ public class CreateBubbleController {
     @FXML
     private ImageView removeIcon4;
 
-    private CreateBubbleRequestDTO createBubbleRequestDTO = new CreateBubbleRequestDTO();
+    @FXML
+    private ScrollPane scrollApplications1;
+
+    private static CreateBubbleRequestDTO createBubbleRequestDTO = new CreateBubbleRequestDTO();
     private BubbleServiceInterface bubbleServiceInterface = new BubbleService();
 
     @FXML
@@ -361,6 +364,7 @@ public class CreateBubbleController {
         createBubbleRequestDTO.setDirectoriesList(directoryRequestDTOs);
         bubbleServiceInterface.createBubble(createBubbleRequestDTO);
         // show sucess popup
+        System.out.println("Bubble is saved");
     }
 
     private void collectBubbleData() {

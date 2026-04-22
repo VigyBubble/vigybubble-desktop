@@ -38,7 +38,7 @@
         <Font size="24.0"/>
       </font>
     </TextArea>
-    <Button fx:id="nextBtn" layoutX="1060.0" layoutY="697.0" mnemonicParsing="false" prefHeight="56.0" prefWidth="280.0" styleClass="next-btn" text="Next" onAction="#next1">
+    <Button fx:id="nextBtn" layoutX="1060.0" layoutY="697.0" style="-fx-cursor: hand;" mnemonicParsing="false" prefHeight="56.0" prefWidth="280.0" styleClass="next-btn" text="Next" onAction="#next1">
       <font>
         <Font size="32.0"/>
       </font>
