@@ -300,7 +300,6 @@ public class CreateBubbleController {
     private ScrollPane scrollApplications1;
 
     private static CreateBubbleRequestDTO createBubbleRequestDTO = new CreateBubbleRequestDTO();
-    private static Set<String> addedDirectories = new HashSet<>();
     private BubbleServiceInterface bubbleServiceInterface = new BubbleService();
 
     @FXML
