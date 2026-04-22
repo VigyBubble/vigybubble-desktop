@@ -1,7 +1,13 @@
-.main-pane{
-
+.main-container {
     -fx-background-color: white;
-   
+}
+
+.regular-labels {
+    -fx-font-family: "K2D";
+    -fx-font-weight: 400;
+}
+.main-pane{
+    -fx-background-color: white;
     -fx-border-radius: 20;       
     -fx-background-radius: 20; 
     -fx-border-width: 2; 
@@ -25,26 +31,19 @@
     -fx-background-radius: 10; 
     -fx-effect: dropshadow(gaussian, #177B75, 4, 0.1, 0, 0);
    
-}
-.log-labels{
-
-    -fx-text-fill: #0B3E3A;
-}
-.delete-button{
+}.delete-button {
     -fx-text-fill: white;
-    -fx-background-color: #115D58;
+    -fx-background-color: #B00020;
     -fx-background-radius: 15;
     -fx-cursor: hand;
 }
 
 .delete-button:hover {
-    -fx-background-color: #0a4a4a;
-    -fx-effect: dropshadow(gaussian, rgba(13, 92, 92, 0.55), 14, 0, 0, 5);
+    -fx-background-color: #C62828;
 }
 
 .delete-button:pressed {
-    -fx-background-color: #083838;
-    -fx-effect: dropshadow(gaussian, rgba(13, 92, 92, 0.2), 4, 0, 0, 1);
+    -fx-background-color: #7A0015;
 }
 .describtion-labels{
 
@@ -55,26 +54,33 @@
     -fx-border-width: 0 0 0.25 0; 
     -fx-border-color: transparent transparent #7878784D transparent;
 }
-.scroll-bar{
-    -fx-background-radius: 10;
-}
-.scroll-bar:vertical .thumb {
-    -fx-background-color: gray; /* اللون اللي تحبيه */
-    -fx-background-insets: 0;
-    -fx-background-radius: 10; /* مدور الزوايا */
-    -fx-pref-height: 207px;     /* طول الثامب */
+
+.scroll-pane {
+  -fx-background-color: transparent;
+  -fx-background-insets: 0;
+  
 }
 
-/* إزالة الأسهم فوق وتحت */
-.scroll-bar .increment-button,
-.scroll-bar .decrement-button {
-    -fx-padding: 0;
-    -fx-background-color: transparent;
-    -fx-background-insets: 0;
-    -fx-shape: "";
-    -fx-max-height: 0;
-    -fx-min-height: 0;
-    -fx-pref-height: 0;
+.scroll-pane > .viewport {
+  -fx-background-color: transparent;
+  -fx-shape: null;
+}
+
+.scroll-bar:vertical {
+  -fx-background-color: transparent;
+  -fx-pref-width: 6;
+}
+
+.scroll-bar:vertical .thumb {
+  -fx-background-color: gray;
+  -fx-background-radius: 10;
+  -fx-background-insets: 0;
+  -fx-pref-height: 207px;
+}
+
+.scroll-bar:vertical .increment-arrow,
+.scroll-bar:vertical .decrement-arrow {
+  -fx-shape: " ";
 }
 .pause-btn{
     -fx-cursor: hand;
@@ -84,4 +90,7 @@
      -fx-stroke: lightgray;
 }
 
+.all-labels{
+    -fx-text-fill: #0B3E3A;
+}
 

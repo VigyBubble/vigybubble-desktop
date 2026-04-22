@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<Pane prefHeight="152.0" prefWidth="909.0" styleClass="inner-banes" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1">
+
+    <children>
+
+        <!-- Title -->
+        <Label layoutX="16.0" layoutY="16.0" text="Take 5 minute break">
+            <font>
+                <Font name="System Bold" size="28.0" />
+            </font>
+        </Label>
+        <Label layoutX="16.0" layoutY="68.0" prefHeight="76.0" prefWidth="494.0" styleClass="describtion-labels" text="Lorem ipsum dolor sit amet consectetur. Arcu nunc nulla eleifend nunc" wrapText="true">
+            <font>
+                <Font size="26.0" />
+            </font>
+        </Label>
+        <Label layoutX="650.0" layoutY="18.0" text="25-08-2026 19:30">
+            <font>
+                <Font size="24.0" />
+            </font>
+        </Label>
+
+    </children>
+</Pane>
