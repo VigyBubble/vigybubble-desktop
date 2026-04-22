@@ -11,16 +11,14 @@
     -fx-font-weight: 400;
 }
 
-.all-fields {
+.all-fields,.comboType {
     -fx-background-color: white;
-    -fx-border-radius: 20;
-    -fx-background-radius: 20;
     -fx-border-radius: 20;
     -fx-background-radius: 20;
     -fx-effect: dropshadow(gaussian, #115D58, 5, 0.3, 0, 0);
 }
 
-.all-fields:focused {
+.all-fields:focused,.comboType:focused {
     -fx-effect: dropshadow(gaussian, #115D58, 8, 0.4, 0, 0);
 }
 
@@ -54,13 +52,7 @@
     -fx-border-radius: 20;
     -fx-background-color: white;
     -fx-padding: 0 0 0 10;
-    -fx-text-fill: #BEC0BF;
 }
-
-.combo-box .list-cell {
-    -fx-text-fill: #BEC0BF;
-}
-
 .combo-box .arrow {
     -fx-background-color: #0B3E3A;
 }
