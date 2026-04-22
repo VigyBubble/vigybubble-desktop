@@ -99,9 +99,6 @@ public class HomePageController {
                 Parent parent = FXMLLoader.load(getClass().getResource("/fxml/bubble-card.fxml"));
                 Pane pane = (Pane) parent;
                 for (Node node : pane.getChildren()) {
-                    /*
-                     * private LocalDateTime createdAt;
-                     */
                     if (node.getId().equals("bubbleUuid"))
                         ((Label) node).setText(accountBubblesResponseDTO.getUuid().toString());
                     if (node.getId().equals("titleLabel"))
@@ -110,6 +107,8 @@ public class HomePageController {
                         ((Label) node).setText(accountBubblesResponseDTO.getDescription());
                     if (node.getId().equals("teamLabel"))
                         ((Label) node).setText(accountBubblesResponseDTO.getType().toString());
+                    if (node.getId().equals("createdAtLabel"))
+                        ((Label) node).setText(accountBubblesResponseDTO.getCreatedAt().toString());
                     if (node.getId().equals("actualdurationPane")) {
                         for (Node child : ((Pane) node).getChildren()) {
                             if (child.getId().equals("actualDuration"))

@@ -10,15 +10,10 @@ import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
-import javafx.scene.text.TextFlow;
-import javafx.scene.shape.Circle;
-import javafx.scene.text.Text;
-import javafx.scene.text.TextFlow;
 import javafx.scene.image.ImageView;
 import javafx.scene.control.Separator;
 
-
-public class  BubbleSessionsController{
+public class BubbleSessionsController {
 
   @FXML
   private AnchorPane root;
@@ -51,10 +46,11 @@ public class  BubbleSessionsController{
   private Button startsessionBtn;
   @FXML
   private ImageView addIcon;
+
   @FXML
   private void initialize() {
 
-    ViewUtil.initiateResponsiveView(this);}
+    ViewUtil.initiateResponsiveView(this);
+  }
 
-    }
-
+}
