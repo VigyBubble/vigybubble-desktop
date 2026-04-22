@@ -99,8 +99,8 @@
 
 .time-panes {
   -fx-background-color: white;
-  -fx-background-radius: 10 0 0 10;
-  -fx-border-radius: 10 0 0 10;
+  -fx-background-radius: 10;
+  -fx-border-radius: 10;
   -fx-effect: dropshadow(gaussian, rgba(23, 123, 117, 0.1), 4, 0.3, 0, 0);
   -fx-alignment: center;
   -fx-padding: 10 8 10 8;
@@ -108,9 +108,9 @@
 
 .secondtime-panes {
   -fx-background-color: white;
-  -fx-effect: dropshadow(gaussian, rgba(23, 123, 117, 0.1), 4, 0.3, 0, 0);
-  -fx-alignment: center;
-  -fx-padding: 10 8 10 8;
+   -fx-effect: dropshadow(gaussian, rgba(23, 123, 117, 0.1), 4, 0.3, 0, 0);
+  -fx-border-radius: 10 ;
+  -fx-background-radius: 10 ;
 }
 .minutes-panes {
   -fx-alignment: center;

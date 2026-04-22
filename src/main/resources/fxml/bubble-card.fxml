@@ -6,171 +6,70 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
-<?import javafx.scene.text.Text?>
-<?import javafx.scene.text.TextFlow?>
 
 <Pane fx:id="bubbleCardPane" prefHeight="334.0" prefWidth="1230.0" styleClass="bubble-card" stylesheets="@../css/home-page.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.effortcure.controller.BubbleCardController">
   <children>
     <ImageView fx:id="closeIcon" fitHeight="24.0" fitWidth="24.0" layoutX="1192.0" layoutY="17.0" pickOnBounds="true" preserveRatio="true">
       <image>
-        <Image url="@../images/close-icon.png"/>
+        <Image url="@../images/close-icon.png" />
       </image>
     </ImageView>
-    <Label fx:id="titleLabel" layoutX="24.0" layoutY="40.0" prefHeight="42.0" prefWidth="361.0" styleClass="regular-labels" text="Create Ui for Vigy bubble">
+    <Label fx:id="titleLabel" layoutX="24.0" layoutY="40.0" prefHeight="47.0" prefWidth="1045.0" styleClass="regular-labels" text="Create Ui for Vigy bubble">
       <font>
-        <Font size="32.0"/>
+        <Font size="32.0" />
       </font>
     </Label>
     <Label fx:id="descriptionLabel" layoutX="24.0" layoutY="112.0" prefHeight="72.0" prefWidth="1162.0" text="description ">
       <font>
-        <Font size="28.0"/>
+        <Font size="28.0" />
       </font>
       <styleClass>
-        <String fx:value="description"/>
-        <String fx:value="regular-labels"/>
+        <String fx:value="description" />
+        <String fx:value="regular-labels" />
       </styleClass>
     </Label>
-    <Label fx:id="teamLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="1078.0" layoutY="17.0" prefHeight="47.0" prefWidth="101.0" text="Team 1">
+    <Label fx:id="teamLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="1093.0" layoutY="187.0" prefHeight="47.0" prefWidth="101.0" text="Team 1">
       <font>
-        <Font size="24.0"/>
+        <Font size="24.0" />
       </font>
       <styleClass>
-        <String fx:value="team-label"/>
-        <String fx:value="regular-labels"/>
+        <String fx:value="team-label" />
+        <String fx:value="regular-labels" />
       </styleClass>
     </Label>
-    <Pane fx:id="actualdurationPane" layoutX="288.0" layoutY="242.0" prefHeight="68.0" prefWidth="431.0" styleClass="time-banes">
-      <children>
-        <Pane fx:id="InnerActualDurationPane" prefHeight="68.0" prefWidth="223.0">
-          <children>
-            <Label fx:id="ActualDurationlabel" layoutX="16.0" layoutY="14.0" prefHeight="40.0" prefWidth="209.0" styleClass="regular-labels" text="Actual duration :">
-              <font>
-                <Font size="28.0"/>
-              </font>
-            </Label>
-          </children>
-        </Pane>
-        <TextFlow fx:id="hourPane" layoutX="303.0" layoutY="2.5"
-                                                                                                  prefHeight="63.0" prefWidth="64.0"
-                                                                                                  styleClass="secondtime-panes">
-          <Text fx:id="hoursLabel" text="00" styleClass="bold-labels">
-            <font>
-              <Font size="24"/>
-            </font>
-          </Text>
-          <Text fx:id="hLabel" text="H" styleClass="time-label">
-            <font>
-              <Font size="24"/>
-            </font>
-          </Text>
-        </TextFlow>
-        <TextFlow fx:id="minutesPane" layoutX="367.0" layoutY="3.0"
-                                                                                  prefHeight="63.0" prefWidth="61.0" styleClass="minutes-panes">
-          <Text fx:id="minutesLabel" text="00" styleClass="bold-labels">
-            <font>
-              <Font size="24"/>
-            </font>
-          </Text>
-          <Text fx:id="mLabel" text="M" styleClass="time-label">
-            <font>
-              <Font size="24"/>
-            </font>
-          </Text>
-        </TextFlow>
-        <TextFlow fx:id="dayPane" layoutX="239.0" layoutY="2.5" prefHeight="63.0" prefWidth="64.0" styleClass="secondtime-panes">
-          <Text fx:id="NumofDayLabel" styleClass="bold-labels" text="00">
-            <font>
-              <Font size="24"/>
-            </font>
-          </Text>
-          <Text fx:id="dLabel" styleClass="time-label" text="D">
-            <font>
-              <Font size="24"/>
-            </font>
-          </Text>
-        </TextFlow>
-      </children>
-    </Pane>
-    <Pane fx:id="estimatedDurationPane" layoutX="743.0" layoutY="242.0" prefHeight="68.0" prefWidth="473.0" styleClass="all-panes">
-      <children>
-        <Pane fx:id="InnerEstimatedDurationPane" prefHeight="68.0" prefWidth="265.0">
-          <children>
-            <Label fx:id="estimatedDurationLabel" layoutX="16.0" layoutY="16.0" prefHeight="40.0" prefWidth="253.0" styleClass="regular-labels" text="Estimated duration :">
-              <font>
-                <Font size="28.0"/>
-              </font>
-            </Label>
-          </children>
-        </Pane>
-        <TextFlow fx:id="estimatedDaysInnerPane"
-        layoutX="281.0" layoutY="2.5"
-        prefHeight="63.0" prefWidth="64.0"
-        styleClass="time-panes">
-          <Text fx:id="estimatedNumofdaysLabel"
-          text="00"
-          styleClass="bold-labels">
-            <font>
-              <Font size="24"/>
-            </font>
-          </Text>
-          <Text fx:id="d2label" text="D" styleClass="time-label">
-            <font>
-              <Font size="24"/>
-            </font>
-          </Text>
-        </TextFlow>
-        <TextFlow fx:id="hourPane2"
-                layoutX="345.0" layoutY="2.5"
-                prefHeight="63.0" prefWidth="64.0"
-                styleClass="secondtime-panes">
-          <Text fx:id="hoursLabel2"
-                    text="00"
-                    styleClass="bold-labels">
-            <font>
-              <Font size="24"/>
-            </font>
-          </Text>
-          <Text fx:id="hLabel2"
-                    text="H"
-                    styleClass="time-label">
-            <font>
-              <Font size="24"/>
-            </font>
-          </Text>
-        </TextFlow>
-        <TextFlow fx:id="minutesPane2"
-                layoutX="409.0" layoutY="2.5"
-                prefHeight="63.0" prefWidth="64.0"
-                styleClass="minutes-panes">
-          <Text fx:id="minutesLabel2"
-                    text="00"
-                    styleClass="bold-labels">
-            <font>
-              <Font size="24"/>
-            </font>
-          </Text>
-          <Text fx:id="mLabel2"
-                    text="M"
-                    styleClass="time-label">
-            <font>
-              <Font size="24"/>
-            </font>
-          </Text>
-        </TextFlow>
-      </children>
-    </Pane>
-    <Label fx:id="dateLabel"
-       layoutX="24.0"
-       layoutY="242.0"
-       prefHeight="63.0"
-       prefWidth="245.0"
-       alignment="CENTER"
-       styleClass="time-banes"
-       text="25-08-2026 02:13">
+    <Label fx:id="createdAtLabel" alignment="CENTER" layoutX="24.0" layoutY="242.0" prefHeight="63.0" prefWidth="245.0" styleClass="time-banes" text="25-08-2026 02:13">
     <font>
-        <Font size="24.0"/>
+        <Font size="24.0" />
     </font>
 </Label>
-    <Label fx:id="bubbleUuid" layoutX="943.0" layoutY="48.0" prefHeight="0.0" prefWidth="0.0" style="visibility: hidden;"/>
+    <Label fx:id="bubbleUuid" layoutX="943.0" layoutY="48.0" prefHeight="0.0" prefWidth="0.0" style="visibility: hidden;" />
+      <Pane fx:id="actualdurationPane" layoutX="288.0" layoutY="242.0" prefHeight="68.0" prefWidth="431.0" styleClass="time-banes">
+         <children>
+            <Label fx:id="actualLabel" alignment="CENTER" contentDisplay="CENTER" prefHeight="68.0" prefWidth="165.0" text="Actual :">
+               <font>
+                  <Font size="28.0" />
+               </font>
+            </Label>
+            <Label fx:id="actualDuration" layoutX="165.0" prefHeight="68.0" prefWidth="266.0" styleClass="time-banes">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <Pane fx:id="estimatedPane" layoutX="743.0" layoutY="242.0" prefHeight="68.0" prefWidth="431.0" styleClass="time-banes">
+         <children>
+            <Label fx:id="estimatedLabel" alignment="CENTER" contentDisplay="CENTER" prefHeight="68.0" prefWidth="165.0" text="Estimated :">
+               <font>
+                  <Font size="28.0" />
+               </font>
+            </Label>
+            <Label fx:id="estimatedDuration" layoutX="165.0" prefHeight="68.0" prefWidth="266.0" styleClass="time-banes">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
   </children>
 </Pane>

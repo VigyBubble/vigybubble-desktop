@@ -16,7 +16,7 @@ import com.fasterxml.jackson.core.type.TypeReference;
 
 public class SessionApi {
 
-    private final String BASE_URL = "http://localhost:9090///api/v1/sessions/";
+    private final String BASE_URL = "http://localhost:9090/api/v1/sessions/";
 
     public ApiResponse<SessionBriefResponseDTO> getSessionDetails(UUID sessionUuid) throws Exception {
 
