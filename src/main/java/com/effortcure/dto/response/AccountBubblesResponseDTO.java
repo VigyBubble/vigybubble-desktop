@@ -14,8 +14,7 @@ public class AccountBubblesResponseDTO {
     private String actualDuration;
     private String estimatedDuration;
 
-    public AccountBubblesResponseDTO(String estimatedDuration) {
-        this.estimatedDuration = estimatedDuration;
+    public AccountBubblesResponseDTO() {
     }
 
     public AccountBubblesResponseDTO(UUID uuid, String name, String description, BubbleType type,

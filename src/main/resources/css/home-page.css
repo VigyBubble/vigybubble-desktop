@@ -48,7 +48,7 @@
   -fx-background-insets: 0;
 }
 
-.scroll-pane > .viewport {
+.scroll-pane>.viewport {
   -fx-background-color: transparent;
   -fx-shape: null;
 }
@@ -69,12 +69,14 @@
 .scroll-bar:vertical .decrement-arrow {
   -fx-shape: " ";
 }
+
 .details-pane {
   -fx-background-color: transparent;
   /* -fx-effect: dropshadow(gaussian, #115d58, 4, 0, 0, 0); */
   -fx-border-radius: 20;
   -fx-background-radius: 20;
 }
+
 .time-banes {
   -fx-background-color: white;
   -fx-effect: dropshadow(gaussian, #115d58, 4, 0, 0, 0);
@@ -102,10 +104,11 @@
 
 .secondtime-panes {
   -fx-background-color: white;
-   -fx-effect: dropshadow(gaussian, rgba(23, 123, 117, 0.1), 4, 0.3, 0, 0);
-  -fx-border-radius: 10 ;
-  -fx-background-radius: 10 ;
+  -fx-effect: dropshadow(gaussian, rgba(23, 123, 117, 0.1), 4, 0.3, 0, 0);
+  -fx-border-radius: 10;
+  -fx-background-radius: 10;
 }
+
 .minutes-panes {
   -fx-alignment: center;
   -fx-padding: 10 8 10 8;
@@ -127,44 +130,42 @@
   -fx-font-weight: 400;
 } */
 .date-picker {
-    -fx-background-color: transparent;
-    -fx-border-color: transparent;
-    -fx-padding: 0;
-    -fx-font-family: "K2D";
-    -fx-font-weight: 400;
-    -fx-font-size: 24px;
-  }
+  -fx-background-color: transparent;
+  -fx-border-color: transparent;
+  -fx-padding: 0;
+  -fx-font-family: "K2D";
+  -fx-font-weight: 400;
+  -fx-font-size: 24px;
+
+
+}
+
 .date-picker .text-field {
-    -fx-background-color: transparent;
-    -fx-border-color: transparent;
+  -fx-background-color: transparent;
+  -fx-border-color: transparent;
 }
+
 .date-picker:focused {
-   -fx-graphic-text-gap: 0;
-    -fx-content-display: LEFT;
-    -fx-border-color: transparent;
+  -fx-graphic-text-gap: 0;
+  -fx-content-display: LEFT;
+  -fx-border-color: transparent;
 }
+
 .date-picker .arrow-button {
-    -fx-background-color: transparent;
-    -fx-border-color: transparent;
+  -fx-background-color: transparent;
+  -fx-border-color: transparent;
 }
+
 .date-picker .arrow-button:focused {
-    -fx-background-color: transparent;
-    -fx-border-color: transparent;
+  -fx-background-color: transparent;
+  -fx-border-color: transparent;
 }
-.date-picker-popup .day-cell {
-    -fx-min-width: 25px;
-    -fx-min-height: 25px;
-    -fx-pref-width: 25px;
-    -fx-pref-height: 25px;
-    -fx-max-width: 25px;
-    -fx-max-height: 25px;
-    -fx-font-size: 15px;
-    -fx-padding: 0;
-}
+
+
 .bubble-card {
-    -fx-background-color: white;
-    -fx-background-radius: 20;
-    -fx-background-insets: 0;
-    -fx-border-insets: 0;
-    -fx-effect: dropshadow(gaussian, #115d58, 4, 0, 0, 0);
-  }
+  -fx-background-color: white;
+  -fx-background-radius: 20;
+  -fx-background-insets: 0;
+  -fx-border-insets: 0;
+  -fx-effect: dropshadow(gaussian, #115d58, 4, 0, 0, 0);
+}
