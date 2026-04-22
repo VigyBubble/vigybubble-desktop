@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.effortcure.dto.response.AccountBubblesResponseDTO;
 import com.effortcure.dto.response.ApiResponse;
+import com.effortcure.navigator.ContentManager;
 import com.effortcure.service.implementation.BubbleService;
 import com.effortcure.service.interfaces.BubbleServiceInterface;
 import com.effortcure.util.ViewUtil;
@@ -79,6 +80,12 @@ public class HomePageController {
     private void initialize() throws Exception {
         ViewUtil.initiateResponsiveView(this);
         getBubbles();
+    }
+
+    @FXML
+    private void addBubble() {
+        ContentManager.setAnchorPane(root);
+        ContentManager.switchContent("/fxml/create-bubble-page-p1.fxml");
     }
 
     private void getBubbles() throws Exception {

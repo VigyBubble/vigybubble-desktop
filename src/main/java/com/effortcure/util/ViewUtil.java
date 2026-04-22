@@ -16,6 +16,7 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.Hyperlink;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
@@ -135,9 +136,10 @@ public class ViewUtil {
                 hyperlink.setFont(new Font(hyperlink.getFont().getSize() * fontScale));
             if (region instanceof CheckBox checkBox)
                 checkBox.setFont(new Font(checkBox.getFont().getSize() * fontScale));
-            if (region instanceof ComboBox comboBox) {
+            if (region instanceof ComboBox comboBox)
                 comboBox.setStyle("-fx-font-size: " + getFontSizeFromStyle(comboBox.getStyle()) * fontScale + "px;");
-            }
+            if (region instanceof TextArea textArea)
+                textArea.setFont(new Font(textArea.getFont().getSize() * fontScale));
         }
         if (n instanceof Text text) {
             TextFlow textFlow = (TextFlow) text.getParent();

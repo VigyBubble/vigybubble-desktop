@@ -17,7 +17,7 @@ import com.effortcure.enums.ModifyBubbleType;
 
 public class BubbleApi {
 
-    private final String BASE_URL = "http://localhost:9090//api/v1/bubbles/";
+    private final String BASE_URL = "http://localhost:9090/api/v1/bubbles/";
 
     public ApiResponse<Void> createBubble(CreateBubbleRequestDTO createBubbleRequestDTO) throws Exception {
         HttpResponse<String> response = ApiClientUtil.post(BASE_URL, JsonUtil.toJson(createBubbleRequestDTO),

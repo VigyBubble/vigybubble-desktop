@@ -1,0 +1,383 @@
+package com.effortcure.controller;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import com.effortcure.dto.request.CreateBubbleRequestDTO;
+import com.effortcure.dto.request.DirectoryRequestDTO;
+import com.effortcure.enums.BubbleType;
+import com.effortcure.enums.DirectoryType;
+import com.effortcure.navigator.ContentManager;
+import com.effortcure.service.implementation.BubbleService;
+import com.effortcure.service.interfaces.BubbleServiceInterface;
+import com.effortcure.util.ViewUtil;
+
+import javafx.fxml.FXML;
+import javafx.scene.Node;
+import javafx.scene.control.Button;
+import javafx.scene.control.CheckBox;
+import javafx.scene.control.ComboBox;
+import javafx.scene.control.Label;
+import javafx.scene.control.ScrollPane;
+import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Pane;
+import javafx.scene.layout.VBox;
+import javafx.scene.image.ImageView;
+
+public class CreateBubbleController {
+    @FXML
+    private AnchorPane root;
+
+    @FXML
+    private ImageView arrowBtn;
+
+    @FXML
+    private Label nameLabel;
+
+    @FXML
+    private TextField bubbleNameField;
+
+    @FXML
+    private Label descriptionLabel;
+
+    @FXML
+    private TextArea bubbleDescriptionField;
+
+    @FXML
+    private Button nextBtn;
+
+    @FXML
+    private ImageView progressImg;
+
+    @FXML
+    private ImageView bubbleImg;
+
+    @FXML
+    private Label typeLabel;
+
+    @FXML
+    private ComboBox<String> comboBox;
+
+    @FXML
+    private AnchorPane root2;
+
+    @FXML
+    private ImageView arrowBtn2;
+
+    @FXML
+    private Button nextBtn2;
+
+    @FXML
+    private ImageView progressImg2;
+
+    @FXML
+    private ImageView bubbleImg1;
+
+    @FXML
+    private ImageView bubbleImg2;
+
+    @FXML
+    private Label selectLabel;
+
+    @FXML
+    private Label appListLabel;
+
+    @FXML
+    private Pane applicationsContainer;
+
+    @FXML
+    private ScrollPane scrollApplications;
+
+    @FXML
+    private VBox vBoxAppsContainer;
+
+    @FXML
+    private Pane searchPane;
+
+    @FXML
+    private ImageView serchIcon;
+
+    @FXML
+    private TextField searcField;
+
+    @FXML
+    private Button addBtn;
+
+    @FXML
+    private Pane appPane1;
+
+    @FXML
+    private CheckBox checkBoxBtn1;
+
+    @FXML
+    private ImageView appLogo1;
+
+    @FXML
+    private Label appNameLabel1;
+
+    @FXML
+    private Label recommendedLabel1;
+
+    @FXML
+    private Pane appPane2;
+
+    @FXML
+    private CheckBox checkBox2;
+
+    @FXML
+    private ImageView appLogo2;
+
+    @FXML
+    private Label appNameLabel2;
+
+    @FXML
+    private Label recommendedLabe2;
+
+    @FXML
+    private Pane appPane3;
+
+    @FXML
+    private CheckBox checkbox3;
+
+    @FXML
+    private ImageView appLogo3;
+
+    @FXML
+    private Label appNameLabel3;
+
+    @FXML
+    private Pane appPane4;
+
+    @FXML
+    private CheckBox checkbox4;
+
+    @FXML
+    private ImageView appLogo4;
+
+    @FXML
+    private Label appNameLabel4;
+
+    @FXML
+    private Pane listofAppsPane;
+
+    @FXML
+    private Pane appItemPane1;
+
+    @FXML
+    private ImageView selectedappLogo1;
+
+    @FXML
+    private Label SelectedAppnameLabel;
+
+    @FXML
+    private ImageView deleteBtn1;
+
+    @FXML
+    private Pane seslectedAppPane2;
+
+    @FXML
+    private ImageView selectedappLogo2;
+
+    @FXML
+    private Label SelectedAppnameLabel2;
+
+    @FXML
+    private ImageView deleteBtn2;
+
+    @FXML
+    private AnchorPane root3;
+
+    @FXML
+    private ImageView arrowBtn3;
+
+    @FXML
+    private ImageView progressImg3;
+
+    @FXML
+    private Button saveBtn;
+
+    @FXML
+    private ImageView bubbleImg11;
+
+    @FXML
+    private ImageView bubbleImg22;
+
+    @FXML
+    private ImageView bubbleImg3;
+
+    @FXML
+    private Pane enterUrlPane;
+
+    @FXML
+    private TextField urlField;
+
+    @FXML
+    private Button addBtn2;
+
+    @FXML
+    private ImageView urlIcon;
+
+    @FXML
+    private Button selectFolderBtn;
+
+    @FXML
+    private Button selectFileBtn;
+
+    @FXML
+    private ScrollPane scrollPane;
+
+    @FXML
+    private VBox resourcesContainer;
+
+    @FXML
+    private Pane itemPane1;
+
+    @FXML
+    private ImageView icon1;
+
+    @FXML
+    private Label textLabel1;
+
+    @FXML
+    private Label typeLabel1;
+
+    @FXML
+    private ImageView removeIcon1;
+
+    @FXML
+    private Pane itemPane2;
+
+    @FXML
+    private ImageView icon2;
+
+    @FXML
+    private Label textLabel2;
+
+    @FXML
+    private Label typeLabel2;
+
+    @FXML
+    private ImageView removeIcon2;
+
+    @FXML
+    private Pane itemPane3;
+
+    @FXML
+    private ImageView icon3;
+
+    @FXML
+    private Label textLabel3;
+
+    @FXML
+    private Label typeLabel3;
+
+    @FXML
+    private ImageView removeIcon3;
+
+    @FXML
+    private Pane itemPane4;
+
+    @FXML
+    private ImageView icon4;
+
+    @FXML
+    private Label textLabel4;
+
+    @FXML
+    private Label typeLabel4;
+
+    @FXML
+    private ImageView removeIcon4;
+
+    private CreateBubbleRequestDTO createBubbleRequestDTO = new CreateBubbleRequestDTO();
+    private BubbleServiceInterface bubbleServiceInterface = new BubbleService();
+
+    @FXML
+    private void initialize() {
+        ViewUtil.initiateResponsiveView(this);
+        collectBubbleData();
+        if (comboBox != null)
+            comboBox.getItems().add("Local");
+    }
+
+    @FXML
+    private void backToHome() {
+        ContentManager.setAnchorPane(root);
+        ContentManager.switchContent("/fxml/home-page.fxml");
+    }
+
+    @FXML
+    private void backToCB1() {
+        ContentManager.setAnchorPane(root2);
+        ContentManager.switchContent("/fxml/create-bubble-page-p1.fxml");
+    }
+
+    @FXML
+    private void backToCB2() {
+        ContentManager.setAnchorPane(root3);
+        ContentManager.switchContent("/fxml/create-bubble-page-p2.fxml");
+    }
+
+    @FXML
+    private void next1() {
+        ContentManager.setAnchorPane(root);
+        ContentManager.switchContent("/fxml/create-bubble-page-p2.fxml");
+    }
+
+    @FXML
+    private void next2() {
+        List<String> apps = new ArrayList<>();
+        // We need to fill apps
+        createBubbleRequestDTO.setApplicationsNameList(apps);
+        ContentManager.setAnchorPane(root2);
+        ContentManager.switchContent("/fxml/create-bubble-page-p3.fxml");
+    }
+
+    @FXML
+    private void save() throws Exception {
+        List<DirectoryRequestDTO> directoryRequestDTOs = new ArrayList<>();
+        for (Node node : resourcesContainer.getChildren()) {
+            Pane pane = (Pane) node;
+            for (Node n : pane.getChildren()) {
+                DirectoryRequestDTO directoryRequestDTO = new DirectoryRequestDTO();
+                if (n.getId() == "path")
+                    directoryRequestDTO.setPath(((Label) n).getText());
+                if (n.getId() == "type") {
+                    DirectoryType directoryType;
+                    if (((Label) n).getText() == "URL")
+                        directoryType = DirectoryType.URL;
+                    else if (((Label) n).getText() == "FOLDER")
+                        directoryType = DirectoryType.FOLDER;
+                    else
+                        directoryType = DirectoryType.FILE;
+
+                    directoryRequestDTO.setType(directoryType);
+                }
+                directoryRequestDTOs.add(directoryRequestDTO);
+            }
+        }
+        createBubbleRequestDTO.setDirectoriesList(directoryRequestDTOs);
+        bubbleServiceInterface.createBubble(createBubbleRequestDTO);
+        // show sucess popup
+    }
+
+    private void collectBubbleData() {
+        if (bubbleNameField != null)
+            bubbleNameField.textProperty().addListener((obs, oldValue, newValue) -> {
+                createBubbleRequestDTO.setName(newValue);
+            });
+        if (bubbleDescriptionField != null)
+            bubbleDescriptionField.textProperty().addListener((obs, oldValue, newValue) -> {
+                createBubbleRequestDTO.setDescription(newValue);
+            });
+        if (comboBox != null)
+            comboBox.setOnAction(e -> {
+                if (comboBox.getValue() != null)
+                    createBubbleRequestDTO
+                            .setType(comboBox.getValue().toString() == "Local" ? BubbleType.LOCAL : BubbleType.TEAM);
+            });
+    }
+
+}

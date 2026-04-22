@@ -14,7 +14,7 @@ import com.fasterxml.jackson.core.type.TypeReference;
 
 public class BubbleSessionApi {
     
-    private final String BASE_URL = "http://localhost:9090//api/v1/bubbles/";
+    private final String BASE_URL = "http://localhost:9090/api/v1/bubbles/";
 
 
  public ApiResponse<Set<BubbleSessionsResponseDTO>> getBubbleSession(UUID bubbleUuid) throws Exception {
