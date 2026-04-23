@@ -1,0 +1,11 @@
+.main-container {
+    -fx-background-color: linear-gradient(to bottom right, #e0f7fa, #f1f8ff);
+}
+.image-view {
+    -fx-effect: dropshadow(gaussian, rgba(0, 150, 136, 0.3), 25, 0.2, 0, 5);
+}
+.label {
+    -fx-text-fill: #00796b;
+    -fx-font-weight: bold;
+     -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.15), 4, 0.2, 0, 2);
+}
