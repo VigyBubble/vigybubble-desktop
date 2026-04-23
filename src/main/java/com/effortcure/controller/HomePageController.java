@@ -4,6 +4,7 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.effortcure.dto.request.CreateBubbleRequestDTO;
 import com.effortcure.dto.response.AccountBubblesResponseDTO;
 import com.effortcure.dto.response.ApiResponse;
 import com.effortcure.navigator.ContentManager;
@@ -84,7 +85,7 @@ public class HomePageController {
     private void initialize() throws Exception {
         ViewUtil.initiateResponsiveView(this);
         vboxContainer.setPadding(new Insets(20, 0, 0, 0));
-          getBubbles();
+        getBubbles();
         typeComboBox.getItems().addAll("All", "Local");
         typeComboBox.setOnAction(e -> {
             applyFilters();
@@ -104,6 +105,7 @@ public class HomePageController {
 
     @FXML
     private void addBubble() {
+        CreateBubbleController.createBubbleRequestDTO = new CreateBubbleRequestDTO();
         ContentManager.setAnchorPane(root);
         ContentManager.switchContent("/fxml/create-bubble-page-p1.fxml");
     }

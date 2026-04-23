@@ -301,13 +301,14 @@ public class CreateBubbleController {
     @FXML
     private ScrollPane scrollApplications1;
 
-    private static CreateBubbleRequestDTO createBubbleRequestDTO = new CreateBubbleRequestDTO();
+    public static CreateBubbleRequestDTO createBubbleRequestDTO;
     private BubbleServiceInterface bubbleServiceInterface = new BubbleService();
 
     @FXML
-    private void initialize() {
+    private void initialize() throws IOException {
         ViewUtil.initiateResponsiveView(this);
         collectBubbleData();
+        retreiveData();
         if (comboBox != null)
             comboBox.getItems().add("Local");
     }
@@ -440,6 +441,31 @@ public class CreateBubbleController {
                     createBubbleRequestDTO
                             .setType(comboBox.getValue().toString() == "Local" ? BubbleType.LOCAL : BubbleType.TEAM);
             });
+    }
+
+    private void retreiveData() throws IOException {
+        if (bubbleNameField != null)
+            bubbleNameField.setText(createBubbleRequestDTO.getName());
+        if (bubbleDescriptionField != null)
+            bubbleDescriptionField.setText(createBubbleRequestDTO.getDescription());
+        if (comboBox != null)
+            comboBox.getSelectionModel().select(
+                    createBubbleRequestDTO.getType() != null ? createBubbleRequestDTO.getType().toString() : null);
+        if (resourcesContainer != null) {
+            for (DirectoryRequestDTO directoryRequestDTO : createBubbleRequestDTO.getDirectoriesList()) {
+                Parent parent = FXMLLoader.load(getClass().getResource("/fxml/path-card.fxml"));
+                Pane pane = (Pane) parent;
+                ((Label) pane.lookup("#textLabel1")).setText(directoryRequestDTO.getPath());
+                ((Label) pane.lookup("#typeLabel1")).setText(directoryRequestDTO.getType().toString());
+                if (directoryRequestDTO.getType() != DirectoryType.URL)
+                    ((ImageView) pane.lookup("#icon1"))
+                            .setImage(new Image(getClass().getResource(
+                                    (directoryRequestDTO.getType() == DirectoryType.FILE) ? "/images/file-icon.png"
+                                            : "/images/folder-icon.png")
+                                    .toExternalForm()));
+                resourcesContainer.getChildren().add(pane);
+            }
+        }
     }
 
 }
