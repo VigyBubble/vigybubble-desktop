@@ -13,6 +13,7 @@ import com.effortcure.util.ViewUtil;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Insets;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
@@ -77,27 +78,28 @@ public class HomePageController {
     private VBox vboxContainer;
 
     private BubbleServiceInterface bubbleServiceInterface = new BubbleService();
-    List<AccountBubblesResponseDTO> allBubbles = new ArrayList<>();
+    private List<AccountBubblesResponseDTO> allBubbles = new ArrayList<>();
 
     @FXML
     private void initialize() throws Exception {
         ViewUtil.initiateResponsiveView(this);
-        Pane margiPane = new Pane();
-        margiPane.setPrefHeight(5);
-        margiPane.setPrefWidth(5);
-        vboxContainer.getChildren().add(margiPane);
+        vboxContainer.setPadding(new Insets(20, 0, 0, 0));
+          getBubbles();
         typeComboBox.getItems().addAll("All", "Local");
         typeComboBox.setOnAction(e -> {
             applyFilters();
         });
-        getBubbles();
-
         datePicker.setOnAction(e -> {
             applyFilters();
         });
         datePicker.getEditor().textProperty().addListener((obs, oldVal, newVal) -> {
-            applyFilters();
+            try {
+                showBubbles(allBubbles);
+            } catch (Exception e1) {
+                e1.printStackTrace();
+            }
         });
+
     }
 
     @FXML
@@ -112,11 +114,11 @@ public class HomePageController {
             allBubbles = response.getData();
             showBubbles(allBubbles);
         }
+
     }
 
     private void showBubbles(List<AccountBubblesResponseDTO> bubbles) throws Exception {
         vboxContainer.getChildren().clear();
-
         for (AccountBubblesResponseDTO accountBubblesResponseDTO : bubbles) {
 
             Parent parent = FXMLLoader.load(getClass().getResource("/fxml/bubble-card.fxml"));
