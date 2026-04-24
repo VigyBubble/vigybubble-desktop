@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
+import javafx.util.Duration;
 
 import com.effortcure.dto.request.CreateBubbleRequestDTO;
 import com.effortcure.dto.request.DirectoryRequestDTO;
@@ -15,6 +16,7 @@ import com.effortcure.service.interfaces.BubbleServiceInterface;
 import com.effortcure.util.DirectoryPickerUtil;
 import com.effortcure.util.ViewUtil;
 
+import javafx.animation.TranslateTransition;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -311,6 +313,13 @@ public class CreateBubbleController {
         retreiveData();
         if (comboBox != null)
             comboBox.getItems().add("Local");
+        animateBubble(bubbleImg, 20, 3);
+        animateBubble(bubbleImg1, 15, 4);
+        animateBubble(bubbleImg11, 25, 5);
+        animateBubble(bubbleImg2, 18, 3.5);
+        animateBubble(bubbleImg22, 22, 4.5);
+        animateBubble(bubbleImg3, 20, 4);
+
     }
 
     @FXML
@@ -466,6 +475,17 @@ public class CreateBubbleController {
                 resourcesContainer.getChildren().add(pane);
             }
         }
+    }
+
+    private void animateBubble(ImageView bubble, double moveY, double duration) {
+        TranslateTransition transition = new TranslateTransition();
+        transition.setNode(bubble);
+        transition.setDuration(Duration.seconds(duration));
+        transition.setByY(-moveY);
+        transition.setByX(10);
+        transition.setAutoReverse(true);
+        transition.setCycleCount(TranslateTransition.INDEFINITE);
+        transition.play();
     }
 
 }
