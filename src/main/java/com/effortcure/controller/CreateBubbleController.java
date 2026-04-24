@@ -333,8 +333,15 @@ public class CreateBubbleController {
 
     @FXML
     private void next1() {
-        ContentManager.setAnchorPane(root);
-        ContentManager.switchContent("/fxml/create-bubble-page-p2.fxml");
+        if (validateBubbleData()) {
+            ContentManager.setAnchorPane(root);
+            ContentManager.switchContent("/fxml/create-bubble-page-p2.fxml");
+        } else {
+            if (createBubbleRequestDTO.getName() == null || createBubbleRequestDTO.getName().isBlank())
+                bubbleNameField.getStyleClass().add("error-field");
+            if (createBubbleRequestDTO.getType() == null)
+                comboBox.getStyleClass().add("error-field");
+        }
     }
 
     @FXML
@@ -349,8 +356,8 @@ public class CreateBubbleController {
     @FXML
     private void save() throws Exception {
         bubbleServiceInterface.createBubble(createBubbleRequestDTO);
-        // show sucess popup
-        System.out.println("Bubble is saved");
+        ContentManager.setAnchorPane(root3);
+        ContentManager.switchContent("/fxml/home-page.fxml");
     }
 
     @FXML
@@ -430,6 +437,7 @@ public class CreateBubbleController {
         if (bubbleNameField != null)
             bubbleNameField.textProperty().addListener((obs, oldValue, newValue) -> {
                 createBubbleRequestDTO.setName(newValue);
+                bubbleNameField.getStyleClass().removeAll("error-field");
             });
         if (bubbleDescriptionField != null)
             bubbleDescriptionField.textProperty().addListener((obs, oldValue, newValue) -> {
@@ -437,9 +445,11 @@ public class CreateBubbleController {
             });
         if (comboBox != null)
             comboBox.setOnAction(e -> {
-                if (comboBox.getValue() != null)
+                if (comboBox.getValue() != null) {
                     createBubbleRequestDTO
                             .setType(comboBox.getValue().toString() == "Local" ? BubbleType.LOCAL : BubbleType.TEAM);
+                    comboBox.getStyleClass().removeAll("error-field");
+                }
             });
     }
 
@@ -468,4 +478,10 @@ public class CreateBubbleController {
         }
     }
 
+    private boolean validateBubbleData() {
+        return ((bubbleNameField.getText() == null ? false
+                : !bubbleNameField.getText().isBlank())
+                && (comboBox.getValue() == null ? false
+                        : !comboBox.getValue().isBlank()));
+    }
 }

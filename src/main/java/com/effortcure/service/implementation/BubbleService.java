@@ -1,5 +1,6 @@
 package com.effortcure.service.implementation;
 
+import java.util.Comparator;
 import java.util.List;
 import java.util.UUID;
 
@@ -103,6 +104,8 @@ public class BubbleService implements BubbleServiceInterface {
                 SceneManager.switchScene("/fxml/login-page.fxml", null);
                 authServiceInterface.logout();
             }
+            if (response.getData() != null)
+                response.getData().sort(Comparator.comparing(AccountBubblesResponseDTO::getCreatedAt).reversed());
         }
         return response;
     }

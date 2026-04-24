@@ -11,14 +11,16 @@
     -fx-font-weight: 400;
 }
 
-.all-fields,.comboType {
+.all-fields,
+.comboType {
     -fx-background-color: white;
     -fx-border-radius: 20;
     -fx-background-radius: 20;
     -fx-effect: dropshadow(gaussian, #115D58, 5, 0.3, 0, 0);
 }
 
-.all-fields:focused,.comboType:focused {
+.all-fields:focused,
+.comboType:focused {
     -fx-effect: dropshadow(gaussian, #115D58, 8, 0.4, 0, 0);
 }
 
@@ -53,6 +55,7 @@
     -fx-background-color: white;
     -fx-padding: 0 0 0 10;
 }
+
 .combo-box .arrow {
     -fx-background-color: #0B3E3A;
 }
@@ -166,13 +169,13 @@
 }
 
 .scroll-pane {
-  -fx-background-color: transparent;
-  -fx-background-insets: 0;
+    -fx-background-color: transparent;
+    -fx-background-insets: 0;
 }
 
-.scroll-pane > .viewport {
-  -fx-background-color: transparent;
-  -fx-shape: null;
+.scroll-pane>.viewport {
+    -fx-background-color: transparent;
+    -fx-shape: null;
 }
 
 .scroll-bar:vertical {
@@ -181,10 +184,10 @@
 }
 
 .scroll-bar:vertical .thumb {
-  -fx-background-color: gray;
-  -fx-background-radius: 10;
-  -fx-background-insets: 0;
-  -fx-pref-height: 207px;
+    -fx-background-color: gray;
+    -fx-background-radius: 10;
+    -fx-background-insets: 0;
+    -fx-pref-height: 207px;
 }
 
 .scroll-bar:vertical .increment-arrow,
@@ -223,11 +226,23 @@
 }
 
 .cancel-button:hover {
-    -fx-effect: dropshadow(gaussian, #115D58, 6, 0, 0, 0); /* ظل أقوى عند الهوفر */
+    -fx-effect: dropshadow(gaussian, #115D58, 6, 0, 0, 0);
+    /* ظل أقوى عند الهوفر */
 }
+
 .details-pane {
     -fx-background-color: transparent;
     /* -fx-effect: dropshadow(gaussian, #115d58, 4, 0, 0, 0); */
     -fx-border-radius: 20;
     -fx-background-radius: 20;
-  }
+}
+
+.error-field {
+    -fx-border-radius: 20;
+    -fx-border-color: #ff1b1b;
+    -fx-effect: dropshadow(gaussian, #ff1b1b, 5, 0.3, 0, 0);
+}
+
+.error-field:focused {
+    -fx-border-color: #ff1b1b;
+}
