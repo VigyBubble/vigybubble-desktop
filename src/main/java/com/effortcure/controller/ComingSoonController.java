@@ -43,7 +43,7 @@ public class ComingSoonController {
         transition.setNode(bubble);
         transition.setDuration(Duration.seconds(duration));
         transition.setByY(-moveY);
-        transition.setByX(10); // حركة جانبية خفيفة
+        transition.setByX(10);
         transition.setAutoReverse(true);
         transition.setCycleCount(TranslateTransition.INDEFINITE);
         transition.play();

@@ -3,6 +3,7 @@ package com.effortcure.controller;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+import javafx.util.Duration;
 
 import com.effortcure.dto.request.CreateBubbleRequestDTO;
 import com.effortcure.dto.response.AccountBubblesResponseDTO;
@@ -12,6 +13,7 @@ import com.effortcure.service.implementation.BubbleService;
 import com.effortcure.service.interfaces.BubbleServiceInterface;
 import com.effortcure.util.ViewUtil;
 
+import javafx.animation.TranslateTransition;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
@@ -100,6 +102,12 @@ public class HomePageController {
                 e1.printStackTrace();
             }
         });
+
+        animateBubble(bubbleImg1, 20, 3);
+        animateBubble(bubbleImg2, 15, 4);
+        animateBubble(bubbleImg3, 25, 5);
+        animateBubble(bubbleImg4, 18, 3.5);
+        animateBubble(bubbleImg5, 18, 3.5);
 
     }
 
@@ -198,6 +206,17 @@ public class HomePageController {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    private void animateBubble(ImageView bubble, double moveY, double duration) {
+        TranslateTransition transition = new TranslateTransition();
+        transition.setNode(bubble);
+        transition.setDuration(Duration.seconds(duration));
+        transition.setByY(-moveY);
+        transition.setByX(10);
+        transition.setAutoReverse(true);
+        transition.setCycleCount(TranslateTransition.INDEFINITE);
+        transition.play();
     }
 
 }
