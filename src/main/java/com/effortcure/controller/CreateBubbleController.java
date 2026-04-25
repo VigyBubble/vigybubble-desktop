@@ -11,7 +11,6 @@ import com.effortcure.dto.request.DirectoryRequestDTO;
 import com.effortcure.enums.BubbleType;
 import com.effortcure.enums.DirectoryType;
 import com.effortcure.navigator.ContentManager;
-import com.effortcure.navigator.PopupManager;
 import com.effortcure.service.implementation.BubbleService;
 import com.effortcure.service.interfaces.BubbleServiceInterface;
 import com.effortcure.util.DirectoryPickerUtil;
