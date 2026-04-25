@@ -58,6 +58,9 @@ public class BubbleCardController {
     private Separator estimatedSeparator;
 
     @FXML
+    private ImageView viewBubble;
+
+    @FXML
     private void initialize() {
         ViewUtil.initiateResponsiveView(this);
     }

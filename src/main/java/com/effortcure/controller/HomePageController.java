@@ -134,6 +134,14 @@ public class HomePageController {
             for (Node node : pane.getChildren()) {
                 if (node.getId().equals("bubbleUuid"))
                     ((Label) node).setText(accountBubblesResponseDTO.getUuid().toString());
+                if (node.getId().equals("viewBubble")) {
+                    ((ImageView) node).setOnMouseClicked(e -> {
+                        InspectBubbleController.bubbleUuid = UUID
+                                .fromString(((Label) ((Pane) node.getParent()).lookup("#bubbleUuid")).getText());
+                        ContentManager.setAnchorPane(root);
+                        ContentManager.switchContent("/fxml/inspect-bubble.fxml");
+                    });
+                }
                 if (node.getId().equals("titleLabel"))
                     ((Label) node).setText(accountBubblesResponseDTO.getName());
                 if (node.getId().equals("descriptionLabel"))
