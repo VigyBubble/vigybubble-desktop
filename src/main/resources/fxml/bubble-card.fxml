@@ -8,9 +8,9 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<Pane fx:id="bubbleCardPane" prefHeight="259.0" prefWidth="1230.0" styleClass="bubble-card" stylesheets="@../css/home-page.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.effortcure.controller.BubbleCardController">
+<Pane fx:id="bubbleCardPane" style="-fx-Cursor:hand;" prefHeight="259.0" prefWidth="1230.0" styleClass="bubble-card" stylesheets="@../css/home-page.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.effortcure.controller.BubbleCardController">
   <children>
-    <ImageView fx:id="closeIcon" fitHeight="24.0" fitWidth="24.0" layoutX="1180.0" layoutY="30.0" pickOnBounds="true" preserveRatio="true">
+    <ImageView fx:id="closeIcon"  style="-fx-Cursor:hand;" fitHeight="24.0" fitWidth="24.0" layoutX="1180.0" layoutY="30.0" pickOnBounds="true" preserveRatio="true">
       <image>
         <Image url="@../images/close-icon.png"/>
       </image>

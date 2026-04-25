@@ -1,5 +1,6 @@
 package com.effortcure.controller;
 
+
 import com.effortcure.util.ViewUtil;
 
 import javafx.fxml.FXML;
@@ -34,7 +35,6 @@ public class ConfirmPopupController {
     @FXML
     private void initialize() {
         ViewUtil.initiateResponsiveView(this);
-
     }
 
 }

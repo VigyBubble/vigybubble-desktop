@@ -102,13 +102,11 @@ public class HomePageController {
                 e1.printStackTrace();
             }
         });
-
         animateBubble(bubbleImg1, 20, 3);
         animateBubble(bubbleImg2, 15, 4);
         animateBubble(bubbleImg3, 25, 5);
         animateBubble(bubbleImg4, 18, 3.5);
         animateBubble(bubbleImg5, 18, 3.5);
-
     }
 
     @FXML

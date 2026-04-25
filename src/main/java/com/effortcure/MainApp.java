@@ -20,9 +20,9 @@ public class MainApp extends Application {
         System.setProperty("os.screen.width", String.valueOf(screenDimensions[0]));
         System.setProperty("os.screen.hight", String.valueOf(screenDimensions[1]));
         SceneManager.setStage(stage);
-        if (RefreshTokenManager.getRefreshToken() != null) {
-            authServiceInterface.refreshAccessAndRefreshTokens();
-            SceneManager.switchScene("/fxml/main-template.fxml", null);
+          if (RefreshTokenManager.getRefreshToken() != null) {
+           authServiceInterface.refreshAccessAndRefreshTokens();
+           SceneManager.switchScene("/fxml/main-template.fxml", null);
         } else
             SceneManager.switchScene("/fxml/login-page.fxml", null);
     }

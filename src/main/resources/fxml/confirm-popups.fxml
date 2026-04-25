@@ -8,9 +8,9 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="root" prefHeight="259.0" prefWidth="650.0" styleClass="main-pane" stylesheets="@../css/confirm-popups.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane fx:id="root" prefHeight="283.0" prefWidth="650.0" styleClass="main-pane" stylesheets="@../css/confirm-popups.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.effortcure.controller.ConfirmPopupController">
   <children>
-    <ImageView fx:id="close" fitHeight="24.0" fitWidth="24.0" layoutX="612.0" layoutY="21.0" pickOnBounds="true" preserveRatio="true">
+    <ImageView fx:id="close" style="-fx-cursor:hand;" fitHeight="24.0" fitWidth="24.0" layoutX="612.0" layoutY="21.0" pickOnBounds="true" preserveRatio="true">
       <image>
         <Image url="@../images/close-icon.png"/>
       </image>
@@ -26,12 +26,12 @@
         <Font size="30.0"/>
       </font>
     </Label>
-    <Button fx:id="cancelBtn" layoutX="33.0" layoutY="194.0" mnemonicParsing="false" styleClass="cancel-button" text="Cancel">
+    <Button fx:id="cancelBtn" style="-fx-cursor:hand;" layoutX="33.0" layoutY="212.0" mnemonicParsing="false" styleClass="cancel-button" text="Cancel">
       <font>
         <Font size="25.0"/>
       </font>
     </Button>
-    <Button fx:id="confirmBtn" layoutX="507.0" layoutY="195.0" mnemonicParsing="false" styleClass="confirm-button" text="Confirm">
+    <Button fx:id="confirmBtn" style="-fx-cursor:hand;" layoutX="507.0" layoutY="212.0" mnemonicParsing="false" styleClass="confirm-button" text="Confirm">
       <font>
         <Font size="25.0"/>
       </font>
