@@ -11,6 +11,7 @@ import com.effortcure.dto.request.CreateBubbleRequestDTO;
 import com.effortcure.dto.response.AccountBubblesResponseDTO;
 import com.effortcure.dto.response.ApiResponse;
 import com.effortcure.navigator.ContentManager;
+import com.effortcure.navigator.PopupManager;
 import com.effortcure.service.implementation.BubbleService;
 import com.effortcure.service.interfaces.BubbleServiceInterface;
 import com.effortcure.util.ViewUtil;
@@ -164,12 +165,16 @@ public class HomePageController {
                 }
                 if (node.getId().equals("closeIcon"))
                     ((ImageView) node).setOnMouseClicked(e -> {
-                        try {
-                            bubbleServiceInterface.deleteBubble(UUID
-                                    .fromString(((Label) ((Pane) node.getParent()).lookup("#bubbleUuid")).getText()));
-                            vboxContainer.getChildren().remove(parent);
-                        } catch (Exception e1) {
-                            e1.printStackTrace();
+                        PopupManager.showPopup("/fxml/confirm-popups.fxml");
+                        if (ConfirmPopupController.doAction) {
+                            try {
+                                bubbleServiceInterface.deleteBubble(UUID
+                                        .fromString(
+                                                ((Label) ((Pane) node.getParent()).lookup("#bubbleUuid")).getText()));
+                                vboxContainer.getChildren().remove(parent);
+                            } catch (Exception e1) {
+                                e1.printStackTrace();
+                            }
                         }
                     });
             }

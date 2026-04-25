@@ -5,7 +5,7 @@ import java.io.IOException;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.image.ImageView;
+import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
@@ -16,15 +16,15 @@ public class PopupManager {
         try {
             Parent root = FXMLLoader.load(PopupManager.class.getResource(fxml));
             Stage popup = new Stage();
-            ((ImageView) root.lookup("#close")).setOnMouseClicked(e -> {
-                popup.close();
-            });
             Scene scene = new Scene(root);
             popup.setScene(scene);
             popup.sizeToScene();
             scene.setFill(Color.TRANSPARENT);
             popup.initStyle(StageStyle.TRANSPARENT);
             popup.initModality(Modality.APPLICATION_MODAL);
+            System.out.println(Double.valueOf(System.getProperty("os.screen.width")));
+            popup.setX((Double.valueOf(System.getProperty("os.screen.width")) / 2 - ((Pane) root).getPrefWidth() / 2));
+            popup.setY((Double.valueOf(System.getProperty("os.screen.hight")) / 2 - ((Pane) root).getPrefHeight() / 2));
             popup.showAndWait();
         } catch (IOException e) {
             e.printStackTrace();

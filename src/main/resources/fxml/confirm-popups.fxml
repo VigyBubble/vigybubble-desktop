@@ -8,32 +8,32 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="root" prefHeight="283.0" prefWidth="650.0" styleClass="main-pane" stylesheets="@../css/confirm-popups.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.effortcure.controller.ConfirmPopupController">
+<AnchorPane fx:id="root" prefHeight="241.0" prefWidth="650.0" styleClass="main-pane" stylesheets="@../css/confirm-popups.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.effortcure.controller.ConfirmPopupController">
   <children>
-    <ImageView fx:id="close" style="-fx-cursor:hand;" fitHeight="24.0" fitWidth="24.0" layoutX="612.0" layoutY="21.0" pickOnBounds="true" preserveRatio="true">
+    <ImageView fx:id="close" fitHeight="24.0" fitWidth="24.0" layoutX="601.0" layoutY="29.0" onMouseClicked="#cancelAction" pickOnBounds="true" preserveRatio="true" style="-fx-cursor:hand;">
       <image>
-        <Image url="@../images/close-icon.png"/>
+        <Image url="@../images/close-icon.png" />
       </image>
     </ImageView>
-    <Label fx:id="title" layoutX="28.0" layoutY="16.0" prefHeight="50.0" prefWidth="217.0" text="Update Name">
+    <Label fx:id="title" layoutX="28.0" layoutY="16.0" prefHeight="50.0" prefWidth="563.0" text="Update Name">
       <font>
-        <Font size="34.0"/>
+        <Font size="34.0" />
       </font>
     </Label>
-    <Separator fx:id="separator" layoutX="28.0" layoutY="74.0" prefWidth="600.0"/>
+    <Separator fx:id="separator" layoutX="28.0" layoutY="74.0" prefWidth="600.0" />
     <Label fx:id="content" alignment="TOP_LEFT" layoutX="25.0" layoutY="94.0" prefHeight="58.0" prefWidth="580.0" text="Are you sure you want to update name?">
       <font>
-        <Font size="30.0"/>
+        <Font size="30.0" />
       </font>
     </Label>
-    <Button fx:id="cancelBtn" style="-fx-cursor:hand;" layoutX="33.0" layoutY="212.0" mnemonicParsing="false" styleClass="cancel-button" text="Cancel">
+    <Button fx:id="cancelBtn" layoutX="29.0" layoutY="165.0" mnemonicParsing="false" onAction="#cancelAction" prefHeight="52.0" prefWidth="112.0" style="-fx-cursor:hand;" styleClass="cancel-button" text="Cancel">
       <font>
-        <Font size="25.0"/>
+        <Font size="25.0" />
       </font>
     </Button>
-    <Button fx:id="confirmBtn" style="-fx-cursor:hand;" layoutX="507.0" layoutY="212.0" mnemonicParsing="false" styleClass="confirm-button" text="Confirm">
+    <Button fx:id="confirmBtn" layoutX="493.0" layoutY="165.0" mnemonicParsing="false" onAction="#doAction" prefHeight="52.0" prefWidth="130.0" style="-fx-cursor:hand;" styleClass="confirm-button" text="Confirm">
       <font>
-        <Font size="25.0"/>
+        <Font size="25.0" />
       </font>
     </Button>
   </children>
