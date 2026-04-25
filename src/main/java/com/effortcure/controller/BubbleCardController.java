@@ -10,6 +10,9 @@ import javafx.scene.layout.Pane;
 
 public class BubbleCardController {
     @FXML
+    private Pane root;
+
+    @FXML
     private Pane bubbleCardPane;
 
     @FXML

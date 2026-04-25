@@ -3,6 +3,8 @@ package com.effortcure.controller;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
+
 import javafx.util.Duration;
 
 import com.effortcure.dto.request.CreateBubbleRequestDTO;
@@ -102,13 +104,11 @@ public class HomePageController {
                 e1.printStackTrace();
             }
         });
-
         animateBubble(bubbleImg1, 20, 3);
         animateBubble(bubbleImg2, 15, 4);
         animateBubble(bubbleImg3, 25, 5);
         animateBubble(bubbleImg4, 18, 3.5);
         animateBubble(bubbleImg5, 18, 3.5);
-
     }
 
     @FXML
@@ -124,85 +124,71 @@ public class HomePageController {
             allBubbles = response.getData();
             showBubbles(allBubbles);
         }
-
     }
 
     private void showBubbles(List<AccountBubblesResponseDTO> bubbles) throws Exception {
         vboxContainer.getChildren().clear();
         for (AccountBubblesResponseDTO accountBubblesResponseDTO : bubbles) {
-
             Parent parent = FXMLLoader.load(getClass().getResource("/fxml/bubble-card.fxml"));
-            Pane pane = (Pane) parent;
-
+            Pane pane = (Pane) parent.lookup("#bubbleCardPane");
             for (Node node : pane.getChildren()) {
-
                 if (node.getId().equals("bubbleUuid"))
                     ((Label) node).setText(accountBubblesResponseDTO.getUuid().toString());
-
                 if (node.getId().equals("titleLabel"))
                     ((Label) node).setText(accountBubblesResponseDTO.getName());
-
                 if (node.getId().equals("descriptionLabel"))
                     ((Label) node).setText(accountBubblesResponseDTO.getDescription());
-
                 if (node.getId().equals("teamLabel"))
                     ((Label) node).setText(accountBubblesResponseDTO.getType().toString());
-
                 if (node.getId().equals("createdAtLabel"))
                     ((Label) node).setText(accountBubblesResponseDTO.getCreatedAt().toString());
-
                 if (node.getId().equals("actualdurationPane")) {
                     for (Node child : ((Pane) node).getChildren()) {
                         if (child.getId().equals("actualDuration"))
                             ((Label) child).setText(accountBubblesResponseDTO.getActualDuration());
                     }
                 }
-
                 if (node.getId().equals("estimatedPane")) {
                     for (Node child : ((Pane) node).getChildren()) {
                         if (child.getId().equals("estimatedDuration"))
                             ((Label) child).setText(accountBubblesResponseDTO.getEstimatedDuration());
                     }
                 }
+                if (node.getId().equals("closeIcon"))
+                    ((ImageView) node).setOnMouseClicked(e -> {
+                        try {
+                            bubbleServiceInterface.deleteBubble(UUID
+                                    .fromString(((Label) ((Pane) node.getParent()).lookup("#bubbleUuid")).getText()));
+                            vboxContainer.getChildren().remove(parent);
+                        } catch (Exception e1) {
+                            e1.printStackTrace();
+                        }
+                    });
             }
-
-            vboxContainer.getChildren().add(pane);
-
-            Pane margiPane = new Pane();
-            margiPane.setPrefHeight(25);
-            vboxContainer.getChildren().add(margiPane);
+            vboxContainer.getChildren().add(parent);
         }
     }
 
     private void applyFilters() {
         try {
-
             LocalDate selectedDate = datePicker.getValue();
             String selectedType = typeComboBox.getValue();
-
             List<AccountBubblesResponseDTO> filtered = new ArrayList<>();
-
             for (AccountBubblesResponseDTO bubble : allBubbles) {
-
                 boolean matchesDate = true;
                 boolean matchesType = true;
-
                 if (selectedDate != null) {
                     LocalDate bubbleDate = bubble.getCreatedAt().toLocalDate();
                     matchesDate = bubbleDate.equals(selectedDate);
                 }
-
                 if (selectedType != null && !selectedType.equalsIgnoreCase("all")) {
                     matchesType = bubble.getType().toString().equalsIgnoreCase(selectedType);
                 }
-
                 if (matchesDate && matchesType) {
                     filtered.add(bubble);
                 }
             }
-
             showBubbles(filtered);
-
         } catch (Exception e) {
             e.printStackTrace();
         }
