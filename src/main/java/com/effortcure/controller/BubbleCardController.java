@@ -1,5 +1,6 @@
 package com.effortcure.controller;
 
+
 import com.effortcure.util.ViewUtil;
 
 import javafx.fxml.FXML;

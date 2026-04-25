@@ -319,7 +319,6 @@ public class CreateBubbleController {
         animateBubble(bubbleImg2, 18, 3.5);
         animateBubble(bubbleImg22, 22, 4.5);
         animateBubble(bubbleImg3, 20, 4);
-
     }
 
     @FXML

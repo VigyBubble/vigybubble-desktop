@@ -21,6 +21,7 @@ public class PopupManager {
             });
             Scene scene = new Scene(root);
             popup.setScene(scene);
+            popup.sizeToScene();
             scene.setFill(Color.TRANSPARENT);
             popup.initStyle(StageStyle.TRANSPARENT);
             popup.initModality(Modality.APPLICATION_MODAL);

@@ -10,7 +10,7 @@ import javafx.scene.image.ImageView;
 
 public class DeletePopupsController {
  
- @FXML private Pane popupRoot;
+ @FXML private Pane root;
 
 @FXML private Label deleteLabel;
 
@@ -31,12 +31,10 @@ public void initialize() {
     clip.setArcWidth(50);
     clip.setArcHeight(50);
 
-    clip.widthProperty().bind(popupRoot.widthProperty());
-    clip.heightProperty().bind(popupRoot.heightProperty());
+    clip.widthProperty().bind(root.widthProperty());
+    clip.heightProperty().bind(root.heightProperty());
 
-    popupRoot.setClip(clip);
+    root.setClip(clip);
 }
-
-
 
 }
