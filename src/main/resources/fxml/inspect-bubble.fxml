@@ -75,7 +75,7 @@
               </ImageView>
               <Pane fx:id="descriptionpane" layoutX="100.0" layoutY="204.0" prefHeight="287.0" prefWidth="905.0" styleClass="all-panes">
                 <children>
-                  <Label fx:id="descriotionlabel" layoutX="16.0" layoutY="23.0" prefHeight="39.0" prefWidth="155.0" styleClass="all-labels" text="Describtion">
+                  <Label fx:id="descriotionlabel" layoutX="16.0" layoutY="23.0" prefHeight="45.0" prefWidth="155.0" styleClass="all-labels" text="Describtion">
                     <font>
                       <Font size="30.0" />
                     </font>
@@ -133,7 +133,7 @@
                   <Image url="@../images/edit-icon.png" />
                 </image>
               </ImageView>
-              <Button fx:id="deletebutton" layoutX="98.0" layoutY="1287.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="127.0" styleClass="delete-button" text="Delete">
+              <Button fx:id="deletebutton" layoutX="102.0" layoutY="1287.0" mnemonicParsing="false" prefHeight="65.8" prefWidth="127.0" styleClass="delete-button" text="Delete">
                 <font>
                   <Font size="30.0" />
                 </font>
@@ -143,7 +143,7 @@
                   <Font size="30.0" />
                 </font>
               </Label>
-              <Button fx:id="sessionsdetailsbutton" layoutX="962.0" layoutY="1287.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="280.0" styleClass="session-details-button" text="Session Details">
+              <Button fx:id="sessionsdetailsbutton" layoutX="1051.0" layoutY="1287.0" mnemonicParsing="false" prefHeight="65.8" prefWidth="250.0" styleClass="session-details-button" text="Session Details">
                 <font>
                   <Font size="30.0" />
                 </font>
