@@ -31,6 +31,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.scene.control.Separator;
+import javafx.scene.effect.GaussianBlur;
 import javafx.scene.image.ImageView;
 
 public class HomePageController {
@@ -82,6 +83,8 @@ public class HomePageController {
 
     @FXML
     private VBox vboxContainer;
+    @FXML
+    private Pane overlay;
 
     private BubbleServiceInterface bubbleServiceInterface = new BubbleService();
     private List<AccountBubblesResponseDTO> allBubbles = new ArrayList<>();
@@ -165,6 +168,9 @@ public class HomePageController {
                 }
                 if (node.getId().equals("closeIcon"))
                     ((ImageView) node).setOnMouseClicked(e -> {
+                        GaussianBlur blur = new GaussianBlur(5);
+                        root.setEffect(blur);
+                        overlay.setVisible(true);
                         PopupManager.showPopup("/fxml/confirm-popups.fxml");
                         if (ConfirmPopupController.doAction) {
                             try {
@@ -172,10 +178,13 @@ public class HomePageController {
                                         .fromString(
                                                 ((Label) ((Pane) node.getParent()).lookup("#bubbleUuid")).getText()));
                                 vboxContainer.getChildren().remove(parent);
+
                             } catch (Exception e1) {
                                 e1.printStackTrace();
                             }
                         }
+                        root.setEffect(null);
+                        overlay.setVisible(false);
                     });
             }
             vboxContainer.getChildren().add(parent);

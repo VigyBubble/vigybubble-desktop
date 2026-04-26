@@ -78,5 +78,8 @@
         </VBox>
       </content>
     </ScrollPane>
+    <Pane fx:id="overlay" visible="false"
+          style="-fx-background-color: rgba(0,0,0,0.3);"
+          prefWidth="1440.0" prefHeight="853.0"/>
   </children>
 </AnchorPane>
