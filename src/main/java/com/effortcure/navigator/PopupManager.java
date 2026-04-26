@@ -22,7 +22,6 @@ public class PopupManager {
             scene.setFill(Color.TRANSPARENT);
             popup.initStyle(StageStyle.TRANSPARENT);
             popup.initModality(Modality.APPLICATION_MODAL);
-            System.out.println(Double.valueOf(System.getProperty("os.screen.width")));
             popup.setX((Double.valueOf(System.getProperty("os.screen.width")) / 2 - ((Pane) root).getPrefWidth() / 2));
             popup.setY((Double.valueOf(System.getProperty("os.screen.hight")) / 2 - ((Pane) root).getPrefHeight() / 2));
             popup.showAndWait();
