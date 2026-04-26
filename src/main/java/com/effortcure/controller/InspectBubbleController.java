@@ -3,7 +3,11 @@ package com.effortcure.controller;
 import java.util.UUID;
 import javafx.util.Duration;
 
+import com.effortcure.dto.response.ApiResponse;
+import com.effortcure.dto.response.BubbleDetailsResponseDTO;
 import com.effortcure.navigator.ContentManager;
+import com.effortcure.service.implementation.BubbleService;
+import com.effortcure.service.interfaces.BubbleServiceInterface;
 import com.effortcure.util.ViewUtil;
 
 import javafx.animation.TranslateTransition;
@@ -105,11 +109,12 @@ public class InspectBubbleController {
     private Separator estimatedSeparator;
 
     @FXML
-    private Button deletebutton;
+    private  Button deletebutton;
     @FXML
     private Button sessionsdetailsbutton;
 
     public static UUID bubbleUuid;
+    private BubbleServiceInterface bubbleServiceInterface = new BubbleService();
 
     @FXML
     private void initialize() {
@@ -128,6 +133,7 @@ public class InspectBubbleController {
         animateBubble(bubble5, 18, 3.5);
         animateBubble(bubble6, 15, 3.5);
         animateBubble(bubble7, 18, 3.5);
+         loadBubbleData();
     }
 
     @FXML
@@ -135,6 +141,26 @@ public class InspectBubbleController {
         ContentManager.setAnchorPane(root);
         ContentManager.switchContent("/fxml/home-page.fxml");
     }
+
+ 
+    private void loadBubbleData() {
+    try {
+         ApiResponse<BubbleDetailsResponseDTO> response = bubbleServiceInterface.getBubbleDetails(bubbleUuid);
+
+        if (response != null && response.getStatus() == 200) {
+
+            BubbleDetailsResponseDTO bubble = response.getData();
+            bubblelabel.setText(bubble.getName());
+           bubblediscriotionlabel.setText(bubble.getDescription());
+           actualDuration.setText(bubble.getActualDuration());
+           estimatedDuration.setText(bubble.getEstimatedDuration());
+
+        }
+
+    } catch (Exception e) {
+        e.printStackTrace();
+    }
+}
 
     private void animateBubble(ImageView bubble, double moveY, double duration) {
         TranslateTransition transition = new TranslateTransition();
