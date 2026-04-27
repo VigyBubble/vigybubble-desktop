@@ -88,7 +88,6 @@ public class InspectSessionsController {
 
     @FXML
     public void initialize() {
-
         ViewUtil.initiateResponsiveView(this);
     }
 
