@@ -32,24 +32,40 @@ public class ConfirmPopupController {
     @FXML
     private Button confirmBtn;
 
-    public static boolean doAction;
-
+    private Runnable onConfirm;
+    private Runnable onCancel;
+    
     @FXML
     private void initialize() {
         ViewUtil.initiateResponsiveView(this);
-        doAction = false;
+    }
+
+    public void setupDeleteMode() {
+        title.setText("Delete Bubble");
+        content.setText("Are you sure you want to delete this bubble?");
+        confirmBtn.setText("Delete");
+        confirmBtn.getStyleClass().add("delete-btn");
+    }
+
+    public void setOnConfirm(Runnable action) {
+        this.onConfirm = action;
+    }
+
+    public void setOnCancel(Runnable action) {
+        this.onCancel = action;
     }
 
     @FXML
-    private void doAction() {
-        doAction = true;
+    private void handleConfirm() {
+        if (onConfirm != null)
+            onConfirm.run();
         ((Stage) (confirmBtn.getScene().getWindow())).close();
     }
 
     @FXML
-    private void cancelAction() {
-        doAction = false;
+    private void handleCancel() {
+        if (onCancel != null)
+            onCancel.run();
         ((Stage) (cancelBtn.getScene().getWindow())).close();
-
     }
 }
