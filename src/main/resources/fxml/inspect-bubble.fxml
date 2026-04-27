@@ -53,77 +53,77 @@
         <VBox fx:id="mainVBox" alignment="TOP_CENTER">
           <Pane fx:id="mainpane" prefHeight="2000" prefWidth="1440.0">
             <children>
-              <Pane fx:id="namepane" layoutX="100.0" layoutY="80.0" prefHeight="84.0" prefWidth="541.0" styleClass="all-panes">
+              <Pane fx:id="namepane" layoutX="100.0" layoutY="80.0" prefHeight="84.0" prefWidth="1200.0" styleClass="all-panes">
                 <children>
-                  <Label fx:id="namelabel" layoutX="16.0" layoutY="2.0" prefHeight="81.0" prefWidth="81.0" styleClass="all-labels" text="Name">
+                  <Label fx:id="namelabel" layoutX="16.0" layoutY="20.0" prefHeight="42.0" prefWidth="86.0" styleClass="all-labels" text="Name">
                     <font>
                       <Font size="30.0" />
                     </font>
                   </Label>
-                  <Label fx:id="bubblelabel" layoutX="113.0" layoutY="2.0" prefHeight="84.0" prefWidth="421.0" text="Create Ui for Vigy bubble">
+                  <Label fx:id="bubblelabel" layoutX="118.0" prefHeight="84.0" prefWidth="1073.0" text="Create Ui for Vigy bubble">
                     <font>
                       <Font size="34.0" />
                     </font>
                   </Label>
-                  <Separator fx:id="separator" layoutX="99.0" layoutY="16.0" orientation="VERTICAL" prefHeight="52.0" prefWidth="1.0" />
+                  <Separator fx:id="separator" layoutX="106.0" layoutY="16.0" orientation="VERTICAL" prefHeight="52.0" prefWidth="1.0" />
                 </children>
               </Pane>
-              <ImageView fx:id="editicon1" fitHeight="24.0" fitWidth="24.0" layoutX="657.0" layoutY="110.0" pickOnBounds="true" preserveRatio="true">
+              <ImageView fx:id="editicon1" fitHeight="24.0" fitWidth="24.0" layoutX="1316.0" layoutY="109.0" pickOnBounds="true" preserveRatio="true">
                 <image>
                   <Image url="@../images/edit-icon.png" />
                 </image>
               </ImageView>
-              <Pane fx:id="descriptionpane" layoutX="100.0" layoutY="204.0" prefHeight="287.0" prefWidth="905.0" styleClass="all-panes">
+              <Pane fx:id="descriptionpane" layoutX="100.0" layoutY="204.0" prefHeight="287.0" prefWidth="1200.0" styleClass="all-panes">
                 <children>
-                  <Label fx:id="descriotionlabel" layoutX="16.0" layoutY="23.0" prefHeight="45.0" prefWidth="155.0" styleClass="all-labels" text="Describtion">
+                  <Label fx:id="descriotionlabel" layoutX="16.0" layoutY="16.0" prefHeight="42.0" prefWidth="163.0" styleClass="all-labels" text="Description">
                     <font>
                       <Font size="30.0" />
                     </font>
                   </Label>
-                  <Label fx:id="bubblediscriotionlabel" alignment="TOP_LEFT" layoutX="176.0" layoutY="17.0" prefHeight="268.0" prefWidth="713.0" text="create ui for different page Lorem ipsum dolor sit amet consectetur create ui for different page Lorem ipsum dolor sit amet consectetur create ui for different page Lorem ipsum dolor sit amet consectetur" wrapText="true">
+                  <Label fx:id="bubblediscriotionlabel" alignment="TOP_LEFT" layoutX="192.0" layoutY="16.0" prefHeight="268.0" prefWidth="998.0" text="create ui for different page Lorem ipsum dolor sit amet consectetur create ui for different page Lorem ipsum dolor sit amet consectetur create ui for different page Lorem ipsum dolor sit amet consectetur" wrapText="true">
                     <font>
                       <Font size="34.0" />
                     </font>
                   </Label>
-                  <Separator fx:id="separator1" layoutX="168.0" layoutY="16.0" orientation="VERTICAL" prefHeight="255.0" prefWidth="1.0" />
+                  <Separator fx:id="separator1" layoutX="184.0" layoutY="16.0" orientation="VERTICAL" prefHeight="255.0" prefWidth="1.0" />
                 </children>
               </Pane>
-              <ImageView fx:id="editicon2" fitHeight="24.0" fitWidth="24.0" layoutX="1021.0" layoutY="327.0" pickOnBounds="true" preserveRatio="true">
+              <ImageView fx:id="editicon2" fitHeight="24.0" fitWidth="24.0" layoutX="1316.0" layoutY="327.0" pickOnBounds="true" preserveRatio="true">
                 <image>
                   <Image url="@../images/edit-icon.png" />
                 </image>
               </ImageView>
-              <Pane fx:id="applistpane" layoutX="100.0" layoutY="531.0" prefHeight="234.0" prefWidth="743.0" styleClass="all-panes">
+              <Pane fx:id="applistpane" layoutX="100.0" layoutY="531.0" prefHeight="234.0" prefWidth="1200.0" styleClass="all-panes">
                 <children>
-                  <Label fx:id="applistlabel" layoutX="16.0" layoutY="16.0" prefHeight="39.0" prefWidth="213.0" styleClass="all-labels" text="Application List">
+                  <Label fx:id="applistlabel" layoutX="16.0" layoutY="16.0" prefHeight="42.0" prefWidth="132.0" styleClass="all-labels" text="Apps List">
                     <font>
                       <Font size="30.0" />
                     </font>
                   </Label>
-                  <Separator fx:id="separator2" layoutX="222.0" layoutY="16.0" orientation="VERTICAL" prefHeight="202.0" prefWidth="6.0" />
-                  <ScrollPane hbarPolicy="NEVER" layoutX="232.0" prefHeight="234.0" prefWidth="511.0">
+                  <Separator fx:id="separator2" layoutX="184.0" layoutY="16.0" orientation="VERTICAL" prefHeight="202.0" prefWidth="7.0" />
+                  <ScrollPane fx:id="appsListScrollPane" hbarPolicy="NEVER" layoutX="189.0" prefHeight="234.0" prefWidth="1011.0">
                     <content>
-                      <VBox alignment="TOP_CENTER" />
+                      <VBox fx:id="appsListVBox" alignment="TOP_CENTER" />
                     </content>
                   </ScrollPane>
                 </children>
               </Pane>
-              <ImageView fx:id="editicon3" fitHeight="24.0" fitWidth="24.0" layoutX="859.0" layoutY="636.0" pickOnBounds="true" preserveRatio="true">
+              <ImageView fx:id="editicon3" fitHeight="24.0" fitWidth="24.0" layoutX="1316.0" layoutY="636.0" pickOnBounds="true" preserveRatio="true">
                 <image>
                   <Image url="@../images/edit-icon.png" />
                 </image>
               </ImageView>
               <Pane fx:id="pathlistpane" layoutX="100.0" layoutY="805.0" prefHeight="320.0" prefWidth="1200.0" styleClass="all-panes">
                 <children>
-                  <Label fx:id="pathlistlabel" layoutX="16.0" layoutY="16.0" prefHeight="45.0" prefWidth="186.0" styleClass="all-labels" text="Path/URL List">
+                  <Label fx:id="pathlistlabel" layoutX="16.0" layoutY="16.0" prefHeight="42.0" prefWidth="133.0" styleClass="all-labels" text="Path/URL">
                     <font>
                       <Font size="30.0" />
                     </font>
                   </Label>
-                  <Separator fx:id="separator3" layoutX="202.0" layoutY="21.0" orientation="VERTICAL" prefHeight="288.0" prefWidth="7.0" />
-                  <ScrollPane fx:id="pathscrollpane" hbarPolicy="NEVER" layoutX="215.0" prefHeight="320.0" prefWidth="985.0">
+                  <Separator fx:id="separator3" layoutX="184.0" layoutY="21.0" orientation="VERTICAL" prefHeight="288.0" prefWidth="8.0" />
+                  <ScrollPane fx:id="pathscrollpane" hbarPolicy="NEVER" layoutX="189.0" prefHeight="320.0" prefWidth="1011.0">
                     <content>
-                      <VBox alignment="TOP_CENTER" />
+                      <VBox fx:id="pathsVBox" alignment="TOP_CENTER" />
                     </content>
                   </ScrollPane>
                 </children>
@@ -133,49 +133,49 @@
                   <Image url="@../images/edit-icon.png" />
                 </image>
               </ImageView>
-              <Button fx:id="deletebutton" layoutX="102.0" layoutY="1287.0" mnemonicParsing="false" prefHeight="65.8" prefWidth="127.0" styleClass="delete-button" text="Delete">
+              <Button fx:id="deletebutton" layoutX="70.0" layoutY="1275.0" mnemonicParsing="false" prefHeight="66.0" prefWidth="140.0" styleClass="delete-button" text="Delete">
                 <font>
                   <Font size="30.0" />
                 </font>
               </Button>
-              <Label fx:id="teamlabel" alignment="CENTER" layoutX="1220.0" layoutY="94.0" prefHeight="55.0" prefWidth="120.0" styleClass="team-label" text="Team1">
+              <Label fx:id="teamlabel" alignment="CENTER" layoutX="100.0" layoutY="1166.0" prefHeight="55.0" prefWidth="120.0" styleClass="team-label" text="Team1">
                 <font>
                   <Font size="30.0" />
                 </font>
               </Label>
-              <Button fx:id="sessionsdetailsbutton" layoutX="1051.0" layoutY="1287.0" mnemonicParsing="false" prefHeight="65.8" prefWidth="250.0" styleClass="session-details-button" text="Session Details">
+              <Button fx:id="sessionsdetailsbutton" layoutX="1065.0" layoutY="1275.0" mnemonicParsing="false" prefHeight="66.0" prefWidth="275.0" styleClass="session-details-button" text="Session Details">
                 <font>
                   <Font size="30.0" />
                 </font>
               </Button>
-              <Pane fx:id="actualdurationPane" layoutX="100.0" layoutY="1185.0" prefHeight="47.0" prefWidth="282.0" styleClass="all-panes">
+              <Pane fx:id="actualdurationPane" layoutX="656.0" layoutY="1166.0" prefHeight="55.0" prefWidth="282.0" styleClass="all-panes">
                 <children>
-                  <Label fx:id="actualLabel" alignment="CENTER" contentDisplay="CENTER" prefHeight="47.0" prefWidth="101.0" text="Actual">
+                  <Label fx:id="actualLabel" alignment="CENTER" contentDisplay="CENTER" layoutY="4.0" prefHeight="47.0" prefWidth="101.0" text="Actual">
                     <font>
                       <Font size="28.0" />
                     </font>
                   </Label>
-                  <Label fx:id="actualDuration" alignment="CENTER" layoutX="106.0" layoutY="1.0" prefHeight="47.0" prefWidth="184.0" style="-fx-background-radius: 0 20 20 0;">
+                  <Label fx:id="actualDuration" alignment="CENTER" layoutX="106.0" layoutY="4.0" prefHeight="47.0" prefWidth="166.0" style="-fx-background-radius: 0 20 20 0;">
                     <font>
                       <Font size="24.0" />
                     </font>
                   </Label>
-                  <Separator fx:id="actualSeparator" layoutX="102.0" layoutY="13.0" orientation="VERTICAL" prefHeight="22.0" prefWidth="1.0" />
+                  <Separator fx:id="actualSeparator" layoutX="102.0" layoutY="14.0" orientation="VERTICAL" prefHeight="28.0" prefWidth="5.0" />
                 </children>
               </Pane>
-              <Pane fx:id="estimatedPane" layoutX="962.0" layoutY="1185.0" prefHeight="47.0" prefWidth="340.0" styleClass="all-panes">
+              <Pane fx:id="estimatedPane" layoutX="960.0" layoutY="1166.0" prefHeight="55.0" prefWidth="340.0" styleClass="all-panes">
                 <children>
-                  <Label fx:id="estimatedLabel" alignment="CENTER" contentDisplay="CENTER" prefHeight="47.0" prefWidth="149.0" text="Estimated">
+                  <Label fx:id="estimatedLabel" alignment="CENTER" contentDisplay="CENTER" layoutY="4.0" prefHeight="47.0" prefWidth="149.0" text="Estimated">
                     <font>
                       <Font size="28.0" />
                     </font>
                   </Label>
-                  <Label fx:id="estimatedDuration" alignment="CENTER" layoutX="156.0" prefHeight="47.0" prefWidth="184.0" style="-fx-background-radius: 0 20 20 0;">
+                  <Label fx:id="estimatedDuration" alignment="CENTER" layoutX="156.0" layoutY="4.0" prefHeight="47.0" prefWidth="175.0" style="-fx-background-radius: 0 20 20 0;">
                     <font>
                       <Font size="24.0" />
                     </font>
                   </Label>
-                  <Separator fx:id="estimatedSeparator" layoutX="151.0" layoutY="13.0" orientation="VERTICAL" prefHeight="22.0" prefWidth="1.0" />
+                  <Separator fx:id="estimatedSeparator" layoutX="151.0" layoutY="14.0" orientation="VERTICAL" prefHeight="28.0" prefWidth="7.0" />
                 </children>
               </Pane>
               <ImageView fx:id="back" fitHeight="25.0" fitWidth="24.0" layoutX="40.0" layoutY="40.0" onMouseClicked="#backToHome" pickOnBounds="true" preserveRatio="true" style="-fx-cursor: hand;">
