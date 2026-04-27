@@ -118,7 +118,7 @@ public class InspectBubbleController {
 
     @FXML
     private void initialize() {
-        // ViewUtil.initiateResponsiveView(this);
+        ViewUtil.initiateResponsiveView(this);
         scrolpane.vvalueProperty().addListener((observable, oldValue, newValue) -> {
             double contentHeight = scrolpane.getContent().getBoundsInLocal().getHeight();
             double viewportHeight = scrolpane.getViewportBounds().getHeight();
