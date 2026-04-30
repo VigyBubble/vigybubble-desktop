@@ -7,24 +7,24 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<Pane fx:id="appListCard" prefHeight="74.0" prefWidth="489.0" styleClass="inner-banes" stylesheets="@../css/create-bubble.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+<Pane fx:id="appListCard" prefHeight="74.0" prefWidth="489.0" styleClass="inner-banes" stylesheets="@../css/create-bubble.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1">
   <children>
     <ImageView fx:id="selectedappLogo1" fitHeight="40.0" fitWidth="40.0" layoutX="16.0" layoutY="16.0" pickOnBounds="true" preserveRatio="true">
       <image>
-        <Image url="@../images/logos_visual-studio-code.png"/>
+        <Image url="@../images/logos_visual-studio-code.png" />
       </image>
     </ImageView>
-    <Label fx:id="SelectedAppnameLabel" layoutX="72.0" layoutY="19.0" prefHeight="36.0" prefWidth="124.0" text="Anaconda">
+    <Label fx:id="SelectedAppnameLabel" layoutX="72.0" layoutY="19.0" prefHeight="36.0" prefWidth="367.0" text="Anaconda">
       <font>
-        <Font size="25.0"/>
+        <Font size="25.0" />
       </font>
     </Label>
     <ImageView fx:id="deleteBtn1" fitHeight="24.0" fitWidth="24.0" layoutX="449.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true">
       <image>
-        <Image url="@../images/close-icon.png"/>
+        <Image url="@../images/close-icon.png" />
       </image>
       <cursor>
-        <Cursor fx:constant="HAND"/>
+        <Cursor fx:constant="HAND" />
       </cursor>
     </ImageView>
   </children>

@@ -1,17 +1,22 @@
 package com.effortcure.controller;
 
+import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Base64;
 import java.util.List;
 import java.util.Set;
 import javafx.util.Duration;
 
 import com.effortcure.dto.request.CreateBubbleRequestDTO;
 import com.effortcure.dto.request.DirectoryRequestDTO;
+import com.effortcure.dto.response.AppResponseDTO;
 import com.effortcure.enums.BubbleType;
 import com.effortcure.enums.DirectoryType;
 import com.effortcure.navigator.ContentManager;
+import com.effortcure.service.implementation.AppsService;
 import com.effortcure.service.implementation.BubbleService;
+import com.effortcure.service.interfaces.AppsServiceInterface;
 import com.effortcure.service.interfaces.BubbleServiceInterface;
 import com.effortcure.util.DirectoryPickerUtil;
 import com.effortcure.util.ViewUtil;
@@ -305,14 +310,18 @@ public class CreateBubbleController {
 
     public static CreateBubbleRequestDTO createBubbleRequestDTO;
     private BubbleServiceInterface bubbleServiceInterface = new BubbleService();
+    private AppsServiceInterface appsServiceInterface = new AppsService();
 
     @FXML
-    private void initialize() throws IOException {
+    private void initialize() throws Exception {
         ViewUtil.initiateResponsiveView(this);
         collectBubbleData();
         retreiveData();
         if (comboBox != null)
             comboBox.getItems().add("Local");
+        if (vBoxAppsContainer != null) {
+            fillApps();
+        }
         animateBubble(bubbleImg, 20, 3);
         animateBubble(bubbleImg1, 15, 4);
         animateBubble(bubbleImg11, 25, 5);
@@ -438,6 +447,27 @@ public class CreateBubbleController {
                             .add(new DirectoryRequestDTO(file, DirectoryType.FILE));
                 }
             }
+        }
+    }
+
+    private void fillApps() throws Exception {
+        List<AppResponseDTO> apps = appsServiceInterface.getApps();
+        for (AppResponseDTO app : apps) {
+            Parent parent = FXMLLoader.load(getClass().getResource("/fxml/app-selection-card.fxml"));
+            Pane pane = (Pane) parent;
+            if (!app.getIcon().isBlank())
+                ((ImageView) pane.lookup("#logo"))
+                        .setImage(new Image(new ByteArrayInputStream(Base64.getDecoder().decode(app.getIcon()))));
+            ((Label) pane.lookup("#appName")).setText(app.getName());
+            ((Label) pane.lookup("#recommendedLabel")).setVisible(false);
+            ((CheckBox) pane.lookup("#checkBox")).setOnAction(e -> {
+                if (((CheckBox) pane.lookup("#checkBox")).isSelected()) {
+
+                } else {
+
+                }
+            });
+            vBoxAppsContainer.getChildren().add(pane);
         }
     }
 
