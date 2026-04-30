@@ -46,7 +46,7 @@
     </ImageView>
     <ScrollPane fx:id="scrolpane" fitToWidth="true" hbarPolicy="NEVER" layoutY="0" prefHeight="853.0" prefWidth="1440.0" styleClass="scroll-pane" vbarPolicy="ALWAYS">
       <content>
-        <VBox fx:id="rootVBox" alignment="TOP_CENTER" fillWidth="true" prefHeight="2120.0" prefWidth="1440.0">
+        <VBox fx:id="rootVBox" alignment="TOP_CENTER" fillWidth="true" prefHeight="1327.0" prefWidth="1432.0">
           <Pane fx:id="mainPane" prefHeight="2120.0" prefWidth="1432.0">
             <children>
               <Pane fx:id="contentPane" layoutX="100.0" layoutY="80.0" prefHeight="1940.0" prefWidth="1240.0" style="-fx-background-color: white;" styleClass="main-pane">
