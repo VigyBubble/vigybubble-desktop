@@ -193,6 +193,11 @@ public class InspectBubbleController {
         ContentManager.setAnchorPane(root);
         ContentManager.switchContent("/fxml/home-page.fxml");
     }
+     @FXML
+    private void goToSesssionDetails() {
+        ContentManager.setAnchorPane(root);
+        ContentManager.switchContent("/fxml/inspect-session.fxml");
+    }
 
     private void loadBubbleData() {
         try {

@@ -166,26 +166,34 @@ public class HomePageController {
                             ((Label) child).setText(accountBubblesResponseDTO.getEstimatedDuration());
                     }
                 }
-                if (node.getId().equals("closeIcon"))
+
+                if (node.getId().equals("closeIcon")) {
                     ((ImageView) node).setOnMouseClicked(e -> {
                         GaussianBlur blur = new GaussianBlur(5);
                         root.setEffect(blur);
                         overlay.setVisible(true);
-                        PopupManager.showPopup("/fxml/confirm-popups.fxml");
-                        if (ConfirmPopupController.doAction) {
-                            try {
-                                bubbleServiceInterface.deleteBubble(UUID
-                                        .fromString(
-                                                ((Label) ((Pane) node.getParent()).lookup("#bubbleUuid")).getText()));
-                                vboxContainer.getChildren().remove(parent);
 
-                            } catch (Exception e1) {
-                                e1.printStackTrace();
-                            }
-                        }
-                        root.setEffect(null);
-                        overlay.setVisible(false);
+                        PopupManager.showPopup("/fxml/confirm-popups.fxml", controller -> {
+                            controller.setupDeleteMode();
+                            controller.setOnConfirm(() -> {
+                                try {
+                                    bubbleServiceInterface.deleteBubble(UUID.fromString(
+                                            ((Label) ((Pane) node.getParent())
+                                                    .lookup("#bubbleUuid")).getText()));
+                                    vboxContainer.getChildren().remove(parent);
+                                } catch (Exception e1) {
+                                    e1.printStackTrace();
+                                }
+                                root.setEffect(null);
+                                overlay.setVisible(false);
+                            });
+                            controller.setOnCancel(() -> {
+                                root.setEffect(null);
+                                overlay.setVisible(false);
+                            });
+                        });
                     });
+                }
             }
             vboxContainer.getChildren().add(parent);
         }

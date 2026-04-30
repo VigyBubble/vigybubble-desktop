@@ -1,6 +1,9 @@
 package com.effortcure.navigator;
 
 import java.io.IOException;
+import java.util.function.Consumer;
+
+import com.effortcure.controller.ConfirmPopupController;
 
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -12,13 +15,23 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
 public class PopupManager {
-    public static void showPopup(String fxml) {
+
+    public static void showPopup(String fxml, Consumer<ConfirmPopupController> setupAction) {
         try {
-            Parent root = FXMLLoader.load(PopupManager.class.getResource(fxml));
+            FXMLLoader loader = new FXMLLoader(
+                    PopupManager.class.getResource(fxml));
+
+            Parent root = loader.load();
+            ConfirmPopupController controller = loader.getController();
+            if (setupAction != null) {
+                setupAction.accept(controller);
+            }
             Stage popup = new Stage();
             Scene scene = new Scene(root);
+
             popup.setScene(scene);
             popup.sizeToScene();
+
             scene.setFill(Color.TRANSPARENT);
             popup.initStyle(StageStyle.TRANSPARENT);
             popup.initModality(Modality.APPLICATION_MODAL);
@@ -27,7 +40,7 @@ public class PopupManager {
             popup.showAndWait();
         } catch (IOException e) {
             e.printStackTrace();
+            throw new RuntimeException("Failed to load popup", e);
         }
-
     }
 }

@@ -2,10 +2,7 @@
     -fx-background-color: white;
 }
 
-.regular-labels {
-    -fx-font-family: "K2D";
-    -fx-font-weight: 400;
-}
+
 .main-pane{
     -fx-background-color: white;
     -fx-border-radius: 20;       
@@ -27,11 +24,12 @@
 .all-panes{
 
     -fx-background-color: white; 
-    -fx-border-radius: 10;        /* راديس للزوايا */
+    -fx-border-radius: 10;      
     -fx-background-radius: 10; 
     -fx-effect: dropshadow(gaussian, #177B75, 4, 0.1, 0, 0);
    
-}.delete-button {
+}
+.delete-button {
     -fx-text-fill: white;
     -fx-background-color: #B00020;
     -fx-background-radius: 15;
@@ -42,9 +40,6 @@
     -fx-background-color: #C62828;
 }
 
-.delete-button:pressed {
-    -fx-background-color: #7A0015;
-}
 .describtion-labels{
 
     -fx-text-fill: #787878;
@@ -58,6 +53,8 @@
 .scroll-pane {
   -fx-background-color: transparent;
   -fx-background-insets: 0;
+    -fx-border-radius: 10;      
+    -fx-background-radius: 10; 
   
 }
 
