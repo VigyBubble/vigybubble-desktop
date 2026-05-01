@@ -1,12 +1,17 @@
 package com.effortcure.controller;
 
+import java.io.ByteArrayInputStream;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Base64;
+import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.UUID;
 import javafx.util.Duration;
 
 import com.effortcure.dto.request.DirectoryRequestDTO;
 import com.effortcure.dto.response.ApiResponse;
+import com.effortcure.dto.response.AppResponseDTO;
 import com.effortcure.dto.response.BubbleDetailsResponseDTO;
 import com.effortcure.enums.DirectoryType;
 import com.effortcure.navigator.ContentManager;
@@ -17,7 +22,6 @@ import com.effortcure.util.ViewUtil;
 import javafx.animation.TranslateTransition;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
@@ -193,7 +197,8 @@ public class InspectBubbleController {
         ContentManager.setAnchorPane(root);
         ContentManager.switchContent("/fxml/home-page.fxml");
     }
-     @FXML
+
+    @FXML
     private void goToSesssionDetails() {
         ContentManager.setAnchorPane(root);
         ContentManager.switchContent("/fxml/inspect-session.fxml");
@@ -209,6 +214,8 @@ public class InspectBubbleController {
                 bubblediscriotionlabel.setText(bubble.getDescription());
                 actualDuration.setText(bubble.getActualDuration());
                 estimatedDuration.setText(bubble.getEstimatedDuration());
+                teamlabel.setText(bubble.getType().toString());
+                fillApps(response.getData().getApplications());
                 fillPaths(response.getData().getDirectoriesList());
             }
 
@@ -218,14 +225,24 @@ public class InspectBubbleController {
     }
 
     private void fillPaths(List<DirectoryRequestDTO> directories) throws IOException {
-        for (DirectoryRequestDTO dir : directories) {
-            Parent parent = FXMLLoader.load(getClass().getResource("/fxml/inspect-bubble-path-card.fxml"));
-            Pane pane = (Pane) parent;
+        for (DirectoryRequestDTO dir : directories = new ArrayList<>(new LinkedHashSet<>(directories))) {
+            Pane pane = FXMLLoader.load(getClass().getResource("/fxml/inspect-bubble-path-card.fxml"));
             ((ImageView) pane.lookup("#Icon")).setImage(
-                    new Image(dir.getType() == DirectoryType.FILE ? "/images/file-icon.png" : "/images/url2-icon"));
+                    new Image(dir.getType() == DirectoryType.FILE ? "/images/file-icon.png" : "/images/url2-icon.png"));
             ((Label) pane.lookup("#path")).setText(dir.getPath());
             ((Label) pane.lookup("#typeLabel")).setText(dir.getType().toString());
             pathsVBox.getChildren().add(pane);
+        }
+    }
+
+    private void fillApps(List<AppResponseDTO> apps) throws IOException {
+        for (AppResponseDTO app : new ArrayList<>(new LinkedHashSet<>(apps))) {
+            Pane pane = FXMLLoader.load(getClass().getResource("/fxml/inspect-bubble-app-card.fxml"));
+            if (!app.getIcon().isBlank())
+                ((ImageView) pane.lookup("#icon"))
+                        .setImage(new Image(new ByteArrayInputStream(Base64.getDecoder().decode(app.getIcon()))));
+            ((Label) pane.lookup("#name")).setText(app.getName());
+            appsListVBox.getChildren().add(pane);
         }
     }
 

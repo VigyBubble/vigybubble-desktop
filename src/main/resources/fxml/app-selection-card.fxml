@@ -1,27 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.String?>
-<?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<Pane fx:id="root" prefHeight="79.0" prefWidth="699.0" styleClass="inner-banes" stylesheets="@../css/create-bubble.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.effortcure.controller.AppSelectionCardController">
+<Pane fx:id="root" prefHeight="79.0" prefWidth="699.0" styleClass="inner-banes" stylesheets="@../css/create-bubble.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.effortcure.controller.AppSelectionCardController">
   <children>
-    <CheckBox fx:id="checkBox" layoutX="13.0" layoutY="27.0" mnemonicParsing="false" prefHeight="24.0" prefWidth="24.0">
-      <styleClass>
-        <String fx:value="checkbox"/>
-        <String fx:value="box"/>
-      </styleClass>
-    </CheckBox>
-    <ImageView fx:id="logo" fitHeight="40.0" fitWidth="40.0" layoutX="47.0" layoutY="18.5" pickOnBounds="true" preserveRatio="true">
+    <ImageView fx:id="logo" fitHeight="40.0" fitWidth="40.0" layoutX="16.0" layoutY="18.5" pickOnBounds="true" preserveRatio="true">
       <image>
         <Image url="@../images/window.png"/>
       </image>
     </ImageView>
-    <Label fx:id="appName" layoutX="100.0" layoutY="20.0" prefHeight="40.0" prefWidth="393.0" text="Visual studio code">
+    <Label fx:id="appName" layoutX="68.0" layoutY="20.0" prefHeight="40.0" prefWidth="414.0" text="Visual studio code">
       <font>
         <Font size="28.0"/>
       </font>

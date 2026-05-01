@@ -4,6 +4,7 @@ import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Base64;
+import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Set;
 import javafx.util.Duration;
@@ -308,6 +309,9 @@ public class CreateBubbleController {
     @FXML
     private ScrollPane scrollApplications1;
 
+    @FXML
+    private VBox vBoxAppsContainer1;
+
     public static CreateBubbleRequestDTO createBubbleRequestDTO;
     private BubbleServiceInterface bubbleServiceInterface = new BubbleService();
     private AppsServiceInterface appsServiceInterface = new AppsService();
@@ -363,9 +367,8 @@ public class CreateBubbleController {
 
     @FXML
     private void next2() {
-        List<String> apps = new ArrayList<>();
-        // We need to fill apps
-        createBubbleRequestDTO.setApplicationsNameList(apps);
+        createBubbleRequestDTO.setApplications(
+                new ArrayList<>(new LinkedHashSet<>(createBubbleRequestDTO.getApplications())));
         ContentManager.setAnchorPane(root2);
         ContentManager.switchContent("/fxml/create-bubble-page-p3.fxml");
     }
@@ -453,18 +456,33 @@ public class CreateBubbleController {
     private void fillApps() throws Exception {
         List<AppResponseDTO> apps = appsServiceInterface.getApps();
         for (AppResponseDTO app : apps) {
-            Parent parent = FXMLLoader.load(getClass().getResource("/fxml/app-selection-card.fxml"));
-            Pane pane = (Pane) parent;
+            Pane pane = FXMLLoader.load(getClass().getResource("/fxml/app-selection-card.fxml"));
             if (!app.getIcon().isBlank())
                 ((ImageView) pane.lookup("#logo"))
                         .setImage(new Image(new ByteArrayInputStream(Base64.getDecoder().decode(app.getIcon()))));
             ((Label) pane.lookup("#appName")).setText(app.getName());
             ((Label) pane.lookup("#recommendedLabel")).setVisible(false);
-            ((CheckBox) pane.lookup("#checkBox")).setOnAction(e -> {
-                if (((CheckBox) pane.lookup("#checkBox")).isSelected()) {
-
-                } else {
-
+            pane.setOnMouseEntered(e -> {
+                pane.getStyleClass().add("hoveredCard");
+            });
+            pane.setOnMouseExited(e -> {
+                pane.getStyleClass().removeAll("hoveredCard");
+            });
+            pane.setOnMouseClicked(e -> {
+                try {
+                    Pane selectedPane = FXMLLoader.load(getClass().getResource("/fxml/app-list-card.fxml"));
+                    if (!app.getIcon().isBlank())
+                        ((ImageView) selectedPane.lookup("#selectedappLogo1")).setImage(
+                                new Image(new ByteArrayInputStream(Base64.getDecoder().decode(app.getIcon()))));
+                    ((Label) selectedPane.lookup("#SelectedAppnameLabel")).setText(app.getName());
+                    ((ImageView) selectedPane.lookup("#deleteBtn1")).setOnMouseClicked(ev -> {
+                        vBoxAppsContainer1.getChildren().remove(selectedPane);
+                        createBubbleRequestDTO.getApplications().remove(app);
+                    });
+                    vBoxAppsContainer1.getChildren().add(selectedPane);
+                    createBubbleRequestDTO.getApplications().add(app);
+                } catch (IOException e1) {
+                    e1.printStackTrace();
                 }
             });
             vBoxAppsContainer.getChildren().add(pane);

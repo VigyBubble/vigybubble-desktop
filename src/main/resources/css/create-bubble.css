@@ -246,3 +246,7 @@
 .error-field:focused {
     -fx-border-color: #ff1b1b;
 }
+
+.hoveredCard {
+    -fx-background-color: rgb(201, 201, 201);
+}

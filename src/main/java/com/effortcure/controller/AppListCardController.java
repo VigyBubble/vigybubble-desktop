@@ -7,22 +7,21 @@ import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 
-public class AppSelectionCardController {
+public class AppListCardController {
     @FXML
-    private Pane root;
+    private Pane appListCard;
 
     @FXML
-    private ImageView logo;
+    private ImageView selectedappLogo1;
 
     @FXML
-    private Label appName;
+    private Label SelectedAppnameLabel;
 
     @FXML
-    private Label recommendedLabel;
+    private ImageView deleteBtn1;
 
     @FXML
     private void initialize() {
         ViewUtil.initiateResponsiveView(this);
-
     }
 }

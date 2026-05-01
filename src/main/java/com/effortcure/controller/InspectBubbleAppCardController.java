@@ -7,22 +7,18 @@ import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 
-public class AppSelectionCardController {
+public class InspectBubbleAppCardController {
     @FXML
-    private Pane root;
+    private Pane appCardofInspectBubble;
 
     @FXML
-    private ImageView logo;
+    private Label name;
 
     @FXML
-    private Label appName;
-
-    @FXML
-    private Label recommendedLabel;
+    private ImageView icon;
 
     @FXML
     private void initialize() {
         ViewUtil.initiateResponsiveView(this);
-
     }
 }
