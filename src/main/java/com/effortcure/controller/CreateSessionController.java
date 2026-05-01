@@ -1,6 +1,8 @@
 package com.effortcure.controller;
 
+
 import com.effortcure.navigator.ContentManager;
+import com.effortcure.navigator.PopupManager;
 import com.effortcure.util.ViewUtil;
 import javafx.util.Duration;
 
@@ -15,6 +17,7 @@ import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.scene.image.ImageView;
 import javafx.scene.control.Separator;
+import javafx.scene.effect.GaussianBlur;
 
 public class CreateSessionController {
 
@@ -50,6 +53,8 @@ public class CreateSessionController {
   private Button startsessionBtn;
   @FXML
   private ImageView addIcon;
+  @FXML
+  private Pane overlay;
 
   @FXML
   private void initialize() {
@@ -65,6 +70,23 @@ public class CreateSessionController {
         ContentManager.setAnchorPane(root);
         ContentManager.switchContent("/fxml/inspect-bubble.fxml");
     }
+
+@FXML
+private void startSession() {
+    GaussianBlur blur = new GaussianBlur(5);
+    root.setEffect(blur);
+    overlay.setVisible(true);
+
+    PopupManager.showPopup("/fxml/session-mode-popup.fxml", controller -> {
+
+         ((SessionModePopupController) controller).setOnClose(() -> {
+            root.setEffect(null);
+            overlay.setVisible(false);
+        });
+
+    });
+}
+
        private void animateBubble(ImageView bubble, double moveY, double duration) {
         TranslateTransition transition = new TranslateTransition();
         transition.setNode(bubble);

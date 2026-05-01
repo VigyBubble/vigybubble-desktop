@@ -174,8 +174,8 @@ public class HomePageController {
                         overlay.setVisible(true);
 
                         PopupManager.showPopup("/fxml/confirm-popups.fxml", controller -> {
-                            controller.setupDeleteMode();
-                            controller.setOnConfirm(() -> {
+                             ((ConfirmPopupController) controller).setupDeleteMode();
+                            ((ConfirmPopupController) controller).setOnConfirm(() -> {
                                 try {
                                     bubbleServiceInterface.deleteBubble(UUID.fromString(
                                             ((Label) ((Pane) node.getParent())
@@ -187,7 +187,7 @@ public class HomePageController {
                                 root.setEffect(null);
                                 overlay.setVisible(false);
                             });
-                            controller.setOnCancel(() -> {
+                            ((ConfirmPopupController) controller).setOnCancel(() -> {
                                 root.setEffect(null);
                                 overlay.setVisible(false);
                             });

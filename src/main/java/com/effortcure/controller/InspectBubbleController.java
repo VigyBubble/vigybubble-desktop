@@ -242,9 +242,9 @@ public class InspectBubbleController {
         overlay.setVisible(true);
 
         PopupManager.showPopup("/fxml/confirm-popups.fxml", controller -> {
-            controller.setupDeleteMode();
+             ((ConfirmPopupController) controller).setupDeleteMode();
 
-            controller.setOnConfirm(() -> {
+            ((ConfirmPopupController) controller).setOnConfirm(() -> {
                 try {
                     bubbleServiceInterface.deleteBubble(bubbleUuid);
                     ContentManager.setAnchorPane(root);
@@ -257,7 +257,7 @@ public class InspectBubbleController {
                 overlay.setVisible(false);
             });
 
-            controller.setOnCancel(() -> {
+            ((ConfirmPopupController) controller).setOnCancel(() -> {
                 root.setEffect(null);
                 overlay.setVisible(false);
             });
