@@ -116,10 +116,19 @@ public class InspectSessionsController {
     private VBox notificationVBox;
     @FXML
     private Separator separator;
+    @FXML
+    private ImageView back;
 
     @FXML
     public void initialize() {
         ViewUtil.initiateResponsiveView(this);
+        scrolpane.vvalueProperty().addListener((observable, oldValue, newValue) -> {
+            double contentHeight = scrolpane.getContent().getBoundsInLocal().getHeight();
+            double viewportHeight = scrolpane.getViewportBounds().getHeight();
+            double maxScroll = contentHeight - viewportHeight;
+            double scrollY = newValue.doubleValue() * maxScroll;
+            back.setLayoutY(40 + scrollY);
+        });
         animateBubble(bubble1, 20, 3);
         animateBubble(bubble2, 15, 4);
         animateBubble(bubble3, 25, 5);

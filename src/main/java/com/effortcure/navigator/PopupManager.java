@@ -3,8 +3,6 @@ package com.effortcure.navigator;
 import java.io.IOException;
 import java.util.function.Consumer;
 
-import com.effortcure.controller.ConfirmPopupController;
-
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -16,13 +14,13 @@ import javafx.stage.StageStyle;
 
 public class PopupManager {
 
-    public static void showPopup(String fxml, Consumer<ConfirmPopupController> setupAction) {
+    public static <T> void showPopup(String fxml, Consumer<T> setupAction) {
         try {
             FXMLLoader loader = new FXMLLoader(
                     PopupManager.class.getResource(fxml));
 
             Parent root = loader.load();
-            ConfirmPopupController controller = loader.getController();
+            T controller = loader.getController();
             if (setupAction != null) {
                 setupAction.accept(controller);
             }

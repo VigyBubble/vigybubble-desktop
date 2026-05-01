@@ -3,7 +3,8 @@
     -fx-background-color: white; /* الخلفية بيضاء */  /* لون البوردر */
     -fx-border-radius: 25;        /* راديس للزوايا */
     -fx-background-radius: 25;  
-    -fx-effect: dropshadow(gaussian, #115D58, 4, 0, 0, 0);
+   -fx-border-width: 2;
+    -fx-border-color: #115d58;
 }
 .maintime-pane{
 
@@ -11,8 +12,6 @@
     -fx-border-radius: 10;        /* راديس للزوايا */
     -fx-background-radius: 10;  
     -fx-effect: dropshadow(gaussian, #115D58, 4, 0, 0, 0);
-
-    /* عشان الخلفية تتماشى مع البوردر */
 }
 .time-pane{
     -fx-background-color: white;

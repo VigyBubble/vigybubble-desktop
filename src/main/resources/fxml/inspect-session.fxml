@@ -12,36 +12,41 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="root" prefHeight="2120.0" prefWidth="1440.0" styleClass="main-container" stylesheets="@../css/inspect-session.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.effortcure.controller.InspectSessionsController">
+<AnchorPane fx:id="root" prefHeight="2120" prefWidth="1440.0" styleClass="main-container" stylesheets="@../css/inspect-session.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.effortcure.controller.InspectSessionsController">
   <children>
+    <ImageView fx:id="back" fitHeight="25.0" fitWidth="24.0" layoutX="40.0" layoutY="40.0" onMouseClicked="#backToHome" pickOnBounds="true" preserveRatio="true" style="-fx-cursor: hand;">
+      <image>
+        <Image url="@../images/left-arrow.png"/>
+      </image>
+    </ImageView>
     <ImageView fx:id="bubble1" fitHeight="139.7" fitWidth="139.7" layoutY="171.0" pickOnBounds="true" preserveRatio="true">
       <image>
-        <Image url="@../images/Group%20(3).png" />
+        <Image url="@../images/Group%20(3).png"/>
       </image>
     </ImageView>
     <ImageView fx:id="bubble2" fitHeight="139.7" fitWidth="139.7" layoutX="1272.0" layoutY="1859.0" pickOnBounds="true" preserveRatio="true">
       <image>
-        <Image url="@../images/Group%20(3).png" />
+        <Image url="@../images/Group%20(3).png"/>
       </image>
     </ImageView>
     <ImageView fx:id="bubble3" fitHeight="139.7" fitWidth="139.7" layoutX="1258.0" layoutY="1627.0" pickOnBounds="true" preserveRatio="true">
       <image>
-        <Image url="@../images/Group%20(3).png" />
+        <Image url="@../images/Group%20(3).png"/>
       </image>
     </ImageView>
     <ImageView fx:id="bubble4" fitHeight="139.7" fitWidth="139.7" layoutX="24.0" layoutY="1883.29" pickOnBounds="true" preserveRatio="true">
       <image>
-        <Image url="@../images/Group%20(3).png" />
+        <Image url="@../images/Group%20(3).png"/>
       </image>
     </ImageView>
     <ImageView fx:id="bubble5" fitHeight="139.7" fitWidth="139.7" layoutX="1300.0" layoutY="720.0" pickOnBounds="true" preserveRatio="true">
       <image>
-        <Image url="@../images/Group%20(3).png" />
+        <Image url="@../images/Group%20(3).png"/>
       </image>
     </ImageView>
     <ImageView fx:id="bubble6" fitHeight="139.7" fitWidth="139.7" layoutX="7.0" layoutY="1119.0" pickOnBounds="true" preserveRatio="true">
       <image>
-        <Image url="@../images/Group%20(3).png" />
+        <Image url="@../images/Group%20(3).png"/>
       </image>
     </ImageView>
     <ScrollPane fx:id="scrolpane" fitToWidth="true" hbarPolicy="NEVER" layoutY="0" prefHeight="853.0" prefWidth="1440.0" styleClass="scroll-pane" vbarPolicy="ALWAYS">
@@ -53,84 +58,84 @@
                 <children>
                   <Label fx:id="recommendationLabel" alignment="CENTER" layoutX="40.0" layoutY="40.0" prefHeight="75.0" prefWidth="325.0" text="Vigy Recommendation">
                     <font>
-                      <Font size="32.0" />
+                      <Font size="32.0"/>
                     </font>
                     <styleClass>
-                      <String fx:value="recommendation-label" />
-                      <String fx:value="regular-labels" />
+                      <String fx:value="recommendation-label"/>
+                      <String fx:value="regular-labels"/>
                     </styleClass>
                   </Label>
                   <Pane fx:id="gridPane" layoutX="1096.0" layoutY="41.0" prefHeight="61.0" prefWidth="104.0" styleClass="all-panes">
                     <children>
                       <ImageView fx:id="pauseBtn" fitHeight="41.0" fitWidth="24.0" layoutX="16.0" layoutY="16.0" pickOnBounds="true" preserveRatio="true" styleClass="pause-btn">
                         <image>
-                          <Image url="@../images/pause-icon.png" />
+                          <Image url="@../images/pause-icon.png"/>
                         </image>
                       </ImageView>
                       <ImageView fx:id="doneBtn" fitHeight="24.0" fitWidth="24.0" layoutX="64.0" layoutY="16.0" pickOnBounds="true" preserveRatio="true" styleClass="pause-btn">
                         <image>
-                          <Image url="@../images/done-icon.png" />
+                          <Image url="@../images/done-icon.png"/>
                         </image>
                       </ImageView>
                     </children>
                   </Pane>
                   <Label fx:id="dwpLabel" alignment="CENTER" layoutX="40.0" layoutY="153.0" prefHeight="63.0" prefWidth="146.0" styleClass="all-panes" text="DWP : 40%">
                     <font>
-                      <Font size="28.0" />
+                      <Font size="28.0"/>
                     </font>
                   </Label>
                   <Label fx:id="pausedAtLabel" alignment="CENTER" layoutX="863.0" layoutY="155.5" prefHeight="63.0" prefWidth="341.0" styleClass="all-panes" text="Paused at : 25-08-2026 18:25 ">
                     <font>
-                      <Font size="26.0" />
+                      <Font size="26.0"/>
                     </font>
                   </Label>
                   <Pane fx:id="sessionsGridPane" layoutX="28.0" layoutY="261.0" prefHeight="1176.0" prefWidth="1184.0" style="-fx-background-color: white;" styleClass="all-panes">
                     <children>
-                      <Pane fx:id="sessionPane1" layoutX="608.0" layoutY="25.0" prefHeight="200.0" prefWidth="260.0" />
-                      <Pane fx:id="sessionPane2" layoutX="316.0" layoutY="24.0" prefHeight="200.0" prefWidth="260.0" />
-                      <Pane fx:id="sessionPane3" layoutX="900.0" layoutY="24.0" prefHeight="200.0" prefWidth="260.0" />
-                      <Pane fx:id="sessionPane4" layoutX="24.0" layoutY="24.0" prefHeight="200.0" prefWidth="260.0" />
-                      <Pane fx:id="sessionPane5" layoutX="608.0" layoutY="256.0" prefHeight="200.0" prefWidth="260.0" />
-                      <Pane fx:id="sessionPane6" layoutX="316.0" layoutY="256.0" prefHeight="200.0" prefWidth="260.0" />
-                      <Pane fx:id="sessionPane7" layoutX="24.0" layoutY="488.0" prefHeight="200.0" prefWidth="260.0" />
-                      <Pane fx:id="sessionPane8" layoutX="900.0" layoutY="488.0" prefHeight="200.0" prefWidth="260.0" />
-                      <Pane fx:id="sessionPane9" layoutX="900.0" layoutY="256.0" prefHeight="200.0" prefWidth="260.0" />
-                      <Pane fx:id="sessionPane10" layoutX="900.0" layoutY="952.0" prefHeight="200.0" prefWidth="260.0" />
-                      <Pane fx:id="sessionPane11" layoutX="608.0" layoutY="488.0" prefHeight="200.0" prefWidth="260.0" />
-                      <Pane fx:id="sessionPane12" layoutX="316.0" layoutY="720.0" prefHeight="200.0" prefWidth="260.0" />
-                      <Pane fx:id="sessionPane13" layoutX="900.0" layoutY="720.0" prefHeight="200.0" prefWidth="260.0" />
-                      <Pane fx:id="sessionPane14" layoutX="24.0" layoutY="256.0" prefHeight="200.0" prefWidth="260.0" />
-                      <Pane fx:id="sessionPane15" layoutX="316.0" layoutY="488.0" prefHeight="200.0" prefWidth="260.0" />
-                      <Pane fx:id="sessionPane16" layoutX="316.0" layoutY="952.0" prefHeight="200.0" prefWidth="260.0" />
-                      <Pane fx:id="sessionPane17" layoutX="24.0" layoutY="952.0" prefHeight="200.0" prefWidth="260.0" />
-                      <Pane fx:id="sessionPane18" layoutX="24.0" layoutY="720.0" prefHeight="200.0" prefWidth="260.0" />
-                      <Pane fx:id="sessionPane19" layoutX="608.0" layoutY="952.0" prefHeight="200.0" prefWidth="260.0" />
-                      <Pane fx:id="sessionPane20" layoutX="608.0" layoutY="720.0" prefHeight="200.0" prefWidth="260.0" />
+                      <Pane fx:id="sessionPane1" layoutX="608.0" layoutY="25.0" prefHeight="200.0" prefWidth="260.0"/>
+                      <Pane fx:id="sessionPane2" layoutX="316.0" layoutY="24.0" prefHeight="200.0" prefWidth="260.0"/>
+                      <Pane fx:id="sessionPane3" layoutX="900.0" layoutY="24.0" prefHeight="200.0" prefWidth="260.0"/>
+                      <Pane fx:id="sessionPane4" layoutX="24.0" layoutY="24.0" prefHeight="200.0" prefWidth="260.0"/>
+                      <Pane fx:id="sessionPane5" layoutX="608.0" layoutY="256.0" prefHeight="200.0" prefWidth="260.0"/>
+                      <Pane fx:id="sessionPane6" layoutX="316.0" layoutY="256.0" prefHeight="200.0" prefWidth="260.0"/>
+                      <Pane fx:id="sessionPane7" layoutX="24.0" layoutY="488.0" prefHeight="200.0" prefWidth="260.0"/>
+                      <Pane fx:id="sessionPane8" layoutX="900.0" layoutY="488.0" prefHeight="200.0" prefWidth="260.0"/>
+                      <Pane fx:id="sessionPane9" layoutX="900.0" layoutY="256.0" prefHeight="200.0" prefWidth="260.0"/>
+                      <Pane fx:id="sessionPane10" layoutX="900.0" layoutY="952.0" prefHeight="200.0" prefWidth="260.0"/>
+                      <Pane fx:id="sessionPane11" layoutX="608.0" layoutY="488.0" prefHeight="200.0" prefWidth="260.0"/>
+                      <Pane fx:id="sessionPane12" layoutX="316.0" layoutY="720.0" prefHeight="200.0" prefWidth="260.0"/>
+                      <Pane fx:id="sessionPane13" layoutX="900.0" layoutY="720.0" prefHeight="200.0" prefWidth="260.0"/>
+                      <Pane fx:id="sessionPane14" layoutX="24.0" layoutY="256.0" prefHeight="200.0" prefWidth="260.0"/>
+                      <Pane fx:id="sessionPane15" layoutX="316.0" layoutY="488.0" prefHeight="200.0" prefWidth="260.0"/>
+                      <Pane fx:id="sessionPane16" layoutX="316.0" layoutY="952.0" prefHeight="200.0" prefWidth="260.0"/>
+                      <Pane fx:id="sessionPane17" layoutX="24.0" layoutY="952.0" prefHeight="200.0" prefWidth="260.0"/>
+                      <Pane fx:id="sessionPane18" layoutX="24.0" layoutY="720.0" prefHeight="200.0" prefWidth="260.0"/>
+                      <Pane fx:id="sessionPane19" layoutX="608.0" layoutY="952.0" prefHeight="200.0" prefWidth="260.0"/>
+                      <Pane fx:id="sessionPane20" layoutX="608.0" layoutY="720.0" prefHeight="200.0" prefWidth="260.0"/>
                     </children>
                   </Pane>
                   <Pane fx:id="notificationPane" layoutX="40.0" layoutY="1477.0" prefHeight="309.0" prefWidth="1160.0" style="-fx-background-color: white;" styleClass="all-panes">
                     <children>
                       <ScrollPane fx:id="notificationScroll" hbarPolicy="NEVER" layoutX="251.0" prefHeight="309.0" prefWidth="909.0" style="-fx-background-color: white;" vbarPolicy="ALWAYS">
                         <content>
-                          <VBox fx:id="notificationVBox" prefHeight="313.0" prefWidth="907.0" />
+                          <VBox fx:id="notificationVBox" prefHeight="313.0" prefWidth="907.0"/>
                         </content>
                       </ScrollPane>
                       <Label fx:id="notificationLabel" layoutX="16.0" layoutY="16.0" prefHeight="45.0" prefWidth="216.0" styleClass="all-labels" text="Notification Log">
                         <font>
-                          <Font size="30.0" />
+                          <Font size="30.0"/>
                         </font>
                       </Label>
-                      <Separator fx:id="separator" layoutX="245.0" layoutY="17.0" orientation="VERTICAL" prefHeight="276.0" prefWidth="9.0" />
+                      <Separator fx:id="separator" layoutX="245.0" layoutY="17.0" orientation="VERTICAL" prefHeight="276.0" prefWidth="9.0"/>
                     </children>
                   </Pane>
                   <Label fx:id="dateLabel" alignment="CENTER" layoutX="40.0" layoutY="1831.5" prefHeight="63.0" prefWidth="213.0" styleClass="all-panes" text="25-08-2026 02:13">
                     <font>
-                      <Font size="24.0" />
+                      <Font size="24.0"/>
                     </font>
                   </Label>
                   <Button fx:id="deleteBtn" layoutX="1073.0" layoutY="1826.0" mnemonicParsing="false" prefHeight="74.0" prefWidth="130.0" styleClass="delete-button" text="Delete">
                     <font>
-                      <Font size="31.0" />
+                      <Font size="31.0"/>
                     </font>
                   </Button>
                 </children>
