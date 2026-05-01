@@ -10,6 +10,7 @@ import com.effortcure.dto.response.ApiResponse;
 import com.effortcure.dto.response.BubbleDetailsResponseDTO;
 import com.effortcure.enums.DirectoryType;
 import com.effortcure.navigator.ContentManager;
+import com.effortcure.navigator.PopupManager;
 import com.effortcure.service.implementation.BubbleService;
 import com.effortcure.service.interfaces.BubbleServiceInterface;
 import com.effortcure.util.ViewUtil;
@@ -18,10 +19,12 @@ import javafx.animation.TranslateTransition;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
+import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.Separator;
+import javafx.scene.effect.GaussianBlur;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
@@ -165,6 +168,9 @@ public class InspectBubbleController {
     @FXML
     private VBox pathsVBox;
 
+    @FXML
+    private Pane overlay;
+
     public static UUID bubbleUuid;
     private BubbleServiceInterface bubbleServiceInterface = new BubbleService();
 
@@ -193,10 +199,11 @@ public class InspectBubbleController {
         ContentManager.setAnchorPane(root);
         ContentManager.switchContent("/fxml/home-page.fxml");
     }
-     @FXML
+
+    @FXML
     private void goToSesssionDetails() {
         ContentManager.setAnchorPane(root);
-        ContentManager.switchContent("/fxml/inspect-session.fxml");
+        ContentManager.switchContent("/fxml/create-session.fxml");
     }
 
     private void loadBubbleData() {
@@ -227,6 +234,35 @@ public class InspectBubbleController {
             ((Label) pane.lookup("#typeLabel")).setText(dir.getType().toString());
             pathsVBox.getChildren().add(pane);
         }
+    }
+
+    @FXML
+    private void handleDelete() {
+        GaussianBlur blur = new GaussianBlur(5);
+        root.setEffect(blur);
+        overlay.setVisible(true);
+
+        PopupManager.showPopup("/fxml/confirm-popups.fxml", controller -> {
+            controller.setupDeleteMode();
+
+            controller.setOnConfirm(() -> {
+                try {
+                    bubbleServiceInterface.deleteBubble(bubbleUuid);
+                    ContentManager.setAnchorPane(root);
+                    ContentManager.switchContent("/fxml/home-page.fxml");
+                } catch (Exception ex) {
+                    ex.printStackTrace();
+                }
+
+                root.setEffect(null);
+                overlay.setVisible(false);
+            });
+
+            controller.setOnCancel(() -> {
+                root.setEffect(null);
+                overlay.setVisible(false);
+            });
+        });
     }
 
     private void animateBubble(ImageView bubble, double moveY, double duration) {

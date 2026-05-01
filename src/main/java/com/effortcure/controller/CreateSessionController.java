@@ -13,7 +13,7 @@ import javafx.scene.layout.VBox;
 import javafx.scene.image.ImageView;
 import javafx.scene.control.Separator;
 
-public class BubbleSessionsController {
+public class CreateSessionController {
 
   @FXML
   private AnchorPane root;
