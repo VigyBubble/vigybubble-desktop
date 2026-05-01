@@ -76,7 +76,6 @@ private void startSession() {
     GaussianBlur blur = new GaussianBlur(5);
     root.setEffect(blur);
     overlay.setVisible(true);
-
     PopupManager.showPopup("/fxml/session-mode-popup.fxml", controller -> {
 
          ((SessionModePopupController) controller).setOnClose(() -> {
