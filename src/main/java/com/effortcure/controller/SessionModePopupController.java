@@ -10,8 +10,6 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
-import javafx.scene.text.Font;
-import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
 
 public class SessionModePopupController {
@@ -80,13 +78,7 @@ public class SessionModePopupController {
     @FXML
     private void initialize() {
         ViewUtil.initiateResponsiveView(this);
-        patterndetectionlabel.setFont(
-                Font.font("System", FontWeight.BOLD, 25));
-        enforcelabel.setFont(
-                Font.font("System", FontWeight.BOLD, 25));
-        VigyRecommendationlabel.setFont(
-                Font.font("System", FontWeight.BOLD,25));
-    closeicon.setOnMouseClicked(e -> handleClose());
+        closeicon.setOnMouseClicked(e -> handleClose());
     }
 
     public void setOnClose(Runnable onClose) {

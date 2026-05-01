@@ -25,10 +25,11 @@
       </ImageView>
       <Pane fx:id="patterndetectonpane" layoutX="24.0" layoutY="225.0" prefHeight="206.0" prefWidth="391.0" styleClass="detection-pane">
          <children>
-            <Label fx:id="patterndetectionlabel" alignment="CENTER" layoutY="16.0" prefHeight="47.0" prefWidth="391.0" styleClass="card-labels" text="Pattern detection" wrapText="true">
-
-            </Label>
-            <Label fx:id="description1label" alignment="CENTER" contentDisplay="CENTER" layoutX="22.0" layoutY="82.0" prefHeight="109.0" prefWidth="359.0" styleClass="card-labels" text="Monitors the user without giving any recommendations" wrapText="true">
+            <Label fx:id="patterndetectionlabel" alignment="CENTER" layoutY="16.0" prefHeight="47.0" prefWidth="391.0" styleClass="card-description" text="Pattern detection" wrapText="true">
+               <font>
+                  <Font size="30.0" />
+               </font></Label>
+            <Label fx:id="description1label" alignment="CENTER" contentDisplay="CENTER" layoutX="22.0" layoutY="82.0" prefHeight="109.0" prefWidth="359.0" styleClass="card-description" text="Monitors the user without giving any recommendations" wrapText="true">
                <font>
                   <Font size="28.0" />
                </font>
@@ -38,9 +39,11 @@
       </Pane>
       <Pane fx:id="VigyInforcepane" layoutX="854.0" layoutY="225.0" prefHeight="206.0" prefWidth="391.0" styleClass="enforce-pane">
          <children>
-            <Label fx:id="enforcelabel" alignment="CENTER" layoutY="16.0" prefHeight="42.0" prefWidth="391.0"  styleClass="card-labels" text="Vigy enforce ">
-            </Label>
-            <Label fx:id="description2label" alignment="CENTER" contentDisplay="CENTER" layoutY="93.0" prefHeight="90.0" prefWidth="391.0" styleClass="card-labels" text="Provides enforced recommendation" wrapText="true">
+            <Label fx:id="enforcelabel" alignment="CENTER" layoutY="16.0" prefHeight="42.0" prefWidth="391.0" styleClass="card-description" text="Vigy enforce ">
+               <font>
+                  <Font size="30.0" />
+               </font></Label>
+            <Label fx:id="description2label" alignment="CENTER" contentDisplay="CENTER" layoutY="93.0" prefHeight="90.0" prefWidth="391.0" styleClass="card-description" text="Provides enforced recommendation" wrapText="true">
                <font>
                   <Font size="28.0" />
                </font>
@@ -50,9 +53,11 @@
       </Pane>
       <Pane fx:id="VigyRecommendationPane" layoutX="439.0" layoutY="225.0" prefHeight="206.0" prefWidth="391.0" styleClass="recommendation-pane">
          <children>
-            <Label fx:id="VigyRecommendationlabel" alignment="CENTER" layoutY="14.0" prefHeight="47.0" prefWidth="391.0" styleClass="card-labels" text="Vigy recommendation ">
-            </Label>
-            <Label fx:id="description3label" alignment="CENTER" contentDisplay="CENTER" layoutY="100.0" prefHeight="63.0" prefWidth="391.0" styleClass="card-labels" text="Provides recommendation" wrapText="true">
+            <Label fx:id="VigyRecommendationlabel" alignment="CENTER" layoutY="14.0" prefHeight="47.0" prefWidth="391.0" styleClass="card-description" text="Vigy recommendation ">
+               <font>
+                  <Font size="30.0" />
+               </font></Label>
+            <Label fx:id="description3label" alignment="CENTER" contentDisplay="CENTER" layoutY="100.0" prefHeight="63.0" prefWidth="391.0" styleClass="card-description" text="Provides recommendation" wrapText="true">
                <font>
                   <Font size="28.0" />
                </font>
