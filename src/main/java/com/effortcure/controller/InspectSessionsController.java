@@ -1,5 +1,6 @@
 package com.effortcure.controller;
 
+import com.effortcure.navigator.ContentManager;
 import com.effortcure.util.ViewUtil;
 import javafx.util.Duration;
 
@@ -127,8 +128,16 @@ public class InspectSessionsController {
         animateBubble(bubble4, 18, 3.5);
         animateBubble(bubble5, 18, 3.5);
         animateBubble(bubble6, 15, 3.5);
+        back.toFront();
     }
 
+    @FXML
+    private void backToCreateSession() {
+        ContentManager.setAnchorPane(root);
+        ContentManager.switchContent("/fxml/create-session.fxml");
+    }
+
+    @FXML
     public void setMode(String mode) {
         switch (mode) {
             case "PATTERN":
