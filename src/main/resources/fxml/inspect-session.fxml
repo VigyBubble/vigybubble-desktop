@@ -14,7 +14,7 @@
 
 <AnchorPane fx:id="root" prefHeight="2120" prefWidth="1440.0" styleClass="main-container" stylesheets="@../css/inspect-session.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.effortcure.controller.InspectSessionsController">
   <children>
-    <ImageView fx:id="back" fitHeight="25.0" fitWidth="24.0" layoutX="40.0" layoutY="40.0" onMouseClicked="#backToHome" pickOnBounds="true" preserveRatio="true" style="-fx-cursor: hand;">
+    <ImageView fx:id="back" fitHeight="25.0" fitWidth="24.0" layoutX="40.0" layoutY="40.0" pickOnBounds="true" preserveRatio="true" style="-fx-cursor: hand;">
       <image>
         <Image url="@../images/left-arrow.png"/>
       </image>
@@ -56,7 +56,7 @@
             <children>
               <Pane fx:id="contentPane" layoutX="100.0" layoutY="80.0" prefHeight="1940.0" prefWidth="1240.0" style="-fx-background-color: white;" styleClass="main-pane">
                 <children>
-                  <Label fx:id="recommendationLabel" alignment="CENTER" layoutX="40.0" layoutY="40.0" prefHeight="75.0" prefWidth="325.0" text="Vigy Recommendation">
+                  <Label fx:id="modeLabel" alignment="CENTER" layoutX="40.0" layoutY="40.0" prefHeight="75.0" prefWidth="325.0" text="Vigy Recommendation">
                     <font>
                       <Font size="32.0"/>
                     </font>

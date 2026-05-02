@@ -21,4 +21,12 @@ public class ContentManager {
             e.printStackTrace();
         }
     }
+
+    //ده لو احتاجت استخدم controller
+    public static <T> T switchContentWithController(String fxml) throws IOException {
+        FXMLLoader loader = new FXMLLoader(ContentManager.class.getResource(fxml));
+        Parent content = loader.load();
+        anchorPane.getChildren().setAll(content);
+        return loader.getController();
+    }
 }

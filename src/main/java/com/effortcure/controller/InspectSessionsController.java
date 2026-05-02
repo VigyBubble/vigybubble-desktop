@@ -41,7 +41,7 @@ public class InspectSessionsController {
     private ImageView bubble6;
 
     @FXML
-    private Label recommendationLabel;
+    private Label modeLabel;
     @FXML
     private Label dwpLabel;
     @FXML
@@ -109,7 +109,6 @@ public class InspectSessionsController {
     private Pane sessionPane19;
     @FXML
     private Pane sessionPane20;
-
     @FXML
     private ScrollPane notificationScroll;
     @FXML
@@ -122,19 +121,34 @@ public class InspectSessionsController {
     @FXML
     public void initialize() {
         ViewUtil.initiateResponsiveView(this);
-        scrolpane.vvalueProperty().addListener((observable, oldValue, newValue) -> {
-            double contentHeight = scrolpane.getContent().getBoundsInLocal().getHeight();
-            double viewportHeight = scrolpane.getViewportBounds().getHeight();
-            double maxScroll = contentHeight - viewportHeight;
-            double scrollY = newValue.doubleValue() * maxScroll;
-            back.setLayoutY(40 + scrollY);
-        });
         animateBubble(bubble1, 20, 3);
         animateBubble(bubble2, 15, 4);
         animateBubble(bubble3, 25, 5);
         animateBubble(bubble4, 18, 3.5);
         animateBubble(bubble5, 18, 3.5);
         animateBubble(bubble6, 15, 3.5);
+    }
+
+    public void setMode(String mode) {
+        switch (mode) {
+            case "PATTERN":
+                modeLabel.setText("Pattern Detection");
+                modeLabel.setStyle("-fx-background-color: rgba(38, 166, 113, 0.8);" + "-fx-text-fill: white;");
+                contentPane.setStyle("-fx-effect:innershadow(gaussian, #26a671, 10, 0.3, 0, 0);");
+                break;
+
+            case "ENFORCE":
+                modeLabel.setText("Vigy Enforce");
+                modeLabel.setStyle("-fx-background-color:rgba(178, 33, 33, 0.48);" + "-fx-text-fill: white;");
+                contentPane.setStyle("-fx-effect:innershadow(gaussian, #b22121, 10, 0.3, 0, 0);");
+                break;
+
+            case "RECOMMENDATION":
+                modeLabel.setText("Vigy Recommendation");
+                modeLabel.setStyle("-fx-background-color: rgba(112, 34, 185, 0.5);" + "-fx-text-fill: white;");
+                contentPane.setStyle(" -fx-effect:innershadow(gaussian, #7022B9, 10, 0.2, 0, 0)");
+                break;
+        }
     }
 
     @FXML
