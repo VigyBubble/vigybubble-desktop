@@ -13,7 +13,7 @@ public class AppsService implements AppsServiceInterface {
     @Override
     public List<AppResponseDTO> getApps() throws Exception {
         SocketClientUtil.host = "127.0.0.1";
-        SocketClientUtil.port = 8080;
+        SocketClientUtil.port = 8088;
         String json = SocketClientUtil.send("get_apps");
         System.out.println();
         return JsonUtil.fromJson(json, new TypeReference<List<AppResponseDTO>>() {

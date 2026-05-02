@@ -72,20 +72,54 @@ public class CreateSessionController {
     }
 
 @FXML
+// private void startSession() {
+//     GaussianBlur blur = new GaussianBlur(5);
+//     root.setEffect(blur);
+//     overlay.setVisible(true);
+//     PopupManager.showPopup("/fxml/session-mode-popup.fxml", controller -> {
+
+//          ((SessionModePopupController) controller).setOnClose(() -> {
+//             root.setEffect(null);
+//             overlay.setVisible(false);
+//         });
+
+//     });
+// }
 private void startSession() {
     GaussianBlur blur = new GaussianBlur(5);
     root.setEffect(blur);
     overlay.setVisible(true);
+
     PopupManager.showPopup("/fxml/session-mode-popup.fxml", controller -> {
 
-         ((SessionModePopupController) controller).setOnClose(() -> {
+        SessionModePopupController popup =
+            (SessionModePopupController) controller;
+
+        popup.setOnStart(mode -> {
+
+            try {
+                // 1. نشيل تأثير الـ blur
+                root.setEffect(null);
+                overlay.setVisible(false);
+
+                // 2. نفتح inspect-session.fxml
+                InspectSessionsController inspectController =
+                    ContentManager.switchContentWithController("/fxml/inspect-session.fxml");
+
+                // 3. نبعت الـ mode
+                inspectController.setMode(mode);
+
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
+        });
+
+        popup.setOnClose(() -> {
             root.setEffect(null);
             overlay.setVisible(false);
         });
-
     });
 }
-
        private void animateBubble(ImageView bubble, double moveY, double duration) {
         TranslateTransition transition = new TranslateTransition();
         transition.setNode(bubble);
