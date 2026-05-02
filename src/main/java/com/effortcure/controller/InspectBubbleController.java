@@ -14,6 +14,7 @@ import com.effortcure.dto.response.ApiResponse;
 import com.effortcure.dto.response.AppResponseDTO;
 import com.effortcure.dto.response.BubbleDetailsResponseDTO;
 import com.effortcure.enums.DirectoryType;
+import com.effortcure.enums.ModifyBubbleType;
 import com.effortcure.navigator.ContentManager;
 import com.effortcure.navigator.PopupManager;
 import com.effortcure.service.implementation.BubbleService;
@@ -27,6 +28,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.Separator;
+import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
 import javafx.scene.effect.GaussianBlur;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
@@ -174,12 +177,25 @@ public class InspectBubbleController {
     @FXML
     private Pane overlay;
 
+    @FXML
+    private ImageView saveIcon1;
+
+    @FXML
+    private ImageView saveIcon2;
+
+    @FXML
+    private TextField nameField;
+
+    @FXML
+    private TextArea descriotionField;
+
     public static UUID bubbleUuid;
     private BubbleServiceInterface bubbleServiceInterface = new BubbleService();
 
     @FXML
     private void initialize() {
         ViewUtil.initiateResponsiveView(this);
+        initializeHiddenComponents();
         scrolpane.vvalueProperty().addListener((observable, oldValue, newValue) -> {
             double contentHeight = scrolpane.getContent().getBoundsInLocal().getHeight();
             double viewportHeight = scrolpane.getViewportBounds().getHeight();
@@ -195,6 +211,8 @@ public class InspectBubbleController {
         animateBubble(bubble6, 15, 3.5);
         animateBubble(bubble7, 18, 3.5);
         loadBubbleData();
+        onEditingName();
+        onEditingDescription();
     }
 
     @FXML
@@ -243,7 +261,7 @@ public class InspectBubbleController {
     private void fillApps(List<AppResponseDTO> apps) throws IOException {
         for (AppResponseDTO app : new ArrayList<>(new LinkedHashSet<>(apps))) {
             Pane pane = FXMLLoader.load(getClass().getResource("/fxml/inspect-bubble-app-card.fxml"));
-            if (!app.getIcon().isBlank())
+            if (app.getIcon() != null && !app.getIcon().isBlank())
                 ((ImageView) pane.lookup("#icon"))
                         .setImage(new Image(new ByteArrayInputStream(Base64.getDecoder().decode(app.getIcon()))));
             ((Label) pane.lookup("#name")).setText(app.getName());
@@ -277,6 +295,93 @@ public class InspectBubbleController {
                 root.setEffect(null);
                 overlay.setVisible(false);
             });
+        });
+    }
+
+    @FXML
+    private void editAppsList() throws Exception {
+        UpateAppLIstPopupController.bubbleUuid = bubbleUuid;
+        PopupManager.showPopup("/fxml/update-application-list.fxml");
+        appsListVBox.getChildren().clear();
+        fillApps(new ArrayList<>(
+                new LinkedHashSet<>(bubbleServiceInterface.getBubbleDetails(bubbleUuid).getData().getApplications())));
+    }
+
+    @FXML
+    private void editDirectoriesList() {
+        PopupManager.showPopup("/fxml/update-paths-list.fxml");
+    }
+
+    private void initializeHiddenComponents() {
+        nameField.setVisible(false);
+        saveIcon1.setVisible(false);
+        saveIcon2.setVisible(false);
+        descriotionField.setVisible(false);
+    }
+
+    private void onEditingName() {
+        editicon1.setOnMouseClicked(e -> {
+            if (bubblelabel.isVisible()) {
+                editicon1.setImage(new Image("/images/close-icon.png"));
+                bubblelabel.setVisible(false);
+                nameField.setText(bubblelabel.getText());
+                nameField.setVisible(true);
+                saveIcon1.setVisible(true);
+                nameField.requestFocus();
+            } else {
+                editicon1.setImage(new Image("/images/edit-icon.png"));
+                bubblelabel.setVisible(true);
+                nameField.setVisible(false);
+                saveIcon1.setVisible(false);
+            }
+        });
+        saveIcon1.setOnMouseClicked(e -> {
+            if (!nameField.getText().equals(bubblelabel.getText())) {
+                try {
+                    bubblelabel.setText(nameField.getText());
+                    bubbleServiceInterface.modifyBubble(bubbleUuid, nameField.getText(), null, null, null,
+                            ModifyBubbleType.NAME);
+                } catch (Exception e1) {
+                    e1.printStackTrace();
+                }
+            }
+            editicon1.setImage(new Image("/images/edit-icon.png"));
+            bubblelabel.setVisible(true);
+            nameField.setVisible(false);
+            saveIcon1.setVisible(false);
+        });
+    }
+
+    private void onEditingDescription() {
+        editicon2.setOnMouseClicked(e -> {
+            if (bubblediscriotionlabel.isVisible()) {
+                editicon2.setImage(new Image("/images/close-icon.png"));
+                bubblediscriotionlabel.setVisible(false);
+                descriotionField.setText(bubblediscriotionlabel.getText());
+                descriotionField.setVisible(true);
+                saveIcon2.setVisible(true);
+                descriotionField.requestFocus();
+            } else {
+                editicon2.setImage(new Image("/images/edit-icon.png"));
+                bubblediscriotionlabel.setVisible(true);
+                descriotionField.setVisible(false);
+                saveIcon2.setVisible(false);
+            }
+        });
+        saveIcon2.setOnMouseClicked(e -> {
+            if (!descriotionField.getText().equals(bubblediscriotionlabel.getText())) {
+                try {
+                    bubblediscriotionlabel.setText(descriotionField.getText());
+                    bubbleServiceInterface.modifyBubble(bubbleUuid, null, descriotionField.getText(), null, null,
+                            ModifyBubbleType.DESCRIPTION);
+                } catch (Exception e1) {
+                    e1.printStackTrace();
+                }
+            }
+            editicon2.setImage(new Image("/images/edit-icon.png"));
+            bubblediscriotionlabel.setVisible(true);
+            descriotionField.setVisible(false);
+            saveIcon2.setVisible(false);
         });
     }
 

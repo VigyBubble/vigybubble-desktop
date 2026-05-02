@@ -382,7 +382,7 @@ public class CreateBubbleController {
 
     @FXML
     private void addDirectory() throws IOException {
-        if (!urlField.getText().isBlank()) {
+        if (urlField.getText() != null && !urlField.getText().isBlank()) {
             Parent parent = FXMLLoader.load(getClass().getResource("/fxml/path-card.fxml"));
             Pane pane = (Pane) parent;
             for (Node n : pane.getChildren()) {
@@ -457,7 +457,7 @@ public class CreateBubbleController {
         List<AppResponseDTO> apps = appsServiceInterface.getApps();
         for (AppResponseDTO app : apps) {
             Pane pane = FXMLLoader.load(getClass().getResource("/fxml/app-selection-card.fxml"));
-            if (!app.getIcon().isBlank())
+            if (app.getIcon() != null && !app.getIcon().isBlank())
                 ((ImageView) pane.lookup("#logo"))
                         .setImage(new Image(new ByteArrayInputStream(Base64.getDecoder().decode(app.getIcon()))));
             ((Label) pane.lookup("#appName")).setText(app.getName());
@@ -471,7 +471,7 @@ public class CreateBubbleController {
             pane.setOnMouseClicked(e -> {
                 try {
                     Pane selectedPane = FXMLLoader.load(getClass().getResource("/fxml/app-list-card.fxml"));
-                    if (!app.getIcon().isBlank())
+                    if (app.getIcon() != null && !app.getIcon().isBlank())
                         ((ImageView) selectedPane.lookup("#selectedappLogo1")).setImage(
                                 new Image(new ByteArrayInputStream(Base64.getDecoder().decode(app.getIcon()))));
                     ((Label) selectedPane.lookup("#SelectedAppnameLabel")).setText(app.getName());

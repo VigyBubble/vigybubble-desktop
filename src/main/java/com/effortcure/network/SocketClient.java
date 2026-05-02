@@ -1,4 +1,4 @@
-package com.effortcure.util;
+package com.effortcure.network;
 
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
@@ -6,11 +6,11 @@ import java.io.IOException;
 import java.net.Socket;
 import java.nio.charset.StandardCharsets;
 
-public class SocketClientUtil {
-    public static String host;
-    public static int port;
+public class SocketClient {
+    private String host;
+    private int port;
 
-    public static String send(String message) throws IOException {
+    public String send(String message) throws IOException {
 
         try (Socket socket = new Socket(host, port)) {
 
@@ -31,4 +31,21 @@ public class SocketClientUtil {
             return new String(response, StandardCharsets.UTF_8);
         }
     }
+
+    public String getHost() {
+        return host;
+    }
+
+    public void setHost(String host) {
+        this.host = host;
+    }
+
+    public int getPort() {
+        return port;
+    }
+
+    public void setPort(int port) {
+        this.port = port;
+    }
+
 }

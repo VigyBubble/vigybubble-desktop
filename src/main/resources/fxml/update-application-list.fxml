@@ -14,99 +14,91 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="root" prefHeight="692.0" prefWidth="1316.0" styleClass="popups-container" stylesheets="@../css/create-bubble.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.effortcure.controller.UpateAppLIstPopupController">
-   <children>
-      <Label fx:id="updateAppListLabel" layoutX="16.0" layoutY="24.0" prefHeight="50.0" prefWidth="461.0" text="Update Application List">
-         <font>
-            <Font size="34.0" />
-         </font>
-         <styleClass>
-            <String fx:value="regular-labels" />
-            <String fx:value="all-labels" />
-         </styleClass>
-      </Label>
-      <ImageView fx:id="closeIcon1" fitHeight="24.0" fitWidth="24.0" layoutX="1248.0" layoutY="34.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../images/close-icon.png" />
-         </image>
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor>
-      </ImageView>
-      <Separator fx:id="separator" layoutX="25.5" layoutY="92.0" prefHeight="1.0" prefWidth="1237.0" />
-      <Label fx:id="selectApplicationLabel" layoutX="24.0" layoutY="125.0" prefHeight="39.0" prefWidth="404.0" text="Select Application">
-         <font>
-            <Font size="30.0" />
-         </font>
-         <styleClass>
-            <String fx:value="regular-labels" />
-            <String fx:value="all-labels" />
-         </styleClass>
-      </Label>
-      <Label fx:id="applicationListLabel" layoutX="759.0" layoutY="125.0" text="Application List">
-         <font>
-            <Font size="30.0" />
-         </font>
-         <styleClass>
-            <String fx:value="regular-labels" />
-            <String fx:value="all-labels" />
-         </styleClass>
-      </Label>
-      <Pane fx:id="appListPane" layoutX="775.0" layoutY="188.0" prefHeight="372.0" prefWidth="489.0" styleClass="applist-pane">
-         <children>
-            <ScrollPane fx:id="scrollPane1" hbarPolicy="NEVER" prefHeight="372.0" prefWidth="489.0" vbarPolicy="ALWAYS">
-               <content>
-                  <VBox fx:id="vbox1" prefHeight="374.0" prefWidth="495.0" />
-               </content>
-            </ScrollPane>
-         </children>
-      </Pane>
-      <Button fx:id="cancelBtn" layoutX="24.0" layoutY="608.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="148.0" styleClass="cancel-button" text="Cancel">
-         <font>
-            <Font size="32.0" />
-         </font>
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor>
-      </Button>
-      <Button fx:id="donrBtn" layoutX="1143.0" layoutY="608.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="121.0" styleClass="next-btn" text="Done">
-         <font>
-            <Font size="32.0" />
-         </font>
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor>
-      </Button>
-      <Pane fx:id="secletAppPane" layoutX="40.0" layoutY="188.0" prefHeight="372.0" prefWidth="699.0" styleClass="selectapp-pane">
-         <children>
-            <Pane fx:id="searchPane" prefHeight="63.0" prefWidth="699.0" styleClass="search-pane">
-               <children>
-                  <ImageView fx:id="searchIcon" fitHeight="24.0" fitWidth="24.0" layoutX="16.0" layoutY="19.5" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../images/search-icon.png" />
-                     </image>
-                  </ImageView>
-                  <Button fx:id="addBtn" layoutX="609.0" layoutY="8.0" mnemonicParsing="false" styleClass="add-button" text="Add">
-                     <font>
-                        <Font size="24.0" />
-                     </font>
-                     <cursor>
-                        <Cursor fx:constant="HAND" />
-                     </cursor>
-                  </Button>
-                  <TextField fx:id="searcField" layoutX="56.0" layoutY="13.0" prefHeight="37.0" prefWidth="527.0" promptText="search app..." styleClass="search-field">
-                     <font>
-                        <Font size="24.0" />
-                     </font>
-                  </TextField>
-               </children>
-            </Pane>
-            <ScrollPane fx:id="scrollPane" hbarPolicy="NEVER" layoutY="71.0" prefHeight="301.0" prefWidth="699.0" vbarPolicy="ALWAYS">
-               <content>
-                  <VBox fx:id="vbox" prefHeight="300.0" prefWidth="692.0" />
-               </content>
-            </ScrollPane>
-         </children>
-      </Pane>
-   </children>
+<AnchorPane fx:id="root" prefHeight="692.0" prefWidth="1316.0" styleClass="popups-container" stylesheets="@../css/create-bubble.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.effortcure.controller.UpateAppLIstPopupController">
+  <children>
+    <Label fx:id="updateAppListLabel" layoutX="16.0" layoutY="24.0" prefHeight="50.0" prefWidth="461.0" text="Update Applications List">
+      <font>
+        <Font size="34.0"/>
+      </font>
+      <styleClass>
+        <String fx:value="regular-labels"/>
+        <String fx:value="all-labels"/>
+      </styleClass>
+    </Label>
+    <ImageView fx:id="close" fitHeight="24.0" fitWidth="24.0" layoutX="1248.0" layoutY="34.0" pickOnBounds="true" preserveRatio="true">
+      <image>
+        <Image url="@../images/close-icon.png"/>
+      </image>
+      <cursor>
+        <Cursor fx:constant="HAND"/>
+      </cursor>
+    </ImageView>
+    <Separator fx:id="separator" layoutX="25.5" layoutY="92.0" prefHeight="1.0" prefWidth="1237.0"/>
+    <Label fx:id="selectApplicationLabel" layoutX="40.0" layoutY="125.0" prefHeight="39.0" prefWidth="404.0" text="Select Application">
+      <font>
+        <Font size="30.0"/>
+      </font>
+      <styleClass>
+        <String fx:value="regular-labels"/>
+        <String fx:value="all-labels"/>
+      </styleClass>
+    </Label>
+    <Label fx:id="applicationListLabel" layoutX="775.0" layoutY="125.0" text="Application List">
+      <font>
+        <Font size="30.0"/>
+      </font>
+      <styleClass>
+        <String fx:value="regular-labels"/>
+        <String fx:value="all-labels"/>
+      </styleClass>
+    </Label>
+    <Pane fx:id="appListPane" layoutX="775.0" layoutY="188.0" prefHeight="372.0" prefWidth="489.0" styleClass="applist-pane">
+      <children>
+        <ScrollPane fx:id="scrollPane1" hbarPolicy="NEVER" prefHeight="372.0" prefWidth="489.0" vbarPolicy="ALWAYS">
+          <content>
+            <VBox fx:id="vbox1" prefHeight="374.0" prefWidth="489.0"/>
+          </content>
+        </ScrollPane>
+      </children>
+    </Pane>
+    <Button fx:id="cancelBtn" onAction="#cancel" layoutX="40.0" layoutY="596.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="148.0" styleClass="cancel-button" text="Cancel">
+      <font>
+        <Font size="32.0"/>
+      </font>
+      <cursor>
+        <Cursor fx:constant="HAND"/>
+      </cursor>
+    </Button>
+    <Button fx:id="doneBtn" onAction="#save" layoutX="1138.0" layoutY="596.0" mnemonicParsing="false" prefHeight="67.0" prefWidth="126.0" styleClass="next-btn" text="Done">
+      <font>
+        <Font size="32.0"/>
+      </font>
+      <cursor>
+        <Cursor fx:constant="HAND"/>
+      </cursor>
+    </Button>
+    <Pane fx:id="secletAppPane" layoutX="40.0" layoutY="188.0" prefHeight="372.0" prefWidth="699.0" styleClass="selectapp-pane">
+      <children>
+        <Pane fx:id="searchPane" prefHeight="63.0" prefWidth="699.0" styleClass="search-pane">
+          <children>
+            <ImageView fx:id="searchIcon" fitHeight="24.0" fitWidth="24.0" layoutX="16.0" layoutY="19.5" pickOnBounds="true" preserveRatio="true">
+              <image>
+                <Image url="@../images/search-icon.png"/>
+              </image>
+            </ImageView>
+            <TextField fx:id="searcField" layoutX="56.0" layoutY="13.0" prefHeight="37.0" prefWidth="527.0" promptText="search app..." styleClass="search-field">
+              <font>
+                <Font size="24.0"/>
+              </font>
+            </TextField>
+          </children>
+        </Pane>
+        <ScrollPane fx:id="scrollPane" hbarPolicy="NEVER" layoutY="71.0" prefHeight="301.0" prefWidth="699.0" vbarPolicy="ALWAYS">
+          <content>
+            <VBox fx:id="vbox" prefHeight="300.0" prefWidth="699.0"/>
+          </content>
+        </ScrollPane>
+      </children>
+    </Pane>
+  </children>
 </AnchorPane>

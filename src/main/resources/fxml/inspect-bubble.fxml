@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -11,7 +14,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="root" prefHeight="853.0" prefWidth="1440.0" styleClass="main-container" stylesheets="@../css/inspect-bubble.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.effortcure.controller.InspectBubbleController">
+<AnchorPane fx:id="root" prefHeight="853.0" prefWidth="1440.0" styleClass="main-container" stylesheets="@../css/inspect-bubble.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.effortcure.controller.InspectBubbleController">
   <children>
     <ImageView fx:id="bubble1" fitHeight="139.7" fitWidth="139.7" pickOnBounds="true" preserveRatio="true">
       <image>
@@ -51,7 +54,7 @@
     <ScrollPane fx:id="scrolpane" fitToWidth="true" hbarPolicy="NEVER" layoutY="0" prefHeight="1462.0" prefWidth="1440.0" styleClass="scroll-pane" vbarPolicy="ALWAYS">
       <content>
         <VBox fx:id="mainVBox" alignment="TOP_CENTER">
-          <Pane fx:id="mainpane" prefHeight="2000" prefWidth="1440.0">
+          <Pane fx:id="mainpane" prefHeight="2000" prefWidth="1440.0" style="-fx-background-color: none;">
             <children>
               <Pane fx:id="namepane" layoutX="100.0" layoutY="80.0" prefHeight="84.0" prefWidth="1200.0" styleClass="all-panes">
                 <children>
@@ -60,15 +63,23 @@
                       <Font size="30.0"/>
                     </font>
                   </Label>
-                  <Label fx:id="bubblelabel" layoutX="118.0" prefHeight="84.0" prefWidth="1073.0" text="Create Ui for Vigy bubble">
+                  <Label fx:id="bubblelabel" layoutX="118.0" prefHeight="84.0" prefWidth="1073.0" style="-fx-background-color: none;" text="Create Ui for Vigy bubble">
                     <font>
                       <Font size="34.0"/>
                     </font>
                   </Label>
                   <Separator fx:id="separator" layoutX="106.0" layoutY="16.0" orientation="VERTICAL" prefHeight="52.0" prefWidth="1.0"/>
+                  <TextField fx:id="nameField" layoutX="118.0" prefHeight="84.0" prefWidth="1072.0" style="-fx-background-color: none;">
+                    <font>
+                      <Font size="34.0"/>
+                    </font>
+                    <padding>
+                      <Insets left="-0.5"/>
+                    </padding>
+                  </TextField>
                 </children>
               </Pane>
-              <ImageView fx:id="editicon1" fitHeight="24.0" fitWidth="24.0" layoutX="1316.0" layoutY="109.0" pickOnBounds="true" preserveRatio="true">
+              <ImageView fx:id="editicon1" fitHeight="24.0" fitWidth="24.0" layoutX="1316.0" layoutY="109.0" pickOnBounds="true" preserveRatio="true" style="-fx-cursor:hand">
                 <image>
                   <Image url="@../images/edit-icon.png"/>
                 </image>
@@ -80,15 +91,20 @@
                       <Font size="30.0"/>
                     </font>
                   </Label>
-                  <Label fx:id="bubblediscriotionlabel" alignment="TOP_LEFT" layoutX="192.0" layoutY="16.0" prefHeight="268.0" prefWidth="998.0" text="create ui for different page Lorem ipsum dolor sit amet consectetur create ui for different page Lorem ipsum dolor sit amet consectetur create ui for different page Lorem ipsum dolor sit amet consectetur" wrapText="true">
+                  <Label fx:id="bubblediscriotionlabel" alignment="TOP_LEFT" layoutX="192.0" layoutY="16.0" prefHeight="256.0" prefWidth="998.0" text="create ui for different page Lorem ipsum dolor sit amet consectetur create ui for different page Lorem ipsum dolor sit amet consectetur create ui for different page Lorem ipsum dolor sit amet consectetur" wrapText="true">
                     <font>
                       <Font size="34.0"/>
                     </font>
                   </Label>
                   <Separator fx:id="separator1" layoutX="184.0" layoutY="16.0" orientation="VERTICAL" prefHeight="255.0" prefWidth="1.0"/>
+                  <TextArea fx:id="descriotionField" layoutX="192.0" layoutY="16.0" prefHeight="256.0" prefWidth="989.0" style="-fx-background-color: none;" wrapText="true">
+                    <font>
+                      <Font size="34.0"/>
+                    </font>
+                  </TextArea>
                 </children>
               </Pane>
-              <ImageView fx:id="editicon2" fitHeight="24.0" fitWidth="24.0" layoutX="1316.0" layoutY="327.0" pickOnBounds="true" preserveRatio="true">
+              <ImageView fx:id="editicon2" fitHeight="24.0" fitWidth="24.0" layoutX="1316.0" layoutY="327.0" pickOnBounds="true" preserveRatio="true" style="-fx-cursor:hand">
                 <image>
                   <Image url="@../images/edit-icon.png"/>
                 </image>
@@ -108,7 +124,7 @@
                   </ScrollPane>
                 </children>
               </Pane>
-              <ImageView fx:id="editicon3" fitHeight="24.0" fitWidth="24.0" layoutX="1316.0" layoutY="636.0" pickOnBounds="true" preserveRatio="true">
+              <ImageView fx:id="editicon3" fitHeight="24.0" fitWidth="24.0" layoutX="1316.0" layoutY="636.0" pickOnBounds="true" preserveRatio="true" style="-fx-cursor:hand" onMouseClicked="#editAppsList">
                 <image>
                   <Image url="@../images/edit-icon.png"/>
                 </image>
@@ -128,12 +144,12 @@
                   </ScrollPane>
                 </children>
               </Pane>
-              <ImageView fx:id="editicon4" fitHeight="24.0" fitWidth="24.0" layoutX="1316.0" layoutY="953.0" pickOnBounds="true" preserveRatio="true">
+              <ImageView fx:id="editicon4" fitHeight="24.0" fitWidth="24.0" layoutX="1316.0" layoutY="953.0" pickOnBounds="true" preserveRatio="true" style="-fx-cursor:hand" onMouseClicked="#editDirectoriesList">
                 <image>
                   <Image url="@../images/edit-icon.png"/>
                 </image>
               </ImageView>
-              <Button fx:id="deletebutton" onAction="#handleDelete" layoutX="70.0" layoutY="1275.0" mnemonicParsing="false" prefHeight="66.0" prefWidth="140.0" styleClass="delete-button" text="Delete">
+              <Button fx:id="deletebutton" layoutX="70.0" layoutY="1275.0" mnemonicParsing="false" onAction="#handleDelete" prefHeight="66.0" prefWidth="140.0" styleClass="delete-button" text="Delete">
                 <font>
                   <Font size="30.0"/>
                 </font>
@@ -183,13 +199,21 @@
                   <Image url="@../images/left-arrow.png"/>
                 </image>
               </ImageView>
+              <ImageView fx:id="saveIcon1" fitHeight="24.0" fitWidth="24.0" layoutX="1351.0" layoutY="109.0" pickOnBounds="true" preserveRatio="true" style="-fx-cursor:hand">
+                <image>
+                  <Image url="@../images/save.png"/>
+                </image>
+              </ImageView>
+              <ImageView fx:id="saveIcon2" fitHeight="24.0" fitWidth="24.0" layoutX="1351.0" layoutY="327.0" pickOnBounds="true" preserveRatio="true" style="-fx-cursor:hand">
+                <image>
+                  <Image url="@../images/save.png"/>
+                </image>
+              </ImageView>
             </children>
           </Pane>
         </VBox>
       </content>
     </ScrollPane>
-    <Pane fx:id="overlay" visible="false"
-              style="-fx-background-color: rgba(0,0,0,0.3);"
-              prefWidth="1440.0" prefHeight="853.0"/>
+    <Pane fx:id="overlay" prefHeight="853.0" prefWidth="1440.0" style="-fx-background-color: rgba(0,0,0,0.3);" visible="false"/>
   </children>
 </AnchorPane>
