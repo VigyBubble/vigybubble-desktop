@@ -115,15 +115,6 @@ public class SessionModePopupController {
         errorMsg.setVisible(true);
     }
 
-    public void setOnStart(Consumer<String> onStart) {
-        this.onStart = onStart;
-    }
-
-    private void closePopup() {
-        Stage stage = (Stage) startbutton.getScene().getWindow();
-        stage.close();
-    }
-
     private void setupField(TextField field, int max, String message) {
         field.textProperty().addListener((obs, oldVal, newVal) -> {
 
@@ -139,7 +130,7 @@ public class SessionModePopupController {
 
             if (value > max) {
                 field.setText(oldVal);
-                showError(message); 
+                showError(message);
             }
         });
     }
@@ -167,6 +158,15 @@ public class SessionModePopupController {
         if (selectedPane == VigyRecommendationPane)
             return "RECOMMENDATION";
         return null;
+    }
+
+    public void setOnStart(Consumer<String> onStart) {
+        this.onStart = onStart;
+    }
+
+    private void closePopup() {
+        Stage stage = (Stage) startbutton.getScene().getWindow();
+        stage.close();
     }
 
     public void setOnClose(Runnable onClose) {

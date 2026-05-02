@@ -30,7 +30,7 @@ public class BubbleSessionApi {
 
 
     public ApiResponse<Void> createSession(UUID bubbleUuid,CreateSessionRequestDTO createSessionRequestDTO) throws Exception {
-        HttpResponse<String> response = ApiClientUtil.post(BASE_URL + bubbleUuid + "/sessions/", null,
+        HttpResponse<String> response = ApiClientUtil.post(BASE_URL + bubbleUuid + "/sessions/", JsonUtil.toJson(createSessionRequestDTO),
                 AccessTokenManager.getInstance().getAccessToken(),
                 null);
         if (response.statusCode() == 403)
