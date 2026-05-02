@@ -14,7 +14,7 @@
 
 <AnchorPane fx:id="root" prefHeight="2120" prefWidth="1440.0" styleClass="main-container" stylesheets="@../css/inspect-session.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.effortcure.controller.InspectSessionsController">
   <children>
-    <ImageView fx:id="back" fitHeight="25.0" fitWidth="24.0" layoutX="40.0" layoutY="40.0" pickOnBounds="true" preserveRatio="true" style="-fx-cursor: hand;">
+    <ImageView fx:id="back" onMouseClicked="#backToCreateSession" fitHeight="25.0" fitWidth="24.0" layoutX="40.0" layoutY="40.0" pickOnBounds="true" preserveRatio="true" style="-fx-cursor: hand;">
       <image>
         <Image url="@../images/left-arrow.png"/>
       </image>
