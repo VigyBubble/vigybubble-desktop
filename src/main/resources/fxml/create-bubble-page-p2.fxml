@@ -67,11 +67,6 @@
                 <Font size="24.0"/>
               </font>
             </TextField>
-            <Button fx:id="addBtn" layoutX="609.0" layoutY="8.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="74.0" styleClass="add-button" text="Add">
-              <font>
-                <Font size="20.0"/>
-              </font>
-            </Button>
           </children>
         </Pane>
       </children>

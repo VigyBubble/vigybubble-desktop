@@ -118,9 +118,6 @@ public class CreateBubbleController {
     private TextField searcField;
 
     @FXML
-    private Button addBtn;
-
-    @FXML
     private Pane appPane1;
 
     @FXML
