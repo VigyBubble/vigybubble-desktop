@@ -261,7 +261,7 @@ public class InspectBubbleController {
     private void fillApps(List<AppResponseDTO> apps) throws IOException {
         for (AppResponseDTO app : new ArrayList<>(new LinkedHashSet<>(apps))) {
             Pane pane = FXMLLoader.load(getClass().getResource("/fxml/inspect-bubble-app-card.fxml"));
-            if (!app.getIcon().isBlank())
+            if (app.getIcon() != null && !app.getIcon().isBlank())
                 ((ImageView) pane.lookup("#icon"))
                         .setImage(new Image(new ByteArrayInputStream(Base64.getDecoder().decode(app.getIcon()))));
             ((Label) pane.lookup("#name")).setText(app.getName());
@@ -299,8 +299,17 @@ public class InspectBubbleController {
     }
 
     @FXML
-    private void editAppsList() {
-        PopupManager.showPopup(null, null);
+    private void editAppsList() throws Exception {
+        UpateAppLIstPopupController.bubbleUuid = bubbleUuid;
+        PopupManager.showPopup("/fxml/update-application-list.fxml");
+        appsListVBox.getChildren().clear();
+        fillApps(new ArrayList<>(
+                new LinkedHashSet<>(bubbleServiceInterface.getBubbleDetails(bubbleUuid).getData().getApplications())));
+    }
+
+    @FXML
+    private void editDirectoriesList() {
+        PopupManager.showPopup("/fxml/update-paths-list.fxml");
     }
 
     private void initializeHiddenComponents() {

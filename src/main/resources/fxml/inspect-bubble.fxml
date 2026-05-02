@@ -14,7 +14,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="root" prefHeight="853.0" prefWidth="1440.0" styleClass="main-container" stylesheets="@../css/inspect-bubble.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.effortcure.controller.InspectBubbleController">
+<AnchorPane fx:id="root" prefHeight="853.0" prefWidth="1440.0" styleClass="main-container" stylesheets="@../css/inspect-bubble.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.effortcure.controller.InspectBubbleController">
   <children>
     <ImageView fx:id="bubble1" fitHeight="139.7" fitWidth="139.7" pickOnBounds="true" preserveRatio="true">
       <image>
@@ -124,7 +124,7 @@
                   </ScrollPane>
                 </children>
               </Pane>
-              <ImageView fx:id="editicon3" fitHeight="24.0" fitWidth="24.0" layoutX="1316.0" layoutY="636.0" pickOnBounds="true" preserveRatio="true" style="-fx-cursor:hand">
+              <ImageView fx:id="editicon3" fitHeight="24.0" fitWidth="24.0" layoutX="1316.0" layoutY="636.0" pickOnBounds="true" preserveRatio="true" style="-fx-cursor:hand" onMouseClicked="#editAppsList">
                 <image>
                   <Image url="@../images/edit-icon.png"/>
                 </image>
@@ -144,7 +144,7 @@
                   </ScrollPane>
                 </children>
               </Pane>
-              <ImageView fx:id="editicon4" fitHeight="24.0" fitWidth="24.0" layoutX="1316.0" layoutY="953.0" pickOnBounds="true" preserveRatio="true" style="-fx-cursor:hand">
+              <ImageView fx:id="editicon4" fitHeight="24.0" fitWidth="24.0" layoutX="1316.0" layoutY="953.0" pickOnBounds="true" preserveRatio="true" style="-fx-cursor:hand" onMouseClicked="#editDirectoriesList">
                 <image>
                   <Image url="@../images/edit-icon.png"/>
                 </image>
