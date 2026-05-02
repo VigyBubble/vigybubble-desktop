@@ -16,7 +16,7 @@ public class AppsService implements AppsServiceInterface {
                 String port = System.getenv("AGENT_PORT");
                 SocketClient socketClient = new SocketClient();
                 socketClient.setHost(host != null ? host : "127.0.0.1");
-                socketClient.setPort((port != null && !port.isBlank()) ? Integer.parseInt(host) : 8080);
+                socketClient.setPort((port != null && !port.isBlank()) ? Integer.parseInt(port) : 8080);
                 String json = socketClient.send("get_apps");
                 return JsonUtil.fromJson(json, new TypeReference<List<AppResponseDTO>>() {
                 });

@@ -1,5 +1,7 @@
 package com.effortcure.controller;
 
+import java.util.UUID;
+
 import com.effortcure.navigator.ContentManager;
 import com.effortcure.navigator.PopupManager;
 import com.effortcure.util.ViewUtil;
@@ -55,6 +57,8 @@ public class CreateSessionController {
     @FXML
     private Pane overlay;
 
+    public static UUID bubbleUuid;
+
     @FXML
     private void initialize() {
 
@@ -76,7 +80,7 @@ public class CreateSessionController {
         GaussianBlur blur = new GaussianBlur(5);
         root.setEffect(blur);
         overlay.setVisible(true);
-
+        SessionModePopupController.bubbleUuid = bubbleUuid;
         PopupManager.showPopup("/fxml/session-mode-popup.fxml", controller -> {
 
             SessionModePopupController popup = (SessionModePopupController) controller;

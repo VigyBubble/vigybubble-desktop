@@ -1,7 +1,14 @@
 package com.effortcure.controller;
 
+import java.util.UUID;
 import java.util.function.Consumer;
 
+import com.effortcure.auth.AccessTokenManager;
+import com.effortcure.dto.request.CreateSessionRequestDTO;
+import com.effortcure.enums.ModeType;
+import com.effortcure.service.implementation.BubbleSessionService;
+import com.effortcure.service.interfaces.BubbleSessionServiceInterface;
+import com.effortcure.util.DurationConverterUtil;
 import com.effortcure.util.ViewUtil;
 
 import javafx.fxml.FXML;
@@ -79,6 +86,9 @@ public class SessionModePopupController {
     private Runnable onClose;
     private Pane selectedPane = null;
     private Consumer<String> onStart;
+    private BubbleSessionServiceInterface bubbleSessionServiceinterface = new BubbleSessionService();
+    public static UUID bubbleUuid;
+    private CreateSessionRequestDTO createSessionRequestDTO = new CreateSessionRequestDTO();
 
     @FXML
     private void initialize() {
@@ -91,7 +101,7 @@ public class SessionModePopupController {
         setupPaneSelection(VigyRecommendationPane, "selected-recommendation");
 
         startbutton.setOnAction(e -> {
-            String mode = getSelectedMode();
+            ModeType mode = getSelectedMode();
             if (hourField.getText().isEmpty() || minuteField.getText().isEmpty()) {
                 showError("Please enter session duration*");
                 return;
@@ -101,7 +111,15 @@ public class SessionModePopupController {
                 return;
             }
             if (onStart != null) {
-                onStart.accept(mode);
+                onStart.accept(mode.toString());
+            }
+            createSessionRequestDTO.setMode(mode);
+            createSessionRequestDTO.setEstimatedDuration(
+                    DurationConverterUtil.convertToSecondes(hourField.getText(), minuteField.getText()));
+            try {
+                bubbleSessionServiceinterface.createSession(bubbleUuid, createSessionRequestDTO);
+            } catch (Exception e1) {
+                e1.printStackTrace();
             }
 
             closePopup();
@@ -150,13 +168,13 @@ public class SessionModePopupController {
         });
     }
 
-    private String getSelectedMode() {
+    private ModeType getSelectedMode() {
         if (selectedPane == patterndetectonpane)
-            return "PATTERN";
+            return ModeType.PATTERN_DETECTION;
         if (selectedPane == VigyInforcepane)
-            return "ENFORCE";
+            return ModeType.VIGY_ENFORCE;
         if (selectedPane == VigyRecommendationPane)
-            return "RECOMMENDATION";
+            return ModeType.VIGY_RECOMMENDATION;
         return null;
     }
 

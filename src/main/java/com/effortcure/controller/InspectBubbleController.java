@@ -223,6 +223,7 @@ public class InspectBubbleController {
 
     @FXML
     private void goToSesssionDetails() {
+        CreateSessionController.bubbleUuid = bubbleUuid;
         ContentManager.setAnchorPane(root);
         ContentManager.switchContent("/fxml/create-session.fxml");
     }
