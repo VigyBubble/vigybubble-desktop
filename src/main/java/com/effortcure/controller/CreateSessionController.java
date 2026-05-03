@@ -1,14 +1,21 @@
 package com.effortcure.controller;
 
+import java.util.HashSet;
+import java.util.Set;
 import java.util.UUID;
 
+import com.effortcure.dto.response.ApiResponse;
+import com.effortcure.dto.response.BubbleSessionsResponseDTO;
 import com.effortcure.navigator.ContentManager;
 import com.effortcure.navigator.PopupManager;
+import com.effortcure.service.implementation.BubbleSessionService;
+import com.effortcure.service.interfaces.BubbleSessionServiceInterface;
 import com.effortcure.util.ViewUtil;
 import javafx.util.Duration;
 
 import javafx.animation.TranslateTransition;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
@@ -16,6 +23,7 @@ import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
+import javafx.scene.text.Text;
 import javafx.scene.image.ImageView;
 import javafx.scene.control.Separator;
 import javafx.scene.effect.GaussianBlur;
@@ -58,11 +66,12 @@ public class CreateSessionController {
     private Pane overlay;
 
     public static UUID bubbleUuid;
+    private BubbleSessionServiceInterface bubbleSessionServiceInterface = new BubbleSessionService();
 
     @FXML
-    private void initialize() {
-
+    private void initialize() throws Exception {
         ViewUtil.initiateResponsiveView(this);
+        getSessions();
         animateBubble(bubble1, 20, 3);
         animateBubble(bubble2, 15, 4);
         animateBubble(bubble3, 25, 5);
@@ -105,6 +114,40 @@ public class CreateSessionController {
                 overlay.setVisible(false);
             });
         });
+    }
+
+    private void getSessions() throws Exception {
+        ApiResponse<Set<BubbleSessionsResponseDTO>> response = bubbleSessionServiceInterface
+                .getBubbleSession(bubbleUuid);
+        if (response != null) {
+            Set<BubbleSessionsResponseDTO> sessions = response.getData() != null ? response.getData() : new HashSet<>();
+            for (BubbleSessionsResponseDTO bubbleSessionsResponseDTO : sessions) {
+                Pane pane = FXMLLoader.load(getClass().getResource("/fxml/session-card.fxml"));
+                ((Label) pane.lookup("#name")).setText(bubbleSessionsResponseDTO.getCreator());
+                ((Label) pane.lookup("#dwp")).setText(bubbleSessionsResponseDTO.getDwp() == null ? "DWP: 0.0%"
+                        : "DWP: " + bubbleSessionsResponseDTO.getDwp() + "%");
+                ((Text) pane.lookup("#pauseDate"))
+                        .setText(bubbleSessionsResponseDTO.getStatusUpdatedAt() != null
+                                ? bubbleSessionsResponseDTO.getStatusUpdatedAt().toString()
+                                : null);
+                if (bubbleSessionsResponseDTO.getStatusUpdatedAt() == null)
+                    ((Text) pane.lookup("#pausedatText")).setVisible(false);
+                ((Text) pane.lookup("#creationDate")).setText(bubbleSessionsResponseDTO.getCreatedAt() != null
+                        ? bubbleSessionsResponseDTO.getCreatedAt().toString()
+                        : null);
+                ((Label) pane.lookup("#status")).setText(bubbleSessionsResponseDTO.getSessionStatus() != null
+                        ? bubbleSessionsResponseDTO.getSessionStatus().toString()
+                        : null);
+                ((Label) pane.lookup("#uuid")).setText(bubbleSessionsResponseDTO.getUuid().toString());
+                pane.setOnMouseClicked(e -> {
+                    InspectSessionsController.sessionUuid = bubbleSessionsResponseDTO.getUuid();
+                    ContentManager.setAnchorPane(root);
+                    ContentManager.switchContent("/fxml/inspect-session.fxml");
+                });
+                vbox.getChildren().add(pane);
+            }
+        }
+
     }
 
     private void animateBubble(ImageView bubble, double moveY, double duration) {

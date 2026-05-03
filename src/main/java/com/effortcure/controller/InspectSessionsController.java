@@ -1,5 +1,7 @@
 package com.effortcure.controller;
 
+import java.util.UUID;
+
 import com.effortcure.navigator.ContentManager;
 import com.effortcure.util.ViewUtil;
 import javafx.util.Duration;
@@ -118,6 +120,8 @@ public class InspectSessionsController {
     private Separator separator;
     @FXML
     private ImageView back;
+
+    public static UUID sessionUuid;
 
     @FXML
     public void initialize() {
