@@ -3,7 +3,6 @@ package com.effortcure.controller;
 import java.util.UUID;
 import java.util.function.Consumer;
 
-import com.effortcure.auth.AccessTokenManager;
 import com.effortcure.dto.request.CreateSessionRequestDTO;
 import com.effortcure.enums.ModeType;
 import com.effortcure.service.implementation.BubbleSessionService;
@@ -121,7 +120,6 @@ public class SessionModePopupController {
             } catch (Exception e1) {
                 e1.printStackTrace();
             }
-
             closePopup();
         });
         hourField.textProperty().addListener(e -> errorMsg.setVisible(false));
