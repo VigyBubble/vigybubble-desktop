@@ -1,11 +1,14 @@
 package com.effortcure.controller;
 
+
 import java.util.HashSet;
 import java.util.Set;
 import java.util.UUID;
 
+import com.effortcure.auth.AccessTokenManager;
 import com.effortcure.dto.response.ApiResponse;
 import com.effortcure.dto.response.LoggedNotificationResponseDTO;
+import com.effortcure.dto.response.PerformanceMetricsResponseDTO;
 import com.effortcure.dto.response.SessionBriefResponseDTO;
 import com.effortcure.navigator.ContentManager;
 import com.effortcure.navigator.PopupManager;
@@ -83,45 +86,46 @@ public class InspectSessionsController {
     private Pane notificationPane;
 
     @FXML
-    private Pane sessionPane1;
+    private Pane Pane0;
     @FXML
-    private Pane sessionPane2;
+    private Pane Pane1;
     @FXML
-    private Pane sessionPane3;
+    private Pane Pane2;
     @FXML
-    private Pane sessionPane4;
+    private Pane Pane3;
     @FXML
-    private Pane sessionPane5;
+    private Pane Pane4;
     @FXML
-    private Pane sessionPane6;
+    private Pane Pane5;
     @FXML
-    private Pane sessionPane7;
+    private Pane Pane6;
     @FXML
-    private Pane sessionPane8;
+    private Pane Pane7;
     @FXML
-    private Pane sessionPane9;
+    private Pane Pane8;
     @FXML
-    private Pane sessionPane10;
+    private Pane Pane9;
     @FXML
-    private Pane sessionPane11;
+    private Pane Pane10;
     @FXML
-    private Pane sessionPane12;
+    private Pane Pane11;
     @FXML
-    private Pane sessionPane13;
+    private Pane Pane12;
     @FXML
-    private Pane sessionPane14;
+    private Pane Pane13;
     @FXML
-    private Pane sessionPane15;
+    private Pane Pane14;
     @FXML
-    private Pane sessionPane16;
+    private Pane Pane15;
     @FXML
-    private Pane sessionPane17;
+    private Pane Pane16;
     @FXML
-    private Pane sessionPane18;
+    private Pane Pane17;
     @FXML
-    private Pane sessionPane19;
+    private Pane Pane18;
     @FXML
-    private Pane sessionPane20;
+    private Pane Pane19;
+
     @FXML
     private ScrollPane notificationScroll;
     @FXML
@@ -182,11 +186,18 @@ public class InspectSessionsController {
     }
 
     private void loadSessionData() throws Exception {
+    System.out.println("Loading session data for UUID: " + sessionUuid);
+    System.out.println(AccessTokenManager.getInstance().getAccessToken());
         ApiResponse<SessionBriefResponseDTO> response = sessionsServiceInterface.getSessionDetails(sessionUuid);
-        if (response != null && response.getStatus() == 200) {
+        ApiResponse<PerformanceMetricsResponseDTO> metricsResponse = sessionsServiceInterface
+                .getPerformanceMetrics(sessionUuid);
+        if (response != null && response.getStatus() == 200 && metricsResponse != null&& metricsResponse.getStatus() == 200) {
             SessionBriefResponseDTO sessionDetails = response.getData();
+            PerformanceMetricsResponseDTO performanceMetrics = metricsResponse.getData();
+            
             setMode(sessionDetails.getMode().toString());
-            // dwpLabel.setText(sessionDetails.getDwp());
+            dwpLabel.setText( performanceMetrics.getDwp()== null ? "DWP: 0.0%"
+                        : "DWP: " + performanceMetrics.getDwp() + "%");
             if (sessionDetails.getStatusUpdatedAt() != null) {
                 pausedAtLabel.setText(sessionDetails.getStatusUpdatedAt().toString());
                 pausedAtLabel.setVisible(true);
@@ -240,8 +251,8 @@ public class InspectSessionsController {
             ((ConfirmPopupController) controller).setOnConfirm(() -> {
                 try {
                     sessionsServiceInterface.DeleteSession(sessionUuid);
-                        ContentManager.setAnchorPane(root);
-                        ContentManager.switchContent("/fxml/create-session.fxml");
+                    ContentManager.setAnchorPane(root);
+                    ContentManager.switchContent("/fxml/create-session.fxml");
                 } catch (Exception ex) {
                     ex.printStackTrace();
                 }
