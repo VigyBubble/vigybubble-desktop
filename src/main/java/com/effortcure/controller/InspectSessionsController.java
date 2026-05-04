@@ -1,8 +1,12 @@
 package com.effortcure.controller;
 
+import java.util.HashSet;
+import java.util.Set;
 import java.util.UUID;
 
+import com.effortcure.auth.AccessTokenManager;
 import com.effortcure.dto.response.ApiResponse;
+import com.effortcure.dto.response.LoggedNotificationResponseDTO;
 import com.effortcure.dto.response.SessionBriefResponseDTO;
 import com.effortcure.navigator.ContentManager;
 import com.effortcure.service.implementation.SessionsService;
@@ -12,6 +16,7 @@ import javafx.util.Duration;
 
 import javafx.animation.TranslateTransition;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
@@ -141,6 +146,7 @@ public class InspectSessionsController {
         if (sessionUuid != null) {
             loadSessionData();
         }
+        getNotifications();
     }
 
     @FXML
@@ -186,6 +192,34 @@ public class InspectSessionsController {
             }
 
             dateLabel.setText(sessionDetails.getCreatedAt().toString());
+        }
+    }
+
+    private void getNotifications() throws Exception {
+
+        ApiResponse<Set<LoggedNotificationResponseDTO>> response = sessionsServiceInterface.getLoggedNotifications(sessionUuid);
+        
+        if (response != null) {
+
+            Set<LoggedNotificationResponseDTO> notifications = response.getData() != null ? response.getData()
+                    : new HashSet<>();
+
+            for (LoggedNotificationResponseDTO dto : notifications) {
+
+                Pane pane = FXMLLoader.load(
+                        getClass().getResource("/fxml/notification-log-card.fxml"));
+
+                ((Label) pane.lookup("#notificationTitle")).setText(
+                        dto.getTitle() != null ? dto.getTitle() : null);
+
+                ((Label) pane.lookup("#content")).setText(
+                        dto.getDescription() != null ? dto.getDescription() : null);
+
+                ((Label) pane.lookup("#date")).setText(
+                        dto.getLoggedAt() != null? dto.getLoggedAt().toString(): "");
+
+                notificationVBox.getChildren().add(pane);
+            }
         }
     }
 
