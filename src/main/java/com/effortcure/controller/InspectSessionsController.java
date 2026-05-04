@@ -1,6 +1,12 @@
 package com.effortcure.controller;
 
+import java.util.UUID;
+
+import com.effortcure.dto.response.ApiResponse;
+import com.effortcure.dto.response.SessionBriefResponseDTO;
 import com.effortcure.navigator.ContentManager;
+import com.effortcure.service.implementation.SessionsService;
+import com.effortcure.service.interfaces.SessionsServiceInterface;
 import com.effortcure.util.ViewUtil;
 import javafx.util.Duration;
 
@@ -118,9 +124,12 @@ public class InspectSessionsController {
     private Separator separator;
     @FXML
     private ImageView back;
-  
+
+    public static UUID sessionUuid;
+    private SessionsServiceInterface sessionsServiceInterface = new SessionsService();
+
     @FXML
-    public void initialize() {
+    public void initialize() throws Exception {
         ViewUtil.initiateResponsiveView(this);
         animateBubble(bubble1, 20, 3);
         animateBubble(bubble2, 15, 4);
@@ -129,6 +138,9 @@ public class InspectSessionsController {
         animateBubble(bubble5, 18, 3.5);
         animateBubble(bubble6, 15, 3.5);
         back.toFront();
+        if (sessionUuid != null) {
+            loadSessionData();
+        }
     }
 
     @FXML
@@ -140,25 +152,43 @@ public class InspectSessionsController {
     @FXML
     public void setMode(String mode) {
         switch (mode) {
-            case "PATTERN":
+            case "PATTERN_DETECTION":
                 modeLabel.setText("Pattern Detection");
                 modeLabel.setStyle("-fx-background-color: rgba(38, 166, 113, 0.8);" + "-fx-text-fill: white;");
                 contentPane.setStyle("-fx-effect:innershadow(gaussian, #26a671, 10, 0.3, 0, 0);");
                 break;
 
-            case "ENFORCE":
+            case "VIGY_ENFORCE":
                 modeLabel.setText("Vigy Enforce");
                 modeLabel.setStyle("-fx-background-color:rgba(178, 33, 33, 0.48);" + "-fx-text-fill: white;");
                 contentPane.setStyle("-fx-effect:innershadow(gaussian, #b22121, 10, 0.3, 0, 0);");
                 break;
 
-            case "RECOMMENDATION":
+            case "VIGY_RECOMMENDATION":
                 modeLabel.setText("Vigy Recommendation");
                 modeLabel.setStyle("-fx-background-color: rgba(112, 34, 185, 0.5);" + "-fx-text-fill: white;");
                 contentPane.setStyle(" -fx-effect:innershadow(gaussian, #7022B9, 10, 0.2, 0, 0)");
                 break;
         }
     }
+
+    private void loadSessionData() throws Exception {
+        ApiResponse<SessionBriefResponseDTO> response = sessionsServiceInterface.getSessionDetails(sessionUuid);
+        if (response != null && response.getStatus() == 200) {
+            SessionBriefResponseDTO sessionDetails = response.getData();
+            setMode(sessionDetails.getMode().toString());
+            // dwpLabel.setText(sessionDetails.getDwp());
+            if (sessionDetails.getStatusUpdatedAt() != null) {
+                pausedAtLabel.setText(sessionDetails.getStatusUpdatedAt().toString());
+                pausedAtLabel.setVisible(true);
+            } else {
+                pausedAtLabel.setVisible(false);
+            }
+
+            dateLabel.setText(sessionDetails.getCreatedAt().toString());
+        }
+    }
+
     @FXML
     private void animateBubble(ImageView bubble, double moveY, double duration) {
         TranslateTransition transition = new TranslateTransition();

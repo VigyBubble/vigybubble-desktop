@@ -1,5 +1,7 @@
 package com.effortcure.controller;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.UUID;
 import java.util.function.Consumer;
 
@@ -88,6 +90,7 @@ public class SessionModePopupController {
     private BubbleSessionServiceInterface bubbleSessionServiceinterface = new BubbleSessionService();
     public static UUID bubbleUuid;
     private CreateSessionRequestDTO createSessionRequestDTO = new CreateSessionRequestDTO();
+    Map<UUID, String> sessionModes = new HashMap<>();
 
     @FXML
     private void initialize() {
@@ -109,14 +112,14 @@ public class SessionModePopupController {
                 showError("Please select a mode first*");
                 return;
             }
-            if (onStart != null) {
-                onStart.accept(mode.toString());
-            }
             createSessionRequestDTO.setMode(mode);
             createSessionRequestDTO.setEstimatedDuration(
                     DurationConverterUtil.convertToSecondes(hourField.getText(), minuteField.getText()));
             try {
                 bubbleSessionServiceinterface.createSession(bubbleUuid, createSessionRequestDTO);
+                  if (onStart != null) {
+                onStart.accept(mode.toString());
+            }
             } catch (Exception e1) {
                 e1.printStackTrace();
             }
