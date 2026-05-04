@@ -90,33 +90,33 @@ public class InspectSessionsController {
     private Pane notificationPane;
 
     @FXML
-    private Pane Pane0;
+    private Pane pane0;
     @FXML
-    private Pane Pane1;
+    private Pane pane1;
     @FXML
-    private Pane Pane2;
+    private Pane pane2;
     @FXML
-    private Pane Pane3;
+    private Pane pane3;
     @FXML
-    private Pane Pane4;
+    private Pane pane4;
     @FXML
-    private Pane Pane5;
+    private Pane pane5;
     @FXML
-    private Pane Pane6;
+    private Pane pane6;
     @FXML
-    private Pane Pane7;
+    private Pane pane7;
     @FXML
-    private Pane Pane8;
+    private Pane pane8;
     @FXML
-    private Pane Pane9;
+    private Pane pane9;
     @FXML
-    private Pane Pane10;
+    private Pane pane10;
     @FXML
-    private Pane Pane11;
+    private Pane pane11;
     @FXML
-    private Pane Pane12;
+    private Pane pane12;
     @FXML
-    private Pane Pane13;
+    private Pane pane13;
     @FXML
     private Pane Pane14;
     @FXML
