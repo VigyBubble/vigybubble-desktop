@@ -81,7 +81,11 @@ public class InspectSessionsController {
     @FXML
     private Pane pausedPane;
     @FXML
-    private Pane sessionsGridPane;
+    private ScrollPane  metricsScroll;
+    @FXML
+    private VBox metricsVBox;
+    @FXML
+    private Pane metricsContainer;
     @FXML
     private Pane notificationPane;
 
