@@ -160,7 +160,9 @@ public class InspectSessionsController {
         if (sessionUuid != null) {
             loadSessionData();
         }
+        viewPerformanceMetrics();
         getNotifications();
+
         pauseImage = new Image(getClass().getResource("/images/pause-icon.png").toExternalForm());
         playImage = new Image(getClass().getResource("/images/play-button.png").toExternalForm());
 
@@ -223,11 +225,11 @@ public class InspectSessionsController {
     private void getNotifications() throws Exception {
         ApiResponse<Set<LoggedNotificationResponseDTO>> response = sessionsServiceInterface
                 .getLoggedNotifications(sessionUuid);
-       
+
         if (response != null) {
             Set<LoggedNotificationResponseDTO> notifications = response.getData() != null ? response.getData()
                     : new HashSet<>();
-          
+
             for (LoggedNotificationResponseDTO dto : notifications) {
 
                 Pane pane = FXMLLoader.load(
@@ -297,6 +299,17 @@ public class InspectSessionsController {
                 modeLabel.setStyle("-fx-background-color: rgba(112, 34, 185, 0.5);" + "-fx-text-fill: white;");
                 contentPane.setStyle(" -fx-effect:innershadow(gaussian, #7022B9, 10, 0.2, 0, 0)");
                 break;
+        }
+    }
+
+    private void viewPerformanceMetrics() throws Exception {
+        ApiResponse<PerformanceMetricsResponseDTO> response = sessionsServiceInterface
+                .getPerformanceMetrics(sessionUuid);
+        if (response != null) {
+            for (int i = 0; i < 20; i++) {
+                ContentManager.setPane((Pane) sessionsGridPane.lookup("#pane" + i));
+                ContentManager.switchPaneContent("/fxml/progress-circle-card.fxml");
+            }
         }
     }
 
