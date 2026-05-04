@@ -4,7 +4,6 @@ import java.util.HashSet;
 import java.util.Set;
 import java.util.UUID;
 
-import com.effortcure.auth.AccessTokenManager;
 import com.effortcure.dto.response.ApiResponse;
 import com.effortcure.dto.response.LoggedNotificationResponseDTO;
 import com.effortcure.dto.response.SessionBriefResponseDTO;
