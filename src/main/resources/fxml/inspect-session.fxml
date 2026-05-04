@@ -133,7 +133,7 @@
                       <Font size="24.0"/>
                     </font>
                   </Label>
-                  <Button fx:id="deleteBtn" layoutX="1073.0" layoutY="1826.0" mnemonicParsing="false" prefHeight="74.0" prefWidth="130.0" styleClass="delete-button" text="Delete">
+                  <Button fx:id="deleteBtn" onAction="#handleDelete" layoutX="1073.0" layoutY="1826.0" mnemonicParsing="false" prefHeight="74.0" prefWidth="130.0" styleClass="delete-button" text="Delete">
                     <font>
                       <Font size="31.0"/>
                     </font>
@@ -145,5 +145,6 @@
         </VBox>
       </content>
     </ScrollPane>
+    <Pane fx:id="overlay" prefHeight="853.0" prefWidth="1440.0" style="-fx-background-color: rgba(0,0,0,0.3);" visible="false"/>
   </children>
 </AnchorPane>

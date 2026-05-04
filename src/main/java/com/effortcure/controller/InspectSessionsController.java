@@ -9,6 +9,7 @@ import com.effortcure.dto.response.ApiResponse;
 import com.effortcure.dto.response.LoggedNotificationResponseDTO;
 import com.effortcure.dto.response.SessionBriefResponseDTO;
 import com.effortcure.navigator.ContentManager;
+import com.effortcure.navigator.PopupManager;
 import com.effortcure.service.implementation.SessionsService;
 import com.effortcure.service.interfaces.SessionsServiceInterface;
 import com.effortcure.util.ViewUtil;
@@ -21,6 +22,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.Separator;
+import javafx.scene.effect.GaussianBlur;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
@@ -129,6 +131,8 @@ public class InspectSessionsController {
     private Separator separator;
     @FXML
     private ImageView back;
+    @FXML
+    private Pane overlay;
 
     public static UUID sessionUuid;
     private SessionsServiceInterface sessionsServiceInterface = new SessionsService();
@@ -197,8 +201,9 @@ public class InspectSessionsController {
 
     private void getNotifications() throws Exception {
 
-        ApiResponse<Set<LoggedNotificationResponseDTO>> response = sessionsServiceInterface.getLoggedNotifications(sessionUuid);
-        
+        ApiResponse<Set<LoggedNotificationResponseDTO>> response = sessionsServiceInterface
+                .getLoggedNotifications(sessionUuid);
+
         if (response != null) {
 
             Set<LoggedNotificationResponseDTO> notifications = response.getData() != null ? response.getData()
@@ -216,11 +221,41 @@ public class InspectSessionsController {
                         dto.getDescription() != null ? dto.getDescription() : null);
 
                 ((Label) pane.lookup("#date")).setText(
-                        dto.getLoggedAt() != null? dto.getLoggedAt().toString(): "");
+                        dto.getLoggedAt() != null ? dto.getLoggedAt().toString() : "");
 
                 notificationVBox.getChildren().add(pane);
             }
         }
+    }
+
+    @FXML
+    private void handleDelete() {
+        GaussianBlur blur = new GaussianBlur(5);
+        root.setEffect(blur);
+        overlay.setVisible(true);
+
+        PopupManager.showPopup("/fxml/confirm-popups.fxml", controller -> {
+            ((ConfirmPopupController) controller).setupDeleteMode("Delete Session",
+                    "Are you sure you want to delete this session?");
+
+            ((ConfirmPopupController) controller).setOnConfirm(() -> {
+                try {
+                    sessionsServiceInterface.DeleteSession(sessionUuid);
+                        ContentManager.setAnchorPane(root);
+                        ContentManager.switchContent("/fxml/create-session.fxml");
+                } catch (Exception ex) {
+                    ex.printStackTrace();
+                }
+
+                root.setEffect(null);
+                overlay.setVisible(false);
+            });
+
+            ((ConfirmPopupController) controller).setOnCancel(() -> {
+                root.setEffect(null);
+                overlay.setVisible(false);
+            });
+        });
     }
 
     @FXML

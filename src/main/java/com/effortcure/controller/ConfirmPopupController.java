@@ -47,6 +47,13 @@ public class ConfirmPopupController {
         confirmBtn.getStyleClass().add("delete-btn");
     }
 
+       public void setupDeleteMode(String newTitle, String message) {
+        title.setText(newTitle);
+        content.setText(message);
+        confirmBtn.setText("Delete");
+        confirmBtn.getStyleClass().add("delete-btn");
+    }
+
     public void setOnConfirm(Runnable action) {
         this.onConfirm = action;
     }
