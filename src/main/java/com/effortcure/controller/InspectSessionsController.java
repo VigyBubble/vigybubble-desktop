@@ -1,15 +1,14 @@
 package com.effortcure.controller;
 
-
 import java.util.HashSet;
 import java.util.Set;
 import java.util.UUID;
 
-import com.effortcure.auth.AccessTokenManager;
 import com.effortcure.dto.response.ApiResponse;
 import com.effortcure.dto.response.LoggedNotificationResponseDTO;
 import com.effortcure.dto.response.PerformanceMetricsResponseDTO;
 import com.effortcure.dto.response.SessionBriefResponseDTO;
+import com.effortcure.enums.SessionStatus;
 import com.effortcure.navigator.ContentManager;
 import com.effortcure.navigator.PopupManager;
 import com.effortcure.service.implementation.SessionsService;
@@ -25,6 +24,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.Separator;
 import javafx.scene.effect.GaussianBlur;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
@@ -139,6 +139,9 @@ public class InspectSessionsController {
 
     public static UUID sessionUuid;
     private SessionsServiceInterface sessionsServiceInterface = new SessionsService();
+    private boolean isPaused = false;
+    private Image pauseImage;
+    private Image playImage;
 
     @FXML
     public void initialize() throws Exception {
@@ -154,6 +157,34 @@ public class InspectSessionsController {
             loadSessionData();
         }
         getNotifications();
+        pauseImage = new Image(getClass().getResource("/images/pause-icon.png").toExternalForm());
+        playImage = new Image(getClass().getResource("/images/play-button.png").toExternalForm());
+
+        pauseBtn.setOnMouseClicked(e -> {
+            try {
+                togglePlayPause();
+            } catch (Exception e1) {
+                e1.printStackTrace();
+            }
+        });
+    }
+
+    private void togglePlayPause() {
+
+        try {
+
+            if (!isPaused) {
+                sessionsServiceInterface.ModifySessionStatus(sessionUuid, SessionStatus.PAUSED);
+            } else {
+                sessionsServiceInterface.ModifySessionStatus(sessionUuid, SessionStatus.IN_PROGRESS);
+            }
+
+            isPaused = !isPaused;
+
+            pauseBtn.setImage(isPaused ? playImage : pauseImage);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     @FXML
@@ -162,44 +193,20 @@ public class InspectSessionsController {
         ContentManager.switchContent("/fxml/create-session.fxml");
     }
 
-    @FXML
-    public void setMode(String mode) {
-        switch (mode) {
-            case "PATTERN_DETECTION":
-                modeLabel.setText("Pattern Detection");
-                modeLabel.setStyle("-fx-background-color: rgba(38, 166, 113, 0.8);" + "-fx-text-fill: white;");
-                contentPane.setStyle("-fx-effect:innershadow(gaussian, #26a671, 10, 0.3, 0, 0);");
-                break;
-
-            case "VIGY_ENFORCE":
-                modeLabel.setText("Vigy Enforce");
-                modeLabel.setStyle("-fx-background-color:rgba(178, 33, 33, 0.48);" + "-fx-text-fill: white;");
-                contentPane.setStyle("-fx-effect:innershadow(gaussian, #b22121, 10, 0.3, 0, 0);");
-                break;
-
-            case "VIGY_RECOMMENDATION":
-                modeLabel.setText("Vigy Recommendation");
-                modeLabel.setStyle("-fx-background-color: rgba(112, 34, 185, 0.5);" + "-fx-text-fill: white;");
-                contentPane.setStyle(" -fx-effect:innershadow(gaussian, #7022B9, 10, 0.2, 0, 0)");
-                break;
-        }
-    }
-
     private void loadSessionData() throws Exception {
-    System.out.println("Loading session data for UUID: " + sessionUuid);
-    System.out.println(AccessTokenManager.getInstance().getAccessToken());
         ApiResponse<SessionBriefResponseDTO> response = sessionsServiceInterface.getSessionDetails(sessionUuid);
         ApiResponse<PerformanceMetricsResponseDTO> metricsResponse = sessionsServiceInterface
                 .getPerformanceMetrics(sessionUuid);
-        if (response != null && response.getStatus() == 200 && metricsResponse != null&& metricsResponse.getStatus() == 200) {
+        if (response != null && response.getStatus() == 200 && metricsResponse != null
+                && metricsResponse.getStatus() == 200) {
             SessionBriefResponseDTO sessionDetails = response.getData();
             PerformanceMetricsResponseDTO performanceMetrics = metricsResponse.getData();
-            
+
             setMode(sessionDetails.getMode().toString());
-            dwpLabel.setText( performanceMetrics.getDwp()== null ? "DWP: 0.0%"
-                        : "DWP: " + performanceMetrics.getDwp() + "%");
+            dwpLabel.setText(performanceMetrics.getDwp() == null ? "DWP: 0.0%"
+                    : "DWP: " + performanceMetrics.getDwp() + "%");
             if (sessionDetails.getStatusUpdatedAt() != null) {
-                pausedAtLabel.setText(sessionDetails.getStatusUpdatedAt().toString());
+                pausedAtLabel.setText("Paused at : " + sessionDetails.getStatusUpdatedAt().toString());
                 pausedAtLabel.setVisible(true);
             } else {
                 pausedAtLabel.setVisible(false);
@@ -210,15 +217,13 @@ public class InspectSessionsController {
     }
 
     private void getNotifications() throws Exception {
-
         ApiResponse<Set<LoggedNotificationResponseDTO>> response = sessionsServiceInterface
                 .getLoggedNotifications(sessionUuid);
-
+       
         if (response != null) {
-
             Set<LoggedNotificationResponseDTO> notifications = response.getData() != null ? response.getData()
                     : new HashSet<>();
-
+          
             for (LoggedNotificationResponseDTO dto : notifications) {
 
                 Pane pane = FXMLLoader.load(
@@ -266,6 +271,29 @@ public class InspectSessionsController {
                 overlay.setVisible(false);
             });
         });
+    }
+
+    @FXML
+    public void setMode(String mode) {
+        switch (mode) {
+            case "PATTERN_DETECTION":
+                modeLabel.setText("Pattern Detection");
+                modeLabel.setStyle("-fx-background-color: rgba(38, 166, 113, 0.8);" + "-fx-text-fill: white;");
+                contentPane.setStyle("-fx-effect:innershadow(gaussian, #26a671, 10, 0.3, 0, 0);");
+                break;
+
+            case "VIGY_ENFORCE":
+                modeLabel.setText("Vigy Enforce");
+                modeLabel.setStyle("-fx-background-color:rgba(178, 33, 33, 0.48);" + "-fx-text-fill: white;");
+                contentPane.setStyle("-fx-effect:innershadow(gaussian, #b22121, 10, 0.3, 0, 0);");
+                break;
+
+            case "VIGY_RECOMMENDATION":
+                modeLabel.setText("Vigy Recommendation");
+                modeLabel.setStyle("-fx-background-color: rgba(112, 34, 185, 0.5);" + "-fx-text-fill: white;");
+                contentPane.setStyle(" -fx-effect:innershadow(gaussian, #7022B9, 10, 0.2, 0, 0)");
+                break;
+        }
     }
 
     @FXML

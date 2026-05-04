@@ -4,11 +4,11 @@ import com.effortcure.util.ViewUtil;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
-import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Pane;
 
 public class NotificationCardController {
     @FXML
-    private AnchorPane root;
+    private Pane root;
     @FXML
     private Label notificationTitle;
     @FXML

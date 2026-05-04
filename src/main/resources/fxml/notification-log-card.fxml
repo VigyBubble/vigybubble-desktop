@@ -14,12 +14,12 @@
                 <Font name="System Bold" size="28.0" />
             </font>
         </Label>
-        <Label fx:id="content" layoutX="16.0" layoutY="68.0" prefHeight="76.0" prefWidth="894.0" styleClass="describtion-labels" text="Lorem ipsum dolor sit amet consectetur. Arcu nunc nulla eleifend nunc" wrapText="true">
+        <Label fx:id="content" alignment="TOP_LEFT" layoutX="16.0" layoutY="68.0" prefHeight="76.0" prefWidth="894.0" styleClass="describtion-labels" text="Lorem ipsum dolor sit amet consectetur. Arcu nunc nulla eleifend nunc" wrapText="true">
             <font>
                 <Font size="26.0" />
             </font>
         </Label>
-        <Label fx:id="date" layoutX="650.0" layoutY="18.0" text="25-08-2026 19:30">
+        <Label fx:id="date" layoutX="650.0" layoutY="18.0" prefHeight="35.0" prefWidth="192.0" text="25-08-2026 19:30">
             <font>
                 <Font size="24.0" />
             </font>
