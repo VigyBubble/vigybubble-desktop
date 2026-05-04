@@ -118,7 +118,7 @@ public class InspectSessionsController {
     private Separator separator;
     @FXML
     private ImageView back;
-
+  
     @FXML
     public void initialize() {
         ViewUtil.initiateResponsiveView(this);
@@ -159,7 +159,6 @@ public class InspectSessionsController {
                 break;
         }
     }
-
     @FXML
     private void animateBubble(ImageView bubble, double moveY, double duration) {
         TranslateTransition transition = new TranslateTransition();
