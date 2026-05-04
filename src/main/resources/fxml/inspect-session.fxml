@@ -89,32 +89,32 @@
                       <Font size="26.0" />
                     </font>
                   </Label>
-                 <ScrollPane fx:id="metricsScroll" vbarPolicy="ALWAYS" fitToWidth="true" hbarPolicy="NEVER" layoutX="28.0" layoutY="261.0" prefHeight="1176.0" prefWidth="1184.0" style="-fx-background-color: white;" styleClass="all-panes">
+                 <ScrollPane fx:id="metricsScroll" fitToWidth="true" hbarPolicy="NEVER" layoutX="28.0" layoutY="261.0" prefHeight="1176.0" prefWidth="1184.0" style="-fx-background-color: white;" styleClass="all-panes" vbarPolicy="ALWAYS">
                     <content>
-                      <VBox fx:id="metricsVBox" prefHeight="1176.0" prefWidth="1184.0">
+                      <VBox fx:id="metricsVBox" prefHeight="985.0" prefWidth="1176.0">
                         <children>
                           <Pane fx:id="metricsContainer" prefHeight="1174.0" prefWidth="1184.0">
                             <children>
-                              <Pane fx:id="pane0" layoutX="24.0" layoutY="24.0" prefHeight="200.0" prefWidth="260.0"/>
-                              <Pane fx:id="pane1" layoutX="316.0" layoutY="24.0" prefHeight="200.0" prefWidth="260.0"/>
-                              <Pane fx:id="pane2" layoutX="608.0" layoutY="24.0" prefHeight="200.0" prefWidth="260.0"/>
-                              <Pane fx:id="pane3" layoutX="900.0" layoutY="24.0" prefHeight="200.0" prefWidth="260.0"/>
-                              <Pane fx:id="pane4" layoutX="24.0" layoutY="256.0" prefHeight="200.0" prefWidth="260.0"/>
-                              <Pane fx:id="pane5" layoutX="316.0" layoutY="256.0" prefHeight="200.0" prefWidth="260.0"/>
-                              <Pane fx:id="pane6" layoutX="608.0" layoutY="256.0" prefHeight="200.0" prefWidth="260.0"/>
-                              <Pane fx:id="pane7" layoutX="900.0" layoutY="256.0" prefHeight="200.0" prefWidth="260.0"/>
-                              <Pane fx:id="pane8" layoutX="24.0" layoutY="488.0" prefHeight="200.0" prefWidth="260.0"/>
-                              <Pane fx:id="pane9" layoutX="316.0" layoutY="488.0" prefHeight="200.0" prefWidth="260.0"/>
-                              <Pane fx:id="pane10" layoutX="608.0" layoutY="488.0" prefHeight="200.0" prefWidth="260.0"/>
-                              <Pane fx:id="pane11" layoutX="900.0" layoutY="488.0" prefHeight="200.0" prefWidth="260.0"/>
-                              <Pane fx:id="pane12" layoutX="24.0" layoutY="720.0" prefHeight="200.0" prefWidth="260.0"/>
-                              <Pane fx:id="pane13" layoutX="316.0" layoutY="720.0" prefHeight="200.0" prefWidth="260.0"/>
-                              <Pane fx:id="pane14" layoutX="608.0" layoutY="720.0" prefHeight="200.0" prefWidth="260.0"/>
-                              <Pane fx:id="pane15" layoutX="900.0" layoutY="720.0" prefHeight="200.0" prefWidth="260.0"/>
-                              <Pane fx:id="pane16" layoutX="24.0" layoutY="952.0" prefHeight="200.0" prefWidth="260.0"/>
-                              <Pane fx:id="pane17" layoutX="316.0" layoutY="952.0" prefHeight="200.0" prefWidth="260.0"/>
-                              <Pane fx:id="pane18" layoutX="608.0" layoutY="952.0" prefHeight="200.0" prefWidth="260.0"/>
-                              <Pane fx:id="pane19" layoutX="900.0" layoutY="952.0" prefHeight="200.0" prefWidth="260.0"/>
+                              <Pane fx:id="pane0" layoutX="24.0" layoutY="24.0" prefHeight="200.0" prefWidth="260.0" />
+                              <Pane fx:id="pane1" layoutX="316.0" layoutY="24.0" prefHeight="200.0" prefWidth="260.0" />
+                              <Pane fx:id="pane2" layoutX="608.0" layoutY="24.0" prefHeight="200.0" prefWidth="260.0" />
+                              <Pane fx:id="pane3" layoutX="900.0" layoutY="24.0" prefHeight="200.0" prefWidth="260.0" />
+                              <Pane fx:id="pane4" layoutX="24.0" layoutY="256.0" prefHeight="200.0" prefWidth="260.0" />
+                              <Pane fx:id="pane5" layoutX="316.0" layoutY="256.0" prefHeight="200.0" prefWidth="260.0" />
+                              <Pane fx:id="pane6" layoutX="608.0" layoutY="256.0" prefHeight="200.0" prefWidth="260.0" />
+                              <Pane fx:id="pane7" layoutX="900.0" layoutY="256.0" prefHeight="200.0" prefWidth="260.0" />
+                              <Pane fx:id="pane8" layoutX="24.0" layoutY="488.0" prefHeight="200.0" prefWidth="260.0" />
+                              <Pane fx:id="pane9" layoutX="316.0" layoutY="488.0" prefHeight="200.0" prefWidth="260.0" />
+                              <Pane fx:id="pane10" layoutX="608.0" layoutY="488.0" prefHeight="200.0" prefWidth="260.0" />
+                              <Pane fx:id="pane11" layoutX="900.0" layoutY="488.0" prefHeight="200.0" prefWidth="260.0" />
+                              <Pane fx:id="pane12" layoutX="24.0" layoutY="720.0" prefHeight="200.0" prefWidth="260.0" />
+                              <Pane fx:id="pane13" layoutX="316.0" layoutY="720.0" prefHeight="200.0" prefWidth="260.0" />
+                              <Pane fx:id="pane14" layoutX="608.0" layoutY="720.0" prefHeight="200.0" prefWidth="260.0" />
+                              <Pane fx:id="pane15" layoutX="900.0" layoutY="720.0" prefHeight="200.0" prefWidth="260.0" />
+                              <Pane fx:id="pane16" layoutX="24.0" layoutY="952.0" prefHeight="200.0" prefWidth="260.0" />
+                              <Pane fx:id="pane17" layoutX="316.0" layoutY="952.0" prefHeight="200.0" prefWidth="260.0" />
+                              <Pane fx:id="pane18" layoutX="608.0" layoutY="952.0" prefHeight="200.0" prefWidth="260.0" />
+                              <Pane fx:id="pane19" layoutX="900.0" layoutY="952.0" prefHeight="200.0" prefWidth="260.0" />
                             </children>
                           </Pane>
                         </children>

@@ -118,17 +118,17 @@ public class InspectSessionsController {
     @FXML
     private Pane pane13;
     @FXML
-    private Pane Pane14;
+    private Pane pane14;
     @FXML
-    private Pane Pane15;
+    private Pane pane15;
     @FXML
-    private Pane Pane16;
+    private Pane pane16;
     @FXML
-    private Pane Pane17;
+    private Pane pane17;
     @FXML
-    private Pane Pane18;
+    private Pane pane18;
     @FXML
-    private Pane Pane19;
+    private Pane pane19;
 
     @FXML
     private ScrollPane notificationScroll;
@@ -307,7 +307,7 @@ public class InspectSessionsController {
                 .getPerformanceMetrics(sessionUuid);
         if (response != null) {
             for (int i = 0; i < 20; i++) {
-                ContentManager.setPane((Pane) sessionsGridPane.lookup("#pane" + i));
+                ContentManager.setPane((Pane) metricsContainer.lookup("#pane" + i));
                 ContentManager.switchPaneContent("/fxml/progress-circle-card.fxml");
             }
         }
