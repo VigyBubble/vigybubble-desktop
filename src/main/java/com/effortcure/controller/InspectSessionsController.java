@@ -158,6 +158,7 @@ public class InspectSessionsController {
         }
         viewPerformanceMetrics();
         getNotifications();
+
         pauseImage = new Image(getClass().getResource("/images/pause-icon.png").toExternalForm());
         playImage = new Image(getClass().getResource("/images/play-button.png").toExternalForm());
 
@@ -306,7 +307,6 @@ public class InspectSessionsController {
                 ContentManager.switchPaneContent("/fxml/progress-circle-card.fxml");
             }
         }
-
     }
 
     @FXML
