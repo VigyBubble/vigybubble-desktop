@@ -134,7 +134,7 @@
     -fx-effect: dropshadow(gaussian, rgba(11, 62, 58, 0.5), 4, 0, 0, 2);
 }
 
-
+.online-label,
 .recommended-label {
     -fx-background-color: rgba(34, 185, 175, 0.2);
     -fx-text-fill: #115D58;
@@ -239,3 +239,15 @@
     -fx-border-radius: 20;
     -fx-background-radius: 20;
   }
+  .deviceImg-pane {
+    -fx-background-color: white;
+    -fx-border-radius: 10;
+    -fx-background-radius: 10;
+    -fx-effect: dropshadow(gaussian, rgba(23,123,117,0.3), 4, 0.3, 0, 1);
+}
+.offline-label{
+    -fx-text-fill: #8D1818;
+    -fx-background-radius: 25;
+    -fx-border-radius: 25;
+    -fx-background-color: rgba(141,24,24,0.2);
+}
