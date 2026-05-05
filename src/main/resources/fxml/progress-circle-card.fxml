@@ -2,26 +2,25 @@
 
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.Pane?>
-<?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 
-<Pane fx:id="root" prefHeight="200.0" prefWidth="260.0" stylesheets="@../css/inspect-session.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1">
-   <children>
-      <StackPane fx:id="stackPane" layoutX="51.5" layoutY="16.0" prefHeight="125" prefWidth="125">
-         <children>
-            <Circle fx:id="progressCircle" fill="transparent" radius="50" stroke="green" strokeWidth="8" />
-            <Label fx:id="progressLabel" text="0%">
-               <font>
-                  <Font size="16.0" />
-               </font>
-            </Label>
-         </children>
-      </StackPane>
-      <Label fx:id="metricLabel" alignment="CENTER" contentDisplay="CENTER" layoutY="165.0" prefHeight="25.0" prefWidth="260.0" text="Distraction">
-         <font>
-            <Font size="16.0" />
-         </font>
-      </Label>
-   </children>
+<Pane fx:id="root" prefHeight="200.0" prefWidth="296.0" stylesheets="@../css/inspect-session.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.effortcure.controller.ProgressCardController">
+  <children>
+    <Label fx:id="metricLabel" alignment="CENTER" contentDisplay="CENTER" layoutY="156.0" prefHeight="25.0" prefWidth="296.0" text="Distraction">
+      <font>
+        <Font size="16.0"/>
+      </font>
+    </Label>
+    <Pane fx:id="progressPane" layoutX="86.0" layoutY="25.0" prefHeight="125.0" prefWidth="125.0">
+      <children>
+        <Circle fx:id="progressCircle" fill="transparent" layoutX="63.0" layoutY="63.0" radius="50" stroke="green" strokeWidth="8"/>
+        <Label fx:id="progressLabel" alignment="CENTER" layoutX="40.0" layoutY="51.0" prefHeight="25.0" prefWidth="45.0" text="100%">
+          <font>
+            <Font size="16.0"/>
+          </font>
+        </Label>
+      </children>
+    </Pane>
+  </children>
 </Pane>

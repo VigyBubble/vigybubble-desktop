@@ -35,7 +35,7 @@ public class SessionApi {
         HttpResponse<String> response = ApiClientUtil.delete(BASE_URL + sessionUuid, null,
                 AccessTokenManager.getInstance().getAccessToken(),
                 null);
-        if (response.statusCode() == 403)
+        if (response.statusCode() == 403 || response.statusCode() == 204)
             return null;
         return JsonUtil.fromJson(response.body(), new TypeReference<ApiResponse<Void>>() {
         });
@@ -64,7 +64,7 @@ public class SessionApi {
 
     public ApiResponse<Void> ModifySessionStatus(UUID sessionUuid, SessionStatus status) throws Exception {
         HttpResponse<String> response = ApiClientUtil.patch(BASE_URL + sessionUuid,
-                 JsonUtil.toJson(status),
+                JsonUtil.toJson(status),
                 AccessTokenManager.getInstance().getAccessToken(),
                 null);
         if (response.statusCode() == 403)

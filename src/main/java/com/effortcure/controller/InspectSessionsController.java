@@ -4,7 +4,6 @@ import java.util.HashSet;
 import java.util.Set;
 import java.util.UUID;
 
-import com.effortcure.auth.AccessTokenManager;
 import com.effortcure.dto.response.ApiResponse;
 import com.effortcure.dto.response.LoggedNotificationResponseDTO;
 import com.effortcure.dto.response.PerformanceMetricsResponseDTO;
@@ -28,6 +27,7 @@ import javafx.scene.effect.GaussianBlur;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 
@@ -35,110 +35,91 @@ public class InspectSessionsController {
 
     @FXML
     private AnchorPane root;
+
     @FXML
     private ScrollPane scrolpane;
+
     @FXML
     private VBox rootVBox;
+
     @FXML
     private Pane mainPane;
+
     @FXML
     private Pane contentPane;
 
     @FXML
     private ImageView bubble1;
+
     @FXML
     private ImageView bubble2;
+
     @FXML
     private ImageView bubble3;
+
     @FXML
     private ImageView bubble4;
+
     @FXML
     private ImageView bubble5;
+
     @FXML
     private ImageView bubble6;
 
     @FXML
     private Label modeLabel;
+
     @FXML
     private Label dwpLabel;
+
     @FXML
     private Label pausedAtLabel;
+
     @FXML
     private Label notificationLabel;
+
     @FXML
     private Label dateLabel;
 
     @FXML
     private ImageView pauseBtn;
+
     @FXML
     private ImageView doneBtn;
+
     @FXML
     private Button deleteBtn;
 
     @FXML
     private Pane gridPane;
+
     @FXML
     private Pane dwpPane;
+
     @FXML
     private Pane pausedPane;
-    @FXML
-    private ScrollPane metricsScroll;
-    @FXML
-    private VBox metricsVBox;
+
     @FXML
     private Pane metricsContainer;
+
+    @FXML
+    private VBox metricsVBox;
+
     @FXML
     private Pane notificationPane;
 
     @FXML
-    private Pane pane0;
-    @FXML
-    private Pane pane1;
-    @FXML
-    private Pane pane2;
-    @FXML
-    private Pane pane3;
-    @FXML
-    private Pane pane4;
-    @FXML
-    private Pane pane5;
-    @FXML
-    private Pane pane6;
-    @FXML
-    private Pane pane7;
-    @FXML
-    private Pane pane8;
-    @FXML
-    private Pane pane9;
-    @FXML
-    private Pane pane10;
-    @FXML
-    private Pane pane11;
-    @FXML
-    private Pane pane12;
-    @FXML
-    private Pane pane13;
-    @FXML
-    private Pane pane14;
-    @FXML
-    private Pane pane15;
-    @FXML
-    private Pane pane16;
-    @FXML
-    private Pane pane17;
-    @FXML
-    private Pane pane18;
-    @FXML
-    private Pane pane19;
+    private ScrollPane notificationScroll;
 
     @FXML
-    private ScrollPane notificationScroll;
-    @FXML
     private VBox notificationVBox;
+
     @FXML
     private Separator separator;
+
     @FXML
     private ImageView back;
+
     @FXML
     private Pane overlay;
 
@@ -179,7 +160,7 @@ public class InspectSessionsController {
             try {
                 sessionsServiceInterface.ModifySessionStatus(sessionUuid, SessionStatus.DONE);
                 ContentManager.setAnchorPane(root);
-                ContentManager.switchContent("/fxml/create-session.fxml"); 
+                ContentManager.switchContent("/fxml/create-session.fxml");
             } catch (Exception e1) {
                 e1.printStackTrace();
             }
@@ -207,7 +188,7 @@ public class InspectSessionsController {
             }
             isPaused = !isPaused;
             pauseBtn.setImage(isPaused ? playImage : pauseImage);
-              loadSessionData();
+            loadSessionData();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -220,8 +201,6 @@ public class InspectSessionsController {
     }
 
     private void loadSessionData() throws Exception {
-         System.out.println(sessionUuid);
-         System.out.println(AccessTokenManager.getInstance().getAccessToken());
         ApiResponse<SessionBriefResponseDTO> response = sessionsServiceInterface.getSessionDetails(sessionUuid);
         ApiResponse<PerformanceMetricsResponseDTO> metricsResponse = sessionsServiceInterface
                 .getPerformanceMetrics(sessionUuid);
@@ -328,9 +307,19 @@ public class InspectSessionsController {
         ApiResponse<PerformanceMetricsResponseDTO> response = sessionsServiceInterface
                 .getPerformanceMetrics(sessionUuid);
         if (response != null) {
+            Pane metricPanesContainer = new Pane();
+            HBox metricPanesContainerHbox = new HBox();
             for (int i = 0; i < 20; i++) {
-                ContentManager.setPane((Pane) metricsContainer.lookup("#pane" + i));
-                ContentManager.switchPaneContent("/fxml/progress-circle-card.fxml");
+                if (i % 4 == 0) {
+                    metricPanesContainer = new Pane();
+                    metricPanesContainerHbox = new HBox();
+                    metricPanesContainer.setPrefWidth(metricsContainer.getWidth());
+                    metricPanesContainer.setPrefHeight(metricsContainer.getPrefHeight() / 5);
+                    metricPanesContainer.getChildren().add(metricPanesContainerHbox);
+                    metricsVBox.getChildren().add(metricPanesContainer);
+                }
+                Pane metricPane = FXMLLoader.load(getClass().getResource("/fxml/progress-circle-card.fxml"));
+                metricPanesContainerHbox.getChildren().add(metricPane);
             }
         }
     }
