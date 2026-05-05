@@ -4,6 +4,7 @@ import java.util.HashSet;
 import java.util.Set;
 import java.util.UUID;
 
+import com.effortcure.auth.AccessTokenManager;
 import com.effortcure.dto.response.ApiResponse;
 import com.effortcure.dto.response.LoggedNotificationResponseDTO;
 import com.effortcure.dto.response.PerformanceMetricsResponseDTO;
@@ -206,6 +207,7 @@ public class InspectSessionsController {
             }
             isPaused = !isPaused;
             pauseBtn.setImage(isPaused ? playImage : pauseImage);
+              loadSessionData();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -218,6 +220,8 @@ public class InspectSessionsController {
     }
 
     private void loadSessionData() throws Exception {
+         System.out.println(sessionUuid);
+         System.out.println(AccessTokenManager.getInstance().getAccessToken());
         ApiResponse<SessionBriefResponseDTO> response = sessionsServiceInterface.getSessionDetails(sessionUuid);
         ApiResponse<PerformanceMetricsResponseDTO> metricsResponse = sessionsServiceInterface
                 .getPerformanceMetrics(sessionUuid);

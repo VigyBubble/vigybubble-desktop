@@ -1,11 +1,15 @@
 package com.effortcure.controller;
 
+import java.util.Comparator;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 import java.util.UUID;
+import java.util.stream.Collectors;
 
 import com.effortcure.dto.response.ApiResponse;
 import com.effortcure.dto.response.BubbleSessionsResponseDTO;
+import com.effortcure.enums.SessionStatus;
 import com.effortcure.navigator.ContentManager;
 import com.effortcure.navigator.PopupManager;
 import com.effortcure.service.implementation.BubbleSessionService;
@@ -128,7 +132,10 @@ public class CreateSessionController {
                 .getBubbleSession(bubbleUuid);
         if (response != null) {
             Set<BubbleSessionsResponseDTO> sessions = response.getData() != null ? response.getData() : new HashSet<>();
-            for (BubbleSessionsResponseDTO bubbleSessionsResponseDTO : sessions) {
+            List<BubbleSessionsResponseDTO> sortedSessions = sessions.stream()
+                .sorted(Comparator.comparing(s -> s.getSessionStatus() == SessionStatus.IN_PROGRESS ? 0 : 1))
+                .collect(Collectors.toList());
+            for (BubbleSessionsResponseDTO bubbleSessionsResponseDTO : sortedSessions) {
                 Pane pane = FXMLLoader.load(getClass().getResource("/fxml/session-card.fxml"));
                 ((Label) pane.lookup("#name")).setText(bubbleSessionsResponseDTO.getCreator());
                 ((Label) pane.lookup("#dwp")).setText(bubbleSessionsResponseDTO.getDwp() == null ? "DWP: 0.0%"
