@@ -43,7 +43,7 @@ public class SessionApi {
     }
 
     public ApiResponse<Set<LoggedNotificationResponseDTO>> getLoggedNotifications(UUID sessionUuid) throws Exception {
-        HttpResponse<String> response = ApiClientUtil.get(BASE_URL + sessionUuid + "/logged-notifications", null,
+        HttpResponse<String> response = ApiClientUtil.get(BASE_URL + sessionUuid + "/logged-notifictions", null,
                 AccessTokenManager.getInstance().getAccessToken(),
                 null);
         if (response.statusCode() == 403)
@@ -64,7 +64,7 @@ public class SessionApi {
 
     public ApiResponse<Void> ModifySessionStatus(UUID sessionUuid, SessionStatus status) throws Exception {
         HttpResponse<String> response = ApiClientUtil.patch(BASE_URL + sessionUuid,
-                null,
+                 JsonUtil.toJson(status),
                 AccessTokenManager.getInstance().getAccessToken(),
                 null);
         if (response.statusCode() == 403)

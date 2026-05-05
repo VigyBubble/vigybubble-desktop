@@ -1,106 +1,117 @@
-.main-pane{
-
-    -fx-background-color: white; /* الخلفية بيضاء */  /* لون البوردر */
-    -fx-border-radius: 25;        /* راديس للزوايا */
-    -fx-background-radius: 25;  
-    -fx-effect: dropshadow(gaussian, #115D58, 4, 0, 0, 0);
-}
-.maintime-pane{
-
-    -fx-background-color: white; /* الخلفية بيضاء */  /* لون البوردر */
-    -fx-border-radius: 10;        /* راديس للزوايا */
-    -fx-background-radius: 10;  
-    -fx-effect: dropshadow(gaussian, #115D58, 4, 0, 0, 0);
-
-    /* عشان الخلفية تتماشى مع البوردر */
-}
-.time-pane{
-    -fx-background-color: white;
-    -fx-background-radius: 10 0 0 10;
-    -fx-border-radius: 10 0 0 10;
-    -fx-effect: dropshadow(gaussian, rgba(23, 123, 117, 0.1), 4, 0.3, 0, 0);
-}
-.time-labels{
-    -fx-text-fill: #BEC0BF;
+.main-pane {
+  -fx-background-color: white;
+  /* الخلفية بيضاء */
+  /* لون البوردر */
+  -fx-border-radius: 25;
+  /* راديس للزوايا */
+  -fx-background-radius: 25;
+  -fx-border-width: 2;
+  -fx-border-color: #115d58;
 }
 
-.detection-pane{
+.maintime-pane {
+  -fx-background-color: white;
+  /* الخلفية بيضاء */
+  /* لون البوردر */
+  -fx-border-radius: 10;
+  /* راديس للزوايا */
+  -fx-background-radius: 10;
+  -fx-effect: dropshadow(gaussian, #115d58, 4, 0, 0, 0);
+}
 
-    -fx-background-color: rgba(38, 166, 113, 0.80); /* opacity 50% */
+.time-pane {
+  -fx-background-color: white;
+  -fx-background-radius: 10 0 0 10;
+  -fx-border-radius: 10 0 0 10;
+  -fx-effect: dropshadow(gaussian, rgba(23, 123, 117, 0.1), 4, 0.3, 0, 0);
+}
 
-    -fx-border-width: 0.5;
-    -fx-background-radius: 15;
-    -fx-border-radius: 15;
-    -fx-cursor: hand;
+.time-labels {
+  -fx-text-fill: #bec0bf;
+}
+
+.detection-pane {
+  -fx-background-color: rgba(38, 166, 113, 0.8);
+  -fx-border-width: 0.5;
+  -fx-background-radius: 15;
+  -fx-border-radius: 15;
+  -fx-cursor: hand;
 }
 
 .detection-pane:hover {
-    
-    -fx-effect: dropshadow(gaussian, rgba(13, 92, 92, 0.15), 8, 0.1, 0, 2);
+  -fx-effect: dropshadow(gaussian, rgba(13, 92, 92, 0.15), 8, 0.1, 0, 2);
 }
 
 .detection-pane:pressed {
-   
-    -fx-effect: dropshadow(gaussian, rgba(13, 92, 92, 0.15), 8, 0.1, 0, 2);
+  -fx-effect: dropshadow(gaussian, rgba(13, 92, 92, 0.15), 8, 0.1, 0, 2);
 }
 
-.recommendation-pane{
-    -fx-background-color: rgba(112, 34, 185, 0.5);
-    -fx-border-width: 0.5;
-    -fx-background-radius: 15;
-    -fx-border-radius: 15;
-    -fx-cursor: hand;
+.recommendation-pane {
+  -fx-background-color: rgba(112, 34, 185, 0.5);
+  -fx-border-width: 0.5;
+  -fx-background-radius: 15;
+  -fx-border-radius: 15;
+  -fx-cursor: hand;
 }
+
 .recommendation-pane:hover {
-    
-    -fx-effect: dropshadow(gaussian, rgba(13, 92, 92, 0.15), 8, 0.1, 0, 2);
-
+  -fx-effect: dropshadow(gaussian, rgba(13, 92, 92, 0.15), 8, 0.1, 0, 2);
 }
 
 .recommendation-pane:pressed {
-   
-    -fx-effect: dropshadow(gaussian, rgba(13, 92, 92, 0.15), 8, 0.1, 0, 2);
-
+  -fx-effect: dropshadow(gaussian, rgba(13, 92, 92, 0.15), 8, 0.1, 0, 2);
 }
 
-.enforce-pane{
-    -fx-background-color: rgba(178, 33, 33, 0.48);
-    -fx-border-width: 0.5;
-    -fx-background-radius: 15;
-    -fx-border-radius: 15;
-    -fx-cursor: hand;
+.enforce-pane {
+  -fx-background-color: rgba(178, 33, 33, 0.48);
+  -fx-border-width: 0.5;
+  -fx-background-radius: 15;
+  -fx-border-radius: 15;
+  -fx-cursor: hand;
 }
+
 .enforce-pane:hover {
-    
-    -fx-effect: dropshadow(gaussian, rgba(13, 92, 92, 0.15), 8, 0.1, 0, 2);
+  -fx-effect: dropshadow(gaussian, rgba(13, 92, 92, 0.15), 8, 0.1, 0, 2);
 }
-
 
 .enforce-pane:pressed {
-   
-    -fx-effect: dropshadow(gaussian, rgba(13, 92, 92, 0.15), 8, 0.1, 0, 2);
+  -fx-effect: dropshadow(gaussian, rgba(13, 92, 92, 0.15), 8, 0.1, 0, 2);
+}
+.card-description {
+  -fx-text-fill: white;
 }
 
-
-
-.card-labels{
-    -fx-text-fill: white;
+.start-button {
+  -fx-background-color: #115d58;
+  /*c5c757*/
+  -fx-text-fill: white;
+  -fx-background-radius: 15;
+  -fx-border-radius: 15;
+  -fx-cursor: hand;
 }
 
-.start-button{
-
-    -fx-background-color: #115D58;/*c5c757*/
-    -fx-text-fill: white;
-    -fx-background-radius: 15;
-    -fx-border-radius: 15;
-    -fx-cursor: hand;
-}
 .start-button:hover {
-    -fx-background-color: #0a4a4a;
-  
+  -fx-background-color: #0a4a4a;
 }
 
 .start-button:pressed {
-    -fx-background-color: #083838;
-    
+  -fx-background-color: #083838;
+}
+.selected-detection {
+    -fx-opacity: 1;
+    -fx-scale-x: 1.03;
+    -fx-scale-y: 1.03;
+    -fx-effect: dropshadow(gaussian, #26a671, 10, 0.3, 0, 0);
+}
+.selected-enforce {
+    -fx-opacity: 1;
+    -fx-scale-x: 1.03;
+    -fx-scale-y: 1.03;
+    -fx-effect: dropshadow(gaussian, #b22121, 10, 0.3, 0, 0);
+}
+.selected-recommendation {
+    -fx-opacity: 1;
+    -fx-scale-x: 1.03;
+    -fx-scale-y: 1.03;
+    -fx-effect: dropshadow(gaussian, #7022b9, 10, 0.3, 0, 0);
 }

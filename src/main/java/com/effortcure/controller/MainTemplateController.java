@@ -48,13 +48,13 @@ public class MainTemplateController {
     private Label planLabel;
 
     @FXML
-    private Pane settingsBtn;
+    private Button settingBtn;
 
     @FXML
     private ImageView settingsIcon;
 
     @FXML
-    private Pane notificationBtn;
+    private Button notificationBtn;
 
     @FXML
     private Pane navBar;
@@ -91,10 +91,7 @@ public class MainTemplateController {
 
     @FXML
     private ImageView bellIcon;
-
-    @FXML
-    private Button settingBtn;
-
+    
     @FXML
     private ImageView settingIcon;
 
@@ -185,7 +182,7 @@ public class MainTemplateController {
             analyticsBtn.getStyleClass().add("activeNavTabs");
             teamsBtn.getStyleClass().removeAll("activeNavTabs");
             ContentManager.setAnchorPane(anchorPaneBody);
-            ContentManager.switchContent("/fxml/create-bubble-page-p2.fxml");
+            ContentManager.switchContent("/fxml/coming-soon.fxml");
         });
         teamsBtn.setOnMouseClicked(e -> {
             homeBtn.getStyleClass().removeAll("activeNavTabs");
@@ -193,7 +190,12 @@ public class MainTemplateController {
             analyticsBtn.getStyleClass().removeAll("activeNavTabs");
             teamsBtn.getStyleClass().add("activeNavTabs");
             ContentManager.setAnchorPane(anchorPaneBody);
-            ContentManager.switchContent("/fxml/create-bubble-page-p3.fxml");
+            ContentManager.switchContent("/fxml/coming-soon.fxml");
+        });
+
+        notificationBtn.setOnMouseClicked(e -> {
+            ContentManager.setAnchorPane(anchorPaneBody);
+            ContentManager.switchContent("/fxml/coming-soon.fxml");
         });
     }
 

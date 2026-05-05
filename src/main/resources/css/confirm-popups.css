@@ -1,39 +1,38 @@
-
-.cancel-button{
-  -fx-text-fill: #115D58;
+.cancel-button {
+  -fx-text-fill: #115d58;
   -fx-background-radius: 15;
--fx-border-radius: 15;
--fx-background-color: white;
--fx-effect: dropshadow(gaussian, #115D58, 4, 0, 0, 0);
--fx-cursor: hand;
+  -fx-border-radius: 15;
+  -fx-background-color: white;
+  -fx-effect: dropshadow(gaussian, #115d58, 4, 0, 0, 0);
 }
 .cancel-button:hover {
-  -fx-effect: dropshadow(gaussian, #115D58, 6, 0, 0, 0); /* ظل أقوى عند الهوفر */
+  -fx-effect: dropshadow(gaussian, #115d58, 6, 0, 0, 0);
+}
+.main-pane {
+  -fx-background-color: white;
+  -fx-border-color: #115d58;
+  -fx-background-radius: 25;
+  -fx-border-radius: 25;
+  -fx-border-width: 2;
 }
 
-
-.main-pane{
-  -fx-background-color:white;
-  -fx-effect: dropshadow(gaussian, #115D58, 4, 0, 0, 0);
-    -fx-background-radius: 25; 
-    -fx-background-radius: 25; 
-
-}
-
-.confirm-button{
-
-  -fx-background-color: #115D58;/*c5c757*/
+.confirm-button {
+  -fx-background-color: #115d58; 
   -fx-text-fill: white;
   -fx-background-radius: 15;
   -fx-border-radius: 15;
-  -fx-cursor: hand;
 }
 .confirm-button:hover {
   -fx-background-color: #0a4a4a;
-
 }
-
-.confirm-button:pressed {
-  -fx-background-color: #083838;
-  
+.delete-btn {
+  -fx-background-color: #b00c0f;
+  -fx-text-fill: white;
+  -fx-background-radius: 20;
+  -fx-border-radius: 20;
+  -fx-effect: dropshadow(gaussian, rgba(13, 92, 92, 0.38), 10, 0, 0, 4);
+}
+.delete-btn:hover {
+  -fx-background-color: #8a090a;
+  -fx-effect: dropshadow(gaussian, rgba(13, 92, 92, 0.55), 14, 0, 0, 5);
 }

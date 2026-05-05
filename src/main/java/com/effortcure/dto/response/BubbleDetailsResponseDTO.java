@@ -16,14 +16,14 @@ public class BubbleDetailsResponseDTO {
     private LocalDateTime createdAt;
     private String actualDuration;
     private String estimatedDuration;
-    private List<String> applicationsNameList;
+    private List<AppResponseDTO> applications;
     private List<DirectoryRequestDTO> directoriesList;
 
     public BubbleDetailsResponseDTO() {
     }
 
-    public BubbleDetailsResponseDTO(UUID uuid, String name, String description, BubbleType type, LocalDateTime createdAt,
-            String actualDuration, String estimatedDuration, List<String> applicationsNameList,
+    public BubbleDetailsResponseDTO(UUID uuid, String name, String description, BubbleType type,
+            LocalDateTime createdAt, String actualDuration, String estimatedDuration, List<AppResponseDTO> applications,
             List<DirectoryRequestDTO> directoriesList) {
         this.uuid = uuid;
         this.name = name;
@@ -32,7 +32,7 @@ public class BubbleDetailsResponseDTO {
         this.createdAt = createdAt;
         this.actualDuration = actualDuration;
         this.estimatedDuration = estimatedDuration;
-        this.applicationsNameList = applicationsNameList;
+        this.applications = applications;
         this.directoriesList = directoriesList;
     }
 
@@ -92,20 +92,20 @@ public class BubbleDetailsResponseDTO {
         this.estimatedDuration = estimatedDuration;
     }
 
-    public List<String> getApplicationsNameList() {
-        return applicationsNameList;
-    }
-
-    public void setApplicationsNameList(List<String> applicationsNameList) {
-        this.applicationsNameList = applicationsNameList;
-    }
-
     public List<DirectoryRequestDTO> getDirectoriesList() {
         return directoriesList;
     }
 
     public void setDirectoriesList(List<DirectoryRequestDTO> directoriesList) {
         this.directoriesList = directoriesList;
+    }
+
+    public List<AppResponseDTO> getApplications() {
+        return applications;
+    }
+
+    public void setApplications(List<AppResponseDTO> applications) {
+        this.applications = applications;
     }
 
 }

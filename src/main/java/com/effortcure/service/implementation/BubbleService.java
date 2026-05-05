@@ -1,5 +1,6 @@
 package com.effortcure.service.implementation;
 
+import java.util.Comparator;
 import java.util.List;
 import java.util.UUID;
 
@@ -7,6 +8,7 @@ import com.effortcure.api.BubbleApi;
 import com.effortcure.dto.request.CreateBubbleRequestDTO;
 import com.effortcure.dto.request.DirectoryRequestDTO;
 import com.effortcure.dto.response.ApiResponse;
+import com.effortcure.dto.response.AppResponseDTO;
 import com.effortcure.dto.response.BubbleDetailsResponseDTO;
 import com.effortcure.service.interfaces.AuthServiceInterface;
 import com.effortcure.service.interfaces.BubbleServiceInterface;
@@ -37,12 +39,12 @@ public class BubbleService implements BubbleServiceInterface {
 
     @Override
     public ApiResponse<Void> modifyBubble(UUID bubbleUuid, String name, String description,
-            List<String> applicationsNameList,
+            List<AppResponseDTO> applications,
             List<DirectoryRequestDTO> directoriesList, ModifyBubbleType type) throws Exception {
         ModifyBubbleRequestDTO modifyBubbleNameRequestDTO = new ModifyBubbleRequestDTO();
         modifyBubbleNameRequestDTO.setName(name);
         modifyBubbleNameRequestDTO.setDescription(description);
-        modifyBubbleNameRequestDTO.setApplicationsNameList(applicationsNameList);
+        modifyBubbleNameRequestDTO.setApplications(applications);
         modifyBubbleNameRequestDTO.setDirectoriesList(directoriesList);
         ApiResponse<Void> response = bubbleApi.modifyBubble(bubbleUuid, modifyBubbleNameRequestDTO, type);
         if (response != null) {
@@ -103,6 +105,8 @@ public class BubbleService implements BubbleServiceInterface {
                 SceneManager.switchScene("/fxml/login-page.fxml", null);
                 authServiceInterface.logout();
             }
+            if (response.getData() != null)
+                response.getData().sort(Comparator.comparing(AccountBubblesResponseDTO::getCreatedAt).reversed());
         }
         return response;
     }

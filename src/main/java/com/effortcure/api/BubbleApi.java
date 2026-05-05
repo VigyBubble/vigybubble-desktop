@@ -56,7 +56,7 @@ public class BubbleApi {
     public ApiResponse<Void> deleteBubble(UUID bubbleUuid) throws Exception {
         HttpResponse<String> response = ApiClientUtil.delete(BASE_URL + bubbleUuid, null,
                 AccessTokenManager.getInstance().getAccessToken(), null);
-        if (response.statusCode() == 403)
+        if (response.statusCode() == 403 || response.statusCode() == 204)
             return null;
         return JsonUtil.fromJson(response.body(), new TypeReference<ApiResponse<Void>>() {
         });

@@ -1,19 +1,32 @@
 package com.effortcure.controller;
 
+import java.io.ByteArrayInputStream;
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Base64;
+import java.util.LinkedHashSet;
 import java.util.List;
+import java.util.Set;
+import javafx.util.Duration;
 
 import com.effortcure.dto.request.CreateBubbleRequestDTO;
 import com.effortcure.dto.request.DirectoryRequestDTO;
+import com.effortcure.dto.response.AppResponseDTO;
 import com.effortcure.enums.BubbleType;
 import com.effortcure.enums.DirectoryType;
 import com.effortcure.navigator.ContentManager;
+import com.effortcure.service.implementation.AppsService;
 import com.effortcure.service.implementation.BubbleService;
+import com.effortcure.service.interfaces.AppsServiceInterface;
 import com.effortcure.service.interfaces.BubbleServiceInterface;
+import com.effortcure.util.DirectoryPickerUtil;
 import com.effortcure.util.ViewUtil;
 
+import javafx.animation.TranslateTransition;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
+import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.ComboBox;
@@ -24,6 +37,8 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
 public class CreateBubbleController {
@@ -101,9 +116,6 @@ public class CreateBubbleController {
 
     @FXML
     private TextField searcField;
-
-    @FXML
-    private Button addBtn;
 
     @FXML
     private Pane appPane1;
@@ -294,15 +306,29 @@ public class CreateBubbleController {
     @FXML
     private ScrollPane scrollApplications1;
 
-    private static CreateBubbleRequestDTO createBubbleRequestDTO = new CreateBubbleRequestDTO();
+    @FXML
+    private VBox vBoxAppsContainer1;
+
+    public static CreateBubbleRequestDTO createBubbleRequestDTO;
     private BubbleServiceInterface bubbleServiceInterface = new BubbleService();
+    private AppsServiceInterface appsServiceInterface = new AppsService();
 
     @FXML
-    private void initialize() {
+    private void initialize() throws Exception {
         ViewUtil.initiateResponsiveView(this);
         collectBubbleData();
+        retreiveData();
         if (comboBox != null)
             comboBox.getItems().add("Local");
+        if (vBoxAppsContainer != null) {
+            fillApps();
+        }
+        animateBubble(bubbleImg, 20, 3);
+        animateBubble(bubbleImg1, 15, 4);
+        animateBubble(bubbleImg11, 25, 5);
+        animateBubble(bubbleImg2, 18, 3.5);
+        animateBubble(bubbleImg22, 22, 4.5);
+        animateBubble(bubbleImg3, 20, 4);
     }
 
     @FXML
@@ -325,52 +351,146 @@ public class CreateBubbleController {
 
     @FXML
     private void next1() {
-        ContentManager.setAnchorPane(root);
-        ContentManager.switchContent("/fxml/create-bubble-page-p2.fxml");
+        if (validateBubbleData()) {
+            ContentManager.setAnchorPane(root);
+            ContentManager.switchContent("/fxml/create-bubble-page-p2.fxml");
+        } else {
+            if (createBubbleRequestDTO.getName() == null || createBubbleRequestDTO.getName().isBlank())
+                bubbleNameField.getStyleClass().add("error-field");
+            if (createBubbleRequestDTO.getType() == null)
+                comboBox.getStyleClass().add("error-field");
+        }
     }
 
     @FXML
     private void next2() {
-        List<String> apps = new ArrayList<>();
-        // We need to fill apps
-        createBubbleRequestDTO.setApplicationsNameList(apps);
+        createBubbleRequestDTO.setApplications(
+                new ArrayList<>(new LinkedHashSet<>(createBubbleRequestDTO.getApplications())));
         ContentManager.setAnchorPane(root2);
         ContentManager.switchContent("/fxml/create-bubble-page-p3.fxml");
     }
 
     @FXML
     private void save() throws Exception {
-        List<DirectoryRequestDTO> directoryRequestDTOs = new ArrayList<>();
-        for (Node node : resourcesContainer.getChildren()) {
-            Pane pane = (Pane) node;
-            for (Node n : pane.getChildren()) {
-                DirectoryRequestDTO directoryRequestDTO = new DirectoryRequestDTO();
-                if (n.getId() == "path")
-                    directoryRequestDTO.setPath(((Label) n).getText());
-                if (n.getId() == "type") {
-                    DirectoryType directoryType;
-                    if (((Label) n).getText() == "URL")
-                        directoryType = DirectoryType.URL;
-                    else if (((Label) n).getText() == "FOLDER")
-                        directoryType = DirectoryType.FOLDER;
-                    else
-                        directoryType = DirectoryType.FILE;
+        bubbleServiceInterface.createBubble(createBubbleRequestDTO);
+        ContentManager.setAnchorPane(root3);
+        ContentManager.switchContent("/fxml/home-page.fxml");
+    }
 
-                    directoryRequestDTO.setType(directoryType);
-                }
-                directoryRequestDTOs.add(directoryRequestDTO);
+    @FXML
+    private void addDirectory() throws IOException {
+        if (urlField.getText() != null && !urlField.getText().isBlank()) {
+            Parent parent = FXMLLoader.load(getClass().getResource("/fxml/path-card.fxml"));
+            Pane pane = (Pane) parent;
+            for (Node n : pane.getChildren()) {
+                if (n.getId().equals("textLabel1"))
+                    ((Label) n).setText(urlField.getText());
+                if (n.getId().equals("removeIcon1"))
+                    ((ImageView) n).setOnMouseClicked(e -> {
+                        createBubbleRequestDTO.getDirectoriesList().remove(new DirectoryRequestDTO(
+                                ((Label) pane.lookup("#textLabel1")).getText(), DirectoryType.URL));
+                        resourcesContainer.getChildren().remove(pane);
+                    });
+            }
+            if (!createBubbleRequestDTO.getDirectoriesList()
+                    .contains(new DirectoryRequestDTO(urlField.getText(), DirectoryType.URL))) {
+                resourcesContainer.getChildren().add(pane);
+                createBubbleRequestDTO.getDirectoriesList()
+                        .add(new DirectoryRequestDTO(urlField.getText(), DirectoryType.URL));
             }
         }
-        createBubbleRequestDTO.setDirectoriesList(directoryRequestDTOs);
-        bubbleServiceInterface.createBubble(createBubbleRequestDTO);
-        // show sucess popup
-        System.out.println("Bubble is saved");
+    }
+
+    @FXML
+    private void selectFolder() throws IOException {
+        String folder = DirectoryPickerUtil.pickAFolder((Stage) selectFolderBtn.getScene().getWindow());
+        if (folder != null) {
+            Parent parent = FXMLLoader.load(getClass().getResource("/fxml/path-card.fxml"));
+            Pane pane = (Pane) parent;
+            ((Label) pane.lookup("#textLabel1")).setText(folder);
+            ((ImageView) pane.lookup("#icon1"))
+                    .setImage(new Image(getClass().getResource("/images/folder-icon.png").toExternalForm()));
+            ((Label) pane.lookup("#typeLabel1")).setText(DirectoryType.FOLDER.toString());
+            ((ImageView) pane.lookup("#removeIcon1")).setOnMouseClicked(e -> {
+                createBubbleRequestDTO.getDirectoriesList().remove(new DirectoryRequestDTO(
+                        ((Label) pane.lookup("#textLabel1")).getText(), DirectoryType.FOLDER));
+                resourcesContainer.getChildren().remove(pane);
+            });
+            if (!createBubbleRequestDTO.getDirectoriesList()
+                    .contains(new DirectoryRequestDTO(folder, DirectoryType.FOLDER))) {
+                resourcesContainer.getChildren().add(pane);
+                createBubbleRequestDTO.getDirectoriesList().add(new DirectoryRequestDTO(folder, DirectoryType.FOLDER));
+            }
+        }
+    }
+
+    @FXML
+    private void selectFiles() throws IOException {
+        Set<String> files = DirectoryPickerUtil.pickFiles((Stage) selectFileBtn.getScene().getWindow());
+        for (String file : files) {
+            if (file != null) {
+                Parent parent = FXMLLoader.load(getClass().getResource("/fxml/path-card.fxml"));
+                Pane pane = (Pane) parent;
+                ((Label) pane.lookup("#textLabel1")).setText(file);
+                ((ImageView) pane.lookup("#icon1"))
+                        .setImage(new Image(getClass().getResource("/images/file-icon.png").toExternalForm()));
+                ((Label) pane.lookup("#typeLabel1")).setText(DirectoryType.FILE.toString());
+                ((ImageView) pane.lookup("#removeIcon1")).setOnMouseClicked(e -> {
+                    createBubbleRequestDTO.getDirectoriesList().remove(new DirectoryRequestDTO(
+                            ((Label) pane.lookup("#textLabel1")).getText(), DirectoryType.FILE));
+                    resourcesContainer.getChildren().remove(pane);
+                });
+                if (!createBubbleRequestDTO.getDirectoriesList()
+                        .contains(new DirectoryRequestDTO(file, DirectoryType.FILE))) {
+                    resourcesContainer.getChildren().add(pane);
+                    createBubbleRequestDTO.getDirectoriesList()
+                            .add(new DirectoryRequestDTO(file, DirectoryType.FILE));
+                }
+            }
+        }
+    }
+
+    private void fillApps() throws Exception {
+        List<AppResponseDTO> apps = appsServiceInterface.getApps();
+        for (AppResponseDTO app : apps) {
+            Pane pane = FXMLLoader.load(getClass().getResource("/fxml/app-selection-card.fxml"));
+            if (app.getIcon() != null && !app.getIcon().isBlank())
+                ((ImageView) pane.lookup("#logo"))
+                        .setImage(new Image(new ByteArrayInputStream(Base64.getDecoder().decode(app.getIcon()))));
+            ((Label) pane.lookup("#appName")).setText(app.getName());
+            ((Label) pane.lookup("#recommendedLabel")).setVisible(false);
+            pane.setOnMouseEntered(e -> {
+                pane.getStyleClass().add("hoveredCard");
+            });
+            pane.setOnMouseExited(e -> {
+                pane.getStyleClass().removeAll("hoveredCard");
+            });
+            pane.setOnMouseClicked(e -> {
+                try {
+                    Pane selectedPane = FXMLLoader.load(getClass().getResource("/fxml/app-list-card.fxml"));
+                    if (app.getIcon() != null && !app.getIcon().isBlank())
+                        ((ImageView) selectedPane.lookup("#selectedappLogo1")).setImage(
+                                new Image(new ByteArrayInputStream(Base64.getDecoder().decode(app.getIcon()))));
+                    ((Label) selectedPane.lookup("#SelectedAppnameLabel")).setText(app.getName());
+                    ((ImageView) selectedPane.lookup("#deleteBtn1")).setOnMouseClicked(ev -> {
+                        vBoxAppsContainer1.getChildren().remove(selectedPane);
+                        createBubbleRequestDTO.getApplications().remove(app);
+                    });
+                    vBoxAppsContainer1.getChildren().add(selectedPane);
+                    createBubbleRequestDTO.getApplications().add(app);
+                } catch (IOException e1) {
+                    e1.printStackTrace();
+                }
+            });
+            vBoxAppsContainer.getChildren().add(pane);
+        }
     }
 
     private void collectBubbleData() {
         if (bubbleNameField != null)
             bubbleNameField.textProperty().addListener((obs, oldValue, newValue) -> {
                 createBubbleRequestDTO.setName(newValue);
+                bubbleNameField.getStyleClass().removeAll("error-field");
             });
         if (bubbleDescriptionField != null)
             bubbleDescriptionField.textProperty().addListener((obs, oldValue, newValue) -> {
@@ -378,10 +498,55 @@ public class CreateBubbleController {
             });
         if (comboBox != null)
             comboBox.setOnAction(e -> {
-                if (comboBox.getValue() != null)
+                if (comboBox.getValue() != null) {
                     createBubbleRequestDTO
                             .setType(comboBox.getValue().toString() == "Local" ? BubbleType.LOCAL : BubbleType.TEAM);
+                    comboBox.getStyleClass().removeAll("error-field");
+                }
             });
+    }
+
+    private void retreiveData() throws IOException {
+        if (bubbleNameField != null)
+            bubbleNameField.setText(createBubbleRequestDTO.getName());
+        if (bubbleDescriptionField != null)
+            bubbleDescriptionField.setText(createBubbleRequestDTO.getDescription());
+        if (comboBox != null)
+            comboBox.getSelectionModel().select(
+                    createBubbleRequestDTO.getType() != null ? createBubbleRequestDTO.getType().toString() : null);
+        if (resourcesContainer != null) {
+            for (DirectoryRequestDTO directoryRequestDTO : createBubbleRequestDTO.getDirectoriesList()) {
+                Parent parent = FXMLLoader.load(getClass().getResource("/fxml/path-card.fxml"));
+                Pane pane = (Pane) parent;
+                ((Label) pane.lookup("#textLabel1")).setText(directoryRequestDTO.getPath());
+                ((Label) pane.lookup("#typeLabel1")).setText(directoryRequestDTO.getType().toString());
+                if (directoryRequestDTO.getType() != DirectoryType.URL)
+                    ((ImageView) pane.lookup("#icon1"))
+                            .setImage(new Image(getClass().getResource(
+                                    (directoryRequestDTO.getType() == DirectoryType.FILE) ? "/images/file-icon.png"
+                                            : "/images/folder-icon.png")
+                                    .toExternalForm()));
+                resourcesContainer.getChildren().add(pane);
+            }
+        }
+    }
+
+    private boolean validateBubbleData() {
+        return ((bubbleNameField.getText() == null ? false
+                : !bubbleNameField.getText().isBlank())
+                && (comboBox.getValue() == null ? false
+                        : !comboBox.getValue().isBlank()));
+    }
+
+    private void animateBubble(ImageView bubble, double moveY, double duration) {
+        TranslateTransition transition = new TranslateTransition();
+        transition.setNode(bubble);
+        transition.setDuration(Duration.seconds(duration));
+        transition.setByY(-moveY);
+        transition.setByX(10);
+        transition.setAutoReverse(true);
+        transition.setCycleCount(TranslateTransition.INDEFINITE);
+        transition.play();
     }
 
 }
