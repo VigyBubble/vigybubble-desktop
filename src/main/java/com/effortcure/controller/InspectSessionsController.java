@@ -81,7 +81,7 @@ public class InspectSessionsController {
     @FXML
     private Pane pausedPane;
     @FXML
-    private ScrollPane  metricsScroll;
+    private ScrollPane metricsScroll;
     @FXML
     private VBox metricsVBox;
     @FXML
@@ -162,31 +162,49 @@ public class InspectSessionsController {
         }
         viewPerformanceMetrics();
         getNotifications();
-
         pauseImage = new Image(getClass().getResource("/images/pause-icon.png").toExternalForm());
         playImage = new Image(getClass().getResource("/images/play-button.png").toExternalForm());
-
+        loadSessionStatus();
         pauseBtn.setOnMouseClicked(e -> {
             try {
                 togglePlayPause();
+                ContentManager.setAnchorPane(root);
+                ContentManager.switchContent("/fxml/create-session.fxml");
+            } catch (Exception e1) {
+                e1.printStackTrace();
+            }
+        });
+        doneBtn.setOnMouseClicked(e -> {
+            try {
+                sessionsServiceInterface.ModifySessionStatus(sessionUuid, SessionStatus.DONE);
+                ContentManager.setAnchorPane(root);
+                ContentManager.switchContent("/fxml/create-session.fxml"); 
             } catch (Exception e1) {
                 e1.printStackTrace();
             }
         });
     }
 
+    private void loadSessionStatus() {
+        try {
+            SessionStatus currentStatus = sessionsServiceInterface.getSessionDetails(sessionUuid).getData().getStatus();
+            isPaused = (currentStatus == SessionStatus.PAUSED);
+            pauseBtn.setImage(isPaused ? playImage : pauseImage);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
     private void togglePlayPause() {
 
         try {
-
             if (!isPaused) {
                 sessionsServiceInterface.ModifySessionStatus(sessionUuid, SessionStatus.PAUSED);
             } else {
                 sessionsServiceInterface.ModifySessionStatus(sessionUuid, SessionStatus.IN_PROGRESS);
             }
-
             isPaused = !isPaused;
-
             pauseBtn.setImage(isPaused ? playImage : pauseImage);
         } catch (Exception e) {
             e.printStackTrace();
