@@ -124,11 +124,6 @@
 .description {
   -fx-text-fill: #787878;
 }
-
-/* .regular-labels {
-  -fx-font-family: "K2D";
-  -fx-font-weight: 400;
-} */
 .date-picker {
   -fx-background-color: transparent;
   -fx-border-color: transparent;

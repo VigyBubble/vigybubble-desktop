@@ -211,7 +211,8 @@
 
 .popups-container {
     -fx-background-color: white;
-    -fx-effect: dropshadow(gaussian, #115D58, 4, 0, 0, 0);
+      -fx-border-width: 2;
+      -fx-border-color: #115d58;
     -fx-background-radius: 25;
     -fx-border-radius: 25;
 }

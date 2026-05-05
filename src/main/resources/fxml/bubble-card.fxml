@@ -17,7 +17,7 @@
             <Image url="@../images/close-icon.png"/>
           </image>
         </ImageView>
-        <Label fx:id="titleLabel" layoutX="24.0" layoutY="18.0" prefHeight="47.0" prefWidth="1116.0" styleClass="regular-labels" text="Create Ui for Vigy bubble">
+        <Label fx:id="titleLabel" layoutX="24.0" layoutY="18.0" prefHeight="47.0" prefWidth="1116.0" text="Create Ui for Vigy bubble">
           <font>
             <Font size="32.0"/>
           </font>
@@ -28,7 +28,6 @@
           </font>
           <styleClass>
             <String fx:value="description"/>
-            <String fx:value="regular-labels"/>
           </styleClass>
         </Label>
         <Label fx:id="teamLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="30.0" layoutY="185.0" prefHeight="47.0" prefWidth="101.0" text="Team 1">
@@ -37,7 +36,6 @@
           </font>
           <styleClass>
             <String fx:value="team-label"/>
-            <String fx:value="regular-labels"/>
           </styleClass>
         </Label>
         <Label fx:id="createdAtLabel" alignment="CENTER" layoutX="277.0" layoutY="185.0" prefHeight="47.0" prefWidth="245.0" styleClass="time-banes" text="25-08-2026 02:13">
