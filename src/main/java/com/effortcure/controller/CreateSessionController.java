@@ -133,19 +133,22 @@ public class CreateSessionController {
         if (response != null) {
             Set<BubbleSessionsResponseDTO> sessions = response.getData() != null ? response.getData() : new HashSet<>();
             List<BubbleSessionsResponseDTO> sortedSessions = sessions.stream()
-                .sorted(Comparator.comparing(s -> s.getSessionStatus() == SessionStatus.IN_PROGRESS ? 0 : 1))
-                .collect(Collectors.toList());
+                    .sorted(Comparator.comparing(s -> s.getSessionStatus() == SessionStatus.IN_PROGRESS ? 0 : 1))
+                    .collect(Collectors.toList());
             for (BubbleSessionsResponseDTO bubbleSessionsResponseDTO : sortedSessions) {
                 Pane pane = FXMLLoader.load(getClass().getResource("/fxml/session-card.fxml"));
                 ((Label) pane.lookup("#name")).setText(bubbleSessionsResponseDTO.getCreator());
                 ((Label) pane.lookup("#dwp")).setText(bubbleSessionsResponseDTO.getDwp() == null ? "DWP: 0.0%"
                         : "DWP: " + bubbleSessionsResponseDTO.getDwp() + "%");
-                ((Text) pane.lookup("#pauseDate"))
-                        .setText(bubbleSessionsResponseDTO.getStatusUpdatedAt() != null
-                                ? bubbleSessionsResponseDTO.getStatusUpdatedAt().toString()
-                                : null);
-                if (bubbleSessionsResponseDTO.getStatusUpdatedAt() == null)
+
+                if (bubbleSessionsResponseDTO.getStatusUpdatedAt() == null) {
                     ((Text) pane.lookup("#pausedatText")).setVisible(false);
+                    ((Text) pane.lookup("#pauseDate")).setVisible(false);
+                } else {
+                    String prefix = bubbleSessionsResponseDTO.getSessionStatus() == SessionStatus.DONE ? "Done at : ": "Paused at : ";
+                    ((Text) pane.lookup("#pausedatText")).setText(prefix);
+                    ((Text) pane.lookup("#pauseDate")).setText(bubbleSessionsResponseDTO.getStatusUpdatedAt().toString());
+                }
                 ((Text) pane.lookup("#creationDate")).setText(bubbleSessionsResponseDTO.getCreatedAt() != null
                         ? bubbleSessionsResponseDTO.getCreatedAt().toString()
                         : null);

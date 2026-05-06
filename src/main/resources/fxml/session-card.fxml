@@ -26,7 +26,7 @@
     </Label>
     <TextFlow fx:id="pausedTextflow1" layoutX="332.0" layoutY="87.0" prefHeight="31.0" prefWidth="333.0">
       <children>
-        <Text fx:id="pausedatText" text="Paused at :">
+        <Text fx:id="pausedatText" text="">
           <font>
             <Font size="24" />
           </font>

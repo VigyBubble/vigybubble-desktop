@@ -159,6 +159,7 @@ public class InspectSessionsController {
         doneBtn.setOnMouseClicked(e -> {
             try {
                 sessionsServiceInterface.ModifySessionStatus(sessionUuid, SessionStatus.DONE);
+                loadSessionData(); 
                 ContentManager.setAnchorPane(root);
                 ContentManager.switchContent("/fxml/create-session.fxml");
             } catch (Exception e1) {
@@ -213,7 +214,8 @@ public class InspectSessionsController {
             dwpLabel.setText(performanceMetrics.getDwp() == null ? "DWP: 0.0%"
                     : "DWP: " + performanceMetrics.getDwp() + "%");
             if (sessionDetails.getStatusUpdatedAt() != null) {
-                pausedAtLabel.setText("Paused at : " + sessionDetails.getStatusUpdatedAt().toString());
+                String prefix = sessionDetails.getStatus() == SessionStatus.DONE ? "Done at : " : "Paused at : ";
+                pausedAtLabel.setText(prefix + sessionDetails.getStatusUpdatedAt().toString());
                 pausedAtLabel.setVisible(true);
             } else {
                 pausedAtLabel.setVisible(false);
