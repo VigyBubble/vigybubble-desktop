@@ -174,7 +174,7 @@ public class MainTemplateController {
             analyticsBtn.getStyleClass().removeAll("activeNavTabs");
             teamsBtn.getStyleClass().removeAll("activeNavTabs");
             ContentManager.setAnchorPane(anchorPaneBody);
-            ContentManager.switchContent("/fxml/create-bubble-page-p1.fxml");
+            ContentManager.switchContent("/fxml/peripherals-page.fxml");
         });
         analyticsBtn.setOnMouseClicked(e -> {
             homeBtn.getStyleClass().removeAll("activeNavTabs");
