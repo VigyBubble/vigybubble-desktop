@@ -34,10 +34,24 @@ public class ConfirmPopupController {
 
     private Runnable onConfirm;
     private Runnable onCancel;
-    
+
+    public static String comesFrom;
+
     @FXML
     private void initialize() {
         ViewUtil.initiateResponsiveView(this);
+        if (comesFrom != null && comesFrom.equals("INSPECT_SESSION_CONTROLLER")) {
+            confirmBtn.setOnAction(e -> {
+                InspectSessionsController.pauseAction = true;
+                ((Stage) confirmBtn.getScene().getWindow()).close();
+            });
+            cancelBtn.setOnAction(e -> {
+                InspectSessionsController.pauseAction = false;
+                ((Stage) cancelBtn.getScene().getWindow()).close();
+            });
+            comesFrom = null;
+        }
+
     }
 
     public void setupDeleteMode() {
@@ -47,7 +61,7 @@ public class ConfirmPopupController {
         confirmBtn.getStyleClass().add("delete-btn");
     }
 
-       public void setupDeleteMode(String newTitle, String message) {
+    public void setupDeleteMode(String newTitle, String message) {
         title.setText(newTitle);
         content.setText(message);
         confirmBtn.setText("Delete");

@@ -7,6 +7,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.stage.Modality;
@@ -59,5 +60,18 @@ public class PopupManager {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    public static void showPopupByPane(AnchorPane root) {
+        Stage popup = new Stage();
+        ((ImageView) root.lookup("#close")).setOnMouseClicked(e -> {
+            popup.close();
+        });
+        Scene scene = new Scene(root);
+        popup.setScene(scene);
+        scene.setFill(Color.TRANSPARENT);
+        popup.initStyle(StageStyle.TRANSPARENT);
+        popup.initModality(Modality.APPLICATION_MODAL);
+        popup.showAndWait();
     }
 }

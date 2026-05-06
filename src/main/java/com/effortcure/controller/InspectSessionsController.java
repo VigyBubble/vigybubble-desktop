@@ -1,5 +1,6 @@
 package com.effortcure.controller;
 
+import java.io.IOException;
 import java.util.HashSet;
 import java.util.Set;
 import java.util.UUID;
@@ -125,9 +126,7 @@ public class InspectSessionsController {
 
     public static UUID sessionUuid;
     private SessionsServiceInterface sessionsServiceInterface = new SessionsService();
-    private boolean isPaused = false;
-    private Image pauseImage;
-    private Image playImage;
+    public static boolean pauseAction;
 
     @FXML
     public void initialize() throws Exception {
@@ -142,24 +141,13 @@ public class InspectSessionsController {
         if (sessionUuid != null) {
             loadSessionData();
         }
+        togglePlayPause();
         viewPerformanceMetrics();
         getNotifications();
-        pauseImage = new Image(getClass().getResource("/images/pause-icon.png").toExternalForm());
-        playImage = new Image(getClass().getResource("/images/play-button.png").toExternalForm());
-        loadSessionStatus();
-        pauseBtn.setOnMouseClicked(e -> {
-            try {
-                togglePlayPause();
-                ContentManager.setAnchorPane(root);
-                ContentManager.switchContent("/fxml/create-session.fxml");
-            } catch (Exception e1) {
-                e1.printStackTrace();
-            }
-        });
         doneBtn.setOnMouseClicked(e -> {
             try {
                 sessionsServiceInterface.ModifySessionStatus(sessionUuid, SessionStatus.DONE);
-                loadSessionData(); 
+                loadSessionData();
                 ContentManager.setAnchorPane(root);
                 ContentManager.switchContent("/fxml/create-session.fxml");
             } catch (Exception e1) {
@@ -168,31 +156,36 @@ public class InspectSessionsController {
         });
     }
 
-    private void loadSessionStatus() {
-        try {
-            SessionStatus currentStatus = sessionsServiceInterface.getSessionDetails(sessionUuid).getData().getStatus();
-            isPaused = (currentStatus == SessionStatus.PAUSED);
-            pauseBtn.setImage(isPaused ? playImage : pauseImage);
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
     private void togglePlayPause() {
-
-        try {
-            if (!isPaused) {
-                sessionsServiceInterface.ModifySessionStatus(sessionUuid, SessionStatus.PAUSED);
+        pauseBtn.setOnMouseClicked(e -> {
+            if (pausedAtLabel.getText().contains("Paused") && pausedAtLabel.isVisible()) {
+                try {
+                    ConfirmPopupController.comesFrom = "INSPECT_SESSION_CONTROLLER";
+                    AnchorPane pane = FXMLLoader.load(getClass().getResource("/fxml/confirm-popups.fxml"));
+                    ((Label) (pane.lookup("#title"))).setText("Confirm pause");
+                    ((Label) (pane.lookup("#content")))
+                            .setText("Confirm will pause the other active session");
+                    PopupManager.showPopupByPane(pane);
+                    if (pauseAction) {
+                        try {
+                            sessionsServiceInterface.ModifySessionStatus(sessionUuid, SessionStatus.IN_PROGRESS);
+                            loadSessionData();
+                        } catch (Exception e1) {
+                            e1.printStackTrace();
+                        }
+                    }
+                } catch (IOException e1) {
+                    e1.printStackTrace();
+                }
             } else {
-                sessionsServiceInterface.ModifySessionStatus(sessionUuid, SessionStatus.IN_PROGRESS);
+                try {
+                    sessionsServiceInterface.ModifySessionStatus(sessionUuid, SessionStatus.PAUSED);
+                    loadSessionData();
+                } catch (Exception e1) {
+                    e1.printStackTrace();
+                }
             }
-            isPaused = !isPaused;
-            pauseBtn.setImage(isPaused ? playImage : pauseImage);
-            loadSessionData();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        });
     }
 
     @FXML
@@ -217,8 +210,13 @@ public class InspectSessionsController {
                 String prefix = sessionDetails.getStatus() == SessionStatus.DONE ? "Done at : " : "Paused at : ";
                 pausedAtLabel.setText(prefix + sessionDetails.getStatusUpdatedAt().toString());
                 pausedAtLabel.setVisible(true);
+                if (sessionDetails.getStatus() == SessionStatus.PAUSED)
+                    pauseBtn.setImage(new Image(getClass().getResource("/images/play-button.png").toExternalForm()));
+                else
+                    gridPane.setVisible(false);
             } else {
                 pausedAtLabel.setVisible(false);
+                pauseBtn.setImage(new Image(getClass().getResource("/images/pause-icon.png").toExternalForm()));
             }
 
             dateLabel.setText(sessionDetails.getCreatedAt().toString());

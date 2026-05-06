@@ -83,8 +83,8 @@ public class CreateSessionController {
         animateBubble(bubble4, 18, 3.5);
         datePicker.setOnAction(e -> {
             try {
-                vbox.getChildren().clear(); 
-                getSessions(); 
+                vbox.getChildren().clear();
+                getSessions();
             } catch (Exception ex) {
                 ex.printStackTrace();
             }
