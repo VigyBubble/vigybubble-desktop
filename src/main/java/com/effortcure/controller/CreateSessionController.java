@@ -1,5 +1,6 @@
 package com.effortcure.controller;
 
+import java.time.LocalDate;
 import java.util.Comparator;
 import java.util.HashSet;
 import java.util.List;
@@ -80,6 +81,14 @@ public class CreateSessionController {
         animateBubble(bubble2, 15, 4);
         animateBubble(bubble3, 25, 5);
         animateBubble(bubble4, 18, 3.5);
+        datePicker.setOnAction(e -> {
+            try {
+                vbox.getChildren().clear(); 
+                getSessions(); 
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
+        });
     }
 
     @FXML
@@ -130,9 +139,19 @@ public class CreateSessionController {
     private void getSessions() throws Exception {
         ApiResponse<Set<BubbleSessionsResponseDTO>> response = bubbleSessionServiceInterface
                 .getBubbleSession(bubbleUuid);
+        LocalDate selectedDate = datePicker.getValue();
         if (response != null) {
             Set<BubbleSessionsResponseDTO> sessions = response.getData() != null ? response.getData() : new HashSet<>();
             List<BubbleSessionsResponseDTO> sortedSessions = sessions.stream()
+                    .filter(session -> {
+                        if (selectedDate == null)
+                            return true;
+
+                        if (session.getCreatedAt() == null)
+                            return false;
+
+                        return session.getCreatedAt().toLocalDate().equals(selectedDate);
+                    })
                     .sorted(Comparator.comparing(s -> s.getSessionStatus() == SessionStatus.IN_PROGRESS ? 0 : 1))
                     .collect(Collectors.toList());
             for (BubbleSessionsResponseDTO bubbleSessionsResponseDTO : sortedSessions) {
@@ -145,9 +164,11 @@ public class CreateSessionController {
                     ((Text) pane.lookup("#pausedatText")).setVisible(false);
                     ((Text) pane.lookup("#pauseDate")).setVisible(false);
                 } else {
-                    String prefix = bubbleSessionsResponseDTO.getSessionStatus() == SessionStatus.DONE ? "Done at : ": "Paused at : ";
+                    String prefix = bubbleSessionsResponseDTO.getSessionStatus() == SessionStatus.DONE ? "Done at : "
+                            : "Paused at : ";
                     ((Text) pane.lookup("#pausedatText")).setText(prefix);
-                    ((Text) pane.lookup("#pauseDate")).setText(bubbleSessionsResponseDTO.getStatusUpdatedAt().toString());
+                    ((Text) pane.lookup("#pauseDate"))
+                            .setText(bubbleSessionsResponseDTO.getStatusUpdatedAt().toString());
                 }
                 ((Text) pane.lookup("#creationDate")).setText(bubbleSessionsResponseDTO.getCreatedAt() != null
                         ? bubbleSessionsResponseDTO.getCreatedAt().toString()
