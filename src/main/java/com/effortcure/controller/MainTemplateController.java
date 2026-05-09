@@ -3,8 +3,11 @@ package com.effortcure.controller;
 import com.effortcure.dto.response.ApiResponse;
 import com.effortcure.dto.response.BreifAccountInfoResponseDTO;
 import com.effortcure.navigator.ContentManager;
+import com.effortcure.navigator.SceneManager;
 import com.effortcure.service.implementation.AccountService;
+import com.effortcure.service.implementation.AuthService;
 import com.effortcure.service.interfaces.AccountServiceInterface;
+import com.effortcure.service.interfaces.AuthServiceInterface;
 import com.effortcure.util.ViewUtil;
 
 import javafx.concurrent.Task;
@@ -91,7 +94,7 @@ public class MainTemplateController {
 
     @FXML
     private ImageView bellIcon;
-    
+
     @FXML
     private ImageView settingIcon;
 
@@ -124,11 +127,16 @@ public class MainTemplateController {
 
     @FXML
     private Pane rightControlsPane;
+    @FXML
+    private Button logOutBtn;
+    @FXML
+    private ImageView logOutIcon;
 
     private AccountServiceInterface accountServiceInterface = new AccountService();
+    private AuthServiceInterface authServiceInterface = new AuthService();
 
     @FXML
-    private void initialize() {
+    private void initialize() throws Exception {
         Task<Void> task = new Task<>() {
             @Override
             protected Void call() throws Exception {
@@ -157,6 +165,21 @@ public class MainTemplateController {
         ContentManager.switchContent("/fxml/home-page.fxml");
         homeBtn.getStyleClass().add("activeNavTabs");
         navigationToggle();
+        logOut();
+    }
+
+    private void logOut() {
+
+        logOutBtn.setOnAction(e -> {
+            try {
+                authServiceInterface.logout();
+                SceneManager.switchScene("/fxml/login-page.fxml", null);
+            } catch (Exception e1) {
+                e1.printStackTrace();
+            }
+        });
+
+
     }
 
     private void navigationToggle() {
