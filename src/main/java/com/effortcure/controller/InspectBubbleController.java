@@ -9,7 +9,6 @@ import java.util.List;
 import java.util.UUID;
 import javafx.util.Duration;
 
-import com.effortcure.auth.RefreshTokenManager;
 import com.effortcure.dto.request.DirectoryRequestDTO;
 import com.effortcure.dto.response.ApiResponse;
 import com.effortcure.dto.response.AppResponseDTO;
