@@ -121,3 +121,61 @@
     -fx-background-color: #083838;
     -fx-effect: dropshadow(gaussian, rgba(13, 92, 92, 0.2), 4, 0, 0, 1);
 }
+
+.scroll-pane {
+    -fx-padding: 0;
+    -fx-background-color: transparent;
+    -fx-background-insets: 0;
+}
+
+.scroll-pane>.viewport {
+    -fx-background-color: transparent;
+    -fx-shape: null;
+}
+
+.scroll-bar:vertical {
+    -fx-background-color: transparent;
+    -fx-pref-width: 6;
+}
+
+.scroll-bar:vertical .thumb {
+    -fx-background-color: gray;
+    -fx-background-radius: 10;
+    -fx-background-insets: 0;
+    -fx-pref-height: 207px;
+}
+
+.scroll-bar:vertical .increment-arrow,
+.scroll-bar:vertical .decrement-arrow {
+    -fx-shape: " ";
+}
+.custom-radio .radio {
+    -fx-border-color: #115D58;
+    -fx-border-width: 1;
+    -fx-border-radius: 50;
+    -fx-background-color: transparent;
+    -fx-background-radius: 50;
+    -fx-effect: dropshadow(gaussian, #2d5d5a, 2, 0, 0, 0);
+    -fx-min-width: 25;
+    -fx-min-height: 25;
+    -fx-max-width: 25;
+    -fx-max-height: 25;
+}
+
+.custom-radio:selected .dot {
+    -fx-background-color: #0B3E3A;
+    -fx-background-radius: 50;
+}
+
+.back-button {
+    -fx-text-fill: #115D58;
+    -fx-background-radius: 15;
+    -fx-border-radius: 15;
+    -fx-background-color: white;
+    -fx-effect: dropshadow(gaussian, #115D58, 4, 0, 0, 0);
+    -fx-cursor: hand;
+}
+
+.back-button:hover {
+    -fx-effect: dropshadow(gaussian, #115D58, 6, 0, 0, 0);
+}
