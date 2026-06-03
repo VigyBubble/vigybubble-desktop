@@ -1,0 +1,123 @@
+.main-container {
+    -fx-background-color: white;
+}
+
+.skip-btn {
+    -fx-text-fill: #0B3E3A;
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-cursor: hand;
+    -fx-background-radius: 50;
+    -fx-min-width: 51px;
+    -fx-min-height: 51px;
+}
+
+.skip-btn:hover {
+    -fx-background-color: rgba(11, 62, 58, 0.1);
+    -fx-background-radius: 50;
+}
+
+.skip-btn:pressed {
+    -fx-background-color: rgba(11, 62, 58, 0.2);
+    -fx-background-radius: 50;
+}
+.bottom-border-pane {
+    -fx-border-color: transparent transparent #0B3E3A transparent;
+    -fx-border-width: 0 0 3 0;
+}
+.all-labels {
+    -fx-text-fill: #0B3E3A;
+}
+.field-shadow {
+    -fx-background-color: white;
+    -fx-border-radius: 20;
+    -fx-background-radius: 20;
+    -fx-effect: dropshadow(gaussian, #115D58, 5, 0.3, 0, 0);
+    -fx-prompt-text-fill: #BEC0BF;
+    -fx-font-size: 24;
+
+}
+.custom-spinner {
+    -fx-background-color: white;
+    -fx-background-radius: 20;
+    -fx-border-radius: 20;
+    -fx-effect: dropshadow(gaussian, #115D58, 5, 0.3, 0, 0);
+}
+
+.custom-spinner .text-field {
+    -fx-background-color: white;
+    -fx-border-color: transparent;
+    -fx-background-radius: 20;
+    -fx-border-radius: 20;
+    -fx-prompt-text-fill: #BEC0BF;
+    -fx-font-size: 24;
+}
+
+.custom-spinner .increment-arrow-button {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-border-width: 0;
+    -fx-background-radius: 0 20 0 0;
+}
+
+.custom-spinner .decrement-arrow-button {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-border-width: 0;
+    -fx-background-radius: 0 0 20 0;
+}
+
+.custom-spinner .increment-arrow-button .increment-arrow,
+.custom-spinner .decrement-arrow-button .decrement-arrow {
+    -fx-background-color: #0B3E3A;
+}
+
+.custom-spinner .increment-arrow-button:hover,
+.custom-spinner .decrement-arrow-button:hover {
+    -fx-background-color: rgba(11, 62, 58, 0.1);
+}
+
+.custom-combo {
+    -fx-background-color: white;
+    -fx-background-radius: 15;
+    -fx-border-radius: 15;
+    -fx-effect: dropshadow(gaussian, #115D58, 5, 0.3, 0, 0);
+    -fx-font-size: 26;
+}
+
+.custom-combo .list-cell {
+    -fx-background-color: white;
+    -fx-text-fill: #0B3E3A;
+    -fx-background-radius: 15;
+    -fx-font-size: 15
+    ;
+}
+
+.custom-combo .cell {
+    -fx-font-size: 26;
+}
+
+.custom-combo .arrow-button {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+}
+
+.custom-combo .arrow {
+    -fx-background-color: #0B3E3A;
+}
+.next-btn {
+    -fx-background-color: #115D58;
+    -fx-background-radius: 15px;
+    -fx-border-radius: 15px;
+    -fx-text-fill: white;
+}
+
+.next-btn:hover {
+    -fx-background-color: #0a4a4a;
+    -fx-effect: dropshadow(gaussian, rgba(13, 92, 92, 0.55), 14, 0, 0, 5);
+}
+
+.next-btn:pressed {
+    -fx-background-color: #083838;
+    -fx-effect: dropshadow(gaussian, rgba(13, 92, 92, 0.2), 4, 0, 0, 1);
+}

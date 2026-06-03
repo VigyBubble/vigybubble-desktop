@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Spinner?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="root" prefHeight="1024.0" prefWidth="1440.0" styleClass="main-container" stylesheets="@../css/user-information.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.effortcure.controller.AboutYouController">
+
+    <!-- Step 1: 480, 80 -->
+    <StackPane fx:id="aboutPane" layoutX="433.0" layoutY="80.0" prefHeight="72" prefWidth="72" style="-fx-background-color: #0B3E3A; -fx-background-radius: 50;">
+        <ImageView fx:id="aboutIcon" fitHeight="33.33" fitWidth="41.67" preserveRatio="true">
+            <image><Image url="@../images/prog-icon1.png" /></image>
+        </ImageView>
+    </StackPane>
+
+    <!-- Line 1: 505, 108 -->
+    <Pane fx:id="line1" layoutX="505" layoutY="108" prefHeight="16" prefWidth="64">
+        <Pane fx:id="line2" layoutX="0" layoutY="3" prefHeight="2" prefWidth="64" style="-fx-background-color: #d0d8db;" />
+        <Pane fx:id="line3" layoutX="0" layoutY="11" prefHeight="2" prefWidth="64.0" style="-fx-background-color: #d0d8db;" />
+    </Pane>
+
+    <!-- Step 2: 562, 80 -->
+    <StackPane fx:id="diseeasePane" layoutX="569.0" layoutY="80.0" prefHeight="72" prefWidth="72" style="-fx-background-color: transparent; -fx-border-color: #d0d8db; -fx-border-width: 2; -fx-border-radius: 50; -fx-background-radius: 50;">
+        <ImageView fx:id="diseaseIcon" fitHeight="40.0" fitWidth="40.0" preserveRatio="true">
+            <image><Image url="@../images/prog-icon2.png" /></image>
+        </ImageView>
+    </StackPane>
+
+    <!-- Line 2: 627, 108 -->
+    <Pane fx:id="line4" layoutX="641.0" layoutY="108.0" prefHeight="16" prefWidth="64">
+        <Pane fx:id="line5" layoutX="0" layoutY="3" prefHeight="2" prefWidth="64" style="-fx-background-color: #d0d8db;" />
+        <Pane fx:id="line6" layoutX="0" layoutY="11" prefHeight="2" prefWidth="64" style="-fx-background-color: #d0d8db;" />
+    </Pane>
+
+    <!-- Step 3: 684, 80 -->
+    <StackPane fx:id="eyepane" layoutX="705.0" layoutY="80.0" prefHeight="72" prefWidth="72" style="-fx-background-color: transparent; -fx-border-color: #d0d8db; -fx-border-width: 2; -fx-border-radius: 50; -fx-background-radius: 50;">
+        <ImageView fx:id="eyeicon" fitHeight="25.0" fitWidth="41.81" preserveRatio="true">
+            <image><Image url="@../images/prog-icon3.png" /></image>
+        </ImageView>
+    </StackPane>
+
+    <!-- Line 3: 749, 108 -->
+    <Pane fx:id="line7" layoutX="777.0" layoutY="108.0" prefHeight="16" prefWidth="64">
+        <Pane fx:id="line8" layoutX="0" layoutY="3" prefHeight="2" prefWidth="64" style="-fx-background-color: #d0d8db;" />
+        <Pane fx:id="line9" layoutX="0" layoutY="11" prefHeight="2" prefWidth="64" style="-fx-background-color: #d0d8db;" />
+    </Pane>
+
+    <!-- Step 4: 806, 80 -->
+    <StackPane fx:id="respiratorypane" layoutX="841.0" layoutY="80.0" prefHeight="72" prefWidth="72" style="-fx-background-color: transparent; -fx-border-color: #d0d8db; -fx-border-width: 2; -fx-border-radius: 50; -fx-background-radius: 50;">
+        <ImageView fx:id="respiratoryicon" fitHeight="37.5" fitWidth="37.5" preserveRatio="true">
+            <image><Image url="@../images/prog-icon4.png" /></image>
+        </ImageView>
+    </StackPane>
+
+    <!-- Line 4: 871, 108 -->
+    <Pane fx:id="line10" layoutX="913.0" layoutY="108.0" prefHeight="16" prefWidth="64">
+        <Pane fx:id="line11" layoutX="0" layoutY="3" prefHeight="2" prefWidth="64" style="-fx-background-color: #d0d8db;" />
+        <Pane fx:id="line12" layoutX="0" layoutY="11" prefHeight="2" prefWidth="64" style="-fx-background-color: #d0d8db;" />
+    </Pane>
+
+    <!-- Step 5: 928, 80 -->
+    <StackPane fx:id="pluspane" layoutX="977.0" layoutY="80.0" prefHeight="72" prefWidth="72" style="-fx-background-color: transparent; -fx-border-color: #d0d8db; -fx-border-width: 2; -fx-border-radius: 50; -fx-background-radius: 50;">
+        <ImageView fx:id="plusicon" fitHeight="37.5" fitWidth="37.5" preserveRatio="true">
+            <image><Image url="@../images/prog-icon5.png" /></image>
+        </ImageView>
+    </StackPane>
+    <Button fx:id="skipbutton" contentDisplay="RIGHT" layoutX="1269.0" layoutY="64.0" mnemonicParsing="false" prefHeight="67.0" prefWidth="125.0" styleClass="skip-btn" text="Skip">
+        <font>
+            <Font size="30.0" />
+        </font>
+        <graphic>
+            <ImageView fx:id="skipicon" fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                <image>
+                    <Image url="@../images/skip-icon.png" />
+                </image>
+            </ImageView>
+        </graphic>
+    </Button>
+   <Pane fx:id="abotpane" layoutX="40.0" layoutY="278.5" prefHeight="83.0" prefWidth="255.89" styleClass="bottom-border-pane">
+      <children>
+         <Label fx:id="aboutlabel" prefHeight="72.0" prefWidth="256.0" styleClass="all-labels" text="About You">
+            <font>
+               <Font size="48.0" />
+            </font>
+         </Label>
+      </children>
+   </Pane>
+   <Label fx:id="agelabel" alignment="CENTER" layoutX="45.0" layoutY="426.0" prefHeight="45.0" prefWidth="64.0" styleClass="all-labels" text="Age">
+      <font>
+         <Font size="30.0" />
+      </font>
+   </Label>
+   <ImageView fx:id="aboutimg" fitHeight="776.0" fitWidth="456.0" layoutX="944.0" layoutY="184.0" pickOnBounds="true" preserveRatio="true">
+      <image>
+         <Image url="@../images/about-you-img.png" />
+      </image>
+   </ImageView>
+   <Spinner fx:id="spinner" editable="true" layoutX="132.0" layoutY="428.0" prefHeight="45.0" prefWidth="250.0">
+      <styleClass>
+         <String fx:value="custom-spinner" />
+         <String fx:value="field-shadow" />
+      </styleClass>
+   </Spinner>
+   <TextField fx:id="hightfield" layoutX="170.0" layoutY="513.0" prefHeight="56.0" prefWidth="400.0" promptText="Enter your height" styleClass="field-shadow" />
+   <Label fx:id="heightlabel" layoutX="56.0" layoutY="521.5" prefHeight="39.0" prefWidth="90.0" styleClass="all-labels" text="Height">
+      <font>
+         <Font size="30.0" />
+      </font>
+   </Label>
+   <ComboBox fx:id="heightcombobox" layoutX="586.0" layoutY="516.0" prefHeight="56.0" prefWidth="134.0" promptText="cm" styleClass="custom-combo" />
+   <TextField fx:id="weightfield" layoutX="175.0" layoutY="609.0" prefHeight="56.0" prefWidth="400.0" promptText="Enter your weight" styleClass="field-shadow" />
+   <Label fx:id="weightlabel" layoutX="56.0" layoutY="618.0" prefHeight="45.0" prefWidth="97.0" styleClass="all-labels" text="Weight">
+      <font>
+         <Font size="30.0" />
+      </font>
+   </Label>
+   <ComboBox fx:id="wheightcombobox" layoutX="591.0" layoutY="612.0" prefHeight="56.0" prefWidth="134.0" promptText="kg" styleClass="custom-combo" />
+   <Button fx:id="nextbutton" alignment="CENTER" layoutX="610.85" layoutY="809.5" mnemonicParsing="false" prefHeight="56.0" prefWidth="293.65" styleClass="next-btn" text="Next">
+      <font>
+         <Font size="32.0" />
+      </font>
+      <cursor>
+         <Cursor fx:constant="HAND" />
+      </cursor>
+   </Button>
+</AnchorPane>
