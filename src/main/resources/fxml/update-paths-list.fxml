@@ -14,81 +14,81 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="root" prefHeight="722.0" prefWidth="1288.0" styleClass="popups-container" stylesheets="@../css/create-bubble.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane fx:id="root" prefHeight="722.0" prefWidth="1288.0" styleClass="popups-container" stylesheets="@../css/create-bubble.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.effortcure.controller.UpdatePathsListPopupController">
   <children>
     <Label fx:id="update" layoutX="16.0" layoutY="24.0" prefHeight="44.0" prefWidth="340.0" styleClass="regular-labels" text="Update Path/URL List">
       <font>
-        <Font size="34.0"/>
+        <Font size="34.0" />
       </font>
     </Label>
-    <Separator fx:id="separator" layoutX="25.5" layoutY="92.0" prefHeight="1.0" prefWidth="1237.0"/>
+    <Separator fx:id="separator" layoutX="25.5" layoutY="92.0" prefHeight="1.0" prefWidth="1237.0" />
     <ImageView fx:id="close" fitHeight="24.0" fitWidth="24.0" layoutX="1248.0" layoutY="34.0" pickOnBounds="true" preserveRatio="true">
       <image>
-        <Image url="@../images/close-icon.png"/>
+        <Image url="@../images/close-icon.png" />
       </image>
       <cursor>
-        <Cursor fx:constant="HAND"/>
+        <Cursor fx:constant="HAND" />
       </cursor>
     </ImageView>
     <Pane fx:id="pane1" layoutX="24.0" layoutY="125.0" prefHeight="79.0" prefWidth="746.0" styleClass="url-pane">
       <children>
         <ImageView fx:id="img2" fitHeight="24.0" fitWidth="24.0" layoutX="16.0" layoutY="27.5" pickOnBounds="true" preserveRatio="true">
           <image>
-            <Image url="@../images/url2-icon.png"/>
+            <Image url="@../images/url2-icon.png" />
           </image>
         </ImageView>
         <Button fx:id="button" layoutX="656.0" layoutY="16.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="81.0" styleClass="add-button" text="Add">
           <font>
-            <Font size="24.0"/>
+            <Font size="24.0" />
           </font>
         </Button>
         <TextField fx:id="urlField" layoutX="56.0" layoutY="19.0" prefHeight="37.0" prefWidth="583.0" promptText="Enter URL">
           <font>
-            <Font size="24.0"/>
+            <Font size="24.0" />
           </font>
           <styleClass>
-            <String fx:value="search-field"/>
-            <String fx:value="prompt-text"/>
+            <String fx:value="search-field" />
+            <String fx:value="prompt-text" />
           </styleClass>
         </TextField>
       </children>
     </Pane>
-    <Button fx:id="b" alignment="CENTER" contentDisplay="TOP" layoutX="805.0" layoutY="125.0" mnemonicParsing="false" prefHeight="79.0" prefWidth="234.0" styleClass="add-button" text="">
+    <Button fx:id="selectFolderBtn" alignment="CENTER" contentDisplay="TOP" layoutX="805.0" layoutY="125.0" mnemonicParsing="false" prefHeight="79.0" prefWidth="234.0" styleClass="add-button" text="Select folder">
       <font>
-        <Font size="28.0"/>
+        <Font size="28.0" />
       </font>
     </Button>
-    <Button fx:id="s" layoutX="1063.0" layoutY="125.0" mnemonicParsing="false" prefHeight="79.0" prefWidth="201.0" styleClass="add-button" text="">
+    <Button fx:id="selectFileBtn" layoutX="1063.0" layoutY="125.0" mnemonicParsing="false" prefHeight="79.0" prefWidth="201.0" styleClass="add-button" text="Select file">
       <font>
-        <Font size="28.0"/>
+        <Font size="28.0" />
       </font>
     </Button>
-    <ImageView fx:id="f" fitHeight="25.0" fitWidth="35.0" layoutX="821.0" layoutY="152.5" pickOnBounds="true" preserveRatio="true">
+    <ImageView fx:id="folderIcon" fitHeight="25.0" fitWidth="35.0" layoutX="821.0" layoutY="152.5" pickOnBounds="true" preserveRatio="true">
       <image>
-        <Image url="@../images/update-path.png"/>
+        <Image url="@../images/update-path.png" />
       </image>
     </ImageView>
-    <ImageView fx:id="c" fitHeight="25.0" fitWidth="35.0" layoutX="1079.0" layoutY="152.5" pickOnBounds="true" preserveRatio="true">
+    <ImageView fx:id="fileIcon" fitHeight="25.0" fitWidth="35.0" layoutX="1079.0" layoutY="152.5" pickOnBounds="true" preserveRatio="true">
       <image>
-        <Image url="@../images/update-path.png"/>
+        <Image url="@../images/update-path.png" />
       </image>
     </ImageView>
-    <Button fx:id="d" layoutX="24.0" layoutY="638.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="148.0" styleClass="cancel-button" text="cancel">
+    <Button fx:id="cancelBtn" layoutX="24.0" layoutY="638.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="148.0" styleClass="cancel-button" text="cancel">
       <font>
-        <Font size="32.0"/>
+        <Font size="32.0" />
       </font>
     </Button>
-    <Button fx:id="g" layoutX="1143.0" layoutY="638.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="121.0" styleClass="next-btn" text="done">
+    <Button fx:id="doneBtn" layoutX="1143.0" layoutY="638.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="121.0" styleClass="next-btn" text="done">
       <font>
-        <Font size="32.0"/>
+        <Font size="32.0" />
       </font>
       <cursor>
-        <Cursor fx:constant="HAND"/>
+        <Cursor fx:constant="HAND" />
       </cursor>
     </Button>
     <ScrollPane fx:id="scrollPane" fitToWidth="true" hbarPolicy="NEVER" layoutX="24.0" layoutY="235.0" prefHeight="354.0" prefWidth="1246.0" styleClass="url-pane" vbarPolicy="ALWAYS">
       <content>
-        <VBox fx:id="resourcesContainer" spacing="0"/>
+        <VBox fx:id="resourcesContainer" spacing="0" />
       </content>
     </ScrollPane>
   </children>
