@@ -185,12 +185,12 @@
                               <Image url="@../images/chronic-diseases-img.png" />
                            </image>
                         </ImageView>
-                        <Button fx:id="backbtn" layoutX="40.0" layoutY="1228.0" mnemonicParsing="false" prefHeight="56.0" prefWidth="293.65" styleClass="back-button" text="Back">
+                        <Button fx:id="backbtn" layoutX="40.0" layoutY="1228.0" mnemonicParsing="false" onAction="#backToAboutQues" prefHeight="56.0" prefWidth="293.65" styleClass="back-button" text="Back">
                            <font>
                               <Font size="32.0" />
                            </font>
                         </Button>
-                        <Button fx:id="nextbtn" layoutX="610.35" layoutY="1228.0" mnemonicParsing="false" prefHeight="56.0" prefWidth="293.65" styleClass="next-btn" text="Next">
+                        <Button fx:id="nextbtn" layoutX="610.35" layoutY="1228.0" mnemonicParsing="false" onAction="#moveToEyeQues" prefHeight="56.0" prefWidth="293.65" styleClass="next-btn" text="Next">
                            <font>
                               <Font size="32.0" />
                            </font>

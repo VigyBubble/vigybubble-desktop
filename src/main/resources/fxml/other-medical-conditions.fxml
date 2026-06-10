@@ -162,12 +162,12 @@
                               <Image url="@../images/othermedicalimg.png" />
                            </image>
                         </ImageView>
-                        <Button fx:id="backbtn" layoutX="40.0" layoutY="1057.0" mnemonicParsing="false" prefHeight="56.0" prefWidth="293.65" styleClass="back-button" text="Back">
+                        <Button fx:id="backbtn" layoutX="40.0" layoutY="1057.0" mnemonicParsing="false" onAction="#backToRespiratoryQues" prefHeight="67.8" prefWidth="293.65" styleClass="back-button" text="Back">
                            <font>
                               <Font size="32.0" />
                            </font>
                         </Button>
-                        <Button fx:id="donebtn" layoutX="610.35" layoutY="1057.0" mnemonicParsing="false" prefHeight="56.0" prefWidth="293.65" styleClass="next-btn" text="Done">
+                        <Button fx:id="donebtn" layoutX="610.35" layoutY="1057.0" mnemonicParsing="false" onAction="#moveToHome" prefHeight="67.8" prefWidth="293.65" styleClass="next-btn" text="Done">
                            <font>
                               <Font size="32.0" />
                               

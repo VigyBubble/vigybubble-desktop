@@ -172,8 +172,8 @@ public class MainTemplateController {
 
         logOutBtn.setOnAction(e -> {
             try {
-                authServiceInterface.logout();
-                SceneManager.switchScene("/fxml/login-page.fxml", null);
+                // authServiceInterface.logout();
+                SceneManager.switchScene("/fxml/about-you.fxml", null);//login
             } catch (Exception e1) {
                 e1.printStackTrace();
             }

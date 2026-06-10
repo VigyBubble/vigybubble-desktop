@@ -100,7 +100,7 @@ public class EmailVerficationPageController {
                 if (oldScene.equals("FORGOT_PASSWORD"))
                     SceneManager.switchScene("/fxml/new-password-page.fxml", null);
                 else
-                    SceneManager.switchScene("/fxml/main-template.fxml", null);
+                    SceneManager.switchScene("/fxml/about-you.fxml", null);
             } else {
                 verificationErrorMsg.setText(response.getMessage() + " *");
                 verificationErrorMsg.setVisible(true);
@@ -148,21 +148,16 @@ public class EmailVerficationPageController {
             current.textProperty().addListener((obs, oldValue, newValue) -> {
                 verificationErrorMsg.setVisible(false);
                 current.getStyleClass().removeAll("otpFieldsError");
-                // ارقام فقط يمنع إدخال الحروف أو الرموز
                 if (!newValue.matches("\\d*")) {
                     current.setText(newValue.replaceAll("[^\\d]", ""));
                 }
-
-                // يمنع إدخال أكثر من رقم
                 if (newValue.length() > 1) {
                     current.setText(String.valueOf(newValue.charAt(0)));
                     return;
                 }
-                // ينتقل تلقائي
                 if (newValue.length() == 1 && next != null) {
                     next.requestFocus();
                 }
-                // لعمل paste للكود
                 if (newValue.length() > 1 && newValue.length() >= fields.length - index) {
                     char[] digits = newValue.toCharArray();
                     for (int j = 0; j < digits.length && (index + j) < fields.length; j++) {
@@ -171,7 +166,6 @@ public class EmailVerficationPageController {
                     fields[fields.length - 1].requestFocus();
                     return;
                 }
-                // لتحديث الكود في ال StringBuilder
                 if (!newValue.isEmpty()) {
                     verficationCode.setCharAt(index, newValue.charAt(0));
                 } else {

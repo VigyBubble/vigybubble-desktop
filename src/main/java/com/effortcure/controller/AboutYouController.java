@@ -1,5 +1,8 @@
 
 package com.effortcure.controller;
+
+import com.effortcure.navigator.ContentManager;
+import com.effortcure.navigator.SceneManager;
 import com.effortcure.util.ViewUtil;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -124,9 +127,15 @@ public class AboutYouController {
 
     @FXML
     private Button nextbutton;
-    
+
     @FXML
     private void initialize() {
         ViewUtil.initiateResponsiveView(this);
     }
+
+    @FXML
+    private void moveToChronicQues() {
+        SceneManager.switchScene("/fxml/chronic-diseases.fxml", null);
+    }
+
 }
