@@ -1,5 +1,7 @@
 package com.effortcure.controller;
 
+import com.effortcure.controller.AboutYouController.NavigationData;
+import com.effortcure.navigator.PopupManager;
 import com.effortcure.navigator.SceneManager;
 import com.effortcure.util.ViewUtil;
 
@@ -8,6 +10,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.ScrollPane;
+import javafx.scene.control.ToggleGroup;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
@@ -130,7 +133,27 @@ public class EyeHealthDiseaseController {
     @FXML
     public void initialize() {
         ViewUtil.initiateResponsiveView(this);
+        skipbutton.setOnAction(e -> {
+            NavigationData.nextPage = "/fxml/respiratory-health.fxml";
+            PopupManager.showPopup(
+                    "/fxml/quick-questions-popup.fxml");
+        });
 
+        ToggleGroup group1 = new ToggleGroup();
+        yes1.setToggleGroup(group1);
+        no1.setToggleGroup(group1);
+
+        ToggleGroup group2 = new ToggleGroup();
+        yes2.setToggleGroup(group2);
+        no2.setToggleGroup(group2);
+
+        ToggleGroup group3 = new ToggleGroup();
+        yes3.setToggleGroup(group3);
+        no3.setToggleGroup(group3);
+
+        ToggleGroup group4 = new ToggleGroup();
+        yes4.setToggleGroup(group4);
+        no4.setToggleGroup(group4);
     }
 
     @FXML
