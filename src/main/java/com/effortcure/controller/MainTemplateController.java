@@ -172,13 +172,12 @@ public class MainTemplateController {
 
         logOutBtn.setOnAction(e -> {
             try {
-                // authServiceInterface.logout();
-                SceneManager.switchScene("/fxml/about-you.fxml", null);//login
+                authServiceInterface.logout();
+                SceneManager.switchScene("/fxml/login.fxml", null);
             } catch (Exception e1) {
                 e1.printStackTrace();
             }
         });
-
 
     }
 
@@ -204,8 +203,9 @@ public class MainTemplateController {
             peripheralsBtn.getStyleClass().removeAll("activeNavTabs");
             analyticsBtn.getStyleClass().add("activeNavTabs");
             teamsBtn.getStyleClass().removeAll("activeNavTabs");
-            ContentManager.setAnchorPane(anchorPaneBody);
-            ContentManager.switchContent("/fxml/coming-soon.fxml");
+            // ContentManager.setAnchorPane(anchorPaneBody);
+            // ContentManager.switchContent("/fxml/coming-soon.fxml");
+            SceneManager.switchScene("/fxml/about-you.fxml", null);
         });
         teamsBtn.setOnMouseClicked(e -> {
             homeBtn.getStyleClass().removeAll("activeNavTabs");
