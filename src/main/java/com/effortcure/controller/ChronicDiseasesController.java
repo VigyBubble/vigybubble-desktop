@@ -10,6 +10,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.ToggleGroup;
+import javafx.scene.effect.GaussianBlur;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
@@ -136,14 +137,28 @@ public class ChronicDiseasesController {
     private Button backbtn;
     @FXML
     private Button nextbtn;
-
+    @FXML
+    private Pane overlay;
     @FXML
     public void initialize() {
         ViewUtil.initiateResponsiveView(this);
         skipbutton.setOnAction(e -> {
             NavigationData.nextPage = "/fxml/eye-health.fxml";
-            PopupManager.showPopup(
-                    "/fxml/quick-questions-popup.fxml");
+            GaussianBlur blur = new GaussianBlur(5);
+            root.setEffect(blur);
+            overlay.setVisible(true);
+            PopupManager.showPopup("/fxml/quick-questions-popup.fxml", controller -> {
+                QuickQuestionPopupController ctrl = (QuickQuestionPopupController) controller;
+                ctrl.setOnConfirm(() -> {
+                    root.setEffect(null);
+                    overlay.setVisible(false);
+                    SceneManager.switchScene(NavigationData.nextPage, null);
+                });
+                ctrl.setOnCancel(() -> {
+                    root.setEffect(null);
+                    overlay.setVisible(false);
+                });
+            });
         });
 
         ToggleGroup group1 = new ToggleGroup();

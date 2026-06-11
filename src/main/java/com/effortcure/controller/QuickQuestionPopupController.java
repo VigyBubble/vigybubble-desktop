@@ -1,7 +1,7 @@
 package com.effortcure.controller;
 
-import com.effortcure.controller.AboutYouController.NavigationData;
-import com.effortcure.navigator.SceneManager;
+// import com.effortcure.controller.AboutYouController.NavigationData;
+// import com.effortcure.navigator.SceneManager;
 import com.effortcure.util.ViewUtil;
 
 import javafx.fxml.FXML;
@@ -33,32 +33,43 @@ public class QuickQuestionPopupController {
 
     @FXML
     private Button confirmBtn;
+    private Runnable onConfirm;
+    private Runnable onCancel;
+
+    public void setOnConfirm(Runnable onConfirm) {
+        this.onConfirm = onConfirm;
+    }
+
+    public void setOnCancel(Runnable onCancel) {
+        this.onCancel = onCancel;
+    }
 
     @FXML
     private void initialize() {
         ViewUtil.initiateResponsiveView(this);
 
         confirmBtn.setOnAction(e -> {
-               System.out.println(
-            "Next Page = " +
-            NavigationData.nextPage
-    );
-            // روح للصفحة المطلوبة
-            SceneManager.switchScene(NavigationData.nextPage, null);
-            // اقفل الـ popup
             Stage popupStage = (Stage) confirmBtn.getScene().getWindow();
             popupStage.close();
-
+            if (onConfirm != null) {
+                onConfirm.run();
+            }
         });
 
         cancelBtn.setOnAction(e -> {
-
             Stage popupStage = (Stage) cancelBtn.getScene().getWindow();
             popupStage.close();
+            if (onCancel != null) {
+                onCancel.run();
+            }
         });
         close.setOnMouseClicked(e -> {
             Stage popupStage = (Stage) close.getScene().getWindow();
             popupStage.close();
+            if (onCancel != null) {
+                onCancel.run();
+            }
         });
+
     }
 }

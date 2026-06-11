@@ -5,6 +5,7 @@ import com.effortcure.navigator.PopupManager;
 import com.effortcure.navigator.SceneManager;
 import com.effortcure.util.ViewUtil;
 import javafx.fxml.FXML;
+import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
@@ -12,10 +13,13 @@ import javafx.scene.control.Spinner;
 import javafx.scene.control.SpinnerValueFactory;
 import javafx.scene.control.TextField;
 import javafx.scene.control.TextFormatter;
+import javafx.scene.effect.BoxBlur;
+import javafx.scene.effect.GaussianBlur;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
+import javafx.stage.Stage;
 
 public class AboutYouController {
 
@@ -129,7 +133,9 @@ public class AboutYouController {
 
     @FXML
     private Button nextbutton;
-   
+    @FXML
+    private Pane overlay;
+
     public class NavigationData {
         public static String nextPage;
     }
@@ -140,8 +146,21 @@ public class AboutYouController {
 
         skipbutton.setOnAction(e -> {
             NavigationData.nextPage = "/fxml/chronic-diseases.fxml";
-            PopupManager.showPopup(
-                    "/fxml/quick-questions-popup.fxml");
+            GaussianBlur blur = new GaussianBlur(5);
+            root.setEffect(blur);
+            overlay.setVisible(true);
+            PopupManager.showPopup("/fxml/quick-questions-popup.fxml", controller -> {
+                QuickQuestionPopupController ctrl = (QuickQuestionPopupController) controller;
+                ctrl.setOnConfirm(() -> {
+                    root.setEffect(null);
+                    overlay.setVisible(false);
+                    SceneManager.switchScene(NavigationData.nextPage, null);
+                });
+                ctrl.setOnCancel(() -> {
+                    root.setEffect(null);
+                    overlay.setVisible(false);
+                });
+            });
         });
 
         TextFormatter<String> numbersOnly = new TextFormatter<>(change -> {

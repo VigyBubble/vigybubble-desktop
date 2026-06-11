@@ -14,192 +14,197 @@
 <?import javafx.scene.text.Font?>
 
 <AnchorPane fx:id="root" prefHeight="1024.0" prefWidth="1440.0" styleClass="main-container" stylesheets="@../css/user-information.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.effortcure.controller.ChronicDiseasesController">
-   <children>
+  <children>
     <ScrollPane fx:id="scrollpane" fitToHeight="false" fitToWidth="true" hbarPolicy="NEVER" prefHeight="1024.0" prefWidth="1440.0" vbarPolicy="ALWAYS" AnchorPane.bottomAnchor="0" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0" AnchorPane.topAnchor="0">
-<content>
-<VBox fx:id="vbox" alignment="TOP_CENTER" fillWidth="true" prefWidth="1440.0">
-               <children>
-                  <Pane fx:id="mainpane" maxWidth="1440.0" minWidth="1440.0" prefHeight="1348.0" prefWidth="1440.0">
-                    <children>
-                        <StackPane fx:id="aboutPane" layoutX="433.0" layoutY="80.0" prefHeight="72" prefWidth="72" style="-fx-background-color: #0B3E3A; -fx-background-radius: 50;">
-                            <ImageView fx:id="aboutIcon" fitHeight="33.33" fitWidth="41.67" preserveRatio="true">
-                                <image><Image url="@../images/prog-icon1.png" /></image>
-                            </ImageView>
-                        </StackPane>
-                    
-                        <!-- Line 1: 505, 108 -->
-                        <Pane fx:id="line1" layoutX="505" layoutY="108" prefHeight="16" prefWidth="64" style="-fx-background-color: #0B3E3A;">
-                            <Pane fx:id="line2" layoutX="-6.0" layoutY="0" prefHeight="16" prefWidth="80.0" style="-fx-background-color: #0B3E3A;" />
-                        </Pane>
-                    
-                        <!-- Step 2: 562, 80 -->
-                        <StackPane fx:id="diseeasePane" layoutX="569.0" layoutY="80.0" prefHeight="72" prefWidth="72" style="-fx-background-color: #0B3E3A; -fx-border-width: 2; -fx-border-radius: 50; -fx-background-radius: 50;">
-                            <ImageView fx:id="diseaseIcon" fitHeight="40.0" fitWidth="40.0" preserveRatio="true">
-                                <image><Image url="@../images/white-prog-icon2.png" /></image>
-                            </ImageView>
-                        </StackPane>
-                    
-                        <!-- Line 2: 627, 108 -->
-                        <Pane fx:id="line4" layoutX="641.0" layoutY="108.0" prefHeight="16" prefWidth="64">
-                            <Pane fx:id="line5" layoutX="0" layoutY="3" prefHeight="2" prefWidth="64" style="-fx-background-color: #d0d8db;" />
-                            <Pane fx:id="line6" layoutX="0" layoutY="11" prefHeight="2" prefWidth="64" style="-fx-background-color: #d0d8db;" />
-                        </Pane>
-                    
-                        <!-- Step 3: 684, 80 -->
-                        <StackPane fx:id="eyepane" layoutX="705.0" layoutY="80.0" prefHeight="72" prefWidth="72" style="-fx-background-color: transparent; -fx-border-color: #d0d8db; -fx-border-width: 2; -fx-border-radius: 50; -fx-background-radius: 50;">
-                            <ImageView fx:id="eyeicon" fitHeight="25.0" fitWidth="41.81" preserveRatio="true">
-                                <image><Image url="@../images/prog-icon3.png" /></image>
-                            </ImageView>
-                        </StackPane>
-                    
-                        <!-- Line 3: 749, 108 -->
-                        <Pane fx:id="line7" layoutX="777.0" layoutY="108.0" prefHeight="16" prefWidth="64">
-                            <Pane fx:id="line8" layoutX="0" layoutY="3" prefHeight="2" prefWidth="64" style="-fx-background-color: #d0d8db;" />
-                            <Pane fx:id="line9" layoutX="0" layoutY="11" prefHeight="2" prefWidth="64" style="-fx-background-color: #d0d8db;" />
-                        </Pane>
-                    
-                        <!-- Step 4: 806, 80 -->
-                        <StackPane fx:id="respiratorypane" layoutX="841.0" layoutY="80.0" prefHeight="72" prefWidth="72" style="-fx-background-color: transparent; -fx-border-color: #d0d8db; -fx-border-width: 2; -fx-border-radius: 50; -fx-background-radius: 50;">
-                            <ImageView fx:id="respiratoryicon" fitHeight="37.5" fitWidth="37.5" preserveRatio="true">
-                                <image><Image url="@../images/prog-icon4.png" /></image>
-                            </ImageView>
-                        </StackPane>
-                    
-                        <!-- Line 4: 871, 108 -->
-                        <Pane fx:id="line10" layoutX="913.0" layoutY="108.0" prefHeight="16" prefWidth="64">
-                            <Pane fx:id="line11" layoutX="0" layoutY="3" prefHeight="2" prefWidth="64" style="-fx-background-color: #d0d8db;" />
-                            <Pane fx:id="line12" layoutX="0" layoutY="11" prefHeight="2" prefWidth="64" style="-fx-background-color: #d0d8db;" />
-                        </Pane>
-                    
-                        <!-- Step 5: 928, 80 -->
-                        <StackPane fx:id="pluspane" layoutX="977.0" layoutY="80.0" prefHeight="72" prefWidth="72" style="-fx-background-color: transparent; -fx-border-color: #d0d8db; -fx-border-width: 2; -fx-border-radius: 50; -fx-background-radius: 50;">
-                            <ImageView fx:id="plusicon" fitHeight="37.5" fitWidth="37.5" preserveRatio="true">
-                                <image><Image url="@../images/prog-icon5.png" /></image>
-                            </ImageView>
-                        </StackPane>
-                        <Button fx:id="skipbutton" contentDisplay="RIGHT" layoutX="1269.0" layoutY="64.0" mnemonicParsing="false" prefHeight="67.0" prefWidth="125.0" styleClass="skip-btn" text="Skip">
-                            <font>
-                                <Font size="30.0" />
-                            </font>
-                            <graphic>
-                                <ImageView fx:id="skipicon" fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
-                                    <image>
-                                        <Image url="@../images/skip-icon.png" />
-                                    </image>
-                                </ImageView>
-                            </graphic>
-                        </Button>
-                        <Pane fx:id="chronicdiseasespane" layoutX="40.0" layoutY="184.0" prefHeight="83.0" prefWidth="361.0" styleClass="bottom-border-pane">
-                           <children>
-                              <Label fx:id="chronicdiseaseslabel" prefHeight="72.0" prefWidth="367.0" styleClass="all-labels" text="Chronic Diseases">
-                                 <font>
-                                    <Font size="48.0" />
-                                 </font>
-                              </Label>
-                           </children>
-                        </Pane>
-                        <Pane fx:id="pane1" layoutX="56.0" layoutY="323.0" prefHeight="170.0" prefWidth="659.0" styleClass="field-shadow">
-                           <children>
-                              <Label fx:id="question1" alignment="TOP_LEFT" layoutX="16.0" layoutY="14.0" prefHeight="111.0" prefWidth="627.0" styleClass="all-labels" text="Have you ever been diagnosed with any heart or blood vessel conditions?" wrapText="true">
-                                 <font>
-                                    <Font size="30.0" />
-                                 </font>
-                              </Label>
-                              <RadioButton fx:id="yes1" layoutX="16.0" layoutY="118.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="93.0" text="Yes">
-                                 <styleClass>
-                                    <String fx:value="all-labels" />
-                                    <String fx:value="custom-radio" />
-                                 </styleClass></RadioButton>
-                              <RadioButton fx:id="no1" layoutX="398.0" layoutY="118.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="92.0" text="No">
-                                 <styleClass>
-                                    <String fx:value="all-labels" />
-                                    <String fx:value="custom-radio" />
-                                 </styleClass></RadioButton>
-                           </children>
-                        </Pane>
-                        <Pane fx:id="pane2" layoutX="56.0" layoutY="533.0" prefHeight="131.0" prefWidth="659.0" styleClass="field-shadow">
-                           <children>
-                              <Label fx:id="qustioon2" alignment="TOP_LEFT" layoutX="16.0" layoutY="14.0" prefHeight="101.0" prefWidth="627.0" styleClass="all-labels" text="Have you ever been diagnosed with diabetes?" wrapText="true">
-                                 <font>
-                                    <Font size="30.0" />
-                                 </font>
-                              </Label>
-                              <RadioButton fx:id="yes2" layoutX="16.0" layoutY="79.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="93.0" text="Yes">
-                                 <styleClass>
-                                    <String fx:value="all-labels" />
-                                    <String fx:value="custom-radio" />
-                                 </styleClass>
-                              </RadioButton>
-                              <RadioButton fx:id="no2" layoutX="398.0" layoutY="79.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="92.0" text="No">
-                                 <styleClass>
-                                    <String fx:value="all-labels" />
-                                    <String fx:value="custom-radio" />
-                                 </styleClass>
-                              </RadioButton>
-                           </children>
-                        </Pane>
-                        <Pane fx:id="pane4" layoutX="56.0" layoutY="914.0" prefHeight="170.0" prefWidth="659.0" styleClass="field-shadow">
-                           <children>
-                              <Label fx:id="question4" alignment="TOP_LEFT" layoutX="16.0" layoutY="14.0" prefHeight="111.0" prefWidth="627.0" styleClass="all-labels" text="Have you ever been diagnosed with hypertension?" wrapText="true">
-                                 <font>
-                                    <Font size="30.0" />
-                                 </font>
-                              </Label>
-                              <RadioButton fx:id="yes4" layoutX="16.0" layoutY="118.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="93.0" text="Yes">
-                                 <styleClass>
-                                    <String fx:value="all-labels" />
-                                    <String fx:value="custom-radio" />
-                                 </styleClass>
-                              </RadioButton>
-                              <RadioButton fx:id="no4" layoutX="398.0" layoutY="118.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="92.0" text="No">
-                                 <styleClass>
-                                    <String fx:value="all-labels" />
-                                    <String fx:value="custom-radio" />
-                                 </styleClass>
-                              </RadioButton>
-                           </children>
-                        </Pane>
-                        <Pane fx:id="pane3" layoutX="56.0" layoutY="704.0" prefHeight="170.0" prefWidth="659.0" styleClass="field-shadow">
-                           <children>
-                              <Label fx:id="question3" alignment="TOP_LEFT" layoutX="16.0" layoutY="14.0" prefHeight="111.0" prefWidth="627.0" styleClass="all-labels" text="Have you ever been diagnosed with prediabetes?" wrapText="true">
-                                 <font>
-                                    <Font size="30.0" />
-                                 </font>
-                              </Label>
-                              <RadioButton fx:id="yes3" layoutX="16.0" layoutY="118.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="93.0" text="Yes">
-                                 <styleClass>
-                                    <String fx:value="all-labels" />
-                                    <String fx:value="custom-radio" />
-                                 </styleClass>
-                              </RadioButton>
-                              <RadioButton fx:id="no3" layoutX="398.0" layoutY="118.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="92.0" text="No">
-                                 <styleClass>
-                                    <String fx:value="all-labels" />
-                                    <String fx:value="custom-radio" />
-                                 </styleClass>
-                              </RadioButton>
-                           </children>
-                        </Pane>
-                        <ImageView fx:id="chronicdiseasesimg" fitHeight="776.0" fitWidth="456.0" layoutX="944.0" layoutY="346.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../images/chronic-diseases-img.png" />
-                           </image>
-                        </ImageView>
-                        <Button fx:id="backbtn" layoutX="40.0" layoutY="1228.0" mnemonicParsing="false" onAction="#backToAboutQues" prefHeight="56.0" prefWidth="293.65" styleClass="back-button" text="Back">
-                           <font>
-                              <Font size="32.0" />
-                           </font>
-                        </Button>
-                        <Button fx:id="nextbtn" layoutX="610.35" layoutY="1228.0" mnemonicParsing="false" onAction="#moveToEyeQues" prefHeight="56.0" prefWidth="293.65" styleClass="next-btn" text="Next">
-                           <font>
-                              <Font size="32.0" />
-                           </font>
-                        </Button>
-                    </children>
+      <content>
+        <VBox fx:id="vbox" alignment="TOP_CENTER" fillWidth="true" prefWidth="1440.0">
+          <children>
+            <Pane fx:id="mainpane" maxWidth="1440.0" minWidth="1440.0" prefHeight="1348.0" prefWidth="1440.0">
+              <children>
+                <StackPane fx:id="aboutPane" layoutX="433.0" layoutY="80.0" prefHeight="72" prefWidth="72" style="-fx-background-color: #0B3E3A; -fx-background-radius: 50;">
+                  <ImageView fx:id="aboutIcon" fitHeight="33.33" fitWidth="41.67" preserveRatio="true">
+                    <image>
+                      <Image url="@../images/prog-icon1.png"/>
+                    </image>
+                  </ImageView>
+                </StackPane>
+                <!-- Line 1: 505, 108 -->
+                <Pane fx:id="line1" layoutX="505" layoutY="108" prefHeight="16" prefWidth="64" style="-fx-background-color: #0B3E3A;">
+                  <Pane fx:id="line2" layoutX="-6.0" layoutY="0" prefHeight="16" prefWidth="80.0" style="-fx-background-color: #0B3E3A;"/>
                 </Pane>
-               </children>
-            </VBox>
-         </content>
-      </ScrollPane>
-   </children>
+                <!-- Step 2: 562, 80 -->
+                <StackPane fx:id="diseeasePane" layoutX="569.0" layoutY="80.0" prefHeight="72" prefWidth="72" style="-fx-background-color: #0B3E3A; -fx-border-width: 2; -fx-border-radius: 50; -fx-background-radius: 50;">
+                  <ImageView fx:id="diseaseIcon" fitHeight="40.0" fitWidth="40.0" preserveRatio="true">
+                    <image>
+                      <Image url="@../images/white-prog-icon2.png"/>
+                    </image>
+                  </ImageView>
+                </StackPane>
+                <!-- Line 2: 627, 108 -->
+                <Pane fx:id="line4" layoutX="641.0" layoutY="108.0" prefHeight="16" prefWidth="64">
+                  <Pane fx:id="line5" layoutX="0" layoutY="3" prefHeight="2" prefWidth="64" style="-fx-background-color: #d0d8db;"/>
+                  <Pane fx:id="line6" layoutX="0" layoutY="11" prefHeight="2" prefWidth="64" style="-fx-background-color: #d0d8db;"/>
+                </Pane>
+                <!-- Step 3: 684, 80 -->
+                <StackPane fx:id="eyepane" layoutX="705.0" layoutY="80.0" prefHeight="72" prefWidth="72" style="-fx-background-color: transparent; -fx-border-color: #d0d8db; -fx-border-width: 2; -fx-border-radius: 50; -fx-background-radius: 50;">
+                  <ImageView fx:id="eyeicon" fitHeight="25.0" fitWidth="41.81" preserveRatio="true">
+                    <image>
+                      <Image url="@../images/prog-icon3.png"/>
+                    </image>
+                  </ImageView>
+                </StackPane>
+                <!-- Line 3: 749, 108 -->
+                <Pane fx:id="line7" layoutX="777.0" layoutY="108.0" prefHeight="16" prefWidth="64">
+                  <Pane fx:id="line8" layoutX="0" layoutY="3" prefHeight="2" prefWidth="64" style="-fx-background-color: #d0d8db;"/>
+                  <Pane fx:id="line9" layoutX="0" layoutY="11" prefHeight="2" prefWidth="64" style="-fx-background-color: #d0d8db;"/>
+                </Pane>
+                <!-- Step 4: 806, 80 -->
+                <StackPane fx:id="respiratorypane" layoutX="841.0" layoutY="80.0" prefHeight="72" prefWidth="72" style="-fx-background-color: transparent; -fx-border-color: #d0d8db; -fx-border-width: 2; -fx-border-radius: 50; -fx-background-radius: 50;">
+                  <ImageView fx:id="respiratoryicon" fitHeight="37.5" fitWidth="37.5" preserveRatio="true">
+                    <image>
+                      <Image url="@../images/prog-icon4.png"/>
+                    </image>
+                  </ImageView>
+                </StackPane>
+                <!-- Line 4: 871, 108 -->
+                <Pane fx:id="line10" layoutX="913.0" layoutY="108.0" prefHeight="16" prefWidth="64">
+                  <Pane fx:id="line11" layoutX="0" layoutY="3" prefHeight="2" prefWidth="64" style="-fx-background-color: #d0d8db;"/>
+                  <Pane fx:id="line12" layoutX="0" layoutY="11" prefHeight="2" prefWidth="64" style="-fx-background-color: #d0d8db;"/>
+                </Pane>
+                <!-- Step 5: 928, 80 -->
+                <StackPane fx:id="pluspane" layoutX="977.0" layoutY="80.0" prefHeight="72" prefWidth="72" style="-fx-background-color: transparent; -fx-border-color: #d0d8db; -fx-border-width: 2; -fx-border-radius: 50; -fx-background-radius: 50;">
+                  <ImageView fx:id="plusicon" fitHeight="37.5" fitWidth="37.5" preserveRatio="true">
+                    <image>
+                      <Image url="@../images/prog-icon5.png"/>
+                    </image>
+                  </ImageView>
+                </StackPane>
+                <Button fx:id="skipbutton" contentDisplay="RIGHT" layoutX="1269.0" layoutY="64.0" mnemonicParsing="false" prefHeight="67.0" prefWidth="125.0" styleClass="skip-btn" text="Skip">
+                  <font>
+                    <Font size="30.0"/>
+                  </font>
+                  <graphic>
+                    <ImageView fx:id="skipicon" fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                      <image>
+                        <Image url="@../images/skip-icon.png"/>
+                      </image>
+                    </ImageView>
+                  </graphic>
+                </Button>
+                <Pane fx:id="chronicdiseasespane" layoutX="40.0" layoutY="184.0" prefHeight="83.0" prefWidth="361.0" styleClass="bottom-border-pane">
+                  <children>
+                    <Label fx:id="chronicdiseaseslabel" prefHeight="72.0" prefWidth="367.0" styleClass="all-labels" text="Chronic Diseases">
+                      <font>
+                        <Font size="48.0"/>
+                      </font>
+                    </Label>
+                  </children>
+                </Pane>
+                <Pane fx:id="pane1" layoutX="56.0" layoutY="323.0" prefHeight="170.0" prefWidth="659.0" styleClass="field-shadow">
+                  <children>
+                    <Label fx:id="question1" alignment="TOP_LEFT" layoutX="16.0" layoutY="14.0" prefHeight="111.0" prefWidth="627.0" styleClass="all-labels" text="Have you ever been diagnosed with any heart or blood vessel conditions?" wrapText="true">
+                      <font>
+                        <Font size="30.0"/>
+                      </font>
+                    </Label>
+                    <RadioButton fx:id="yes1" layoutX="16.0" layoutY="118.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="93.0" text="Yes">
+                      <styleClass>
+                        <String fx:value="all-labels"/>
+                        <String fx:value="custom-radio"/>
+                      </styleClass>
+                    </RadioButton>
+                    <RadioButton fx:id="no1" layoutX="398.0" layoutY="118.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="92.0" text="No">
+                      <styleClass>
+                        <String fx:value="all-labels"/>
+                        <String fx:value="custom-radio"/>
+                      </styleClass>
+                    </RadioButton>
+                  </children>
+                </Pane>
+                <Pane fx:id="pane2" layoutX="56.0" layoutY="533.0" prefHeight="131.0" prefWidth="659.0" styleClass="field-shadow">
+                  <children>
+                    <Label fx:id="qustioon2" alignment="TOP_LEFT" layoutX="16.0" layoutY="14.0" prefHeight="101.0" prefWidth="627.0" styleClass="all-labels" text="Have you ever been diagnosed with diabetes?" wrapText="true">
+                      <font>
+                        <Font size="30.0"/>
+                      </font>
+                    </Label>
+                    <RadioButton fx:id="yes2" layoutX="16.0" layoutY="79.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="93.0" text="Yes">
+                      <styleClass>
+                        <String fx:value="all-labels"/>
+                        <String fx:value="custom-radio"/>
+                      </styleClass>
+                    </RadioButton>
+                    <RadioButton fx:id="no2" layoutX="398.0" layoutY="79.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="92.0" text="No">
+                      <styleClass>
+                        <String fx:value="all-labels"/>
+                        <String fx:value="custom-radio"/>
+                      </styleClass>
+                    </RadioButton>
+                  </children>
+                </Pane>
+                <Pane fx:id="pane4" layoutX="56.0" layoutY="914.0" prefHeight="170.0" prefWidth="659.0" styleClass="field-shadow">
+                  <children>
+                    <Label fx:id="question4" alignment="TOP_LEFT" layoutX="16.0" layoutY="14.0" prefHeight="111.0" prefWidth="627.0" styleClass="all-labels" text="Have you ever been diagnosed with hypertension?" wrapText="true">
+                      <font>
+                        <Font size="30.0"/>
+                      </font>
+                    </Label>
+                    <RadioButton fx:id="yes4" layoutX="16.0" layoutY="118.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="93.0" text="Yes">
+                      <styleClass>
+                        <String fx:value="all-labels"/>
+                        <String fx:value="custom-radio"/>
+                      </styleClass>
+                    </RadioButton>
+                    <RadioButton fx:id="no4" layoutX="398.0" layoutY="118.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="92.0" text="No">
+                      <styleClass>
+                        <String fx:value="all-labels"/>
+                        <String fx:value="custom-radio"/>
+                      </styleClass>
+                    </RadioButton>
+                  </children>
+                </Pane>
+                <Pane fx:id="pane3" layoutX="56.0" layoutY="704.0" prefHeight="170.0" prefWidth="659.0" styleClass="field-shadow">
+                  <children>
+                    <Label fx:id="question3" alignment="TOP_LEFT" layoutX="16.0" layoutY="14.0" prefHeight="111.0" prefWidth="627.0" styleClass="all-labels" text="Have you ever been diagnosed with prediabetes?" wrapText="true">
+                      <font>
+                        <Font size="30.0"/>
+                      </font>
+                    </Label>
+                    <RadioButton fx:id="yes3" layoutX="16.0" layoutY="118.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="93.0" text="Yes">
+                      <styleClass>
+                        <String fx:value="all-labels"/>
+                        <String fx:value="custom-radio"/>
+                      </styleClass>
+                    </RadioButton>
+                    <RadioButton fx:id="no3" layoutX="398.0" layoutY="118.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="92.0" text="No">
+                      <styleClass>
+                        <String fx:value="all-labels"/>
+                        <String fx:value="custom-radio"/>
+                      </styleClass>
+                    </RadioButton>
+                  </children>
+                </Pane>
+                <ImageView fx:id="chronicdiseasesimg" fitHeight="776.0" fitWidth="456.0" layoutX="944.0" layoutY="346.0" pickOnBounds="true" preserveRatio="true">
+                  <image>
+                    <Image url="@../images/chronic-diseases-img.png"/>
+                  </image>
+                </ImageView>
+                <Button fx:id="backbtn" layoutX="40.0" layoutY="1228.0" mnemonicParsing="false" onAction="#backToAboutQues" prefHeight="56.0" prefWidth="293.65" styleClass="back-button" text="Back">
+                  <font>
+                    <Font size="32.0"/>
+                  </font>
+                </Button>
+                <Button fx:id="nextbtn" layoutX="610.35" layoutY="1228.0" mnemonicParsing="false" onAction="#moveToEyeQues" prefHeight="56.0" prefWidth="293.65" styleClass="next-btn" text="Next">
+                  <font>
+                    <Font size="32.0"/>
+                  </font>
+                </Button>
+              </children>
+            </Pane>
+          </children>
+        </VBox>
+      </content>
+    </ScrollPane>
+    <Pane fx:id="overlay" prefHeight="1024.0" prefWidth="1440.0" style="-fx-background-color: rgba(0,0,0,0.3);" visible="false"/>
+  </children>
 </AnchorPane>

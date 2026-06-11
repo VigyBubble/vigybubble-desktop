@@ -131,4 +131,5 @@
       <Cursor fx:constant="HAND"/>
     </cursor>
   </Button>
+  <Pane fx:id="overlay" prefHeight="1024.0" prefWidth="1440.0" style="-fx-background-color: rgba(0,0,0,0.3);" visible="false"/>
 </AnchorPane>
