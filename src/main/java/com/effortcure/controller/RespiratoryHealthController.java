@@ -1,5 +1,7 @@
 package com.effortcure.controller;
 
+import com.effortcure.controller.AboutYouController.NavigationData;
+import com.effortcure.navigator.PopupManager;
 import com.effortcure.navigator.SceneManager;
 import com.effortcure.util.ViewUtil;
 
@@ -7,6 +9,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
+import javafx.scene.control.ToggleGroup;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
@@ -98,7 +101,18 @@ public class RespiratoryHealthController {
     @FXML
     public void initialize() {
         ViewUtil.initiateResponsiveView(this);
+        skipbutton.setOnAction(e -> {
+            NavigationData.nextPage = "/fxml/other-medical-conditions.fxml";
+            PopupManager.showPopup(
+                    "/fxml/quick-questions-popup.fxml");
+        });
+        ToggleGroup group1 = new ToggleGroup();
+        yes1.setToggleGroup(group1);
+        no1.setToggleGroup(group1);
 
+        ToggleGroup group2 = new ToggleGroup();
+        yes2.setToggleGroup(group2);
+        no2.setToggleGroup(group2);
     }
 
     @FXML
