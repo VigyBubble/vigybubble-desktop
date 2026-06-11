@@ -1,7 +1,7 @@
 
 package com.effortcure.controller;
 
-import com.effortcure.navigator.ContentManager;
+import com.effortcure.navigator.PopupManager;
 import com.effortcure.navigator.SceneManager;
 import com.effortcure.util.ViewUtil;
 import javafx.fxml.FXML;
@@ -9,7 +9,9 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.Spinner;
+import javafx.scene.control.SpinnerValueFactory;
 import javafx.scene.control.TextField;
+import javafx.scene.control.TextFormatter;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
@@ -127,10 +129,56 @@ public class AboutYouController {
 
     @FXML
     private Button nextbutton;
+   
+    public class NavigationData {
+        public static String nextPage;
+    }
 
     @FXML
     private void initialize() {
         ViewUtil.initiateResponsiveView(this);
+
+        skipbutton.setOnAction(e -> {
+            NavigationData.nextPage = "/fxml/chronic-diseases.fxml";
+            PopupManager.showPopup(
+                    "/fxml/quick-questions-popup.fxml");
+        });
+
+        TextFormatter<String> numbersOnly = new TextFormatter<>(change -> {
+
+            if (change.getControlNewText().matches("\\d*") || change.getControlNewText().matches("\\d*(\\.\\d*)?")) {
+                return change;
+            }
+
+            return null;
+        });
+        weightfield.setTextFormatter(numbersOnly);
+        hightfield.setTextFormatter(new TextFormatter<>(change -> {
+            if (change.getControlNewText().matches("\\d*") || change.getControlNewText().matches("\\d*(\\.\\d*)?")) {
+                return change;
+            }
+
+            return null;
+        }));
+
+        SpinnerValueFactory<Integer> valueFactory = new SpinnerValueFactory.IntegerSpinnerValueFactory(0, 99);
+        spinner.setValueFactory(valueFactory);
+        spinner.setEditable(true);
+
+        spinner.getValueFactory().setValue(null);
+        spinner.getEditor().setText("");
+
+        TextFormatter<String> formatter = new TextFormatter<>(change -> {
+            String newText = change.getControlNewText();
+
+            if (newText.matches("\\d{0,2}")) {
+                return change;
+            }
+
+            return null;
+        });
+
+        spinner.getEditor().setTextFormatter(formatter);
     }
 
     @FXML
