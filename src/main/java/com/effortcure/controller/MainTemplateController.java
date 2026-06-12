@@ -196,16 +196,16 @@ public class MainTemplateController {
             analyticsBtn.getStyleClass().removeAll("activeNavTabs");
             teamsBtn.getStyleClass().removeAll("activeNavTabs");
             ContentManager.setAnchorPane(anchorPaneBody);
-            ContentManager.switchContent("/fxml/peripherals-page.fxml");
+            ContentManager.switchContent("/fxml/coming-soon.fxml");
         });
         analyticsBtn.setOnMouseClicked(e -> {
             homeBtn.getStyleClass().removeAll("activeNavTabs");
             peripheralsBtn.getStyleClass().removeAll("activeNavTabs");
             analyticsBtn.getStyleClass().add("activeNavTabs");
             teamsBtn.getStyleClass().removeAll("activeNavTabs");
-            // ContentManager.setAnchorPane(anchorPaneBody);
-            // ContentManager.switchContent("/fxml/coming-soon.fxml");
-            SceneManager.switchScene("/fxml/about-you.fxml", null);
+            ContentManager.setAnchorPane(anchorPaneBody);
+            ContentManager.switchContent("/fxml/coming-soon.fxml");
+            // SceneManager.switchScene("/fxml/about-you.fxml", null);
         });
         teamsBtn.setOnMouseClicked(e -> {
             homeBtn.getStyleClass().removeAll("activeNavTabs");

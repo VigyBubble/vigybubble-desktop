@@ -19,7 +19,6 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 
-
 public class QuestionsBeforeSessionsController {
 
     @FXML
@@ -140,6 +139,7 @@ public class QuestionsBeforeSessionsController {
     @FXML
     private void handleDoneBtn() {
         ContentManager.setAnchorPane(root);
+        SceneManager.switchScene("/fxml/main-template.fxml", null);
         ContentManager.switchContent("/fxml/inspect-session.fxml");
     }
 }
