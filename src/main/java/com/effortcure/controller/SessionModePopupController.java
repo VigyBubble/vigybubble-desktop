@@ -7,6 +7,7 @@ import java.util.function.Consumer;
 
 import com.effortcure.dto.request.CreateSessionRequestDTO;
 import com.effortcure.enums.ModeType;
+import com.effortcure.navigator.SceneManager;
 import com.effortcure.service.implementation.BubbleSessionService;
 import com.effortcure.service.interfaces.BubbleSessionServiceInterface;
 import com.effortcure.util.DurationConverterUtil;
@@ -117,9 +118,10 @@ public class SessionModePopupController {
                     DurationConverterUtil.convertToSecondes(hourField.getText(), minuteField.getText()));
             try {
                 bubbleSessionServiceinterface.createSession(bubbleUuid, createSessionRequestDTO);
-                  if (onStart != null) {
-                onStart.accept(mode.toString());
-            }
+                if (onStart != null) {
+                    onStart.accept(mode.toString());
+                }
+                SceneManager.switchScene("/fxml/questions-before-start-session.fxml", null);
             } catch (Exception e1) {
                 e1.printStackTrace();
             }

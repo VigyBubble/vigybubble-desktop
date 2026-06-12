@@ -220,6 +220,10 @@ public class MainTemplateController {
             ContentManager.setAnchorPane(anchorPaneBody);
             ContentManager.switchContent("/fxml/coming-soon.fxml");
         });
+        settingBtn.setOnMouseClicked(e -> {
+            ContentManager.setAnchorPane(anchorPaneBody);
+            ContentManager.switchContent("/fxml/settings.fxml");
+        });
     }
 
 }
